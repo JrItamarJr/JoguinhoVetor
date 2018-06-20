@@ -9,6 +9,7 @@ import Classes.GerarVetor;
 import Classes.PesquisaVetor;
 import Classes.salvartxt;
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.nio.file.Files;
@@ -20,6 +21,7 @@ import java.util.Calendar;
 import java.util.Random;
 import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.Timer;
 
 /**
@@ -47,7 +49,7 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        jPanelInfo = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         txtTamanhoVetor = new javax.swing.JTextField();
@@ -65,6 +67,43 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
         jSeparator3 = new javax.swing.JSeparator();
         jScrollPane2 = new javax.swing.JScrollPane();
         txtDescricao = new javax.swing.JTextArea();
+        jSeparator4 = new javax.swing.JSeparator();
+        btnInicia = new javax.swing.JButton();
+        btnParar = new javax.swing.JButton();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        txtVetor = new javax.swing.JTextArea();
+        jLabel7 = new javax.swing.JLabel();
+        txtTentativas = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
+        txtChances = new javax.swing.JTextField();
+        jPanelBotoes = new javax.swing.JPanel();
+        btnNmr69 = new javax.swing.JButton();
+        btnNmr70 = new javax.swing.JButton();
+        btnNmr91 = new javax.swing.JButton();
+        btnNmr92 = new javax.swing.JButton();
+        btnNmr93 = new javax.swing.JButton();
+        btnNmr94 = new javax.swing.JButton();
+        btnNmr95 = new javax.swing.JButton();
+        btnNmr96 = new javax.swing.JButton();
+        btnNmr97 = new javax.swing.JButton();
+        btnNmr71 = new javax.swing.JButton();
+        btnNmr98 = new javax.swing.JButton();
+        btnNmr72 = new javax.swing.JButton();
+        btnNmr99 = new javax.swing.JButton();
+        btnNmr73 = new javax.swing.JButton();
+        btnNmr100 = new javax.swing.JButton();
+        btnNmr74 = new javax.swing.JButton();
+        btnNmr75 = new javax.swing.JButton();
+        btnNmr76 = new javax.swing.JButton();
+        btnNmr77 = new javax.swing.JButton();
+        btnNmr78 = new javax.swing.JButton();
+        btnNmr79 = new javax.swing.JButton();
+        btnNmr80 = new javax.swing.JButton();
+        btnNmr101 = new javax.swing.JButton();
+        btnNmr102 = new javax.swing.JButton();
+        btnNmr103 = new javax.swing.JButton();
+        btnNmr104 = new javax.swing.JButton();
+        btnNmr105 = new javax.swing.JButton();
         btnNmr1 = new javax.swing.JButton();
         btnNmr2 = new javax.swing.JButton();
         btnNmr3 = new javax.swing.JButton();
@@ -125,26 +164,6 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
         btnNmr58 = new javax.swing.JButton();
         btnNmr59 = new javax.swing.JButton();
         btnNmr60 = new javax.swing.JButton();
-        btnNmr61 = new javax.swing.JButton();
-        btnNmr62 = new javax.swing.JButton();
-        btnNmr63 = new javax.swing.JButton();
-        btnNmr64 = new javax.swing.JButton();
-        btnNmr65 = new javax.swing.JButton();
-        btnNmr66 = new javax.swing.JButton();
-        btnNmr67 = new javax.swing.JButton();
-        btnNmr68 = new javax.swing.JButton();
-        btnNmr69 = new javax.swing.JButton();
-        btnNmr70 = new javax.swing.JButton();
-        btnNmr71 = new javax.swing.JButton();
-        btnNmr72 = new javax.swing.JButton();
-        btnNmr73 = new javax.swing.JButton();
-        btnNmr74 = new javax.swing.JButton();
-        btnNmr75 = new javax.swing.JButton();
-        btnNmr76 = new javax.swing.JButton();
-        btnNmr77 = new javax.swing.JButton();
-        btnNmr78 = new javax.swing.JButton();
-        btnNmr79 = new javax.swing.JButton();
-        btnNmr80 = new javax.swing.JButton();
         btnNmr81 = new javax.swing.JButton();
         btnNmr82 = new javax.swing.JButton();
         btnNmr83 = new javax.swing.JButton();
@@ -152,35 +171,17 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
         btnNmr85 = new javax.swing.JButton();
         btnNmr86 = new javax.swing.JButton();
         btnNmr87 = new javax.swing.JButton();
+        btnNmr61 = new javax.swing.JButton();
         btnNmr88 = new javax.swing.JButton();
+        btnNmr62 = new javax.swing.JButton();
         btnNmr89 = new javax.swing.JButton();
+        btnNmr63 = new javax.swing.JButton();
         btnNmr90 = new javax.swing.JButton();
-        btnNmr91 = new javax.swing.JButton();
-        btnNmr92 = new javax.swing.JButton();
-        btnNmr93 = new javax.swing.JButton();
-        btnNmr94 = new javax.swing.JButton();
-        btnNmr95 = new javax.swing.JButton();
-        btnNmr96 = new javax.swing.JButton();
-        btnNmr97 = new javax.swing.JButton();
-        btnNmr98 = new javax.swing.JButton();
-        btnNmr99 = new javax.swing.JButton();
-        btnNmr100 = new javax.swing.JButton();
-        btnNmr101 = new javax.swing.JButton();
-        btnNmr102 = new javax.swing.JButton();
-        btnNmr103 = new javax.swing.JButton();
-        btnNmr104 = new javax.swing.JButton();
-        btnNmr105 = new javax.swing.JButton();
-        jSeparator4 = new javax.swing.JSeparator();
-        btnInicia = new javax.swing.JButton();
-        btnParar = new javax.swing.JButton();
-        btnFinalizar = new javax.swing.JButton();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        txtVetor = new javax.swing.JTextArea();
-        jButton1 = new javax.swing.JButton();
-        jLabel7 = new javax.swing.JLabel();
-        txtTentativas = new javax.swing.JTextField();
-        jLabel8 = new javax.swing.JLabel();
-        txtChances = new javax.swing.JTextField();
+        btnNmr64 = new javax.swing.JButton();
+        btnNmr65 = new javax.swing.JButton();
+        btnNmr66 = new javax.swing.JButton();
+        btnNmr67 = new javax.swing.JButton();
+        btnNmr68 = new javax.swing.JButton();
 
         setClosable(true);
         setTitle("Ordenação de Vetor");
@@ -203,7 +204,7 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             }
         });
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Informações"));
+        jPanelInfo.setBorder(javax.swing.BorderFactory.createTitledBorder("Informações"));
 
         jLabel1.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         jLabel1.setText("Tamanho do Vetor:");
@@ -252,80 +253,334 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
         txtDescricao.setEnabled(false);
         jScrollPane2.setViewportView(txtDescricao);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout jPanelInfoLayout = new javax.swing.GroupLayout(jPanelInfo);
+        jPanelInfo.setLayout(jPanelInfoLayout);
+        jPanelInfoLayout.setHorizontalGroup(
+            jPanelInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelInfoLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(jPanelInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel1)
                     .addComponent(jLabel2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(jPanelInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(txtTamanhoVetor, javax.swing.GroupLayout.DEFAULT_SIZE, 108, Short.MAX_VALUE)
                     .addComponent(txtValoresVetor))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(10, 10, 10)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(jPanelInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel3)
                     .addComponent(jLabel4))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(jPanelInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(lblHoraInicio, javax.swing.GroupLayout.DEFAULT_SIZE, 89, Short.MAX_VALUE)
                     .addComponent(txtTempoDecorrido))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(jPanelInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel5)
                     .addComponent(jLabel6))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(jPanelInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(txtAcertos)
                     .addComponent(txtErro, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2)
-                .addGap(8, 8, 8))
+                .addContainerGap())
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        jPanelInfoLayout.setVerticalGroup(
+            jPanelInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelInfoLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(jPanelInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jSeparator2)
                     .addComponent(jSeparator3)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addGroup(jPanelInfoLayout.createSequentialGroup()
+                        .addGroup(jPanelInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel5)
                             .addComponent(txtAcertos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(jPanelInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtErro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel6)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addGroup(jPanelInfoLayout.createSequentialGroup()
+                        .addGroup(jPanelInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel3)
                             .addComponent(lblHoraInicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(jPanelInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtTempoDecorrido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel4)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addGroup(jPanelInfoLayout.createSequentialGroup()
+                        .addGroup(jPanelInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel1)
                             .addComponent(txtTamanhoVetor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(jPanelInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel2)
                             .addComponent(txtValoresVetor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jSeparator1)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        btnInicia.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        btnInicia.setText("Iniciar");
+        btnInicia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnIniciaActionPerformed(evt);
+            }
+        });
+
+        btnParar.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        btnParar.setText("Parar");
+        btnParar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPararActionPerformed(evt);
+            }
+        });
+
+        txtVetor.setEditable(false);
+        txtVetor.setColumns(20);
+        txtVetor.setLineWrap(true);
+        txtVetor.setRows(5);
+        jScrollPane3.setViewportView(txtVetor);
+
+        jLabel7.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        jLabel7.setText("Tentativas:");
+
+        txtTentativas.setEditable(false);
+        txtTentativas.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        txtTentativas.setEnabled(false);
+
+        jLabel8.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        jLabel8.setText("Chances");
+
+        txtChances.setEditable(false);
+        txtChances.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        txtChances.setEnabled(false);
+
+        jPanelBotoes.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        btnNmr69.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
+        btnNmr69.setText("69");
+        btnNmr69.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNmr69ActionPerformed(evt);
+            }
+        });
+
+        btnNmr70.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
+        btnNmr70.setText("70");
+        btnNmr70.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNmr70ActionPerformed(evt);
+            }
+        });
+
+        btnNmr91.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
+        btnNmr91.setText("91");
+        btnNmr91.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNmr91ActionPerformed(evt);
+            }
+        });
+
+        btnNmr92.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
+        btnNmr92.setText("92");
+        btnNmr92.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNmr92ActionPerformed(evt);
+            }
+        });
+
+        btnNmr93.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
+        btnNmr93.setText("93");
+        btnNmr93.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNmr93ActionPerformed(evt);
+            }
+        });
+
+        btnNmr94.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
+        btnNmr94.setText("94");
+        btnNmr94.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNmr94ActionPerformed(evt);
+            }
+        });
+
+        btnNmr95.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
+        btnNmr95.setText("95");
+        btnNmr95.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNmr95ActionPerformed(evt);
+            }
+        });
+
+        btnNmr96.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
+        btnNmr96.setText("96");
+        btnNmr96.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNmr96ActionPerformed(evt);
+            }
+        });
+
+        btnNmr97.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
+        btnNmr97.setText("97");
+        btnNmr97.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNmr97ActionPerformed(evt);
+            }
+        });
+
+        btnNmr71.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
+        btnNmr71.setText("71");
+        btnNmr71.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNmr71ActionPerformed(evt);
+            }
+        });
+
+        btnNmr98.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
+        btnNmr98.setText("98");
+        btnNmr98.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNmr98ActionPerformed(evt);
+            }
+        });
+
+        btnNmr72.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
+        btnNmr72.setText("72");
+        btnNmr72.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNmr72ActionPerformed(evt);
+            }
+        });
+
+        btnNmr99.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
+        btnNmr99.setText("99");
+        btnNmr99.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNmr99ActionPerformed(evt);
+            }
+        });
+
+        btnNmr73.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
+        btnNmr73.setText("73");
+        btnNmr73.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNmr73ActionPerformed(evt);
+            }
+        });
+
+        btnNmr100.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
+        btnNmr100.setText("100");
+        btnNmr100.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNmr100ActionPerformed(evt);
+            }
+        });
+
+        btnNmr74.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
+        btnNmr74.setText("74");
+        btnNmr74.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNmr74ActionPerformed(evt);
+            }
+        });
+
+        btnNmr75.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
+        btnNmr75.setText("75");
+        btnNmr75.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNmr75ActionPerformed(evt);
+            }
+        });
+
+        btnNmr76.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
+        btnNmr76.setText("76");
+        btnNmr76.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNmr76ActionPerformed(evt);
+            }
+        });
+
+        btnNmr77.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
+        btnNmr77.setText("77");
+        btnNmr77.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNmr77ActionPerformed(evt);
+            }
+        });
+
+        btnNmr78.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
+        btnNmr78.setText("78");
+        btnNmr78.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNmr78ActionPerformed(evt);
+            }
+        });
+
+        btnNmr79.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
+        btnNmr79.setText("79");
+        btnNmr79.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNmr79ActionPerformed(evt);
+            }
+        });
+
+        btnNmr80.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
+        btnNmr80.setText("80");
+        btnNmr80.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNmr80ActionPerformed(evt);
+            }
+        });
+
+        btnNmr101.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
+        btnNmr101.setText("101");
+        btnNmr101.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNmr101ActionPerformed(evt);
+            }
+        });
+
+        btnNmr102.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
+        btnNmr102.setText("102");
+        btnNmr102.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNmr102ActionPerformed(evt);
+            }
+        });
+
+        btnNmr103.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
+        btnNmr103.setText("103");
+        btnNmr103.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNmr103ActionPerformed(evt);
+            }
+        });
+
+        btnNmr104.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
+        btnNmr104.setText("104");
+        btnNmr104.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNmr104ActionPerformed(evt);
+            }
+        });
+
+        btnNmr105.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
+        btnNmr105.setText("105");
+        btnNmr105.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNmr105ActionPerformed(evt);
+            }
+        });
 
         btnNmr1.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         btnNmr1.setText("1");
@@ -807,166 +1062,6 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             }
         });
 
-        btnNmr61.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
-        btnNmr61.setText("61");
-        btnNmr61.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnNmr61ActionPerformed(evt);
-            }
-        });
-
-        btnNmr62.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
-        btnNmr62.setText("62");
-        btnNmr62.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnNmr62ActionPerformed(evt);
-            }
-        });
-
-        btnNmr63.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
-        btnNmr63.setText("63");
-        btnNmr63.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnNmr63ActionPerformed(evt);
-            }
-        });
-
-        btnNmr64.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
-        btnNmr64.setText("64");
-        btnNmr64.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnNmr64ActionPerformed(evt);
-            }
-        });
-
-        btnNmr65.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
-        btnNmr65.setText("65");
-        btnNmr65.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnNmr65ActionPerformed(evt);
-            }
-        });
-
-        btnNmr66.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
-        btnNmr66.setText("66");
-        btnNmr66.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnNmr66ActionPerformed(evt);
-            }
-        });
-
-        btnNmr67.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
-        btnNmr67.setText("67");
-        btnNmr67.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnNmr67ActionPerformed(evt);
-            }
-        });
-
-        btnNmr68.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
-        btnNmr68.setText("68");
-        btnNmr68.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnNmr68ActionPerformed(evt);
-            }
-        });
-
-        btnNmr69.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
-        btnNmr69.setText("69");
-        btnNmr69.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnNmr69ActionPerformed(evt);
-            }
-        });
-
-        btnNmr70.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
-        btnNmr70.setText("70");
-        btnNmr70.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnNmr70ActionPerformed(evt);
-            }
-        });
-
-        btnNmr71.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
-        btnNmr71.setText("71");
-        btnNmr71.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnNmr71ActionPerformed(evt);
-            }
-        });
-
-        btnNmr72.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
-        btnNmr72.setText("72");
-        btnNmr72.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnNmr72ActionPerformed(evt);
-            }
-        });
-
-        btnNmr73.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
-        btnNmr73.setText("73");
-        btnNmr73.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnNmr73ActionPerformed(evt);
-            }
-        });
-
-        btnNmr74.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
-        btnNmr74.setText("74");
-        btnNmr74.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnNmr74ActionPerformed(evt);
-            }
-        });
-
-        btnNmr75.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
-        btnNmr75.setText("75");
-        btnNmr75.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnNmr75ActionPerformed(evt);
-            }
-        });
-
-        btnNmr76.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
-        btnNmr76.setText("76");
-        btnNmr76.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnNmr76ActionPerformed(evt);
-            }
-        });
-
-        btnNmr77.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
-        btnNmr77.setText("77");
-        btnNmr77.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnNmr77ActionPerformed(evt);
-            }
-        });
-
-        btnNmr78.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
-        btnNmr78.setText("78");
-        btnNmr78.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnNmr78ActionPerformed(evt);
-            }
-        });
-
-        btnNmr79.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
-        btnNmr79.setText("79");
-        btnNmr79.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnNmr79ActionPerformed(evt);
-            }
-        });
-
-        btnNmr80.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
-        btnNmr80.setText("80");
-        btnNmr80.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnNmr80ActionPerformed(evt);
-            }
-        });
-
         btnNmr81.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         btnNmr81.setText("81");
         btnNmr81.addActionListener(new java.awt.event.ActionListener() {
@@ -1023,11 +1118,27 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             }
         });
 
+        btnNmr61.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
+        btnNmr61.setText("61");
+        btnNmr61.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNmr61ActionPerformed(evt);
+            }
+        });
+
         btnNmr88.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         btnNmr88.setText("88");
         btnNmr88.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnNmr88ActionPerformed(evt);
+            }
+        });
+
+        btnNmr62.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
+        btnNmr62.setText("62");
+        btnNmr62.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNmr62ActionPerformed(evt);
             }
         });
 
@@ -1039,6 +1150,14 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             }
         });
 
+        btnNmr63.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
+        btnNmr63.setText("63");
+        btnNmr63.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNmr63ActionPerformed(evt);
+            }
+        });
+
         btnNmr90.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         btnNmr90.setText("90");
         btnNmr90.addActionListener(new java.awt.event.ActionListener() {
@@ -1047,450 +1166,292 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             }
         });
 
-        btnNmr91.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
-        btnNmr91.setText("91");
-        btnNmr91.addActionListener(new java.awt.event.ActionListener() {
+        btnNmr64.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
+        btnNmr64.setText("64");
+        btnNmr64.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnNmr91ActionPerformed(evt);
+                btnNmr64ActionPerformed(evt);
             }
         });
 
-        btnNmr92.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
-        btnNmr92.setText("92");
-        btnNmr92.addActionListener(new java.awt.event.ActionListener() {
+        btnNmr65.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
+        btnNmr65.setText("65");
+        btnNmr65.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnNmr92ActionPerformed(evt);
+                btnNmr65ActionPerformed(evt);
             }
         });
 
-        btnNmr93.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
-        btnNmr93.setText("93");
-        btnNmr93.addActionListener(new java.awt.event.ActionListener() {
+        btnNmr66.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
+        btnNmr66.setText("66");
+        btnNmr66.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnNmr93ActionPerformed(evt);
+                btnNmr66ActionPerformed(evt);
             }
         });
 
-        btnNmr94.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
-        btnNmr94.setText("94");
-        btnNmr94.addActionListener(new java.awt.event.ActionListener() {
+        btnNmr67.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
+        btnNmr67.setText("67");
+        btnNmr67.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnNmr94ActionPerformed(evt);
+                btnNmr67ActionPerformed(evt);
             }
         });
 
-        btnNmr95.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
-        btnNmr95.setText("95");
-        btnNmr95.addActionListener(new java.awt.event.ActionListener() {
+        btnNmr68.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
+        btnNmr68.setText("68");
+        btnNmr68.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnNmr95ActionPerformed(evt);
+                btnNmr68ActionPerformed(evt);
             }
         });
 
-        btnNmr96.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
-        btnNmr96.setText("96");
-        btnNmr96.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnNmr96ActionPerformed(evt);
-            }
-        });
-
-        btnNmr97.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
-        btnNmr97.setText("97");
-        btnNmr97.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnNmr97ActionPerformed(evt);
-            }
-        });
-
-        btnNmr98.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
-        btnNmr98.setText("98");
-        btnNmr98.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnNmr98ActionPerformed(evt);
-            }
-        });
-
-        btnNmr99.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
-        btnNmr99.setText("99");
-        btnNmr99.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnNmr99ActionPerformed(evt);
-            }
-        });
-
-        btnNmr100.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
-        btnNmr100.setText("100");
-        btnNmr100.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnNmr100ActionPerformed(evt);
-            }
-        });
-
-        btnNmr101.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
-        btnNmr101.setText("101");
-        btnNmr101.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnNmr101ActionPerformed(evt);
-            }
-        });
-
-        btnNmr102.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
-        btnNmr102.setText("102");
-        btnNmr102.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnNmr102ActionPerformed(evt);
-            }
-        });
-
-        btnNmr103.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
-        btnNmr103.setText("103");
-        btnNmr103.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnNmr103ActionPerformed(evt);
-            }
-        });
-
-        btnNmr104.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
-        btnNmr104.setText("104");
-        btnNmr104.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnNmr104ActionPerformed(evt);
-            }
-        });
-
-        btnNmr105.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
-        btnNmr105.setText("105");
-        btnNmr105.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnNmr105ActionPerformed(evt);
-            }
-        });
-
-        btnInicia.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        btnInicia.setText("Iniciar");
-        btnInicia.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnIniciaActionPerformed(evt);
-            }
-        });
-
-        btnParar.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        btnParar.setText("Parar");
-        btnParar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnPararActionPerformed(evt);
-            }
-        });
-
-        btnFinalizar.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        btnFinalizar.setText("Finalizar");
-        btnFinalizar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnFinalizarActionPerformed(evt);
-            }
-        });
-
-        txtVetor.setEditable(false);
-        txtVetor.setColumns(20);
-        txtVetor.setLineWrap(true);
-        txtVetor.setRows(5);
-        jScrollPane3.setViewportView(txtVetor);
-
-        jButton1.setText("jButton1");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
-        jLabel7.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        jLabel7.setText("Tentativas:");
-
-        txtTentativas.setEditable(false);
-        txtTentativas.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        txtTentativas.setEnabled(false);
-
-        jLabel8.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        jLabel8.setText("Chances");
-
-        txtChances.setEditable(false);
-        txtChances.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        txtChances.setEnabled(false);
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+        javax.swing.GroupLayout jPanelBotoesLayout = new javax.swing.GroupLayout(jPanelBotoes);
+        jPanelBotoes.setLayout(jPanelBotoesLayout);
+        jPanelBotoesLayout.setHorizontalGroup(
+            jPanelBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelBotoesLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addComponent(btnNmr1, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(btnNmr2, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(btnNmr3, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(btnNmr4, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addComponent(btnNmr16, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(btnNmr17, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(btnNmr18, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(btnNmr19, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addComponent(btnNmr5, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(btnNmr6, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(btnNmr7, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addComponent(btnNmr20, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(btnNmr21, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(btnNmr22, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addComponent(btnNmr8, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(btnNmr9, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(btnNmr10, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(btnNmr11, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(btnNmr12, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addComponent(btnNmr23, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(btnNmr24, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(btnNmr25, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(btnNmr26, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(btnNmr27, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addComponent(btnNmr13, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(btnNmr14, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(btnNmr15, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addComponent(btnNmr28, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(btnNmr29, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(btnNmr30, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addComponent(btnNmr91, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(btnNmr92, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(btnNmr93, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(btnNmr94, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(btnNmr95, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(btnNmr96, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(btnNmr97, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(btnNmr98, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(btnNmr99, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(btnNmr100, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(btnNmr101, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addComponent(btnNmr76, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(btnNmr77, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(btnNmr78, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(btnNmr79, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(btnNmr80, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(btnNmr81, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(btnNmr82, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(btnNmr83, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(btnNmr84, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(btnNmr85, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(btnNmr86, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addComponent(btnNmr61, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(btnNmr62, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(btnNmr63, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(btnNmr64, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(btnNmr65, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(btnNmr66, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(btnNmr67, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(btnNmr68, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(btnNmr69, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(btnNmr70, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(btnNmr71, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addComponent(btnNmr46, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(btnNmr47, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(btnNmr48, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(btnNmr49, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(btnNmr50, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(btnNmr51, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(btnNmr52, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(btnNmr53, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(btnNmr54, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(btnNmr55, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(btnNmr56, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addComponent(btnNmr31, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(btnNmr32, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(btnNmr33, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(btnNmr34, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(btnNmr35, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(btnNmr36, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(btnNmr37, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(btnNmr38, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(btnNmr39, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(btnNmr40, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(btnNmr41, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addComponent(btnNmr42, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(btnNmr43, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(btnNmr44, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(btnNmr45, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addComponent(btnNmr57, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(btnNmr58, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(btnNmr59, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(btnNmr60, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                            .addComponent(btnNmr72, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(btnNmr73, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(btnNmr74, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(btnNmr75, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                            .addComponent(btnNmr87, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(btnNmr88, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(btnNmr89, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(btnNmr90, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                            .addComponent(btnNmr102, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(btnNmr103, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(btnNmr104, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(btnNmr105, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                            .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.LEADING))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel8)
+                .addGroup(jPanelBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelBotoesLayout.createSequentialGroup()
+                        .addGroup(jPanelBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanelBotoesLayout.createSequentialGroup()
+                                .addComponent(btnNmr1, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnNmr2, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnNmr3, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnNmr4, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanelBotoesLayout.createSequentialGroup()
+                                .addComponent(btnNmr16, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnNmr17, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnNmr18, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnNmr19, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtChances, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanelBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanelBotoesLayout.createSequentialGroup()
+                                .addComponent(btnNmr5, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnNmr6, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnNmr7, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanelBotoesLayout.createSequentialGroup()
+                                .addComponent(btnNmr20, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnNmr21, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnNmr22, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel7)
+                        .addGroup(jPanelBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanelBotoesLayout.createSequentialGroup()
+                                .addComponent(btnNmr8, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnNmr9, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnNmr10, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnNmr11, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnNmr12, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanelBotoesLayout.createSequentialGroup()
+                                .addComponent(btnNmr23, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnNmr24, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnNmr25, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnNmr26, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnNmr27, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtTentativas, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton1)
+                        .addGroup(jPanelBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanelBotoesLayout.createSequentialGroup()
+                                .addComponent(btnNmr13, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnNmr14, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnNmr15, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanelBotoesLayout.createSequentialGroup()
+                                .addComponent(btnNmr28, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnNmr29, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnNmr30, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(jPanelBotoesLayout.createSequentialGroup()
+                        .addGroup(jPanelBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanelBotoesLayout.createSequentialGroup()
+                                .addComponent(btnNmr91, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnNmr92, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnNmr93, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnNmr94, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnNmr95, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnNmr96, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnNmr97, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnNmr98, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnNmr99, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnNmr100, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnNmr101, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanelBotoesLayout.createSequentialGroup()
+                                .addComponent(btnNmr76, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnNmr77, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnNmr78, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnNmr79, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnNmr80, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnNmr81, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnNmr82, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnNmr83, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnNmr84, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnNmr85, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnNmr86, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanelBotoesLayout.createSequentialGroup()
+                                .addComponent(btnNmr61, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnNmr62, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnNmr63, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnNmr64, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnNmr65, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnNmr66, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnNmr67, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnNmr68, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnNmr69, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnNmr70, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnNmr71, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanelBotoesLayout.createSequentialGroup()
+                                .addComponent(btnNmr46, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnNmr47, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnNmr48, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnNmr49, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnNmr50, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnNmr51, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnNmr52, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnNmr53, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnNmr54, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnNmr55, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnNmr56, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanelBotoesLayout.createSequentialGroup()
+                                .addComponent(btnNmr31, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnNmr32, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnNmr33, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnNmr34, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnNmr35, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnNmr36, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnNmr37, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnNmr38, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnNmr39, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnNmr40, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnNmr41, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnFinalizar, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnParar, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnInicia, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jSeparator4))
-                .addContainerGap())
+                        .addGroup(jPanelBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanelBotoesLayout.createSequentialGroup()
+                                .addComponent(btnNmr42, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnNmr43, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnNmr44, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnNmr45, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanelBotoesLayout.createSequentialGroup()
+                                .addComponent(btnNmr57, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnNmr58, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnNmr59, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnNmr60, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelBotoesLayout.createSequentialGroup()
+                                .addComponent(btnNmr72, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnNmr73, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnNmr74, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnNmr75, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelBotoesLayout.createSequentialGroup()
+                                .addComponent(btnNmr87, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnNmr88, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnNmr89, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnNmr90, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelBotoesLayout.createSequentialGroup()
+                                .addComponent(btnNmr102, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnNmr103, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnNmr104, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnNmr105, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+        jPanelBotoesLayout.setVerticalGroup(
+            jPanelBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelBotoesLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanelBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnNmr1)
                     .addComponent(btnNmr2)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addGroup(jPanelBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btnNmr5)
                         .addComponent(btnNmr4)
                         .addComponent(btnNmr3))
                     .addComponent(btnNmr6)
                     .addComponent(btnNmr7)
                     .addComponent(btnNmr8)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addGroup(jPanelBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btnNmr14)
                         .addComponent(btnNmr13))
                     .addComponent(btnNmr15)
@@ -1499,165 +1460,191 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
                     .addComponent(btnNmr11)
                     .addComponent(btnNmr12))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanelBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btnNmr16)
                         .addComponent(btnNmr17)
                         .addComponent(btnNmr18)
                         .addComponent(btnNmr19))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addGroup(jPanelBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btnNmr21)
                         .addComponent(btnNmr20)
                         .addComponent(btnNmr22))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addGroup(jPanelBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btnNmr24)
                         .addComponent(btnNmr25)
                         .addComponent(btnNmr23)
                         .addComponent(btnNmr26))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addGroup(jPanelBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btnNmr28)
                         .addComponent(btnNmr29)
                         .addComponent(btnNmr30)
                         .addComponent(btnNmr27)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanelBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btnNmr31)
                         .addComponent(btnNmr32)
                         .addComponent(btnNmr33)
                         .addComponent(btnNmr34))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addGroup(jPanelBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btnNmr36)
                         .addComponent(btnNmr35)
                         .addComponent(btnNmr37))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addGroup(jPanelBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btnNmr39)
                         .addComponent(btnNmr40)
                         .addComponent(btnNmr38)
                         .addComponent(btnNmr41))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addGroup(jPanelBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btnNmr43)
                         .addComponent(btnNmr44)
                         .addComponent(btnNmr45)
                         .addComponent(btnNmr42)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanelBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btnNmr46)
                         .addComponent(btnNmr47)
                         .addComponent(btnNmr48)
                         .addComponent(btnNmr49))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addGroup(jPanelBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btnNmr51)
                         .addComponent(btnNmr50)
                         .addComponent(btnNmr52))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addGroup(jPanelBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btnNmr54)
                         .addComponent(btnNmr55)
                         .addComponent(btnNmr53)
                         .addComponent(btnNmr56))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addGroup(jPanelBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btnNmr58)
                         .addComponent(btnNmr59)
                         .addComponent(btnNmr60)
                         .addComponent(btnNmr57)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanelBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btnNmr61)
                         .addComponent(btnNmr62)
                         .addComponent(btnNmr63)
                         .addComponent(btnNmr64))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addGroup(jPanelBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btnNmr66)
                         .addComponent(btnNmr65)
                         .addComponent(btnNmr67))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addGroup(jPanelBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btnNmr69)
                         .addComponent(btnNmr70)
                         .addComponent(btnNmr68)
                         .addComponent(btnNmr71))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addGroup(jPanelBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btnNmr73)
                         .addComponent(btnNmr74)
                         .addComponent(btnNmr75)
                         .addComponent(btnNmr72)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanelBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btnNmr76)
                         .addComponent(btnNmr77)
                         .addComponent(btnNmr78)
                         .addComponent(btnNmr79))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addGroup(jPanelBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btnNmr81)
                         .addComponent(btnNmr80)
                         .addComponent(btnNmr82))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addGroup(jPanelBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btnNmr84)
                         .addComponent(btnNmr85)
                         .addComponent(btnNmr83)
                         .addComponent(btnNmr86))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addGroup(jPanelBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btnNmr88)
                         .addComponent(btnNmr89)
                         .addComponent(btnNmr90)
                         .addComponent(btnNmr87)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanelBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btnNmr91)
                         .addComponent(btnNmr92)
                         .addComponent(btnNmr93)
                         .addComponent(btnNmr94))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addGroup(jPanelBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btnNmr96)
                         .addComponent(btnNmr95)
                         .addComponent(btnNmr97))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addGroup(jPanelBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btnNmr99)
                         .addComponent(btnNmr100)
                         .addComponent(btnNmr98)
                         .addComponent(btnNmr101))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addGroup(jPanelBotoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btnNmr103)
                         .addComponent(btnNmr104)
                         .addComponent(btnNmr105)
                         .addComponent(btnNmr102)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane3)
+                    .addComponent(jPanelBotoes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel8)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtChances, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel7)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtTentativas, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnParar, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnInicia, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jPanelInfo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jSeparator4))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanelInfo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanelBotoes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnInicia)
-                    .addComponent(btnParar)
-                    .addComponent(btnFinalizar)
-                    .addComponent(jButton1)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel7)
+                        .addComponent(txtTentativas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnInicia)
+                        .addComponent(btnParar))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel8)
-                        .addComponent(txtChances, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel7)
-                            .addComponent(txtTentativas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(15, Short.MAX_VALUE))
+                        .addComponent(txtChances, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnPararActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPararActionPerformed
-        FinalVetor();
         tTemporizador.stop();
-        String data = "dd/MM/yyyy";
-        String hora = "hh:mm:ss";
-        String data1, hora1;
-        java.util.Date agora = new java.util.Date();
-        SimpleDateFormat formata = new SimpleDateFormat(data);
-        data1 = formata.format(agora);
-        formata = new SimpleDateFormat(hora);
-        hora1 = formata.format(agora);
-        System.out.println(data1 + "");
-        System.out.println(hora1 + "");
-        txtTempoDecorrido.setText(hora1);
+        setPanelEnabled(jPanelInfo, false);
+        setPanelEnabled(jPanelBotoes, false);
+        btnInicia.setEnabled(true);
     }//GEN-LAST:event_btnPararActionPerformed
 
     private void btnIniciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciaActionPerformed
@@ -1665,7 +1652,8 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
         if (txtTamanhoVetor.getText().equals("") || txtValoresVetor.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Digite um Tamanho e um Valor para poder Prosseguir!");
         } else {
-
+            setPanelEnabled(jPanelBotoes, true);
+            setPanelEnabled(jPanelInfo, false);
             iTamanho = Integer.parseInt(txtTamanhoVetor.getText());
             iValores = Integer.parseInt(txtValoresVetor.getText());
 
@@ -1673,28 +1661,18 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             gVetor.ImprimeVetor(iVetor);
             String sResultado = iVetor.toString();
 
-            //txtVetor.setText(sResultado);
-            String data = "dd:mm:yyyy";
-            String hora = "hh:mm:ss";
-            String data1, hora1;
-            java.util.Date agora = new java.util.Date();
-            SimpleDateFormat formata = new SimpleDateFormat(data);
-            data1 = formata.format(agora);
-            formata = new SimpleDateFormat(hora);
-            hora1 = formata.format(agora);
-            System.out.println(data1 + "");
-            System.out.println(hora1 + "");
-            lblHoraInicio.setText(hora1);
-            DateTimer();
+            tTemporizador.start();
 
             btnInicia.setEnabled(false);
             SalvarTXR();
 
             int iContagem = Integer.parseInt(txtTamanhoVetor.getText());
             iChances = iContagem * 2;
+            iPerdeu = iChances;
 
             String sResult = Integer.toString(iChances);
             txtChances.setText(sResult);
+            txtTentativas.setText(sResult);
 
 //            Timer TempoAcao = new Timer(10000, new ApagarVetor());
 //            TempoAcao.start();
@@ -1721,18 +1699,20 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
 
         if (iRetorna >= 0) {
             iSomaAcertos++;
-            iPerdeu++;
+            iPerdeu--;
             txtVetor.setText(txtVetor.getText() + btnV + " | ");
             btnNmr1.setForeground(Color.GREEN);
             btnNmr1.setBackground(Color.GREEN);
             btnNmr1.setEnabled(false);
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
 
         } else {
             iSomaErros++;
-            iPerdeu++;
+            iPerdeu--;
             btnNmr1.setForeground(Color.RED);
             btnNmr1.setBackground(Color.RED);
             btnNmr1.setEnabled(false);
+            txtDescricao.setText(btnV + " Não faz parte do vetor");
         }
         String sSomaAcertos = Integer.toString(iSomaAcertos);
         String sSomaErros = Integer.toString(iSomaErros);
@@ -1740,9 +1720,17 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
         txtErro.setText(sSomaErros);
         String sPerdeu = Integer.toString(iPerdeu);
         txtTentativas.setText(sPerdeu);
-        if (iChances == iPerdeu) {
-            JOptionPane.showMessageDialog(this, "Você Perdeu!");
+
+        String sAcerto = txtAcertos.getText();
+        int iAcerto = Integer.parseInt(sAcerto);
+        if (iTamanho == iAcerto) {
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+            setPanelEnabled(jPanelBotoes, false);
+        } else if (iPerdeu == 0) {
+            JOptionPane.showMessageDialog(this, "Você perdeu!");
+            setPanelEnabled(jPanelBotoes, false);
         }
+
 
     }//GEN-LAST:event_btnNmr1ActionPerformed
 
@@ -1754,14 +1742,16 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
 
         if (iRetorna >= 0) {
             iSomaAcertos++;
-            iPerdeu++;
+            iPerdeu--;
             txtVetor.setText(txtVetor.getText() + btnV + " | ");
             btnNmr2.setForeground(Color.GREEN);
             btnNmr2.setBackground(Color.GREEN);
             btnNmr2.setEnabled(false);
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
 
         } else {
-            iPerdeu++;
+            txtDescricao.setText(btnV + " Não faz parte do vetor");
+            iPerdeu--;
             btnNmr2.setForeground(Color.RED);
             btnNmr2.setBackground(Color.RED);
             btnNmr2.setEnabled(false);
@@ -1770,11 +1760,17 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
         String sSomaErros = Integer.toString(iSomaErros);
         txtAcertos.setText(sSomaAcertos);
         txtErro.setText(sSomaErros);
-        iPerdeu++;
         String sPerdeu = Integer.toString(iPerdeu);
         txtTentativas.setText(sPerdeu);
-        if (iChances == iPerdeu) {
-            JOptionPane.showMessageDialog(this, "Você Perdeu!");
+
+        String sAcerto = txtAcertos.getText();
+        int iAcerto = Integer.parseInt(sAcerto);
+        if (iTamanho == iAcerto) {
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+            setPanelEnabled(jPanelBotoes, false);
+        } else if (iPerdeu == 0) {
+            JOptionPane.showMessageDialog(this, "Você perdeu!");
+            setPanelEnabled(jPanelBotoes, false);
         }
     }//GEN-LAST:event_btnNmr2ActionPerformed
 
@@ -1786,15 +1782,17 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
 
         if (iRetorna >= 0) {
             iSomaAcertos++;
-            iPerdeu++;
+            iPerdeu--;
             txtVetor.setText(txtVetor.getText() + btnV + " | ");
             btnNmr3.setForeground(Color.GREEN);
             btnNmr3.setBackground(Color.GREEN);
             btnNmr3.setEnabled(false);
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
 
         } else {
             iSomaErros++;
-            iPerdeu++;
+            txtDescricao.setText(btnV + " Não faz parte do vetor");
+            iPerdeu--;
             btnNmr3.setForeground(Color.RED);
             btnNmr3.setBackground(Color.RED);
             btnNmr3.setEnabled(false);
@@ -1803,11 +1801,17 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
         String sSomaErros = Integer.toString(iSomaErros);
         txtAcertos.setText(sSomaAcertos);
         txtErro.setText(sSomaErros);
-        iPerdeu++;
         String sPerdeu = Integer.toString(iPerdeu);
         txtTentativas.setText(sPerdeu);
-        if (iChances == iPerdeu) {
-            JOptionPane.showMessageDialog(this, "Você Perdeu!");
+
+        String sAcerto = txtAcertos.getText();
+        int iAcerto = Integer.parseInt(sAcerto);
+        if (iTamanho == iAcerto) {
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+            setPanelEnabled(jPanelBotoes, false);
+        } else if (iPerdeu == 0) {
+            JOptionPane.showMessageDialog(this, "Você perdeu!");
+            setPanelEnabled(jPanelBotoes, false);
         }
     }//GEN-LAST:event_btnNmr3ActionPerformed
 
@@ -1819,14 +1823,17 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
 
         if (iRetorna >= 0) {
             iSomaAcertos++;
-            iPerdeu++;
+            iPerdeu--;
             txtVetor.setText(txtVetor.getText() + btnV + " | ");
             btnNmr4.setForeground(Color.GREEN);
             btnNmr4.setBackground(Color.GREEN);
             btnNmr4.setEnabled(false);
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
 
         } else {
-            iPerdeu++;iSomaErros++;
+            iPerdeu--;
+            txtDescricao.setText(btnV + " Não faz parte do vetor");
+            iSomaErros++;
             btnNmr4.setForeground(Color.RED);
             btnNmr4.setBackground(Color.RED);
             btnNmr4.setEnabled(false);
@@ -1835,11 +1842,17 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
         String sSomaErros = Integer.toString(iSomaErros);
         txtAcertos.setText(sSomaAcertos);
         txtErro.setText(sSomaErros);
-        iPerdeu++;
         String sPerdeu = Integer.toString(iPerdeu);
         txtTentativas.setText(sPerdeu);
-        if (iChances == iPerdeu) {
-            JOptionPane.showMessageDialog(this, "Você Perdeu!");
+
+        String sAcerto = txtAcertos.getText();
+        int iAcerto = Integer.parseInt(sAcerto);
+        if (iTamanho == iAcerto) {
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+            setPanelEnabled(jPanelBotoes, false);
+        } else if (iPerdeu == 0) {
+            JOptionPane.showMessageDialog(this, "Você perdeu!");
+            setPanelEnabled(jPanelBotoes, false);
         }
     }//GEN-LAST:event_btnNmr4ActionPerformed
 
@@ -1851,14 +1864,15 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
 
         if (iRetorna >= 0) {
             iSomaAcertos++;
-            iPerdeu++;
+            iPerdeu--;
             txtVetor.setText(txtVetor.getText() + btnV + " | ");
             btnNmr5.setForeground(Color.GREEN);
             btnNmr5.setBackground(Color.GREEN);
             btnNmr5.setEnabled(false);
-
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
         } else {
-            iPerdeu++;
+            iPerdeu--;
+            txtDescricao.setText(btnV + " Não faz parte do vetor");
             iSomaErros++;
             btnNmr5.setForeground(Color.RED);
             btnNmr5.setBackground(Color.RED);
@@ -1868,11 +1882,17 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
         String sSomaErros = Integer.toString(iSomaErros);
         txtAcertos.setText(sSomaAcertos);
         txtErro.setText(sSomaErros);
-        iPerdeu++;
         String sPerdeu = Integer.toString(iPerdeu);
         txtTentativas.setText(sPerdeu);
-        if (iChances == iPerdeu) {
-            JOptionPane.showMessageDialog(this, "Você Perdeu!");
+
+        String sAcerto = txtAcertos.getText();
+        int iAcerto = Integer.parseInt(sAcerto);
+        if (iTamanho == iAcerto) {
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+            setPanelEnabled(jPanelBotoes, false);
+        } else if (iPerdeu == 0) {
+            JOptionPane.showMessageDialog(this, "Você perdeu!");
+            setPanelEnabled(jPanelBotoes, false);
         }
 
     }//GEN-LAST:event_btnNmr5ActionPerformed
@@ -1890,9 +1910,11 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             btnNmr6.setForeground(Color.GREEN);
             btnNmr6.setBackground(Color.GREEN);
             btnNmr6.setEnabled(false);
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
 
         } else {
             iSomaErros++;
+            txtDescricao.setText(btnV + " Não faz parte do vetor");
             btnNmr6.setForeground(Color.RED);
             btnNmr6.setBackground(Color.RED);
             btnNmr6.setEnabled(false);
@@ -1901,11 +1923,17 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
         String sSomaErros = Integer.toString(iSomaErros);
         txtAcertos.setText(sSomaAcertos);
         txtErro.setText(sSomaErros);
-        iPerdeu++;
         String sPerdeu = Integer.toString(iPerdeu);
         txtTentativas.setText(sPerdeu);
-        if (iChances == iPerdeu) {
-            JOptionPane.showMessageDialog(this, "Você Perdeu!");
+
+        String sAcerto = txtAcertos.getText();
+        int iAcerto = Integer.parseInt(sAcerto);
+        if (iTamanho == iAcerto) {
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+            setPanelEnabled(jPanelBotoes, false);
+        } else if (iPerdeu == 0) {
+            JOptionPane.showMessageDialog(this, "Você perdeu!");
+            setPanelEnabled(jPanelBotoes, false);
         }
     }//GEN-LAST:event_btnNmr6ActionPerformed
 
@@ -1922,9 +1950,11 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             btnNmr7.setForeground(Color.GREEN);
             btnNmr7.setBackground(Color.GREEN);
             btnNmr7.setEnabled(false);
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
 
         } else {
             iSomaErros++;
+            txtDescricao.setText(btnV + " Não faz parte do vetor");
             iPerdeu++;
             btnNmr7.setForeground(Color.RED);
             btnNmr7.setBackground(Color.RED);
@@ -1934,11 +1964,17 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
         String sSomaErros = Integer.toString(iSomaErros);
         txtAcertos.setText(sSomaAcertos);
         txtErro.setText(sSomaErros);
-        iPerdeu--;
         String sPerdeu = Integer.toString(iPerdeu);
         txtTentativas.setText(sPerdeu);
-        if (iChances == iPerdeu) {
-            JOptionPane.showMessageDialog(this, "Você Perdeu!");
+
+        String sAcerto = txtAcertos.getText();
+        int iAcerto = Integer.parseInt(sAcerto);
+        if (iTamanho == iAcerto) {
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+            setPanelEnabled(jPanelBotoes, false);
+        } else if (iPerdeu == 0) {
+            JOptionPane.showMessageDialog(this, "Você perdeu!");
+            setPanelEnabled(jPanelBotoes, false);
         }
     }//GEN-LAST:event_btnNmr7ActionPerformed
 
@@ -1955,23 +1991,32 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             btnNmr8.setForeground(Color.GREEN);
             btnNmr8.setBackground(Color.GREEN);
             btnNmr8.setEnabled(false);
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
 
         } else {
             iSomaErros++;
             iPerdeu++;
+            txtDescricao.setText(btnV + " Não faz parte do vetor");
             btnNmr8.setForeground(Color.RED);
             btnNmr8.setBackground(Color.RED);
             btnNmr8.setEnabled(false);
+            txtDescricao.setText(btnV + " Não faz parte do Vetor");
         }
         String sSomaAcertos = Integer.toString(iSomaAcertos);
         String sSomaErros = Integer.toString(iSomaErros);
         txtAcertos.setText(sSomaAcertos);
         txtErro.setText(sSomaErros);
-        iPerdeu--;
         String sPerdeu = Integer.toString(iPerdeu);
         txtTentativas.setText(sPerdeu);
-        if (iChances == iPerdeu) {
-            JOptionPane.showMessageDialog(this, "Você Perdeu!");
+
+        String sAcerto = txtAcertos.getText();
+        int iAcerto = Integer.parseInt(sAcerto);
+        if (iTamanho == iAcerto) {
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+            setPanelEnabled(jPanelBotoes, false);
+        } else if (iPerdeu == 0) {
+            JOptionPane.showMessageDialog(this, "Você perdeu!");
+            setPanelEnabled(jPanelBotoes, false);
         }
     }//GEN-LAST:event_btnNmr8ActionPerformed
 
@@ -1988,10 +2033,12 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             btnNmr9.setForeground(Color.GREEN);
             btnNmr9.setBackground(Color.GREEN);
             btnNmr9.setEnabled(false);
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
 
         } else {
             iSomaErros++;
             iPerdeu++;
+            txtDescricao.setText(btnV + " Não faz parte do vetor");
             btnNmr9.setForeground(Color.RED);
             btnNmr9.setBackground(Color.RED);
             btnNmr9.setEnabled(false);
@@ -2000,11 +2047,17 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
         String sSomaErros = Integer.toString(iSomaErros);
         txtAcertos.setText(sSomaAcertos);
         txtErro.setText(sSomaErros);
-        iPerdeu--;
         String sPerdeu = Integer.toString(iPerdeu);
         txtTentativas.setText(sPerdeu);
-        if (iChances == iPerdeu) {
-            JOptionPane.showMessageDialog(this, "Você Perdeu!");
+
+        String sAcerto = txtAcertos.getText();
+        int iAcerto = Integer.parseInt(sAcerto);
+        if (iTamanho == iAcerto) {
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+            setPanelEnabled(jPanelBotoes, false);
+        } else if (iPerdeu == 0) {
+            JOptionPane.showMessageDialog(this, "Você perdeu!");
+            setPanelEnabled(jPanelBotoes, false);
         }
     }//GEN-LAST:event_btnNmr9ActionPerformed
 
@@ -2021,10 +2074,12 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             btnNmr10.setForeground(Color.GREEN);
             btnNmr10.setBackground(Color.GREEN);
             btnNmr10.setEnabled(false);
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
 
         } else {
             iSomaErros++;
             iPerdeu++;
+            txtDescricao.setText(btnV + " Não faz parte do vetor");
             btnNmr10.setForeground(Color.RED);
             btnNmr10.setBackground(Color.RED);
             btnNmr10.setEnabled(false);
@@ -2054,10 +2109,12 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             btnNmr11.setForeground(Color.GREEN);
             btnNmr11.setBackground(Color.GREEN);
             btnNmr11.setEnabled(false);
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
 
         } else {
             iSomaErros++;
             iPerdeu++;
+            txtDescricao.setText(btnV + " Não faz parte do vetor");
             btnNmr11.setForeground(Color.RED);
             btnNmr11.setBackground(Color.RED);
             btnNmr11.setEnabled(false);
@@ -2068,8 +2125,15 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
         txtErro.setText(sSomaErros);
         String sPerdeu = Integer.toString(iPerdeu);
         txtTentativas.setText(sPerdeu);
-        if (iChances == iPerdeu) {
-            JOptionPane.showMessageDialog(this, "Você Perdeu!");
+
+        String sAcerto = txtAcertos.getText();
+        int iAcerto = Integer.parseInt(sAcerto);
+        if (iTamanho == iAcerto) {
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+            setPanelEnabled(jPanelBotoes, false);
+        } else if (iPerdeu == 0) {
+            JOptionPane.showMessageDialog(this, "Você perdeu!");
+            setPanelEnabled(jPanelBotoes, false);
         }
     }//GEN-LAST:event_btnNmr11ActionPerformed
 
@@ -2090,9 +2154,11 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
         } else {
             iSomaErros++;
             iPerdeu++;
+            txtDescricao.setText(btnV + " Não faz parte do vetor");
             btnNmr12.setForeground(Color.RED);
             btnNmr12.setBackground(Color.RED);
             btnNmr12.setEnabled(false);
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
         }
         String sSomaAcertos = Integer.toString(iSomaAcertos);
         String sSomaErros = Integer.toString(iSomaErros);
@@ -2100,8 +2166,15 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
         txtErro.setText(sSomaErros);
         String sPerdeu = Integer.toString(iPerdeu);
         txtTentativas.setText(sPerdeu);
-        if (iChances == iPerdeu) {
-            JOptionPane.showMessageDialog(this, "Você Perdeu!");
+
+        String sAcerto = txtAcertos.getText();
+        int iAcerto = Integer.parseInt(sAcerto);
+        if (iTamanho == iAcerto) {
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+            setPanelEnabled(jPanelBotoes, false);
+        } else if (iPerdeu == 0) {
+            JOptionPane.showMessageDialog(this, "Você perdeu!");
+            setPanelEnabled(jPanelBotoes, false);
         }
     }//GEN-LAST:event_btnNmr12ActionPerformed
 
@@ -2118,10 +2191,12 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             btnNmr13.setForeground(Color.GREEN);
             btnNmr13.setBackground(Color.GREEN);
             btnNmr13.setEnabled(false);
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
 
         } else {
             iSomaErros++;
             iPerdeu++;
+            txtDescricao.setText(btnV + " Não faz parte do vetor");
             btnNmr13.setForeground(Color.RED);
             btnNmr13.setBackground(Color.RED);
             btnNmr13.setEnabled(false);
@@ -2132,8 +2207,15 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
         txtErro.setText(sSomaErros);
         String sPerdeu = Integer.toString(iPerdeu);
         txtTentativas.setText(sPerdeu);
-        if (iChances == iPerdeu) {
-            JOptionPane.showMessageDialog(this, "Você Perdeu!");
+
+        String sAcerto = txtAcertos.getText();
+        int iAcerto = Integer.parseInt(sAcerto);
+        if (iTamanho == iAcerto) {
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+            setPanelEnabled(jPanelBotoes, false);
+        } else if (iPerdeu == 0) {
+            JOptionPane.showMessageDialog(this, "Você perdeu!");
+            setPanelEnabled(jPanelBotoes, false);
         }
     }//GEN-LAST:event_btnNmr13ActionPerformed
 
@@ -2149,9 +2231,11 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             btnNmr14.setForeground(Color.GREEN);
             btnNmr14.setBackground(Color.GREEN);
             btnNmr14.setEnabled(false);
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
 
         } else {
             iSomaErros++;
+            txtDescricao.setText(btnV + " Não faz parte do vetor");
             btnNmr14.setForeground(Color.RED);
             btnNmr14.setBackground(Color.RED);
             btnNmr14.setEnabled(false);
@@ -2160,6 +2244,18 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
         String sSomaErros = Integer.toString(iSomaErros);
         txtAcertos.setText(sSomaAcertos);
         txtErro.setText(sSomaErros);
+        String sPerdeu = Integer.toString(iPerdeu);
+        txtTentativas.setText(sPerdeu);
+
+        String sAcerto = txtAcertos.getText();
+        int iAcerto = Integer.parseInt(sAcerto);
+        if (iTamanho == iAcerto) {
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+            setPanelEnabled(jPanelBotoes, false);
+        } else if (iPerdeu == 0) {
+            JOptionPane.showMessageDialog(this, "Você perdeu!");
+            setPanelEnabled(jPanelBotoes, false);
+        }
     }//GEN-LAST:event_btnNmr14ActionPerformed
 
     private void btnNmr15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNmr15ActionPerformed
@@ -2174,9 +2270,11 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             btnNmr15.setForeground(Color.GREEN);
             btnNmr15.setBackground(Color.GREEN);
             btnNmr15.setEnabled(false);
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
 
         } else {
             iSomaErros++;
+            txtDescricao.setText(btnV + " Não faz parte do vetor");
             btnNmr15.setForeground(Color.RED);
             btnNmr15.setBackground(Color.RED);
             btnNmr15.setEnabled(false);
@@ -2185,6 +2283,18 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
         String sSomaErros = Integer.toString(iSomaErros);
         txtAcertos.setText(sSomaAcertos);
         txtErro.setText(sSomaErros);
+        String sPerdeu = Integer.toString(iPerdeu);
+        txtTentativas.setText(sPerdeu);
+
+        String sAcerto = txtAcertos.getText();
+        int iAcerto = Integer.parseInt(sAcerto);
+        if (iTamanho == iAcerto) {
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+            setPanelEnabled(jPanelBotoes, false);
+        } else if (iPerdeu == 0) {
+            JOptionPane.showMessageDialog(this, "Você perdeu!");
+            setPanelEnabled(jPanelBotoes, false);
+        }
     }//GEN-LAST:event_btnNmr15ActionPerformed
 
     private void btnNmr16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNmr16ActionPerformed
@@ -2199,9 +2309,11 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             btnNmr16.setForeground(Color.GREEN);
             btnNmr16.setBackground(Color.GREEN);
             btnNmr16.setEnabled(false);
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
 
         } else {
             iSomaErros++;
+            txtDescricao.setText(btnV + " Não faz parte do vetor");
             btnNmr16.setForeground(Color.RED);
             btnNmr16.setBackground(Color.RED);
             btnNmr16.setEnabled(false);
@@ -2210,6 +2322,18 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
         String sSomaErros = Integer.toString(iSomaErros);
         txtAcertos.setText(sSomaAcertos);
         txtErro.setText(sSomaErros);
+        String sPerdeu = Integer.toString(iPerdeu);
+        txtTentativas.setText(sPerdeu);
+
+        String sAcerto = txtAcertos.getText();
+        int iAcerto = Integer.parseInt(sAcerto);
+        if (iTamanho == iAcerto) {
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+            setPanelEnabled(jPanelBotoes, false);
+        } else if (iPerdeu == 0) {
+            JOptionPane.showMessageDialog(this, "Você perdeu!");
+            setPanelEnabled(jPanelBotoes, false);
+        }
     }//GEN-LAST:event_btnNmr16ActionPerformed
 
     private void btnNmr17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNmr17ActionPerformed
@@ -2224,9 +2348,11 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             btnNmr17.setForeground(Color.GREEN);
             btnNmr17.setBackground(Color.GREEN);
             btnNmr17.setEnabled(false);
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
 
         } else {
             iSomaErros++;
+            txtDescricao.setText(btnV + " Não faz parte do vetor");
             btnNmr17.setForeground(Color.RED);
             btnNmr17.setBackground(Color.RED);
             btnNmr17.setEnabled(false);
@@ -2235,6 +2361,18 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
         String sSomaErros = Integer.toString(iSomaErros);
         txtAcertos.setText(sSomaAcertos);
         txtErro.setText(sSomaErros);
+        String sPerdeu = Integer.toString(iPerdeu);
+        txtTentativas.setText(sPerdeu);
+
+        String sAcerto = txtAcertos.getText();
+        int iAcerto = Integer.parseInt(sAcerto);
+        if (iTamanho == iAcerto) {
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+            setPanelEnabled(jPanelBotoes, false);
+        } else if (iPerdeu == 0) {
+            JOptionPane.showMessageDialog(this, "Você perdeu!");
+            setPanelEnabled(jPanelBotoes, false);
+        }
     }//GEN-LAST:event_btnNmr17ActionPerformed
 
     private void btnNmr18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNmr18ActionPerformed
@@ -2249,9 +2387,11 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             btnNmr18.setForeground(Color.GREEN);
             btnNmr18.setBackground(Color.GREEN);
             btnNmr18.setEnabled(false);
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
 
         } else {
             iSomaErros++;
+            txtDescricao.setText(btnV + " Não faz parte do vetor");
             btnNmr18.setForeground(Color.RED);
             btnNmr18.setBackground(Color.RED);
             btnNmr18.setEnabled(false);
@@ -2260,6 +2400,18 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
         String sSomaErros = Integer.toString(iSomaErros);
         txtAcertos.setText(sSomaAcertos);
         txtErro.setText(sSomaErros);
+        String sPerdeu = Integer.toString(iPerdeu);
+        txtTentativas.setText(sPerdeu);
+
+        String sAcerto = txtAcertos.getText();
+        int iAcerto = Integer.parseInt(sAcerto);
+        if (iTamanho == iAcerto) {
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+            setPanelEnabled(jPanelBotoes, false);
+        } else if (iPerdeu == 0) {
+            JOptionPane.showMessageDialog(this, "Você perdeu!");
+            setPanelEnabled(jPanelBotoes, false);
+        }
     }//GEN-LAST:event_btnNmr18ActionPerformed
 
     private void btnNmr19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNmr19ActionPerformed
@@ -2274,9 +2426,11 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             btnNmr19.setForeground(Color.GREEN);
             btnNmr19.setBackground(Color.GREEN);
             btnNmr19.setEnabled(false);
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
 
         } else {
             iSomaErros++;
+            txtDescricao.setText(btnV + " Não faz parte do vetor");
             btnNmr19.setForeground(Color.RED);
             btnNmr19.setBackground(Color.RED);
             btnNmr19.setEnabled(false);
@@ -2285,6 +2439,18 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
         String sSomaErros = Integer.toString(iSomaErros);
         txtAcertos.setText(sSomaAcertos);
         txtErro.setText(sSomaErros);
+        String sPerdeu = Integer.toString(iPerdeu);
+        txtTentativas.setText(sPerdeu);
+
+        String sAcerto = txtAcertos.getText();
+        int iAcerto = Integer.parseInt(sAcerto);
+        if (iTamanho == iAcerto) {
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+            setPanelEnabled(jPanelBotoes, false);
+        } else if (iPerdeu == 0) {
+            JOptionPane.showMessageDialog(this, "Você perdeu!");
+            setPanelEnabled(jPanelBotoes, false);
+        }
     }//GEN-LAST:event_btnNmr19ActionPerformed
 
     private void btnNmr20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNmr20ActionPerformed
@@ -2298,9 +2464,11 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             btnNmr20.setForeground(Color.GREEN);
             btnNmr20.setBackground(Color.GREEN);
             btnNmr20.setEnabled(false);
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
 
         } else {
             iSomaErros++;
+            txtDescricao.setText(btnV + " Não faz parte do vetor");
             btnNmr20.setForeground(Color.RED);
             btnNmr20.setBackground(Color.RED);
             btnNmr20.setEnabled(false);
@@ -2309,739 +2477,3257 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
         String sSomaErros = Integer.toString(iSomaErros);
         txtAcertos.setText(sSomaAcertos);
         txtErro.setText(sSomaErros);
+        String sPerdeu = Integer.toString(iPerdeu);
+        txtTentativas.setText(sPerdeu);
+
+        String sAcerto = txtAcertos.getText();
+        int iAcerto = Integer.parseInt(sAcerto);
+        if (iTamanho == iAcerto) {
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+            setPanelEnabled(jPanelBotoes, false);
+        } else if (iPerdeu == 0) {
+            JOptionPane.showMessageDialog(this, "Você perdeu!");
+            setPanelEnabled(jPanelBotoes, false);
+        }
     }//GEN-LAST:event_btnNmr20ActionPerformed
 
     private void btnNmr21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNmr21ActionPerformed
         int btn1 = 21;
         String btnV = String.valueOf(btn1);
-        String valores = txtVetorMontado.getText();
-        txtVetorMontado.setText(valores + btnV + " | ");
-        btnNmr21.setEnabled(false);
+
+        iRetorna = pVetor.PesquisaVetor(iVetor, btn1);
+
+        if (iRetorna >= 0) {
+            iSomaAcertos++;
+            iPerdeu--;
+            txtVetor.setText(txtVetor.getText() + btnV + " | ");
+            btnNmr21.setForeground(Color.GREEN);
+            btnNmr21.setBackground(Color.GREEN);
+            btnNmr21.setEnabled(false);
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+
+        } else {
+            iSomaErros++;
+            iPerdeu--;
+            btnNmr21.setForeground(Color.RED);
+            btnNmr21.setBackground(Color.RED);
+            btnNmr21.setEnabled(false);
+            txtDescricao.setText(btnV + " Não faz parte do vetor");
+        }
+        String sSomaAcertos = Integer.toString(iSomaAcertos);
+        String sSomaErros = Integer.toString(iSomaErros);
+        txtAcertos.setText(sSomaAcertos);
+        txtErro.setText(sSomaErros);
+        String sPerdeu = Integer.toString(iPerdeu);
+        txtTentativas.setText(sPerdeu);
+
+        String sAcerto = txtAcertos.getText();
+        int iAcerto = Integer.parseInt(sAcerto);
+        if (iTamanho == iAcerto) {
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+            setPanelEnabled(jPanelBotoes, false);
+        } else if (iPerdeu == 0) {
+            JOptionPane.showMessageDialog(this, "Você perdeu!");
+            setPanelEnabled(jPanelBotoes, false);
+        }
     }//GEN-LAST:event_btnNmr21ActionPerformed
 
     private void btnNmr22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNmr22ActionPerformed
         int btn1 = 22;
         String btnV = String.valueOf(btn1);
-        String valores = txtVetorMontado.getText();
-        txtVetorMontado.setText(valores + btnV + " | ");
-        btnNmr22.setEnabled(false);
+
+        iRetorna = pVetor.PesquisaVetor(iVetor, btn1);
+
+        if (iRetorna >= 0) {
+            iSomaAcertos++;
+            iPerdeu--;
+            txtVetor.setText(txtVetor.getText() + btnV + " | ");
+            btnNmr22.setForeground(Color.GREEN);
+            btnNmr22.setBackground(Color.GREEN);
+            btnNmr22.setEnabled(false);
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+
+        } else {
+            iSomaErros++;
+            iPerdeu--;
+            btnNmr22.setForeground(Color.RED);
+            btnNmr22.setBackground(Color.RED);
+            btnNmr22.setEnabled(false);
+            txtDescricao.setText(btnV + " Não faz parte do vetor");
+        }
+        String sSomaAcertos = Integer.toString(iSomaAcertos);
+        String sSomaErros = Integer.toString(iSomaErros);
+        txtAcertos.setText(sSomaAcertos);
+        txtErro.setText(sSomaErros);
+        String sPerdeu = Integer.toString(iPerdeu);
+        txtTentativas.setText(sPerdeu);
+
+        String sAcerto = txtAcertos.getText();
+        int iAcerto = Integer.parseInt(sAcerto);
+        if (iTamanho == iAcerto) {
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+            setPanelEnabled(jPanelBotoes, false);
+        } else if (iPerdeu == 0) {
+            JOptionPane.showMessageDialog(this, "Você perdeu!");
+            setPanelEnabled(jPanelBotoes, false);
+        }
     }//GEN-LAST:event_btnNmr22ActionPerformed
 
     private void btnNmr23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNmr23ActionPerformed
         int btn1 = 23;
         String btnV = String.valueOf(btn1);
-        String valores = txtVetorMontado.getText();
-        txtVetorMontado.setText(valores + btnV + " | ");
-        btnNmr23.setEnabled(false);
+
+        iRetorna = pVetor.PesquisaVetor(iVetor, btn1);
+
+        if (iRetorna >= 0) {
+            iSomaAcertos++;
+            iPerdeu--;
+            txtVetor.setText(txtVetor.getText() + btnV + " | ");
+            btnNmr23.setForeground(Color.GREEN);
+            btnNmr23.setBackground(Color.GREEN);
+            btnNmr23.setEnabled(false);
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+
+        } else {
+            iSomaErros++;
+            iPerdeu--;
+            btnNmr23.setForeground(Color.RED);
+            btnNmr23.setBackground(Color.RED);
+            btnNmr23.setEnabled(false);
+            txtDescricao.setText(btnV + " Não faz parte do vetor");
+        }
+        String sSomaAcertos = Integer.toString(iSomaAcertos);
+        String sSomaErros = Integer.toString(iSomaErros);
+        txtAcertos.setText(sSomaAcertos);
+        txtErro.setText(sSomaErros);
+        String sPerdeu = Integer.toString(iPerdeu);
+        txtTentativas.setText(sPerdeu);
+
+        String sAcerto = txtAcertos.getText();
+        int iAcerto = Integer.parseInt(sAcerto);
+        if (iTamanho == iAcerto) {
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+            setPanelEnabled(jPanelBotoes, false);
+        } else if (iPerdeu == 0) {
+            JOptionPane.showMessageDialog(this, "Você perdeu!");
+            setPanelEnabled(jPanelBotoes, false);
+        }
     }//GEN-LAST:event_btnNmr23ActionPerformed
 
     private void btnNmr24ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNmr24ActionPerformed
         int btn1 = 24;
         String btnV = String.valueOf(btn1);
-        String valores = txtVetorMontado.getText();
-        txtVetorMontado.setText(valores + btnV + " | ");
-        btnNmr24.setEnabled(false);
+
+        iRetorna = pVetor.PesquisaVetor(iVetor, btn1);
+
+        if (iRetorna >= 0) {
+            iSomaAcertos++;
+            iPerdeu--;
+            txtVetor.setText(txtVetor.getText() + btnV + " | ");
+            btnNmr24.setForeground(Color.GREEN);
+            btnNmr24.setBackground(Color.GREEN);
+            btnNmr24.setEnabled(false);
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+
+        } else {
+            iSomaErros++;
+            iPerdeu--;
+            btnNmr24.setForeground(Color.RED);
+            btnNmr24.setBackground(Color.RED);
+            btnNmr24.setEnabled(false);
+            txtDescricao.setText(btnV + " Não faz parte do vetor");
+        }
+        String sSomaAcertos = Integer.toString(iSomaAcertos);
+        String sSomaErros = Integer.toString(iSomaErros);
+        txtAcertos.setText(sSomaAcertos);
+        txtErro.setText(sSomaErros);
+        String sPerdeu = Integer.toString(iPerdeu);
+        txtTentativas.setText(sPerdeu);
+
+        String sAcerto = txtAcertos.getText();
+        int iAcerto = Integer.parseInt(sAcerto);
+        if (iTamanho == iAcerto) {
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+            setPanelEnabled(jPanelBotoes, false);
+        } else if (iPerdeu == 0) {
+            JOptionPane.showMessageDialog(this, "Você perdeu!");
+            setPanelEnabled(jPanelBotoes, false);
+        }
     }//GEN-LAST:event_btnNmr24ActionPerformed
 
     private void btnNmr25ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNmr25ActionPerformed
         int btn1 = 25;
         String btnV = String.valueOf(btn1);
-        String valores = txtVetorMontado.getText();
-        txtVetorMontado.setText(valores + btnV + " | ");
-        btnNmr25.setEnabled(false);
+
+        iRetorna = pVetor.PesquisaVetor(iVetor, btn1);
+
+        if (iRetorna >= 0) {
+            iSomaAcertos++;
+            iPerdeu--;
+            txtVetor.setText(txtVetor.getText() + btnV + " | ");
+            btnNmr25.setForeground(Color.GREEN);
+            btnNmr25.setBackground(Color.GREEN);
+            btnNmr25.setEnabled(false);
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+
+        } else {
+            iSomaErros++;
+            iPerdeu--;
+            btnNmr25.setForeground(Color.RED);
+            btnNmr25.setBackground(Color.RED);
+            btnNmr25.setEnabled(false);
+            txtDescricao.setText(btnV + " Não faz parte do vetor");
+        }
+        String sSomaAcertos = Integer.toString(iSomaAcertos);
+        String sSomaErros = Integer.toString(iSomaErros);
+        txtAcertos.setText(sSomaAcertos);
+        txtErro.setText(sSomaErros);
+        String sPerdeu = Integer.toString(iPerdeu);
+        txtTentativas.setText(sPerdeu);
+
+        String sAcerto = txtAcertos.getText();
+        int iAcerto = Integer.parseInt(sAcerto);
+        if (iTamanho == iAcerto) {
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+            setPanelEnabled(jPanelBotoes, false);
+        } else if (iPerdeu == 0) {
+            JOptionPane.showMessageDialog(this, "Você perdeu!");
+            setPanelEnabled(jPanelBotoes, false);
+        }
     }//GEN-LAST:event_btnNmr25ActionPerformed
 
     private void btnNmr26ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNmr26ActionPerformed
         int btn1 = 26;
         String btnV = String.valueOf(btn1);
-        String valores = txtVetorMontado.getText();
-        txtVetorMontado.setText(valores + btnV + " | ");
-        btnNmr26.setEnabled(false);
+
+        iRetorna = pVetor.PesquisaVetor(iVetor, btn1);
+
+        if (iRetorna >= 0) {
+            iSomaAcertos++;
+            iPerdeu--;
+            txtVetor.setText(txtVetor.getText() + btnV + " | ");
+            btnNmr26.setForeground(Color.GREEN);
+            btnNmr26.setBackground(Color.GREEN);
+            btnNmr26.setEnabled(false);
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+
+        } else {
+            iSomaErros++;
+            iPerdeu--;
+            btnNmr26.setForeground(Color.RED);
+            btnNmr26.setBackground(Color.RED);
+            btnNmr26.setEnabled(false);
+            txtDescricao.setText(btnV + " Não faz parte do vetor");
+        }
+        String sSomaAcertos = Integer.toString(iSomaAcertos);
+        String sSomaErros = Integer.toString(iSomaErros);
+        txtAcertos.setText(sSomaAcertos);
+        txtErro.setText(sSomaErros);
+        String sPerdeu = Integer.toString(iPerdeu);
+        txtTentativas.setText(sPerdeu);
+
+        String sAcerto = txtAcertos.getText();
+        int iAcerto = Integer.parseInt(sAcerto);
+        if (iTamanho == iAcerto) {
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+            setPanelEnabled(jPanelBotoes, false);
+        } else if (iPerdeu == 0) {
+            JOptionPane.showMessageDialog(this, "Você perdeu!");
+            setPanelEnabled(jPanelBotoes, false);
+        }
     }//GEN-LAST:event_btnNmr26ActionPerformed
 
     private void btnNmr27ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNmr27ActionPerformed
         int btn1 = 27;
         String btnV = String.valueOf(btn1);
-        String valores = txtVetorMontado.getText();
-        txtVetorMontado.setText(valores + btnV + " | ");
-        btnNmr27.setEnabled(false);
+
+        iRetorna = pVetor.PesquisaVetor(iVetor, btn1);
+
+        if (iRetorna >= 0) {
+            iSomaAcertos++;
+            iPerdeu--;
+            txtVetor.setText(txtVetor.getText() + btnV + " | ");
+            btnNmr27.setForeground(Color.GREEN);
+            btnNmr27.setBackground(Color.GREEN);
+            btnNmr27.setEnabled(false);
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+
+        } else {
+            iSomaErros++;
+            iPerdeu--;
+            btnNmr27.setForeground(Color.RED);
+            btnNmr27.setBackground(Color.RED);
+            btnNmr27.setEnabled(false);
+            txtDescricao.setText(btnV + " Não faz parte do vetor");
+        }
+        String sSomaAcertos = Integer.toString(iSomaAcertos);
+        String sSomaErros = Integer.toString(iSomaErros);
+        txtAcertos.setText(sSomaAcertos);
+        txtErro.setText(sSomaErros);
+        String sPerdeu = Integer.toString(iPerdeu);
+        txtTentativas.setText(sPerdeu);
+
+        String sAcerto = txtAcertos.getText();
+        int iAcerto = Integer.parseInt(sAcerto);
+        if (iTamanho == iAcerto) {
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+            setPanelEnabled(jPanelBotoes, false);
+        } else if (iPerdeu == 0) {
+            JOptionPane.showMessageDialog(this, "Você perdeu!");
+            setPanelEnabled(jPanelBotoes, false);
+        }
     }//GEN-LAST:event_btnNmr27ActionPerformed
 
     private void btnNmr28ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNmr28ActionPerformed
         int btn1 = 28;
         String btnV = String.valueOf(btn1);
-        String valores = txtVetorMontado.getText();
-        txtVetorMontado.setText(valores + btnV + " | ");
-        btnNmr28.setEnabled(false);
+
+        iRetorna = pVetor.PesquisaVetor(iVetor, btn1);
+
+        if (iRetorna >= 0) {
+            iSomaAcertos++;
+            iPerdeu--;
+            txtVetor.setText(txtVetor.getText() + btnV + " | ");
+            btnNmr28.setForeground(Color.GREEN);
+            btnNmr28.setBackground(Color.GREEN);
+            btnNmr28.setEnabled(false);
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+
+        } else {
+            iSomaErros++;
+            iPerdeu--;
+            btnNmr28.setForeground(Color.RED);
+            btnNmr28.setBackground(Color.RED);
+            btnNmr28.setEnabled(false);
+            txtDescricao.setText(btnV + " Não faz parte do vetor");
+        }
+        String sSomaAcertos = Integer.toString(iSomaAcertos);
+        String sSomaErros = Integer.toString(iSomaErros);
+        txtAcertos.setText(sSomaAcertos);
+        txtErro.setText(sSomaErros);
+        String sPerdeu = Integer.toString(iPerdeu);
+        txtTentativas.setText(sPerdeu);
+
+        String sAcerto = txtAcertos.getText();
+        int iAcerto = Integer.parseInt(sAcerto);
+        if (iTamanho == iAcerto) {
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+            setPanelEnabled(jPanelBotoes, false);
+        } else if (iPerdeu == 0) {
+            JOptionPane.showMessageDialog(this, "Você perdeu!");
+            setPanelEnabled(jPanelBotoes, false);
+        }
     }//GEN-LAST:event_btnNmr28ActionPerformed
 
     private void btnNmr29ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNmr29ActionPerformed
         int btn1 = 29;
         String btnV = String.valueOf(btn1);
-        String valores = txtVetorMontado.getText();
-        txtVetorMontado.setText(valores + btnV + " | ");
-        btnNmr29.setEnabled(false);
+
+        iRetorna = pVetor.PesquisaVetor(iVetor, btn1);
+
+        if (iRetorna >= 0) {
+            iSomaAcertos++;
+            iPerdeu--;
+            txtVetor.setText(txtVetor.getText() + btnV + " | ");
+            btnNmr29.setForeground(Color.GREEN);
+            btnNmr29.setBackground(Color.GREEN);
+            btnNmr29.setEnabled(false);
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+
+        } else {
+            iSomaErros++;
+            iPerdeu--;
+            btnNmr29.setForeground(Color.RED);
+            btnNmr29.setBackground(Color.RED);
+            btnNmr29.setEnabled(false);
+            txtDescricao.setText(btnV + " Não faz parte do vetor");
+        }
+        String sSomaAcertos = Integer.toString(iSomaAcertos);
+        String sSomaErros = Integer.toString(iSomaErros);
+        txtAcertos.setText(sSomaAcertos);
+        txtErro.setText(sSomaErros);
+        String sPerdeu = Integer.toString(iPerdeu);
+        txtTentativas.setText(sPerdeu);
+
+        String sAcerto = txtAcertos.getText();
+        int iAcerto = Integer.parseInt(sAcerto);
+        if (iTamanho == iAcerto) {
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+            setPanelEnabled(jPanelBotoes, false);
+        } else if (iPerdeu == 0) {
+            JOptionPane.showMessageDialog(this, "Você perdeu!");
+            setPanelEnabled(jPanelBotoes, false);
+        }
     }//GEN-LAST:event_btnNmr29ActionPerformed
 
     private void btnNmr30ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNmr30ActionPerformed
         int btn1 = 30;
         String btnV = String.valueOf(btn1);
-        String valores = txtVetorMontado.getText();
-        txtVetorMontado.setText(valores + btnV + " | ");
-        btnNmr30.setEnabled(false);
+
+        iRetorna = pVetor.PesquisaVetor(iVetor, btn1);
+
+        if (iRetorna >= 0) {
+            iSomaAcertos++;
+            iPerdeu--;
+            txtVetor.setText(txtVetor.getText() + btnV + " | ");
+            btnNmr30.setForeground(Color.GREEN);
+            btnNmr30.setBackground(Color.GREEN);
+            btnNmr30.setEnabled(false);
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+
+        } else {
+            iSomaErros++;
+            iPerdeu--;
+            btnNmr30.setForeground(Color.RED);
+            btnNmr30.setBackground(Color.RED);
+            btnNmr30.setEnabled(false);
+            txtDescricao.setText(btnV + " Não faz parte do vetor");
+        }
+        String sSomaAcertos = Integer.toString(iSomaAcertos);
+        String sSomaErros = Integer.toString(iSomaErros);
+        txtAcertos.setText(sSomaAcertos);
+        txtErro.setText(sSomaErros);
+        String sPerdeu = Integer.toString(iPerdeu);
+        txtTentativas.setText(sPerdeu);
+
+        String sAcerto = txtAcertos.getText();
+        int iAcerto = Integer.parseInt(sAcerto);
+        if (iTamanho == iAcerto) {
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+            setPanelEnabled(jPanelBotoes, false);
+        } else if (iPerdeu == 0) {
+            JOptionPane.showMessageDialog(this, "Você perdeu!");
+            setPanelEnabled(jPanelBotoes, false);
+        }
     }//GEN-LAST:event_btnNmr30ActionPerformed
 
     private void btnNmr31ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNmr31ActionPerformed
         int btn1 = 31;
         String btnV = String.valueOf(btn1);
-        String valores = txtVetorMontado.getText();
-        txtVetorMontado.setText(valores + btnV + " | ");
-        btnNmr31.setEnabled(false);
+
+        iRetorna = pVetor.PesquisaVetor(iVetor, btn1);
+
+        if (iRetorna >= 0) {
+            iSomaAcertos++;
+            iPerdeu--;
+            txtVetor.setText(txtVetor.getText() + btnV + " | ");
+            btnNmr31.setForeground(Color.GREEN);
+            btnNmr31.setBackground(Color.GREEN);
+            btnNmr31.setEnabled(false);
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+
+        } else {
+            iSomaErros++;
+            iPerdeu--;
+            btnNmr31.setForeground(Color.RED);
+            btnNmr31.setBackground(Color.RED);
+            btnNmr31.setEnabled(false);
+            txtDescricao.setText(btnV + " Não faz parte do vetor");
+        }
+        String sSomaAcertos = Integer.toString(iSomaAcertos);
+        String sSomaErros = Integer.toString(iSomaErros);
+        txtAcertos.setText(sSomaAcertos);
+        txtErro.setText(sSomaErros);
+        String sPerdeu = Integer.toString(iPerdeu);
+        txtTentativas.setText(sPerdeu);
+
+        String sAcerto = txtAcertos.getText();
+        int iAcerto = Integer.parseInt(sAcerto);
+        if (iTamanho == iAcerto) {
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+            setPanelEnabled(jPanelBotoes, false);
+        } else if (iPerdeu == 0) {
+            JOptionPane.showMessageDialog(this, "Você perdeu!");
+            setPanelEnabled(jPanelBotoes, false);
+        }
     }//GEN-LAST:event_btnNmr31ActionPerformed
 
     private void btnNmr32ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNmr32ActionPerformed
         int btn1 = 32;
         String btnV = String.valueOf(btn1);
-        String valores = txtVetorMontado.getText();
-        txtVetorMontado.setText(valores + btnV + " | ");
-        btnNmr32.setEnabled(false);
+
+        iRetorna = pVetor.PesquisaVetor(iVetor, btn1);
+
+        if (iRetorna >= 0) {
+            iSomaAcertos++;
+            iPerdeu--;
+            txtVetor.setText(txtVetor.getText() + btnV + " | ");
+            btnNmr32.setForeground(Color.GREEN);
+            btnNmr32.setBackground(Color.GREEN);
+            btnNmr32.setEnabled(false);
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+
+        } else {
+            iSomaErros++;
+            iPerdeu--;
+            btnNmr32.setForeground(Color.RED);
+            btnNmr32.setBackground(Color.RED);
+            btnNmr32.setEnabled(false);
+            txtDescricao.setText(btnV + " Não faz parte do vetor");
+        }
+        String sSomaAcertos = Integer.toString(iSomaAcertos);
+        String sSomaErros = Integer.toString(iSomaErros);
+        txtAcertos.setText(sSomaAcertos);
+        txtErro.setText(sSomaErros);
+        String sPerdeu = Integer.toString(iPerdeu);
+        txtTentativas.setText(sPerdeu);
+
+        String sAcerto = txtAcertos.getText();
+        int iAcerto = Integer.parseInt(sAcerto);
+        if (iTamanho == iAcerto) {
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+            setPanelEnabled(jPanelBotoes, false);
+        } else if (iPerdeu == 0) {
+            JOptionPane.showMessageDialog(this, "Você perdeu!");
+            setPanelEnabled(jPanelBotoes, false);
+        }
     }//GEN-LAST:event_btnNmr32ActionPerformed
 
     private void btnNmr33ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNmr33ActionPerformed
         int btn1 = 33;
         String btnV = String.valueOf(btn1);
-        String valores = txtVetorMontado.getText();
-        txtVetorMontado.setText(valores + btnV + " | ");
-        btnNmr33.setEnabled(false);
+
+        iRetorna = pVetor.PesquisaVetor(iVetor, btn1);
+
+        if (iRetorna >= 0) {
+            iSomaAcertos++;
+            iPerdeu--;
+            txtVetor.setText(txtVetor.getText() + btnV + " | ");
+            btnNmr33.setForeground(Color.GREEN);
+            btnNmr33.setBackground(Color.GREEN);
+            btnNmr33.setEnabled(false);
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+
+        } else {
+            iSomaErros++;
+            iPerdeu--;
+            btnNmr33.setForeground(Color.RED);
+            btnNmr33.setBackground(Color.RED);
+            btnNmr33.setEnabled(false);
+            txtDescricao.setText(btnV + " Não faz parte do vetor");
+        }
+        String sSomaAcertos = Integer.toString(iSomaAcertos);
+        String sSomaErros = Integer.toString(iSomaErros);
+        txtAcertos.setText(sSomaAcertos);
+        txtErro.setText(sSomaErros);
+        String sPerdeu = Integer.toString(iPerdeu);
+        txtTentativas.setText(sPerdeu);
+
+        String sAcerto = txtAcertos.getText();
+        int iAcerto = Integer.parseInt(sAcerto);
+        if (iTamanho == iAcerto) {
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+            setPanelEnabled(jPanelBotoes, false);
+        } else if (iPerdeu == 0) {
+            JOptionPane.showMessageDialog(this, "Você perdeu!");
+            setPanelEnabled(jPanelBotoes, false);
+        }
     }//GEN-LAST:event_btnNmr33ActionPerformed
 
     private void btnNmr34ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNmr34ActionPerformed
         int btn1 = 34;
         String btnV = String.valueOf(btn1);
-        String valores = txtVetorMontado.getText();
-        txtVetorMontado.setText(valores + btnV + " | ");
-        btnNmr34.setEnabled(false);
+
+        iRetorna = pVetor.PesquisaVetor(iVetor, btn1);
+
+        if (iRetorna >= 0) {
+            iSomaAcertos++;
+            iPerdeu--;
+            txtVetor.setText(txtVetor.getText() + btnV + " | ");
+            btnNmr34.setForeground(Color.GREEN);
+            btnNmr34.setBackground(Color.GREEN);
+            btnNmr34.setEnabled(false);
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+
+        } else {
+            iSomaErros++;
+            iPerdeu--;
+            btnNmr34.setForeground(Color.RED);
+            btnNmr34.setBackground(Color.RED);
+            btnNmr34.setEnabled(false);
+            txtDescricao.setText(btnV + " Não faz parte do vetor");
+        }
+        String sSomaAcertos = Integer.toString(iSomaAcertos);
+        String sSomaErros = Integer.toString(iSomaErros);
+        txtAcertos.setText(sSomaAcertos);
+        txtErro.setText(sSomaErros);
+        String sPerdeu = Integer.toString(iPerdeu);
+        txtTentativas.setText(sPerdeu);
+
+        String sAcerto = txtAcertos.getText();
+        int iAcerto = Integer.parseInt(sAcerto);
+        if (iTamanho == iAcerto) {
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+            setPanelEnabled(jPanelBotoes, false);
+        } else if (iPerdeu == 0) {
+            JOptionPane.showMessageDialog(this, "Você perdeu!");
+            setPanelEnabled(jPanelBotoes, false);
+        }
     }//GEN-LAST:event_btnNmr34ActionPerformed
 
     private void btnNmr35ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNmr35ActionPerformed
         int btn1 = 35;
         String btnV = String.valueOf(btn1);
-        String valores = txtVetorMontado.getText();
-        txtVetorMontado.setText(valores + btnV + " | ");
-        btnNmr35.setEnabled(false);
+
+        iRetorna = pVetor.PesquisaVetor(iVetor, btn1);
+
+        if (iRetorna >= 0) {
+            iSomaAcertos++;
+            iPerdeu--;
+            txtVetor.setText(txtVetor.getText() + btnV + " | ");
+            btnNmr35.setForeground(Color.GREEN);
+            btnNmr35.setBackground(Color.GREEN);
+            btnNmr35.setEnabled(false);
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+
+        } else {
+            iSomaErros++;
+            iPerdeu--;
+            btnNmr35.setForeground(Color.RED);
+            btnNmr35.setBackground(Color.RED);
+            btnNmr35.setEnabled(false);
+            txtDescricao.setText(btnV + " Não faz parte do vetor");
+        }
+        String sSomaAcertos = Integer.toString(iSomaAcertos);
+        String sSomaErros = Integer.toString(iSomaErros);
+        txtAcertos.setText(sSomaAcertos);
+        txtErro.setText(sSomaErros);
+        String sPerdeu = Integer.toString(iPerdeu);
+        txtTentativas.setText(sPerdeu);
+
+        String sAcerto = txtAcertos.getText();
+        int iAcerto = Integer.parseInt(sAcerto);
+        if (iTamanho == iAcerto) {
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+            setPanelEnabled(jPanelBotoes, false);
+        } else if (iPerdeu == 0) {
+            JOptionPane.showMessageDialog(this, "Você perdeu!");
+            setPanelEnabled(jPanelBotoes, false);
+        }
     }//GEN-LAST:event_btnNmr35ActionPerformed
 
     private void btnNmr36ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNmr36ActionPerformed
         int btn1 = 36;
         String btnV = String.valueOf(btn1);
-        String valores = txtVetorMontado.getText();
-        txtVetorMontado.setText(valores + btnV + " | ");
-        btnNmr36.setEnabled(false);
+
+        iRetorna = pVetor.PesquisaVetor(iVetor, btn1);
+
+        if (iRetorna >= 0) {
+            iSomaAcertos++;
+            iPerdeu--;
+            txtVetor.setText(txtVetor.getText() + btnV + " | ");
+            btnNmr36.setForeground(Color.GREEN);
+            btnNmr36.setBackground(Color.GREEN);
+            btnNmr36.setEnabled(false);
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+
+        } else {
+            iSomaErros++;
+            iPerdeu--;
+            btnNmr36.setForeground(Color.RED);
+            btnNmr36.setBackground(Color.RED);
+            btnNmr36.setEnabled(false);
+            txtDescricao.setText(btnV + " Não faz parte do vetor");
+        }
+        String sSomaAcertos = Integer.toString(iSomaAcertos);
+        String sSomaErros = Integer.toString(iSomaErros);
+        txtAcertos.setText(sSomaAcertos);
+        txtErro.setText(sSomaErros);
+        String sPerdeu = Integer.toString(iPerdeu);
+        txtTentativas.setText(sPerdeu);
+
+        String sAcerto = txtAcertos.getText();
+        int iAcerto = Integer.parseInt(sAcerto);
+        if (iTamanho == iAcerto) {
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+            setPanelEnabled(jPanelBotoes, false);
+        } else if (iPerdeu == 0) {
+            JOptionPane.showMessageDialog(this, "Você perdeu!");
+            setPanelEnabled(jPanelBotoes, false);
+        }
     }//GEN-LAST:event_btnNmr36ActionPerformed
 
     private void btnNmr37ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNmr37ActionPerformed
         int btn1 = 37;
         String btnV = String.valueOf(btn1);
-        String valores = txtVetorMontado.getText();
-        txtVetorMontado.setText(valores + btnV + " | ");
-        btnNmr37.setEnabled(false);
+
+        iRetorna = pVetor.PesquisaVetor(iVetor, btn1);
+
+        if (iRetorna >= 0) {
+            iSomaAcertos++;
+            iPerdeu--;
+            txtVetor.setText(txtVetor.getText() + btnV + " | ");
+            btnNmr37.setForeground(Color.GREEN);
+            btnNmr37.setBackground(Color.GREEN);
+            btnNmr37.setEnabled(false);
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+
+        } else {
+            iSomaErros++;
+            iPerdeu--;
+            btnNmr37.setForeground(Color.RED);
+            btnNmr37.setBackground(Color.RED);
+            btnNmr37.setEnabled(false);
+            txtDescricao.setText(btnV + " Não faz parte do vetor");
+        }
+        String sSomaAcertos = Integer.toString(iSomaAcertos);
+        String sSomaErros = Integer.toString(iSomaErros);
+        txtAcertos.setText(sSomaAcertos);
+        txtErro.setText(sSomaErros);
+        String sPerdeu = Integer.toString(iPerdeu);
+        txtTentativas.setText(sPerdeu);
+
+        String sAcerto = txtAcertos.getText();
+        int iAcerto = Integer.parseInt(sAcerto);
+        if (iTamanho == iAcerto) {
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+            setPanelEnabled(jPanelBotoes, false);
+        } else if (iPerdeu == 0) {
+            JOptionPane.showMessageDialog(this, "Você perdeu!");
+            setPanelEnabled(jPanelBotoes, false);
+        }
     }//GEN-LAST:event_btnNmr37ActionPerformed
 
     private void btnNmr38ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNmr38ActionPerformed
         int btn1 = 38;
         String btnV = String.valueOf(btn1);
-        String valores = txtVetorMontado.getText();
-        txtVetorMontado.setText(valores + btnV + " | ");
-        btnNmr38.setEnabled(false);
+
+        iRetorna = pVetor.PesquisaVetor(iVetor, btn1);
+
+        if (iRetorna >= 0) {
+            iSomaAcertos++;
+            iPerdeu--;
+            txtVetor.setText(txtVetor.getText() + btnV + " | ");
+            btnNmr38.setForeground(Color.GREEN);
+            btnNmr38.setBackground(Color.GREEN);
+            btnNmr38.setEnabled(false);
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+
+        } else {
+            iSomaErros++;
+            iPerdeu--;
+            btnNmr38.setForeground(Color.RED);
+            btnNmr38.setBackground(Color.RED);
+            btnNmr38.setEnabled(false);
+            txtDescricao.setText(btnV + " Não faz parte do vetor");
+        }
+        String sSomaAcertos = Integer.toString(iSomaAcertos);
+        String sSomaErros = Integer.toString(iSomaErros);
+        txtAcertos.setText(sSomaAcertos);
+        txtErro.setText(sSomaErros);
+        String sPerdeu = Integer.toString(iPerdeu);
+        txtTentativas.setText(sPerdeu);
+
+        String sAcerto = txtAcertos.getText();
+        int iAcerto = Integer.parseInt(sAcerto);
+        if (iTamanho == iAcerto) {
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+            setPanelEnabled(jPanelBotoes, false);
+        } else if (iPerdeu == 0) {
+            JOptionPane.showMessageDialog(this, "Você perdeu!");
+            setPanelEnabled(jPanelBotoes, false);
+        }
     }//GEN-LAST:event_btnNmr38ActionPerformed
 
     private void btnNmr39ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNmr39ActionPerformed
         int btn1 = 39;
         String btnV = String.valueOf(btn1);
-        String valores = txtVetorMontado.getText();
-        txtVetorMontado.setText(valores + btnV + " | ");
-        btnNmr39.setEnabled(false);
+
+        iRetorna = pVetor.PesquisaVetor(iVetor, btn1);
+
+        if (iRetorna >= 0) {
+            iSomaAcertos++;
+            iPerdeu--;
+            txtVetor.setText(txtVetor.getText() + btnV + " | ");
+            btnNmr39.setForeground(Color.GREEN);
+            btnNmr39.setBackground(Color.GREEN);
+            btnNmr39.setEnabled(false);
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+
+        } else {
+            iSomaErros++;
+            iPerdeu--;
+            btnNmr39.setForeground(Color.RED);
+            btnNmr39.setBackground(Color.RED);
+            btnNmr39.setEnabled(false);
+            txtDescricao.setText(btnV + " Não faz parte do vetor");
+        }
+        String sSomaAcertos = Integer.toString(iSomaAcertos);
+        String sSomaErros = Integer.toString(iSomaErros);
+        txtAcertos.setText(sSomaAcertos);
+        txtErro.setText(sSomaErros);
+        String sPerdeu = Integer.toString(iPerdeu);
+        txtTentativas.setText(sPerdeu);
+
+        String sAcerto = txtAcertos.getText();
+        int iAcerto = Integer.parseInt(sAcerto);
+        if (iTamanho == iAcerto) {
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+            setPanelEnabled(jPanelBotoes, false);
+        } else if (iPerdeu == 0) {
+            JOptionPane.showMessageDialog(this, "Você perdeu!");
+            setPanelEnabled(jPanelBotoes, false);
+        }
     }//GEN-LAST:event_btnNmr39ActionPerformed
 
     private void btnNmr40ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNmr40ActionPerformed
         int btn1 = 40;
         String btnV = String.valueOf(btn1);
-        String valores = txtVetorMontado.getText();
-        txtVetorMontado.setText(valores + btnV + " | ");
-        btnNmr40.setEnabled(false);
+
+        iRetorna = pVetor.PesquisaVetor(iVetor, btn1);
+
+        if (iRetorna >= 0) {
+            iSomaAcertos++;
+            iPerdeu--;
+            txtVetor.setText(txtVetor.getText() + btnV + " | ");
+            btnNmr40.setForeground(Color.GREEN);
+            btnNmr40.setBackground(Color.GREEN);
+            btnNmr40.setEnabled(false);
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+
+        } else {
+            iSomaErros++;
+            iPerdeu--;
+            btnNmr40.setForeground(Color.RED);
+            btnNmr40.setBackground(Color.RED);
+            btnNmr40.setEnabled(false);
+            txtDescricao.setText(btnV + " Não faz parte do vetor");
+        }
+        String sSomaAcertos = Integer.toString(iSomaAcertos);
+        String sSomaErros = Integer.toString(iSomaErros);
+        txtAcertos.setText(sSomaAcertos);
+        txtErro.setText(sSomaErros);
+        String sPerdeu = Integer.toString(iPerdeu);
+        txtTentativas.setText(sPerdeu);
+
+        String sAcerto = txtAcertos.getText();
+        int iAcerto = Integer.parseInt(sAcerto);
+        if (iTamanho == iAcerto) {
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+            setPanelEnabled(jPanelBotoes, false);
+        } else if (iPerdeu == 0) {
+            JOptionPane.showMessageDialog(this, "Você perdeu!");
+            setPanelEnabled(jPanelBotoes, false);
+        }
     }//GEN-LAST:event_btnNmr40ActionPerformed
 
     private void btnNmr41ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNmr41ActionPerformed
         int btn1 = 41;
         String btnV = String.valueOf(btn1);
-        String valores = txtVetorMontado.getText();
-        txtVetorMontado.setText(valores + btnV + " | ");
-        btnNmr41.setEnabled(false);
+        iRetorna = pVetor.PesquisaVetor(iVetor, btn1);
+        if (iRetorna >= 0) {
+            iSomaAcertos++;
+            iPerdeu--;
+            txtVetor.setText(txtVetor.getText() + btnV + " | ");
+            btnNmr41.setForeground(Color.GREEN);
+            btnNmr41.setBackground(Color.GREEN);
+            btnNmr41.setEnabled(false);
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+        } else {
+            iSomaErros++;
+            iPerdeu--;
+            btnNmr41.setForeground(Color.RED);
+            btnNmr41.setBackground(Color.RED);
+            btnNmr41.setEnabled(false);
+            txtDescricao.setText(btnV + " Não faz parte do vetor");
+        }
+        String sSomaAcertos = Integer.toString(iSomaAcertos);
+        String sSomaErros = Integer.toString(iSomaErros);
+        txtAcertos.setText(sSomaAcertos);
+        txtErro.setText(sSomaErros);
+        String sPerdeu = Integer.toString(iPerdeu);
+        txtTentativas.setText(sPerdeu);
+        String sAcerto = txtAcertos.getText();
+        int iAcerto = Integer.parseInt(sAcerto);
+        if (iTamanho == iAcerto) {
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+            setPanelEnabled(jPanelBotoes, false);
+        } else if (iPerdeu == 0) {
+            JOptionPane.showMessageDialog(this, "Você perdeu!");
+            setPanelEnabled(jPanelBotoes, false);
+        }
     }//GEN-LAST:event_btnNmr41ActionPerformed
 
     private void btnNmr42ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNmr42ActionPerformed
         int btn1 = 42;
         String btnV = String.valueOf(btn1);
-        String valores = txtVetorMontado.getText();
-        txtVetorMontado.setText(valores + btnV + " | ");
-        btnNmr42.setEnabled(false);
+        iRetorna = pVetor.PesquisaVetor(iVetor, btn1);
+        if (iRetorna >= 0) {
+            iSomaAcertos++;
+            iPerdeu--;
+            txtVetor.setText(txtVetor.getText() + btnV + " | ");
+            btnNmr42.setForeground(Color.GREEN);
+            btnNmr42.setBackground(Color.GREEN);
+            btnNmr42.setEnabled(false);
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+        } else {
+            iSomaErros++;
+            iPerdeu--;
+            btnNmr42.setForeground(Color.RED);
+            btnNmr42.setBackground(Color.RED);
+            btnNmr42.setEnabled(false);
+            txtDescricao.setText(btnV + " Não faz parte do vetor");
+        }
+        String sSomaAcertos = Integer.toString(iSomaAcertos);
+        String sSomaErros = Integer.toString(iSomaErros);
+        txtAcertos.setText(sSomaAcertos);
+        txtErro.setText(sSomaErros);
+        String sPerdeu = Integer.toString(iPerdeu);
+        txtTentativas.setText(sPerdeu);
+        String sAcerto = txtAcertos.getText();
+        int iAcerto = Integer.parseInt(sAcerto);
+        if (iTamanho == iAcerto) {
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+            setPanelEnabled(jPanelBotoes, false);
+        } else if (iPerdeu == 0) {
+            JOptionPane.showMessageDialog(this, "Você perdeu!");
+            setPanelEnabled(jPanelBotoes, false);
+        }
     }//GEN-LAST:event_btnNmr42ActionPerformed
 
     private void btnNmr43ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNmr43ActionPerformed
         int btn1 = 43;
         String btnV = String.valueOf(btn1);
-        String valores = txtVetorMontado.getText();
-        txtVetorMontado.setText(valores + btnV + " | ");
-        btnNmr43.setEnabled(false);
+        iRetorna = pVetor.PesquisaVetor(iVetor, btn1);
+        if (iRetorna >= 0) {
+            iSomaAcertos++;
+            iPerdeu--;
+            txtVetor.setText(txtVetor.getText() + btnV + " | ");
+            btnNmr43.setForeground(Color.GREEN);
+            btnNmr43.setBackground(Color.GREEN);
+            btnNmr43.setEnabled(false);
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+        } else {
+            iSomaErros++;
+            iPerdeu--;
+            btnNmr43.setForeground(Color.RED);
+            btnNmr43.setBackground(Color.RED);
+            btnNmr43.setEnabled(false);
+            txtDescricao.setText(btnV + " Não faz parte do vetor");
+        }
+        String sSomaAcertos = Integer.toString(iSomaAcertos);
+        String sSomaErros = Integer.toString(iSomaErros);
+        txtAcertos.setText(sSomaAcertos);
+        txtErro.setText(sSomaErros);
+        String sPerdeu = Integer.toString(iPerdeu);
+        txtTentativas.setText(sPerdeu);
+        String sAcerto = txtAcertos.getText();
+        int iAcerto = Integer.parseInt(sAcerto);
+        if (iTamanho == iAcerto) {
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+            setPanelEnabled(jPanelBotoes, false);
+        } else if (iPerdeu == 0) {
+            JOptionPane.showMessageDialog(this, "Você perdeu!");
+            setPanelEnabled(jPanelBotoes, false);
+        }
     }//GEN-LAST:event_btnNmr43ActionPerformed
 
     private void btnNmr44ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNmr44ActionPerformed
         int btn1 = 44;
         String btnV = String.valueOf(btn1);
-        String valores = txtVetorMontado.getText();
-        txtVetorMontado.setText(valores + btnV + " | ");
-        btnNmr44.setEnabled(false);
+        iRetorna = pVetor.PesquisaVetor(iVetor, btn1);
+        if (iRetorna >= 0) {
+            iSomaAcertos++;
+            iPerdeu--;
+            txtVetor.setText(txtVetor.getText() + btnV + " | ");
+            btnNmr44.setForeground(Color.GREEN);
+            btnNmr44.setBackground(Color.GREEN);
+            btnNmr44.setEnabled(false);
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+        } else {
+            iSomaErros++;
+            iPerdeu--;
+            btnNmr44.setForeground(Color.RED);
+            btnNmr44.setBackground(Color.RED);
+            btnNmr44.setEnabled(false);
+            txtDescricao.setText(btnV + " Não faz parte do vetor");
+        }
+        String sSomaAcertos = Integer.toString(iSomaAcertos);
+        String sSomaErros = Integer.toString(iSomaErros);
+        txtAcertos.setText(sSomaAcertos);
+        txtErro.setText(sSomaErros);
+        String sPerdeu = Integer.toString(iPerdeu);
+        txtTentativas.setText(sPerdeu);
+        String sAcerto = txtAcertos.getText();
+        int iAcerto = Integer.parseInt(sAcerto);
+        if (iTamanho == iAcerto) {
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+            setPanelEnabled(jPanelBotoes, false);
+        } else if (iPerdeu == 0) {
+            JOptionPane.showMessageDialog(this, "Você perdeu!");
+            setPanelEnabled(jPanelBotoes, false);
+        }
     }//GEN-LAST:event_btnNmr44ActionPerformed
 
     private void btnNmr45ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNmr45ActionPerformed
         int btn1 = 45;
         String btnV = String.valueOf(btn1);
-        String valores = txtVetorMontado.getText();
-        txtVetorMontado.setText(valores + btnV + " | ");
-        btnNmr45.setEnabled(false);
+        iRetorna = pVetor.PesquisaVetor(iVetor, btn1);
+        if (iRetorna >= 0) {
+            iSomaAcertos++;
+            iPerdeu--;
+            txtVetor.setText(txtVetor.getText() + btnV + " | ");
+            btnNmr45.setForeground(Color.GREEN);
+            btnNmr45.setBackground(Color.GREEN);
+            btnNmr45.setEnabled(false);
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+        } else {
+            iSomaErros++;
+            iPerdeu--;
+            btnNmr45.setForeground(Color.RED);
+            btnNmr45.setBackground(Color.RED);
+            btnNmr45.setEnabled(false);
+            txtDescricao.setText(btnV + " Não faz parte do vetor");
+        }
+        String sSomaAcertos = Integer.toString(iSomaAcertos);
+        String sSomaErros = Integer.toString(iSomaErros);
+        txtAcertos.setText(sSomaAcertos);
+        txtErro.setText(sSomaErros);
+        String sPerdeu = Integer.toString(iPerdeu);
+        txtTentativas.setText(sPerdeu);
+        String sAcerto = txtAcertos.getText();
+        int iAcerto = Integer.parseInt(sAcerto);
+        if (iTamanho == iAcerto) {
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+            setPanelEnabled(jPanelBotoes, false);
+        } else if (iPerdeu == 0) {
+            JOptionPane.showMessageDialog(this, "Você perdeu!");
+            setPanelEnabled(jPanelBotoes, false);
+        }
     }//GEN-LAST:event_btnNmr45ActionPerformed
 
     private void btnNmr46ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNmr46ActionPerformed
         int btn1 = 46;
         String btnV = String.valueOf(btn1);
-        String valores = txtVetorMontado.getText();
-        txtVetorMontado.setText(valores + btnV + " | ");
-        btnNmr46.setEnabled(false);
+        iRetorna = pVetor.PesquisaVetor(iVetor, btn1);
+        if (iRetorna >= 0) {
+            iSomaAcertos++;
+            iPerdeu--;
+            txtVetor.setText(txtVetor.getText() + btnV + " | ");
+            btnNmr46.setForeground(Color.GREEN);
+            btnNmr46.setBackground(Color.GREEN);
+            btnNmr46.setEnabled(false);
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+        } else {
+            iSomaErros++;
+            iPerdeu--;
+            btnNmr46.setForeground(Color.RED);
+            btnNmr46.setBackground(Color.RED);
+            btnNmr46.setEnabled(false);
+            txtDescricao.setText(btnV + " Não faz parte do vetor");
+        }
+        String sSomaAcertos = Integer.toString(iSomaAcertos);
+        String sSomaErros = Integer.toString(iSomaErros);
+        txtAcertos.setText(sSomaAcertos);
+        txtErro.setText(sSomaErros);
+        String sPerdeu = Integer.toString(iPerdeu);
+        txtTentativas.setText(sPerdeu);
+        String sAcerto = txtAcertos.getText();
+        int iAcerto = Integer.parseInt(sAcerto);
+        if (iTamanho == iAcerto) {
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+            setPanelEnabled(jPanelBotoes, false);
+        } else if (iPerdeu == 0) {
+            JOptionPane.showMessageDialog(this, "Você perdeu!");
+            setPanelEnabled(jPanelBotoes, false);
+        }
     }//GEN-LAST:event_btnNmr46ActionPerformed
 
     private void btnNmr47ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNmr47ActionPerformed
         int btn1 = 47;
         String btnV = String.valueOf(btn1);
-        String valores = txtVetorMontado.getText();
-        txtVetorMontado.setText(valores + btnV + " | ");
-        btnNmr47.setEnabled(false);
+        iRetorna = pVetor.PesquisaVetor(iVetor, btn1);
+        if (iRetorna >= 0) {
+            iSomaAcertos++;
+            iPerdeu--;
+            txtVetor.setText(txtVetor.getText() + btnV + " | ");
+            btnNmr47.setForeground(Color.GREEN);
+            btnNmr47.setBackground(Color.GREEN);
+            btnNmr47.setEnabled(false);
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+        } else {
+            iSomaErros++;
+            iPerdeu--;
+            btnNmr47.setForeground(Color.RED);
+            btnNmr47.setBackground(Color.RED);
+            btnNmr47.setEnabled(false);
+            txtDescricao.setText(btnV + " Não faz parte do vetor");
+        }
+        String sSomaAcertos = Integer.toString(iSomaAcertos);
+        String sSomaErros = Integer.toString(iSomaErros);
+        txtAcertos.setText(sSomaAcertos);
+        txtErro.setText(sSomaErros);
+        String sPerdeu = Integer.toString(iPerdeu);
+        txtTentativas.setText(sPerdeu);
+        String sAcerto = txtAcertos.getText();
+        int iAcerto = Integer.parseInt(sAcerto);
+        if (iTamanho == iAcerto) {
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+            setPanelEnabled(jPanelBotoes, false);
+        } else if (iPerdeu == 0) {
+            JOptionPane.showMessageDialog(this, "Você perdeu!");
+            setPanelEnabled(jPanelBotoes, false);
+        }
     }//GEN-LAST:event_btnNmr47ActionPerformed
 
     private void btnNmr48ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNmr48ActionPerformed
         int btn1 = 48;
         String btnV = String.valueOf(btn1);
-        String valores = txtVetorMontado.getText();
-        txtVetorMontado.setText(valores + btnV + " | ");
-        btnNmr48.setEnabled(false);
+        iRetorna = pVetor.PesquisaVetor(iVetor, btn1);
+        if (iRetorna >= 0) {
+            iSomaAcertos++;
+            iPerdeu--;
+            txtVetor.setText(txtVetor.getText() + btnV + " | ");
+            btnNmr48.setForeground(Color.GREEN);
+            btnNmr48.setBackground(Color.GREEN);
+            btnNmr48.setEnabled(false);
+            iSomaErros++;
+            iPerdeu--;
+            btnNmr48.setForeground(Color.RED);
+            btnNmr48.setBackground(Color.RED);
+            btnNmr48.setEnabled(false);
+            txtDescricao.setText(btnV + " Não faz parte do vetor");
+        }
+        String sSomaAcertos = Integer.toString(iSomaAcertos);
+        String sSomaErros = Integer.toString(iSomaErros);
+        txtAcertos.setText(sSomaAcertos);
+        txtErro.setText(sSomaErros);
+        String sPerdeu = Integer.toString(iPerdeu);
+        txtTentativas.setText(sPerdeu);
+        String sAcerto = txtAcertos.getText();
+        int iAcerto = Integer.parseInt(sAcerto);
+        if (iTamanho == iAcerto) {
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+            setPanelEnabled(jPanelBotoes, false);
+        } else if (iPerdeu == 0) {
+            JOptionPane.showMessageDialog(this, "Você perdeu!");
+            setPanelEnabled(jPanelBotoes, false);
+        }
     }//GEN-LAST:event_btnNmr48ActionPerformed
 
     private void btnNmr49ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNmr49ActionPerformed
         int btn1 = 49;
         String btnV = String.valueOf(btn1);
-        String valores = txtVetorMontado.getText();
-        txtVetorMontado.setText(valores + btnV + " | ");
-        btnNmr49.setEnabled(false);
+        iRetorna = pVetor.PesquisaVetor(iVetor, btn1);
+        if (iRetorna >= 0) {
+            iSomaAcertos++;
+            iPerdeu--;
+            txtVetor.setText(txtVetor.getText() + btnV + " | ");
+            btnNmr49.setForeground(Color.GREEN);
+            btnNmr49.setBackground(Color.GREEN);
+            btnNmr49.setEnabled(false);
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+        } else {
+            iSomaErros++;
+            iPerdeu--;
+            btnNmr49.setForeground(Color.RED);
+            btnNmr49.setBackground(Color.RED);
+            btnNmr49.setEnabled(false);
+            txtDescricao.setText(btnV + " Não faz parte do vetor");
+        }
+        String sSomaAcertos = Integer.toString(iSomaAcertos);
+        String sSomaErros = Integer.toString(iSomaErros);
+        txtAcertos.setText(sSomaAcertos);
+        txtErro.setText(sSomaErros);
+        String sPerdeu = Integer.toString(iPerdeu);
+        txtTentativas.setText(sPerdeu);
+        String sAcerto = txtAcertos.getText();
+        int iAcerto = Integer.parseInt(sAcerto);
+        if (iTamanho == iAcerto) {
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+            setPanelEnabled(jPanelBotoes, false);
+        } else if (iPerdeu == 0) {
+            JOptionPane.showMessageDialog(this, "Você perdeu!");
+            setPanelEnabled(jPanelBotoes, false);
+        }
     }//GEN-LAST:event_btnNmr49ActionPerformed
 
     private void btnNmr50ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNmr50ActionPerformed
         int btn1 = 50;
         String btnV = String.valueOf(btn1);
-        String valores = txtVetorMontado.getText();
-        txtVetorMontado.setText(valores + btnV + " | ");
-        btnNmr50.setEnabled(false);
+        iRetorna = pVetor.PesquisaVetor(iVetor, btn1);
+        if (iRetorna >= 0) {
+            iSomaAcertos++;
+            iPerdeu--;
+            txtVetor.setText(txtVetor.getText() + btnV + " | ");
+            btnNmr50.setForeground(Color.GREEN);
+            btnNmr50.setBackground(Color.GREEN);
+            btnNmr50.setEnabled(false);
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+        } else {
+            iSomaErros++;
+            iPerdeu--;
+            btnNmr50.setForeground(Color.RED);
+            btnNmr50.setBackground(Color.RED);
+            btnNmr50.setEnabled(false);
+            txtDescricao.setText(btnV + " Não faz parte do vetor");
+        }
+        String sSomaAcertos = Integer.toString(iSomaAcertos);
+        String sSomaErros = Integer.toString(iSomaErros);
+        txtAcertos.setText(sSomaAcertos);
+        txtErro.setText(sSomaErros);
+        String sPerdeu = Integer.toString(iPerdeu);
+        txtTentativas.setText(sPerdeu);
+        String sAcerto = txtAcertos.getText();
+        int iAcerto = Integer.parseInt(sAcerto);
+        if (iTamanho == iAcerto) {
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+            setPanelEnabled(jPanelBotoes, false);
+        } else if (iPerdeu == 0) {
+            JOptionPane.showMessageDialog(this, "Você perdeu!");
+            setPanelEnabled(jPanelBotoes, false);
+        }
     }//GEN-LAST:event_btnNmr50ActionPerformed
 
     private void btnNmr51ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNmr51ActionPerformed
         int btn1 = 51;
         String btnV = String.valueOf(btn1);
-        String valores = txtVetorMontado.getText();
-        txtVetorMontado.setText(valores + btnV + " | ");
-        btnNmr51.setEnabled(false);
+        iRetorna = pVetor.PesquisaVetor(iVetor, btn1);
+        if (iRetorna >= 0) {
+            iSomaAcertos++;
+            iPerdeu--;
+            txtVetor.setText(txtVetor.getText() + btnV + " | ");
+            btnNmr1.setForeground(Color.GREEN);
+            btnNmr1.setBackground(Color.GREEN);
+            btnNmr1.setEnabled(false);
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+        } else {
+            iSomaErros++;
+            iPerdeu--;
+            btnNmr1.setForeground(Color.RED);
+            btnNmr1.setBackground(Color.RED);
+            btnNmr1.setEnabled(false);
+            txtDescricao.setText(btnV + " Não faz parte do vetor");
+        }
+        String sSomaAcertos = Integer.toString(iSomaAcertos);
+        String sSomaErros = Integer.toString(iSomaErros);
+        txtAcertos.setText(sSomaAcertos);
+        txtErro.setText(sSomaErros);
+        String sPerdeu = Integer.toString(iPerdeu);
+        txtTentativas.setText(sPerdeu);
+        String sAcerto = txtAcertos.getText();
+        int iAcerto = Integer.parseInt(sAcerto);
+        if (iTamanho == iAcerto) {
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+            setPanelEnabled(jPanelBotoes, false);
+        } else if (iPerdeu == 0) {
+            JOptionPane.showMessageDialog(this, "Você perdeu!");
+            setPanelEnabled(jPanelBotoes, false);
+        }
     }//GEN-LAST:event_btnNmr51ActionPerformed
 
     private void btnNmr52ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNmr52ActionPerformed
         int btn1 = 52;
         String btnV = String.valueOf(btn1);
-        String valores = txtVetorMontado.getText();
-        txtVetorMontado.setText(valores + btnV + " | ");
-        btnNmr52.setEnabled(false);
+        iRetorna = pVetor.PesquisaVetor(iVetor, btn1);
+        if (iRetorna >= 0) {
+            iSomaAcertos++;
+            iPerdeu--;
+            txtVetor.setText(txtVetor.getText() + btnV + " | ");
+            btnNmr1.setForeground(Color.GREEN);
+            btnNmr1.setBackground(Color.GREEN);
+            btnNmr1.setEnabled(false);
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+        } else {
+            iSomaErros++;
+            iPerdeu--;
+            btnNmr1.setForeground(Color.RED);
+            btnNmr1.setBackground(Color.RED);
+            btnNmr1.setEnabled(false);
+            txtDescricao.setText(btnV + " Não faz parte do vetor");
+        }
+        String sSomaAcertos = Integer.toString(iSomaAcertos);
+        String sSomaErros = Integer.toString(iSomaErros);
+        txtAcertos.setText(sSomaAcertos);
+        txtErro.setText(sSomaErros);
+        String sPerdeu = Integer.toString(iPerdeu);
+        txtTentativas.setText(sPerdeu);
+        String sAcerto = txtAcertos.getText();
+        int iAcerto = Integer.parseInt(sAcerto);
+        if (iTamanho == iAcerto) {
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+            setPanelEnabled(jPanelBotoes, false);
+        } else if (iPerdeu == 0) {
+            JOptionPane.showMessageDialog(this, "Você perdeu!");
+            setPanelEnabled(jPanelBotoes, false);
+        }
     }//GEN-LAST:event_btnNmr52ActionPerformed
 
     private void btnNmr53ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNmr53ActionPerformed
         int btn1 = 53;
         String btnV = String.valueOf(btn1);
-        String valores = txtVetorMontado.getText();
-        txtVetorMontado.setText(valores + btnV + " | ");
-        btnNmr53.setEnabled(false);
+        iRetorna = pVetor.PesquisaVetor(iVetor, btn1);
+        if (iRetorna >= 0) {
+            iSomaAcertos++;
+            iPerdeu--;
+            txtVetor.setText(txtVetor.getText() + btnV + " | ");
+            btnNmr1.setForeground(Color.GREEN);
+            btnNmr1.setBackground(Color.GREEN);
+            btnNmr1.setEnabled(false);
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+        } else {
+            iSomaErros++;
+            iPerdeu--;
+            btnNmr1.setForeground(Color.RED);
+            btnNmr1.setBackground(Color.RED);
+            btnNmr1.setEnabled(false);
+            txtDescricao.setText(btnV + " Não faz parte do vetor");
+        }
+        String sSomaAcertos = Integer.toString(iSomaAcertos);
+        String sSomaErros = Integer.toString(iSomaErros);
+        txtAcertos.setText(sSomaAcertos);
+        txtErro.setText(sSomaErros);
+        String sPerdeu = Integer.toString(iPerdeu);
+        txtTentativas.setText(sPerdeu);
+        String sAcerto = txtAcertos.getText();
+        int iAcerto = Integer.parseInt(sAcerto);
+        if (iTamanho == iAcerto) {
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+            setPanelEnabled(jPanelBotoes, false);
+        } else if (iPerdeu == 0) {
+            JOptionPane.showMessageDialog(this, "Você perdeu!");
+            setPanelEnabled(jPanelBotoes, false);
+        }
     }//GEN-LAST:event_btnNmr53ActionPerformed
 
     private void btnNmr54ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNmr54ActionPerformed
         int btn1 = 54;
         String btnV = String.valueOf(btn1);
-        String valores = txtVetorMontado.getText();
-        txtVetorMontado.setText(valores + btnV + " | ");
-        btnNmr54.setEnabled(false);
+        iRetorna = pVetor.PesquisaVetor(iVetor, btn1);
+        if (iRetorna >= 0) {
+            iSomaAcertos++;
+            iPerdeu--;
+            txtVetor.setText(txtVetor.getText() + btnV + " | ");
+            btnNmr1.setForeground(Color.GREEN);
+            btnNmr1.setBackground(Color.GREEN);
+            btnNmr1.setEnabled(false);
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+        } else {
+            iSomaErros++;
+            iPerdeu--;
+            btnNmr1.setForeground(Color.RED);
+            btnNmr1.setBackground(Color.RED);
+            btnNmr1.setEnabled(false);
+            txtDescricao.setText(btnV + " Não faz parte do vetor");
+        }
+        String sSomaAcertos = Integer.toString(iSomaAcertos);
+        String sSomaErros = Integer.toString(iSomaErros);
+        txtAcertos.setText(sSomaAcertos);
+        txtErro.setText(sSomaErros);
+        String sPerdeu = Integer.toString(iPerdeu);
+        txtTentativas.setText(sPerdeu);
+        String sAcerto = txtAcertos.getText();
+        int iAcerto = Integer.parseInt(sAcerto);
+        if (iTamanho == iAcerto) {
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+            setPanelEnabled(jPanelBotoes, false);
+        } else if (iPerdeu == 0) {
+            JOptionPane.showMessageDialog(this, "Você perdeu!");
+            setPanelEnabled(jPanelBotoes, false);
+        }
     }//GEN-LAST:event_btnNmr54ActionPerformed
 
     private void btnNmr55ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNmr55ActionPerformed
         int btn1 = 55;
         String btnV = String.valueOf(btn1);
-        String valores = txtVetorMontado.getText();
-        txtVetorMontado.setText(valores + btnV + " | ");
-        btnNmr55.setEnabled(false);
+        iRetorna = pVetor.PesquisaVetor(iVetor, btn1);
+        if (iRetorna >= 0) {
+            iSomaAcertos++;
+            iPerdeu--;
+            txtVetor.setText(txtVetor.getText() + btnV + " | ");
+            btnNmr1.setForeground(Color.GREEN);
+            btnNmr1.setBackground(Color.GREEN);
+            btnNmr1.setEnabled(false);
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+        } else {
+            iSomaErros++;
+            iPerdeu--;
+            btnNmr1.setForeground(Color.RED);
+            btnNmr1.setBackground(Color.RED);
+            btnNmr1.setEnabled(false);
+            txtDescricao.setText(btnV + " Não faz parte do vetor");
+        }
+        String sSomaAcertos = Integer.toString(iSomaAcertos);
+        String sSomaErros = Integer.toString(iSomaErros);
+        txtAcertos.setText(sSomaAcertos);
+        txtErro.setText(sSomaErros);
+        String sPerdeu = Integer.toString(iPerdeu);
+        txtTentativas.setText(sPerdeu);
+        String sAcerto = txtAcertos.getText();
+        int iAcerto = Integer.parseInt(sAcerto);
+        if (iTamanho == iAcerto) {
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+            setPanelEnabled(jPanelBotoes, false);
+        } else if (iPerdeu == 0) {
+            JOptionPane.showMessageDialog(this, "Você perdeu!");
+            setPanelEnabled(jPanelBotoes, false);
+        }
     }//GEN-LAST:event_btnNmr55ActionPerformed
 
     private void btnNmr56ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNmr56ActionPerformed
         int btn1 = 56;
         String btnV = String.valueOf(btn1);
-        String valores = txtVetorMontado.getText();
-        txtVetorMontado.setText(valores + btnV + " | ");
-        btnNmr56.setEnabled(false);
+        iRetorna = pVetor.PesquisaVetor(iVetor, btn1);
+        if (iRetorna >= 0) {
+            iSomaAcertos++;
+            iPerdeu--;
+            txtVetor.setText(txtVetor.getText() + btnV + " | ");
+            btnNmr1.setForeground(Color.GREEN);
+            btnNmr1.setBackground(Color.GREEN);
+            btnNmr1.setEnabled(false);
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+        } else {
+            iSomaErros++;
+            iPerdeu--;
+            btnNmr1.setForeground(Color.RED);
+            btnNmr1.setBackground(Color.RED);
+            btnNmr1.setEnabled(false);
+            txtDescricao.setText(btnV + " Não faz parte do vetor");
+        }
+        String sSomaAcertos = Integer.toString(iSomaAcertos);
+        String sSomaErros = Integer.toString(iSomaErros);
+        txtAcertos.setText(sSomaAcertos);
+        txtErro.setText(sSomaErros);
+        String sPerdeu = Integer.toString(iPerdeu);
+        txtTentativas.setText(sPerdeu);
+        String sAcerto = txtAcertos.getText();
+        int iAcerto = Integer.parseInt(sAcerto);
+        if (iTamanho == iAcerto) {
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+            setPanelEnabled(jPanelBotoes, false);
+        } else if (iPerdeu == 0) {
+            JOptionPane.showMessageDialog(this, "Você perdeu!");
+            setPanelEnabled(jPanelBotoes, false);
+        }
     }//GEN-LAST:event_btnNmr56ActionPerformed
 
     private void btnNmr57ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNmr57ActionPerformed
         int btn1 = 57;
         String btnV = String.valueOf(btn1);
-        String valores = txtVetorMontado.getText();
-        txtVetorMontado.setText(valores + btnV + " | ");
-        btnNmr57.setEnabled(false);
+        iRetorna = pVetor.PesquisaVetor(iVetor, btn1);
+        if (iRetorna >= 0) {
+            iSomaAcertos++;
+            iPerdeu--;
+            txtVetor.setText(txtVetor.getText() + btnV + " | ");
+            btnNmr1.setForeground(Color.GREEN);
+            btnNmr1.setBackground(Color.GREEN);
+            btnNmr1.setEnabled(false);
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+        } else {
+            iSomaErros++;
+            iPerdeu--;
+            btnNmr1.setForeground(Color.RED);
+            btnNmr1.setBackground(Color.RED);
+            btnNmr1.setEnabled(false);
+            txtDescricao.setText(btnV + " Não faz parte do vetor");
+        }
+        String sSomaAcertos = Integer.toString(iSomaAcertos);
+        String sSomaErros = Integer.toString(iSomaErros);
+        txtAcertos.setText(sSomaAcertos);
+        txtErro.setText(sSomaErros);
+        String sPerdeu = Integer.toString(iPerdeu);
+        txtTentativas.setText(sPerdeu);
+        String sAcerto = txtAcertos.getText();
+        int iAcerto = Integer.parseInt(sAcerto);
+        if (iTamanho == iAcerto) {
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+            setPanelEnabled(jPanelBotoes, false);
+        } else if (iPerdeu == 0) {
+            JOptionPane.showMessageDialog(this, "Você perdeu!");
+            setPanelEnabled(jPanelBotoes, false);
+        }
     }//GEN-LAST:event_btnNmr57ActionPerformed
 
     private void btnNmr58ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNmr58ActionPerformed
         int btn1 = 58;
         String btnV = String.valueOf(btn1);
-        String valores = txtVetorMontado.getText();
-        txtVetorMontado.setText(valores + btnV + " | ");
-        btnNmr58.setEnabled(false);
+        iRetorna = pVetor.PesquisaVetor(iVetor, btn1);
+        if (iRetorna >= 0) {
+            iSomaAcertos++;
+            iPerdeu--;
+            txtVetor.setText(txtVetor.getText() + btnV + " | ");
+            btnNmr1.setForeground(Color.GREEN);
+            btnNmr1.setBackground(Color.GREEN);
+            btnNmr1.setEnabled(false);
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+        } else {
+            iSomaErros++;
+            iPerdeu--;
+            btnNmr1.setForeground(Color.RED);
+            btnNmr1.setBackground(Color.RED);
+            btnNmr1.setEnabled(false);
+            txtDescricao.setText(btnV + " Não faz parte do vetor");
+        }
+        String sSomaAcertos = Integer.toString(iSomaAcertos);
+        String sSomaErros = Integer.toString(iSomaErros);
+        txtAcertos.setText(sSomaAcertos);
+        txtErro.setText(sSomaErros);
+        String sPerdeu = Integer.toString(iPerdeu);
+        txtTentativas.setText(sPerdeu);
+        String sAcerto = txtAcertos.getText();
+        int iAcerto = Integer.parseInt(sAcerto);
+        if (iTamanho == iAcerto) {
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+            setPanelEnabled(jPanelBotoes, false);
+        } else if (iPerdeu == 0) {
+            JOptionPane.showMessageDialog(this, "Você perdeu!");
+            setPanelEnabled(jPanelBotoes, false);
+        }
     }//GEN-LAST:event_btnNmr58ActionPerformed
 
     private void btnNmr59ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNmr59ActionPerformed
         int btn1 = 59;
         String btnV = String.valueOf(btn1);
-        String valores = txtVetorMontado.getText();
-        txtVetorMontado.setText(valores + btnV + " | ");
-        btnNmr59.setEnabled(false);
+        iRetorna = pVetor.PesquisaVetor(iVetor, btn1);
+        if (iRetorna >= 0) {
+            iSomaAcertos++;
+            iPerdeu--;
+            txtVetor.setText(txtVetor.getText() + btnV + " | ");
+            btnNmr1.setForeground(Color.GREEN);
+            btnNmr1.setBackground(Color.GREEN);
+            btnNmr1.setEnabled(false);
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+        } else {
+            iSomaErros++;
+            iPerdeu--;
+            btnNmr1.setForeground(Color.RED);
+            btnNmr1.setBackground(Color.RED);
+            btnNmr1.setEnabled(false);
+            txtDescricao.setText(btnV + " Não faz parte do vetor");
+        }
+        String sSomaAcertos = Integer.toString(iSomaAcertos);
+        String sSomaErros = Integer.toString(iSomaErros);
+        txtAcertos.setText(sSomaAcertos);
+        txtErro.setText(sSomaErros);
+        String sPerdeu = Integer.toString(iPerdeu);
+        txtTentativas.setText(sPerdeu);
+        String sAcerto = txtAcertos.getText();
+        int iAcerto = Integer.parseInt(sAcerto);
+        if (iTamanho == iAcerto) {
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+            setPanelEnabled(jPanelBotoes, false);
+        } else if (iPerdeu == 0) {
+            JOptionPane.showMessageDialog(this, "Você perdeu!");
+            setPanelEnabled(jPanelBotoes, false);
+        }
     }//GEN-LAST:event_btnNmr59ActionPerformed
 
     private void btnNmr60ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNmr60ActionPerformed
         int btn1 = 60;
         String btnV = String.valueOf(btn1);
-        String valores = txtVetorMontado.getText();
-        txtVetorMontado.setText(valores + btnV + " | ");
-        btnNmr60.setEnabled(false);
+        iRetorna = pVetor.PesquisaVetor(iVetor, btn1);
+        if (iRetorna >= 0) {
+            iSomaAcertos++;
+            iPerdeu--;
+            txtVetor.setText(txtVetor.getText() + btnV + " | ");
+            btnNmr1.setForeground(Color.GREEN);
+            btnNmr1.setBackground(Color.GREEN);
+            btnNmr1.setEnabled(false);
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+        } else {
+            iSomaErros++;
+            iPerdeu--;
+            btnNmr1.setForeground(Color.RED);
+            btnNmr1.setBackground(Color.RED);
+            btnNmr1.setEnabled(false);
+            txtDescricao.setText(btnV + " Não faz parte do vetor");
+        }
+        String sSomaAcertos = Integer.toString(iSomaAcertos);
+        String sSomaErros = Integer.toString(iSomaErros);
+        txtAcertos.setText(sSomaAcertos);
+        txtErro.setText(sSomaErros);
+        String sPerdeu = Integer.toString(iPerdeu);
+        txtTentativas.setText(sPerdeu);
+        String sAcerto = txtAcertos.getText();
+        int iAcerto = Integer.parseInt(sAcerto);
+        if (iTamanho == iAcerto) {
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+            setPanelEnabled(jPanelBotoes, false);
+        } else if (iPerdeu == 0) {
+            JOptionPane.showMessageDialog(this, "Você perdeu!");
+            setPanelEnabled(jPanelBotoes, false);
+        }
     }//GEN-LAST:event_btnNmr60ActionPerformed
 
     private void btnNmr61ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNmr61ActionPerformed
         int btn1 = 61;
         String btnV = String.valueOf(btn1);
-        String valores = txtVetorMontado.getText();
-        txtVetorMontado.setText(valores + btnV + " | ");
-        btnNmr61.setEnabled(false);
+        iRetorna = pVetor.PesquisaVetor(iVetor, btn1);
+        if (iRetorna >= 0) {
+            iSomaAcertos++;
+            iPerdeu--;
+            txtVetor.setText(txtVetor.getText() + btnV + " | ");
+            btnNmr1.setForeground(Color.GREEN);
+            btnNmr1.setBackground(Color.GREEN);
+            btnNmr1.setEnabled(false);
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+        } else {
+            iSomaErros++;
+            iPerdeu--;
+            btnNmr1.setForeground(Color.RED);
+            btnNmr1.setBackground(Color.RED);
+            btnNmr1.setEnabled(false);
+            txtDescricao.setText(btnV + " Não faz parte do vetor");
+        }
+        String sSomaAcertos = Integer.toString(iSomaAcertos);
+        String sSomaErros = Integer.toString(iSomaErros);
+        txtAcertos.setText(sSomaAcertos);
+        txtErro.setText(sSomaErros);
+        String sPerdeu = Integer.toString(iPerdeu);
+        txtTentativas.setText(sPerdeu);
+        String sAcerto = txtAcertos.getText();
+        int iAcerto = Integer.parseInt(sAcerto);
+        if (iTamanho == iAcerto) {
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+            setPanelEnabled(jPanelBotoes, false);
+        } else if (iPerdeu == 0) {
+            JOptionPane.showMessageDialog(this, "Você perdeu!");
+            setPanelEnabled(jPanelBotoes, false);
+        }
     }//GEN-LAST:event_btnNmr61ActionPerformed
 
     private void btnNmr62ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNmr62ActionPerformed
         int btn1 = 62;
         String btnV = String.valueOf(btn1);
-        String valores = txtVetorMontado.getText();
-        txtVetorMontado.setText(valores + btnV + " | ");
-        btnNmr62.setEnabled(false);
+        iRetorna = pVetor.PesquisaVetor(iVetor, btn1);
+        if (iRetorna >= 0) {
+            iSomaAcertos++;
+            iPerdeu--;
+            txtVetor.setText(txtVetor.getText() + btnV + " | ");
+            btnNmr1.setForeground(Color.GREEN);
+            btnNmr1.setBackground(Color.GREEN);
+            btnNmr1.setEnabled(false);
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+        } else {
+            iSomaErros++;
+            iPerdeu--;
+            btnNmr1.setForeground(Color.RED);
+            btnNmr1.setBackground(Color.RED);
+            btnNmr1.setEnabled(false);
+            txtDescricao.setText(btnV + " Não faz parte do vetor");
+        }
+        String sSomaAcertos = Integer.toString(iSomaAcertos);
+        String sSomaErros = Integer.toString(iSomaErros);
+        txtAcertos.setText(sSomaAcertos);
+        txtErro.setText(sSomaErros);
+        String sPerdeu = Integer.toString(iPerdeu);
+        txtTentativas.setText(sPerdeu);
+        String sAcerto = txtAcertos.getText();
+        int iAcerto = Integer.parseInt(sAcerto);
+        if (iTamanho == iAcerto) {
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+            setPanelEnabled(jPanelBotoes, false);
+        } else if (iPerdeu == 0) {
+            JOptionPane.showMessageDialog(this, "Você perdeu!");
+            setPanelEnabled(jPanelBotoes, false);
+        }
     }//GEN-LAST:event_btnNmr62ActionPerformed
 
     private void btnNmr63ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNmr63ActionPerformed
         int btn1 = 63;
         String btnV = String.valueOf(btn1);
-        String valores = txtVetorMontado.getText();
-        txtVetorMontado.setText(valores + btnV + " | ");
-        btnNmr63.setEnabled(false);
+        iRetorna = pVetor.PesquisaVetor(iVetor, btn1);
+        if (iRetorna >= 0) {
+            iSomaAcertos++;
+            iPerdeu--;
+            txtVetor.setText(txtVetor.getText() + btnV + " | ");
+            btnNmr1.setForeground(Color.GREEN);
+            btnNmr1.setBackground(Color.GREEN);
+            btnNmr1.setEnabled(false);
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+        } else {
+            iSomaErros++;
+            iPerdeu--;
+            btnNmr1.setForeground(Color.RED);
+            btnNmr1.setBackground(Color.RED);
+            btnNmr1.setEnabled(false);
+            txtDescricao.setText(btnV + " Não faz parte do vetor");
+        }
+        String sSomaAcertos = Integer.toString(iSomaAcertos);
+        String sSomaErros = Integer.toString(iSomaErros);
+        txtAcertos.setText(sSomaAcertos);
+        txtErro.setText(sSomaErros);
+        String sPerdeu = Integer.toString(iPerdeu);
+        txtTentativas.setText(sPerdeu);
+        String sAcerto = txtAcertos.getText();
+        int iAcerto = Integer.parseInt(sAcerto);
+        if (iTamanho == iAcerto) {
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+            setPanelEnabled(jPanelBotoes, false);
+        } else if (iPerdeu == 0) {
+            JOptionPane.showMessageDialog(this, "Você perdeu!");
+            setPanelEnabled(jPanelBotoes, false);
+        }
     }//GEN-LAST:event_btnNmr63ActionPerformed
 
     private void btnNmr64ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNmr64ActionPerformed
         int btn1 = 64;
         String btnV = String.valueOf(btn1);
-        String valores = txtVetorMontado.getText();
-        txtVetorMontado.setText(valores + btnV + " | ");
-        btnNmr64.setEnabled(false);
+        iRetorna = pVetor.PesquisaVetor(iVetor, btn1);
+        if (iRetorna >= 0) {
+            iSomaAcertos++;
+            iPerdeu--;
+            txtVetor.setText(txtVetor.getText() + btnV + " | ");
+            btnNmr1.setForeground(Color.GREEN);
+            btnNmr1.setBackground(Color.GREEN);
+            btnNmr1.setEnabled(false);
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+        } else {
+            iSomaErros++;
+            iPerdeu--;
+            btnNmr1.setForeground(Color.RED);
+            btnNmr1.setBackground(Color.RED);
+            btnNmr1.setEnabled(false);
+            txtDescricao.setText(btnV + " Não faz parte do vetor");
+        }
+        String sSomaAcertos = Integer.toString(iSomaAcertos);
+        String sSomaErros = Integer.toString(iSomaErros);
+        txtAcertos.setText(sSomaAcertos);
+        txtErro.setText(sSomaErros);
+        String sPerdeu = Integer.toString(iPerdeu);
+        txtTentativas.setText(sPerdeu);
+        String sAcerto = txtAcertos.getText();
+        int iAcerto = Integer.parseInt(sAcerto);
+        if (iTamanho == iAcerto) {
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+            setPanelEnabled(jPanelBotoes, false);
+        } else if (iPerdeu == 0) {
+            JOptionPane.showMessageDialog(this, "Você perdeu!");
+            setPanelEnabled(jPanelBotoes, false);
+        }
     }//GEN-LAST:event_btnNmr64ActionPerformed
 
     private void btnNmr65ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNmr65ActionPerformed
         int btn1 = 65;
         String btnV = String.valueOf(btn1);
-        String valores = txtVetorMontado.getText();
-        txtVetorMontado.setText(valores + btnV + " | ");
-        btnNmr65.setEnabled(false);
+        iRetorna = pVetor.PesquisaVetor(iVetor, btn1);
+        if (iRetorna >= 0) {
+            iSomaAcertos++;
+            iPerdeu--;
+            txtVetor.setText(txtVetor.getText() + btnV + " | ");
+            btnNmr1.setForeground(Color.GREEN);
+            btnNmr1.setBackground(Color.GREEN);
+            btnNmr1.setEnabled(false);
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+        } else {
+            iSomaErros++;
+            iPerdeu--;
+            btnNmr1.setForeground(Color.RED);
+            btnNmr1.setBackground(Color.RED);
+            btnNmr1.setEnabled(false);
+            txtDescricao.setText(btnV + " Não faz parte do vetor");
+        }
+        String sSomaAcertos = Integer.toString(iSomaAcertos);
+        String sSomaErros = Integer.toString(iSomaErros);
+        txtAcertos.setText(sSomaAcertos);
+        txtErro.setText(sSomaErros);
+        String sPerdeu = Integer.toString(iPerdeu);
+        txtTentativas.setText(sPerdeu);
+        String sAcerto = txtAcertos.getText();
+        int iAcerto = Integer.parseInt(sAcerto);
+        if (iTamanho == iAcerto) {
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+            setPanelEnabled(jPanelBotoes, false);
+        } else if (iPerdeu == 0) {
+            JOptionPane.showMessageDialog(this, "Você perdeu!");
+            setPanelEnabled(jPanelBotoes, false);
+        }
     }//GEN-LAST:event_btnNmr65ActionPerformed
 
     private void btnNmr66ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNmr66ActionPerformed
         int btn1 = 66;
         String btnV = String.valueOf(btn1);
-        String valores = txtVetorMontado.getText();
-        txtVetorMontado.setText(valores + btnV + " | ");
-        btnNmr66.setEnabled(false);
+        iRetorna = pVetor.PesquisaVetor(iVetor, btn1);
+        if (iRetorna >= 0) {
+            iSomaAcertos++;
+            iPerdeu--;
+            txtVetor.setText(txtVetor.getText() + btnV + " | ");
+            btnNmr1.setForeground(Color.GREEN);
+            btnNmr1.setBackground(Color.GREEN);
+            btnNmr1.setEnabled(false);
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+        } else {
+            iSomaErros++;
+            iPerdeu--;
+            btnNmr1.setForeground(Color.RED);
+            btnNmr1.setBackground(Color.RED);
+            btnNmr1.setEnabled(false);
+            txtDescricao.setText(btnV + " Não faz parte do vetor");
+        }
+        String sSomaAcertos = Integer.toString(iSomaAcertos);
+        String sSomaErros = Integer.toString(iSomaErros);
+        txtAcertos.setText(sSomaAcertos);
+        txtErro.setText(sSomaErros);
+        String sPerdeu = Integer.toString(iPerdeu);
+        txtTentativas.setText(sPerdeu);
+        String sAcerto = txtAcertos.getText();
+        int iAcerto = Integer.parseInt(sAcerto);
+        if (iTamanho == iAcerto) {
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+            setPanelEnabled(jPanelBotoes, false);
+        } else if (iPerdeu == 0) {
+            JOptionPane.showMessageDialog(this, "Você perdeu!");
+            setPanelEnabled(jPanelBotoes, false);
+        }
     }//GEN-LAST:event_btnNmr66ActionPerformed
 
     private void btnNmr67ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNmr67ActionPerformed
         int btn1 = 67;
         String btnV = String.valueOf(btn1);
-        String valores = txtVetorMontado.getText();
-        txtVetorMontado.setText(valores + btnV + " | ");
-        btnNmr67.setEnabled(false);
+        iRetorna = pVetor.PesquisaVetor(iVetor, btn1);
+        if (iRetorna >= 0) {
+            iSomaAcertos++;
+            iPerdeu--;
+            txtVetor.setText(txtVetor.getText() + btnV + " | ");
+            btnNmr1.setForeground(Color.GREEN);
+            btnNmr1.setBackground(Color.GREEN);
+            btnNmr1.setEnabled(false);
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+        } else {
+            iSomaErros++;
+            iPerdeu--;
+            btnNmr1.setForeground(Color.RED);
+            btnNmr1.setBackground(Color.RED);
+            btnNmr1.setEnabled(false);
+            txtDescricao.setText(btnV + " Não faz parte do vetor");
+        }
+        String sSomaAcertos = Integer.toString(iSomaAcertos);
+        String sSomaErros = Integer.toString(iSomaErros);
+        txtAcertos.setText(sSomaAcertos);
+        txtErro.setText(sSomaErros);
+        String sPerdeu = Integer.toString(iPerdeu);
+        txtTentativas.setText(sPerdeu);
+        String sAcerto = txtAcertos.getText();
+        int iAcerto = Integer.parseInt(sAcerto);
+        if (iTamanho == iAcerto) {
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+            setPanelEnabled(jPanelBotoes, false);
+        } else if (iPerdeu == 0) {
+            JOptionPane.showMessageDialog(this, "Você perdeu!");
+            setPanelEnabled(jPanelBotoes, false);
+        }
     }//GEN-LAST:event_btnNmr67ActionPerformed
 
     private void btnNmr68ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNmr68ActionPerformed
         int btn1 = 68;
         String btnV = String.valueOf(btn1);
-        String valores = txtVetorMontado.getText();
-        txtVetorMontado.setText(valores + btnV + " | ");
-        btnNmr68.setEnabled(false);
+        iRetorna = pVetor.PesquisaVetor(iVetor, btn1);
+        if (iRetorna >= 0) {
+            iSomaAcertos++;
+            iPerdeu--;
+            txtVetor.setText(txtVetor.getText() + btnV + " | ");
+            btnNmr1.setForeground(Color.GREEN);
+            btnNmr1.setBackground(Color.GREEN);
+            btnNmr1.setEnabled(false);
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+        } else {
+            iSomaErros++;
+            iPerdeu--;
+            btnNmr1.setForeground(Color.RED);
+            btnNmr1.setBackground(Color.RED);
+            btnNmr1.setEnabled(false);
+            txtDescricao.setText(btnV + " Não faz parte do vetor");
+        }
+        String sSomaAcertos = Integer.toString(iSomaAcertos);
+        String sSomaErros = Integer.toString(iSomaErros);
+        txtAcertos.setText(sSomaAcertos);
+        txtErro.setText(sSomaErros);
+        String sPerdeu = Integer.toString(iPerdeu);
+        txtTentativas.setText(sPerdeu);
+        String sAcerto = txtAcertos.getText();
+        int iAcerto = Integer.parseInt(sAcerto);
+        if (iTamanho == iAcerto) {
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+            setPanelEnabled(jPanelBotoes, false);
+        } else if (iPerdeu == 0) {
+            JOptionPane.showMessageDialog(this, "Você perdeu!");
+            setPanelEnabled(jPanelBotoes, false);
+        }
     }//GEN-LAST:event_btnNmr68ActionPerformed
 
     private void btnNmr69ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNmr69ActionPerformed
         int btn1 = 69;
         String btnV = String.valueOf(btn1);
-        String valores = txtVetorMontado.getText();
-        txtVetorMontado.setText(valores + btnV + " | ");
-        btnNmr69.setEnabled(false);
+        iRetorna = pVetor.PesquisaVetor(iVetor, btn1);
+        if (iRetorna >= 0) {
+            iSomaAcertos++;
+            iPerdeu--;
+            txtVetor.setText(txtVetor.getText() + btnV + " | ");
+            btnNmr1.setForeground(Color.GREEN);
+            btnNmr1.setBackground(Color.GREEN);
+            btnNmr1.setEnabled(false);
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+        } else {
+            iSomaErros++;
+            iPerdeu--;
+            btnNmr1.setForeground(Color.RED);
+            btnNmr1.setBackground(Color.RED);
+            btnNmr1.setEnabled(false);
+            txtDescricao.setText(btnV + " Não faz parte do vetor");
+        }
+        String sSomaAcertos = Integer.toString(iSomaAcertos);
+        String sSomaErros = Integer.toString(iSomaErros);
+        txtAcertos.setText(sSomaAcertos);
+        txtErro.setText(sSomaErros);
+        String sPerdeu = Integer.toString(iPerdeu);
+        txtTentativas.setText(sPerdeu);
+        String sAcerto = txtAcertos.getText();
+        int iAcerto = Integer.parseInt(sAcerto);
+        if (iTamanho == iAcerto) {
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+            setPanelEnabled(jPanelBotoes, false);
+        } else if (iPerdeu == 0) {
+            JOptionPane.showMessageDialog(this, "Você perdeu!");
+            setPanelEnabled(jPanelBotoes, false);
+        }
     }//GEN-LAST:event_btnNmr69ActionPerformed
 
     private void btnNmr70ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNmr70ActionPerformed
         int btn1 = 70;
         String btnV = String.valueOf(btn1);
-        String valores = txtVetorMontado.getText();
-        txtVetorMontado.setText(valores + btnV + " | ");
-        btnNmr70.setEnabled(false);
+        iRetorna = pVetor.PesquisaVetor(iVetor, btn1);
+        if (iRetorna >= 0) {
+            iSomaAcertos++;
+            iPerdeu--;
+            txtVetor.setText(txtVetor.getText() + btnV + " | ");
+            btnNmr1.setForeground(Color.GREEN);
+            btnNmr1.setBackground(Color.GREEN);
+            btnNmr1.setEnabled(false);
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+        } else {
+            iSomaErros++;
+            iPerdeu--;
+            btnNmr1.setForeground(Color.RED);
+            btnNmr1.setBackground(Color.RED);
+            btnNmr1.setEnabled(false);
+            txtDescricao.setText(btnV + " Não faz parte do vetor");
+        }
+        String sSomaAcertos = Integer.toString(iSomaAcertos);
+        String sSomaErros = Integer.toString(iSomaErros);
+        txtAcertos.setText(sSomaAcertos);
+        txtErro.setText(sSomaErros);
+        String sPerdeu = Integer.toString(iPerdeu);
+        txtTentativas.setText(sPerdeu);
+        String sAcerto = txtAcertos.getText();
+        int iAcerto = Integer.parseInt(sAcerto);
+        if (iTamanho == iAcerto) {
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+            setPanelEnabled(jPanelBotoes, false);
+        } else if (iPerdeu == 0) {
+            JOptionPane.showMessageDialog(this, "Você perdeu!");
+            setPanelEnabled(jPanelBotoes, false);
+        }
     }//GEN-LAST:event_btnNmr70ActionPerformed
 
     private void btnNmr71ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNmr71ActionPerformed
         int btn1 = 71;
         String btnV = String.valueOf(btn1);
-        String valores = txtVetorMontado.getText();
-        txtVetorMontado.setText(valores + btnV + " | ");
-        btnNmr71.setEnabled(false);
+        iRetorna = pVetor.PesquisaVetor(iVetor, btn1);
+        if (iRetorna >= 0) {
+            iSomaAcertos++;
+            iPerdeu--;
+            txtVetor.setText(txtVetor.getText() + btnV + " | ");
+            btnNmr1.setForeground(Color.GREEN);
+            btnNmr1.setBackground(Color.GREEN);
+            btnNmr1.setEnabled(false);
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+        } else {
+            iSomaErros++;
+            iPerdeu--;
+            btnNmr1.setForeground(Color.RED);
+            btnNmr1.setBackground(Color.RED);
+            btnNmr1.setEnabled(false);
+            txtDescricao.setText(btnV + " Não faz parte do vetor");
+        }
+        String sSomaAcertos = Integer.toString(iSomaAcertos);
+        String sSomaErros = Integer.toString(iSomaErros);
+        txtAcertos.setText(sSomaAcertos);
+        txtErro.setText(sSomaErros);
+        String sPerdeu = Integer.toString(iPerdeu);
+        txtTentativas.setText(sPerdeu);
+        String sAcerto = txtAcertos.getText();
+        int iAcerto = Integer.parseInt(sAcerto);
+        if (iTamanho == iAcerto) {
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+            setPanelEnabled(jPanelBotoes, false);
+        } else if (iPerdeu == 0) {
+            JOptionPane.showMessageDialog(this, "Você perdeu!");
+            setPanelEnabled(jPanelBotoes, false);
+        }
     }//GEN-LAST:event_btnNmr71ActionPerformed
 
     private void btnNmr72ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNmr72ActionPerformed
         int btn1 = 72;
         String btnV = String.valueOf(btn1);
-        String valores = txtVetorMontado.getText();
-        txtVetorMontado.setText(valores + btnV + " | ");
-        btnNmr72.setEnabled(false);
+        iRetorna = pVetor.PesquisaVetor(iVetor, btn1);
+        if (iRetorna >= 0) {
+            iSomaAcertos++;
+            iPerdeu--;
+            txtVetor.setText(txtVetor.getText() + btnV + " | ");
+            btnNmr1.setForeground(Color.GREEN);
+            btnNmr1.setBackground(Color.GREEN);
+            btnNmr1.setEnabled(false);
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+        } else {
+            iSomaErros++;
+            iPerdeu--;
+            btnNmr1.setForeground(Color.RED);
+            btnNmr1.setBackground(Color.RED);
+            btnNmr1.setEnabled(false);
+            txtDescricao.setText(btnV + " Não faz parte do vetor");
+        }
+        String sSomaAcertos = Integer.toString(iSomaAcertos);
+        String sSomaErros = Integer.toString(iSomaErros);
+        txtAcertos.setText(sSomaAcertos);
+        txtErro.setText(sSomaErros);
+        String sPerdeu = Integer.toString(iPerdeu);
+        txtTentativas.setText(sPerdeu);
+        String sAcerto = txtAcertos.getText();
+        int iAcerto = Integer.parseInt(sAcerto);
+        if (iTamanho == iAcerto) {
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+            setPanelEnabled(jPanelBotoes, false);
+        } else if (iPerdeu == 0) {
+            JOptionPane.showMessageDialog(this, "Você perdeu!");
+            setPanelEnabled(jPanelBotoes, false);
+        }
     }//GEN-LAST:event_btnNmr72ActionPerformed
 
     private void btnNmr73ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNmr73ActionPerformed
         int btn1 = 73;
         String btnV = String.valueOf(btn1);
-        String valores = txtVetorMontado.getText();
-        txtVetorMontado.setText(valores + btnV + " | ");
-        btnNmr73.setEnabled(false);
+        iRetorna = pVetor.PesquisaVetor(iVetor, btn1);
+        if (iRetorna >= 0) {
+            iSomaAcertos++;
+            iPerdeu--;
+            txtVetor.setText(txtVetor.getText() + btnV + " | ");
+            btnNmr1.setForeground(Color.GREEN);
+            btnNmr1.setBackground(Color.GREEN);
+            btnNmr1.setEnabled(false);
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+        } else {
+            iSomaErros++;
+            iPerdeu--;
+            btnNmr1.setForeground(Color.RED);
+            btnNmr1.setBackground(Color.RED);
+            btnNmr1.setEnabled(false);
+            txtDescricao.setText(btnV + " Não faz parte do vetor");
+        }
+        String sSomaAcertos = Integer.toString(iSomaAcertos);
+        String sSomaErros = Integer.toString(iSomaErros);
+        txtAcertos.setText(sSomaAcertos);
+        txtErro.setText(sSomaErros);
+        String sPerdeu = Integer.toString(iPerdeu);
+        txtTentativas.setText(sPerdeu);
+        String sAcerto = txtAcertos.getText();
+        int iAcerto = Integer.parseInt(sAcerto);
+        if (iTamanho == iAcerto) {
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+            setPanelEnabled(jPanelBotoes, false);
+        } else if (iPerdeu == 0) {
+            JOptionPane.showMessageDialog(this, "Você perdeu!");
+            setPanelEnabled(jPanelBotoes, false);
+        }
     }//GEN-LAST:event_btnNmr73ActionPerformed
 
     private void btnNmr74ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNmr74ActionPerformed
         int btn1 = 74;
         String btnV = String.valueOf(btn1);
-        String valores = txtVetorMontado.getText();
-        txtVetorMontado.setText(valores + btnV + " | ");
-        btnNmr74.setEnabled(false);
+        iRetorna = pVetor.PesquisaVetor(iVetor, btn1);
+        if (iRetorna >= 0) {
+            iSomaAcertos++;
+            iPerdeu--;
+            txtVetor.setText(txtVetor.getText() + btnV + " | ");
+            btnNmr1.setForeground(Color.GREEN);
+            btnNmr1.setBackground(Color.GREEN);
+            btnNmr1.setEnabled(false);
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+        } else {
+            iSomaErros++;
+            iPerdeu--;
+            btnNmr1.setForeground(Color.RED);
+            btnNmr1.setBackground(Color.RED);
+            btnNmr1.setEnabled(false);
+            txtDescricao.setText(btnV + " Não faz parte do vetor");
+        }
+        String sSomaAcertos = Integer.toString(iSomaAcertos);
+        String sSomaErros = Integer.toString(iSomaErros);
+        txtAcertos.setText(sSomaAcertos);
+        txtErro.setText(sSomaErros);
+        String sPerdeu = Integer.toString(iPerdeu);
+        txtTentativas.setText(sPerdeu);
+        String sAcerto = txtAcertos.getText();
+        int iAcerto = Integer.parseInt(sAcerto);
+        if (iTamanho == iAcerto) {
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+            setPanelEnabled(jPanelBotoes, false);
+        } else if (iPerdeu == 0) {
+            JOptionPane.showMessageDialog(this, "Você perdeu!");
+            setPanelEnabled(jPanelBotoes, false);
+        }
     }//GEN-LAST:event_btnNmr74ActionPerformed
 
     private void btnNmr75ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNmr75ActionPerformed
         int btn1 = 75;
         String btnV = String.valueOf(btn1);
-        String valores = txtVetorMontado.getText();
-        txtVetorMontado.setText(valores + btnV + " | ");
-        btnNmr75.setEnabled(false);
+        iRetorna = pVetor.PesquisaVetor(iVetor, btn1);
+        if (iRetorna >= 0) {
+            iSomaAcertos++;
+            iPerdeu--;
+            txtVetor.setText(txtVetor.getText() + btnV + " | ");
+            btnNmr1.setForeground(Color.GREEN);
+            btnNmr1.setBackground(Color.GREEN);
+            btnNmr1.setEnabled(false);
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+        } else {
+            iSomaErros++;
+            iPerdeu--;
+            btnNmr1.setForeground(Color.RED);
+            btnNmr1.setBackground(Color.RED);
+            btnNmr1.setEnabled(false);
+            txtDescricao.setText(btnV + " Não faz parte do vetor");
+        }
+        String sSomaAcertos = Integer.toString(iSomaAcertos);
+        String sSomaErros = Integer.toString(iSomaErros);
+        txtAcertos.setText(sSomaAcertos);
+        txtErro.setText(sSomaErros);
+        String sPerdeu = Integer.toString(iPerdeu);
+        txtTentativas.setText(sPerdeu);
+        String sAcerto = txtAcertos.getText();
+        int iAcerto = Integer.parseInt(sAcerto);
+        if (iTamanho == iAcerto) {
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+            setPanelEnabled(jPanelBotoes, false);
+        } else if (iPerdeu == 0) {
+            JOptionPane.showMessageDialog(this, "Você perdeu!");
+            setPanelEnabled(jPanelBotoes, false);
+        }
     }//GEN-LAST:event_btnNmr75ActionPerformed
 
     private void btnNmr76ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNmr76ActionPerformed
         int btn1 = 76;
         String btnV = String.valueOf(btn1);
-        String valores = txtVetorMontado.getText();
-        txtVetorMontado.setText(valores + btnV + " | ");
-        btnNmr76.setEnabled(false);
+        iRetorna = pVetor.PesquisaVetor(iVetor, btn1);
+        if (iRetorna >= 0) {
+            iSomaAcertos++;
+            iPerdeu--;
+            txtVetor.setText(txtVetor.getText() + btnV + " | ");
+            btnNmr1.setForeground(Color.GREEN);
+            btnNmr1.setBackground(Color.GREEN);
+            btnNmr1.setEnabled(false);
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+        } else {
+            iSomaErros++;
+            iPerdeu--;
+            btnNmr1.setForeground(Color.RED);
+            btnNmr1.setBackground(Color.RED);
+            btnNmr1.setEnabled(false);
+            txtDescricao.setText(btnV + " Não faz parte do vetor");
+        }
+        String sSomaAcertos = Integer.toString(iSomaAcertos);
+        String sSomaErros = Integer.toString(iSomaErros);
+        txtAcertos.setText(sSomaAcertos);
+        txtErro.setText(sSomaErros);
+        String sPerdeu = Integer.toString(iPerdeu);
+        txtTentativas.setText(sPerdeu);
+        String sAcerto = txtAcertos.getText();
+        int iAcerto = Integer.parseInt(sAcerto);
+        if (iTamanho == iAcerto) {
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+            setPanelEnabled(jPanelBotoes, false);
+        } else if (iPerdeu == 0) {
+            JOptionPane.showMessageDialog(this, "Você perdeu!");
+            setPanelEnabled(jPanelBotoes, false);
+        }
     }//GEN-LAST:event_btnNmr76ActionPerformed
 
     private void btnNmr77ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNmr77ActionPerformed
         int btn1 = 77;
         String btnV = String.valueOf(btn1);
-        String valores = txtVetorMontado.getText();
-        txtVetorMontado.setText(valores + btnV + " | ");
-        btnNmr77.setEnabled(false);
+        iRetorna = pVetor.PesquisaVetor(iVetor, btn1);
+        if (iRetorna >= 0) {
+            iSomaAcertos++;
+            iPerdeu--;
+            txtVetor.setText(txtVetor.getText() + btnV + " | ");
+            btnNmr1.setForeground(Color.GREEN);
+            btnNmr1.setBackground(Color.GREEN);
+            btnNmr1.setEnabled(false);
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+        } else {
+            iSomaErros++;
+            iPerdeu--;
+            btnNmr1.setForeground(Color.RED);
+            btnNmr1.setBackground(Color.RED);
+            btnNmr1.setEnabled(false);
+            txtDescricao.setText(btnV + " Não faz parte do vetor");
+        }
+        String sSomaAcertos = Integer.toString(iSomaAcertos);
+        String sSomaErros = Integer.toString(iSomaErros);
+        txtAcertos.setText(sSomaAcertos);
+        txtErro.setText(sSomaErros);
+        String sPerdeu = Integer.toString(iPerdeu);
+        txtTentativas.setText(sPerdeu);
+        String sAcerto = txtAcertos.getText();
+        int iAcerto = Integer.parseInt(sAcerto);
+        if (iTamanho == iAcerto) {
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+            setPanelEnabled(jPanelBotoes, false);
+        } else if (iPerdeu == 0) {
+            JOptionPane.showMessageDialog(this, "Você perdeu!");
+            setPanelEnabled(jPanelBotoes, false);
+        }
     }//GEN-LAST:event_btnNmr77ActionPerformed
 
     private void btnNmr78ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNmr78ActionPerformed
         int btn1 = 78;
         String btnV = String.valueOf(btn1);
-        String valores = txtVetorMontado.getText();
-        txtVetorMontado.setText(valores + btnV + " | ");
-        btnNmr78.setEnabled(false);
+        iRetorna = pVetor.PesquisaVetor(iVetor, btn1);
+        if (iRetorna >= 0) {
+            iSomaAcertos++;
+            iPerdeu--;
+            txtVetor.setText(txtVetor.getText() + btnV + " | ");
+            btnNmr1.setForeground(Color.GREEN);
+            btnNmr1.setBackground(Color.GREEN);
+            btnNmr1.setEnabled(false);
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+        } else {
+            iSomaErros++;
+            iPerdeu--;
+            btnNmr1.setForeground(Color.RED);
+            btnNmr1.setBackground(Color.RED);
+            btnNmr1.setEnabled(false);
+            txtDescricao.setText(btnV + " Não faz parte do vetor");
+        }
+        String sSomaAcertos = Integer.toString(iSomaAcertos);
+        String sSomaErros = Integer.toString(iSomaErros);
+        txtAcertos.setText(sSomaAcertos);
+        txtErro.setText(sSomaErros);
+        String sPerdeu = Integer.toString(iPerdeu);
+        txtTentativas.setText(sPerdeu);
+        String sAcerto = txtAcertos.getText();
+        int iAcerto = Integer.parseInt(sAcerto);
+        if (iTamanho == iAcerto) {
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+            setPanelEnabled(jPanelBotoes, false);
+        } else if (iPerdeu == 0) {
+            JOptionPane.showMessageDialog(this, "Você perdeu!");
+            setPanelEnabled(jPanelBotoes, false);
+        }
     }//GEN-LAST:event_btnNmr78ActionPerformed
 
     private void btnNmr79ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNmr79ActionPerformed
         int btn1 = 79;
         String btnV = String.valueOf(btn1);
-        String valores = txtVetorMontado.getText();
-        txtVetorMontado.setText(valores + btnV + " | ");
-        btnNmr79.setEnabled(false);
+        iRetorna = pVetor.PesquisaVetor(iVetor, btn1);
+        if (iRetorna >= 0) {
+            iSomaAcertos++;
+            iPerdeu--;
+            txtVetor.setText(txtVetor.getText() + btnV + " | ");
+            btnNmr1.setForeground(Color.GREEN);
+            btnNmr1.setBackground(Color.GREEN);
+            btnNmr1.setEnabled(false);
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+        } else {
+            iSomaErros++;
+            iPerdeu--;
+            btnNmr1.setForeground(Color.RED);
+            btnNmr1.setBackground(Color.RED);
+            btnNmr1.setEnabled(false);
+            txtDescricao.setText(btnV + " Não faz parte do vetor");
+        }
+        String sSomaAcertos = Integer.toString(iSomaAcertos);
+        String sSomaErros = Integer.toString(iSomaErros);
+        txtAcertos.setText(sSomaAcertos);
+        txtErro.setText(sSomaErros);
+        String sPerdeu = Integer.toString(iPerdeu);
+        txtTentativas.setText(sPerdeu);
+        String sAcerto = txtAcertos.getText();
+        int iAcerto = Integer.parseInt(sAcerto);
+        if (iTamanho == iAcerto) {
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+            setPanelEnabled(jPanelBotoes, false);
+        } else if (iPerdeu == 0) {
+            JOptionPane.showMessageDialog(this, "Você perdeu!");
+            setPanelEnabled(jPanelBotoes, false);
+        }
     }//GEN-LAST:event_btnNmr79ActionPerformed
 
     private void btnNmr80ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNmr80ActionPerformed
         int btn1 = 80;
         String btnV = String.valueOf(btn1);
-        String valores = txtVetorMontado.getText();
-        txtVetorMontado.setText(valores + btnV + " | ");
-        btnNmr80.setEnabled(false);
+        iRetorna = pVetor.PesquisaVetor(iVetor, btn1);
+        if (iRetorna >= 0) {
+            iSomaAcertos++;
+            iPerdeu--;
+            txtVetor.setText(txtVetor.getText() + btnV + " | ");
+            btnNmr1.setForeground(Color.GREEN);
+            btnNmr1.setBackground(Color.GREEN);
+            btnNmr1.setEnabled(false);
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+        } else {
+            iSomaErros++;
+            iPerdeu--;
+            btnNmr1.setForeground(Color.RED);
+            btnNmr1.setBackground(Color.RED);
+            btnNmr1.setEnabled(false);
+            txtDescricao.setText(btnV + " Não faz parte do vetor");
+        }
+        String sSomaAcertos = Integer.toString(iSomaAcertos);
+        String sSomaErros = Integer.toString(iSomaErros);
+        txtAcertos.setText(sSomaAcertos);
+        txtErro.setText(sSomaErros);
+        String sPerdeu = Integer.toString(iPerdeu);
+        txtTentativas.setText(sPerdeu);
+        String sAcerto = txtAcertos.getText();
+        int iAcerto = Integer.parseInt(sAcerto);
+        if (iTamanho == iAcerto) {
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+            setPanelEnabled(jPanelBotoes, false);
+        } else if (iPerdeu == 0) {
+            JOptionPane.showMessageDialog(this, "Você perdeu!");
+            setPanelEnabled(jPanelBotoes, false);
+        }
     }//GEN-LAST:event_btnNmr80ActionPerformed
 
     private void btnNmr81ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNmr81ActionPerformed
         int btn1 = 81;
         String btnV = String.valueOf(btn1);
-        String valores = txtVetorMontado.getText();
-        txtVetorMontado.setText(valores + btnV + " | ");
-        btnNmr81.setEnabled(false);
+        iRetorna = pVetor.PesquisaVetor(iVetor, btn1);
+        if (iRetorna >= 0) {
+            iSomaAcertos++;
+            iPerdeu--;
+            txtVetor.setText(txtVetor.getText() + btnV + " | ");
+            btnNmr1.setForeground(Color.GREEN);
+            btnNmr1.setBackground(Color.GREEN);
+            btnNmr1.setEnabled(false);
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+        } else {
+            iSomaErros++;
+            iPerdeu--;
+            btnNmr1.setForeground(Color.RED);
+            btnNmr1.setBackground(Color.RED);
+            btnNmr1.setEnabled(false);
+            txtDescricao.setText(btnV + " Não faz parte do vetor");
+        }
+        String sSomaAcertos = Integer.toString(iSomaAcertos);
+        String sSomaErros = Integer.toString(iSomaErros);
+        txtAcertos.setText(sSomaAcertos);
+        txtErro.setText(sSomaErros);
+        String sPerdeu = Integer.toString(iPerdeu);
+        txtTentativas.setText(sPerdeu);
+        String sAcerto = txtAcertos.getText();
+        int iAcerto = Integer.parseInt(sAcerto);
+        if (iTamanho == iAcerto) {
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+            setPanelEnabled(jPanelBotoes, false);
+        } else if (iPerdeu == 0) {
+            JOptionPane.showMessageDialog(this, "Você perdeu!");
+            setPanelEnabled(jPanelBotoes, false);
+        }
     }//GEN-LAST:event_btnNmr81ActionPerformed
 
     private void btnNmr82ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNmr82ActionPerformed
         int btn1 = 82;
         String btnV = String.valueOf(btn1);
-        String valores = txtVetorMontado.getText();
-        txtVetorMontado.setText(valores + btnV + " | ");
-        btnNmr82.setEnabled(false);
+        iRetorna = pVetor.PesquisaVetor(iVetor, btn1);
+        if (iRetorna >= 0) {
+            iSomaAcertos++;
+            iPerdeu--;
+            txtVetor.setText(txtVetor.getText() + btnV + " | ");
+            btnNmr1.setForeground(Color.GREEN);
+            btnNmr1.setBackground(Color.GREEN);
+            btnNmr1.setEnabled(false);
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+        } else {
+            iSomaErros++;
+            iPerdeu--;
+            btnNmr1.setForeground(Color.RED);
+            btnNmr1.setBackground(Color.RED);
+            btnNmr1.setEnabled(false);
+            txtDescricao.setText(btnV + " Não faz parte do vetor");
+        }
+        String sSomaAcertos = Integer.toString(iSomaAcertos);
+        String sSomaErros = Integer.toString(iSomaErros);
+        txtAcertos.setText(sSomaAcertos);
+        txtErro.setText(sSomaErros);
+        String sPerdeu = Integer.toString(iPerdeu);
+        txtTentativas.setText(sPerdeu);
+        String sAcerto = txtAcertos.getText();
+        int iAcerto = Integer.parseInt(sAcerto);
+        if (iTamanho == iAcerto) {
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+            setPanelEnabled(jPanelBotoes, false);
+        } else if (iPerdeu == 0) {
+            JOptionPane.showMessageDialog(this, "Você perdeu!");
+            setPanelEnabled(jPanelBotoes, false);
+        }
     }//GEN-LAST:event_btnNmr82ActionPerformed
 
     private void btnNmr83ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNmr83ActionPerformed
         int btn1 = 83;
         String btnV = String.valueOf(btn1);
-        String valores = txtVetorMontado.getText();
-        txtVetorMontado.setText(valores + btnV + " | ");
-        btnNmr83.setEnabled(false);
+        iRetorna = pVetor.PesquisaVetor(iVetor, btn1);
+        if (iRetorna >= 0) {
+            iSomaAcertos++;
+            iPerdeu--;
+            txtVetor.setText(txtVetor.getText() + btnV + " | ");
+            btnNmr1.setForeground(Color.GREEN);
+            btnNmr1.setBackground(Color.GREEN);
+            btnNmr1.setEnabled(false);
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+        } else {
+            iSomaErros++;
+            iPerdeu--;
+            btnNmr1.setForeground(Color.RED);
+            btnNmr1.setBackground(Color.RED);
+            btnNmr1.setEnabled(false);
+            txtDescricao.setText(btnV + " Não faz parte do vetor");
+        }
+        String sSomaAcertos = Integer.toString(iSomaAcertos);
+        String sSomaErros = Integer.toString(iSomaErros);
+        txtAcertos.setText(sSomaAcertos);
+        txtErro.setText(sSomaErros);
+        String sPerdeu = Integer.toString(iPerdeu);
+        txtTentativas.setText(sPerdeu);
+        String sAcerto = txtAcertos.getText();
+        int iAcerto = Integer.parseInt(sAcerto);
+        if (iTamanho == iAcerto) {
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+            setPanelEnabled(jPanelBotoes, false);
+        } else if (iPerdeu == 0) {
+            JOptionPane.showMessageDialog(this, "Você perdeu!");
+            setPanelEnabled(jPanelBotoes, false);
+        }
     }//GEN-LAST:event_btnNmr83ActionPerformed
 
     private void btnNmr84ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNmr84ActionPerformed
         int btn1 = 84;
         String btnV = String.valueOf(btn1);
-        String valores = txtVetorMontado.getText();
-        txtVetorMontado.setText(valores + btnV + " | ");
-        btnNmr84.setEnabled(false);
+        iRetorna = pVetor.PesquisaVetor(iVetor, btn1);
+        if (iRetorna >= 0) {
+            iSomaAcertos++;
+            iPerdeu--;
+            txtVetor.setText(txtVetor.getText() + btnV + " | ");
+            btnNmr1.setForeground(Color.GREEN);
+            btnNmr1.setBackground(Color.GREEN);
+            btnNmr1.setEnabled(false);
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+        } else {
+            iSomaErros++;
+            iPerdeu--;
+            btnNmr1.setForeground(Color.RED);
+            btnNmr1.setBackground(Color.RED);
+            btnNmr1.setEnabled(false);
+            txtDescricao.setText(btnV + " Não faz parte do vetor");
+        }
+        String sSomaAcertos = Integer.toString(iSomaAcertos);
+        String sSomaErros = Integer.toString(iSomaErros);
+        txtAcertos.setText(sSomaAcertos);
+        txtErro.setText(sSomaErros);
+        String sPerdeu = Integer.toString(iPerdeu);
+        txtTentativas.setText(sPerdeu);
+        String sAcerto = txtAcertos.getText();
+        int iAcerto = Integer.parseInt(sAcerto);
+        if (iTamanho == iAcerto) {
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+            setPanelEnabled(jPanelBotoes, false);
+        } else if (iPerdeu == 0) {
+            JOptionPane.showMessageDialog(this, "Você perdeu!");
+            setPanelEnabled(jPanelBotoes, false);
+        }
     }//GEN-LAST:event_btnNmr84ActionPerformed
 
     private void btnNmr85ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNmr85ActionPerformed
         int btn1 = 85;
         String btnV = String.valueOf(btn1);
-        String valores = txtVetorMontado.getText();
-        txtVetorMontado.setText(valores + btnV + " | ");
-        btnNmr85.setEnabled(false);
+        iRetorna = pVetor.PesquisaVetor(iVetor, btn1);
+        if (iRetorna >= 0) {
+            iSomaAcertos++;
+            iPerdeu--;
+            txtVetor.setText(txtVetor.getText() + btnV + " | ");
+            btnNmr1.setForeground(Color.GREEN);
+            btnNmr1.setBackground(Color.GREEN);
+            btnNmr1.setEnabled(false);
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+        } else {
+            iSomaErros++;
+            iPerdeu--;
+            btnNmr1.setForeground(Color.RED);
+            btnNmr1.setBackground(Color.RED);
+            btnNmr1.setEnabled(false);
+            txtDescricao.setText(btnV + " Não faz parte do vetor");
+        }
+        String sSomaAcertos = Integer.toString(iSomaAcertos);
+        String sSomaErros = Integer.toString(iSomaErros);
+        txtAcertos.setText(sSomaAcertos);
+        txtErro.setText(sSomaErros);
+        String sPerdeu = Integer.toString(iPerdeu);
+        txtTentativas.setText(sPerdeu);
+        String sAcerto = txtAcertos.getText();
+        int iAcerto = Integer.parseInt(sAcerto);
+        if (iTamanho == iAcerto) {
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+            setPanelEnabled(jPanelBotoes, false);
+        } else if (iPerdeu == 0) {
+            JOptionPane.showMessageDialog(this, "Você perdeu!");
+            setPanelEnabled(jPanelBotoes, false);
+        }
     }//GEN-LAST:event_btnNmr85ActionPerformed
 
     private void btnNmr86ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNmr86ActionPerformed
         int btn1 = 86;
         String btnV = String.valueOf(btn1);
-        String valores = txtVetorMontado.getText();
-        txtVetorMontado.setText(valores + btnV + " | ");
-        btnNmr86.setEnabled(false);
+        iRetorna = pVetor.PesquisaVetor(iVetor, btn1);
+        if (iRetorna >= 0) {
+            iSomaAcertos++;
+            iPerdeu--;
+            txtVetor.setText(txtVetor.getText() + btnV + " | ");
+            btnNmr1.setForeground(Color.GREEN);
+            btnNmr1.setBackground(Color.GREEN);
+            btnNmr1.setEnabled(false);
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+        } else {
+            iSomaErros++;
+            iPerdeu--;
+            btnNmr1.setForeground(Color.RED);
+            btnNmr1.setBackground(Color.RED);
+            btnNmr1.setEnabled(false);
+            txtDescricao.setText(btnV + " Não faz parte do vetor");
+        }
+        String sSomaAcertos = Integer.toString(iSomaAcertos);
+        String sSomaErros = Integer.toString(iSomaErros);
+        txtAcertos.setText(sSomaAcertos);
+        txtErro.setText(sSomaErros);
+        String sPerdeu = Integer.toString(iPerdeu);
+        txtTentativas.setText(sPerdeu);
+        String sAcerto = txtAcertos.getText();
+        int iAcerto = Integer.parseInt(sAcerto);
+        if (iTamanho == iAcerto) {
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+            setPanelEnabled(jPanelBotoes, false);
+        } else if (iPerdeu == 0) {
+            JOptionPane.showMessageDialog(this, "Você perdeu!");
+            setPanelEnabled(jPanelBotoes, false);
+        }
     }//GEN-LAST:event_btnNmr86ActionPerformed
 
     private void btnNmr87ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNmr87ActionPerformed
         int btn1 = 87;
         String btnV = String.valueOf(btn1);
-        String valores = txtVetorMontado.getText();
-        txtVetorMontado.setText(valores + btnV + " | ");
-        btnNmr87.setEnabled(false);
+        iRetorna = pVetor.PesquisaVetor(iVetor, btn1);
+        if (iRetorna >= 0) {
+            iSomaAcertos++;
+            iPerdeu--;
+            txtVetor.setText(txtVetor.getText() + btnV + " | ");
+            btnNmr1.setForeground(Color.GREEN);
+            btnNmr1.setBackground(Color.GREEN);
+            btnNmr1.setEnabled(false);
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+        } else {
+            iSomaErros++;
+            iPerdeu--;
+            btnNmr1.setForeground(Color.RED);
+            btnNmr1.setBackground(Color.RED);
+            btnNmr1.setEnabled(false);
+            txtDescricao.setText(btnV + " Não faz parte do vetor");
+        }
+        String sSomaAcertos = Integer.toString(iSomaAcertos);
+        String sSomaErros = Integer.toString(iSomaErros);
+        txtAcertos.setText(sSomaAcertos);
+        txtErro.setText(sSomaErros);
+        String sPerdeu = Integer.toString(iPerdeu);
+        txtTentativas.setText(sPerdeu);
+        String sAcerto = txtAcertos.getText();
+        int iAcerto = Integer.parseInt(sAcerto);
+        if (iTamanho == iAcerto) {
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+            setPanelEnabled(jPanelBotoes, false);
+        } else if (iPerdeu == 0) {
+            JOptionPane.showMessageDialog(this, "Você perdeu!");
+            setPanelEnabled(jPanelBotoes, false);
+        }
     }//GEN-LAST:event_btnNmr87ActionPerformed
 
     private void btnNmr88ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNmr88ActionPerformed
         int btn1 = 88;
         String btnV = String.valueOf(btn1);
-        String valores = txtVetorMontado.getText();
-        txtVetorMontado.setText(valores + btnV + " | ");
-        btnNmr88.setEnabled(false);
+        iRetorna = pVetor.PesquisaVetor(iVetor, btn1);
+        if (iRetorna >= 0) {
+            iSomaAcertos++;
+            iPerdeu--;
+            txtVetor.setText(txtVetor.getText() + btnV + " | ");
+            btnNmr1.setForeground(Color.GREEN);
+            btnNmr1.setBackground(Color.GREEN);
+            btnNmr1.setEnabled(false);
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+        } else {
+            iSomaErros++;
+            iPerdeu--;
+            btnNmr1.setForeground(Color.RED);
+            btnNmr1.setBackground(Color.RED);
+            btnNmr1.setEnabled(false);
+            txtDescricao.setText(btnV + " Não faz parte do vetor");
+        }
+        String sSomaAcertos = Integer.toString(iSomaAcertos);
+        String sSomaErros = Integer.toString(iSomaErros);
+        txtAcertos.setText(sSomaAcertos);
+        txtErro.setText(sSomaErros);
+        String sPerdeu = Integer.toString(iPerdeu);
+        txtTentativas.setText(sPerdeu);
+        String sAcerto = txtAcertos.getText();
+        int iAcerto = Integer.parseInt(sAcerto);
+        if (iTamanho == iAcerto) {
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+            setPanelEnabled(jPanelBotoes, false);
+        } else if (iPerdeu == 0) {
+            JOptionPane.showMessageDialog(this, "Você perdeu!");
+            setPanelEnabled(jPanelBotoes, false);
+        }
     }//GEN-LAST:event_btnNmr88ActionPerformed
 
     private void btnNmr89ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNmr89ActionPerformed
         int btn1 = 89;
         String btnV = String.valueOf(btn1);
-        String valores = txtVetorMontado.getText();
-        txtVetorMontado.setText(valores + btnV + " | ");
-        btnNmr89.setEnabled(false);
+        iRetorna = pVetor.PesquisaVetor(iVetor, btn1);
+        if (iRetorna >= 0) {
+            iSomaAcertos++;
+            iPerdeu--;
+            txtVetor.setText(txtVetor.getText() + btnV + " | ");
+            btnNmr1.setForeground(Color.GREEN);
+            btnNmr1.setBackground(Color.GREEN);
+            btnNmr1.setEnabled(false);
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+        } else {
+            iSomaErros++;
+            iPerdeu--;
+            btnNmr1.setForeground(Color.RED);
+            btnNmr1.setBackground(Color.RED);
+            btnNmr1.setEnabled(false);
+            txtDescricao.setText(btnV + " Não faz parte do vetor");
+        }
+        String sSomaAcertos = Integer.toString(iSomaAcertos);
+        String sSomaErros = Integer.toString(iSomaErros);
+        txtAcertos.setText(sSomaAcertos);
+        txtErro.setText(sSomaErros);
+        String sPerdeu = Integer.toString(iPerdeu);
+        txtTentativas.setText(sPerdeu);
+        String sAcerto = txtAcertos.getText();
+        int iAcerto = Integer.parseInt(sAcerto);
+        if (iTamanho == iAcerto) {
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+            setPanelEnabled(jPanelBotoes, false);
+        } else if (iPerdeu == 0) {
+            JOptionPane.showMessageDialog(this, "Você perdeu!");
+            setPanelEnabled(jPanelBotoes, false);
+        }
     }//GEN-LAST:event_btnNmr89ActionPerformed
 
     private void btnNmr90ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNmr90ActionPerformed
         int btn1 = 90;
         String btnV = String.valueOf(btn1);
-        String valores = txtVetorMontado.getText();
-        txtVetorMontado.setText(valores + btnV + " | ");
-        btnNmr90.setEnabled(false);
+        iRetorna = pVetor.PesquisaVetor(iVetor, btn1);
+        if (iRetorna >= 0) {
+            iSomaAcertos++;
+            iPerdeu--;
+            txtVetor.setText(txtVetor.getText() + btnV + " | ");
+            btnNmr1.setForeground(Color.GREEN);
+            btnNmr1.setBackground(Color.GREEN);
+            btnNmr1.setEnabled(false);
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+        } else {
+            iSomaErros++;
+            iPerdeu--;
+            btnNmr1.setForeground(Color.RED);
+            btnNmr1.setBackground(Color.RED);
+            btnNmr1.setEnabled(false);
+            txtDescricao.setText(btnV + " Não faz parte do vetor");
+        }
+        String sSomaAcertos = Integer.toString(iSomaAcertos);
+        String sSomaErros = Integer.toString(iSomaErros);
+        txtAcertos.setText(sSomaAcertos);
+        txtErro.setText(sSomaErros);
+        String sPerdeu = Integer.toString(iPerdeu);
+        txtTentativas.setText(sPerdeu);
+        String sAcerto = txtAcertos.getText();
+        int iAcerto = Integer.parseInt(sAcerto);
+        if (iTamanho == iAcerto) {
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+            setPanelEnabled(jPanelBotoes, false);
+        } else if (iPerdeu == 0) {
+            JOptionPane.showMessageDialog(this, "Você perdeu!");
+            setPanelEnabled(jPanelBotoes, false);
+        }
     }//GEN-LAST:event_btnNmr90ActionPerformed
 
     private void btnNmr91ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNmr91ActionPerformed
         int btn1 = 91;
         String btnV = String.valueOf(btn1);
-        String valores = txtVetorMontado.getText();
-        txtVetorMontado.setText(valores + btnV + " | ");
-        btnNmr91.setEnabled(false);
+        iRetorna = pVetor.PesquisaVetor(iVetor, btn1);
+        if (iRetorna >= 0) {
+            iSomaAcertos++;
+            iPerdeu--;
+            txtVetor.setText(txtVetor.getText() + btnV + " | ");
+            btnNmr1.setForeground(Color.GREEN);
+            btnNmr1.setBackground(Color.GREEN);
+            btnNmr1.setEnabled(false);
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+        } else {
+            iSomaErros++;
+            iPerdeu--;
+            btnNmr1.setForeground(Color.RED);
+            btnNmr1.setBackground(Color.RED);
+            btnNmr1.setEnabled(false);
+            txtDescricao.setText(btnV + " Não faz parte do vetor");
+        }
+        String sSomaAcertos = Integer.toString(iSomaAcertos);
+        String sSomaErros = Integer.toString(iSomaErros);
+        txtAcertos.setText(sSomaAcertos);
+        txtErro.setText(sSomaErros);
+        String sPerdeu = Integer.toString(iPerdeu);
+        txtTentativas.setText(sPerdeu);
+        String sAcerto = txtAcertos.getText();
+        int iAcerto = Integer.parseInt(sAcerto);
+        if (iTamanho == iAcerto) {
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+            setPanelEnabled(jPanelBotoes, false);
+        } else if (iPerdeu == 0) {
+            JOptionPane.showMessageDialog(this, "Você perdeu!");
+            setPanelEnabled(jPanelBotoes, false);
+        }
     }//GEN-LAST:event_btnNmr91ActionPerformed
 
     private void btnNmr92ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNmr92ActionPerformed
         int btn1 = 92;
         String btnV = String.valueOf(btn1);
-        String valores = txtVetorMontado.getText();
-        txtVetorMontado.setText(valores + btnV + " | ");
-        btnNmr92.setEnabled(false);
+        iRetorna = pVetor.PesquisaVetor(iVetor, btn1);
+        if (iRetorna >= 0) {
+            iSomaAcertos++;
+            iPerdeu--;
+            txtVetor.setText(txtVetor.getText() + btnV + " | ");
+            btnNmr1.setForeground(Color.GREEN);
+            btnNmr1.setBackground(Color.GREEN);
+            btnNmr1.setEnabled(false);
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+        } else {
+            iSomaErros++;
+            iPerdeu--;
+            btnNmr1.setForeground(Color.RED);
+            btnNmr1.setBackground(Color.RED);
+            btnNmr1.setEnabled(false);
+            txtDescricao.setText(btnV + " Não faz parte do vetor");
+        }
+        String sSomaAcertos = Integer.toString(iSomaAcertos);
+        String sSomaErros = Integer.toString(iSomaErros);
+        txtAcertos.setText(sSomaAcertos);
+        txtErro.setText(sSomaErros);
+        String sPerdeu = Integer.toString(iPerdeu);
+        txtTentativas.setText(sPerdeu);
+        String sAcerto = txtAcertos.getText();
+        int iAcerto = Integer.parseInt(sAcerto);
+        if (iTamanho == iAcerto) {
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+            setPanelEnabled(jPanelBotoes, false);
+        } else if (iPerdeu == 0) {
+            JOptionPane.showMessageDialog(this, "Você perdeu!");
+            setPanelEnabled(jPanelBotoes, false);
+        }
     }//GEN-LAST:event_btnNmr92ActionPerformed
 
     private void btnNmr93ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNmr93ActionPerformed
         int btn1 = 93;
         String btnV = String.valueOf(btn1);
-        String valores = txtVetorMontado.getText();
-        txtVetorMontado.setText(valores + btnV + " | ");
-        btnNmr93.setEnabled(false);
+        iRetorna = pVetor.PesquisaVetor(iVetor, btn1);
+        if (iRetorna >= 0) {
+            iSomaAcertos++;
+            iPerdeu--;
+            txtVetor.setText(txtVetor.getText() + btnV + " | ");
+            btnNmr1.setForeground(Color.GREEN);
+            btnNmr1.setBackground(Color.GREEN);
+            btnNmr1.setEnabled(false);
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+        } else {
+            iSomaErros++;
+            iPerdeu--;
+            btnNmr1.setForeground(Color.RED);
+            btnNmr1.setBackground(Color.RED);
+            btnNmr1.setEnabled(false);
+            txtDescricao.setText(btnV + " Não faz parte do vetor");
+        }
+        String sSomaAcertos = Integer.toString(iSomaAcertos);
+        String sSomaErros = Integer.toString(iSomaErros);
+        txtAcertos.setText(sSomaAcertos);
+        txtErro.setText(sSomaErros);
+        String sPerdeu = Integer.toString(iPerdeu);
+        txtTentativas.setText(sPerdeu);
+        String sAcerto = txtAcertos.getText();
+        int iAcerto = Integer.parseInt(sAcerto);
+        if (iTamanho == iAcerto) {
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+            setPanelEnabled(jPanelBotoes, false);
+        } else if (iPerdeu == 0) {
+            JOptionPane.showMessageDialog(this, "Você perdeu!");
+            setPanelEnabled(jPanelBotoes, false);
+        }
     }//GEN-LAST:event_btnNmr93ActionPerformed
 
     private void btnNmr94ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNmr94ActionPerformed
         int btn1 = 94;
         String btnV = String.valueOf(btn1);
-        String valores = txtVetorMontado.getText();
-        txtVetorMontado.setText(valores + btnV + " | ");
-        btnNmr94.setEnabled(false);
+        iRetorna = pVetor.PesquisaVetor(iVetor, btn1);
+        if (iRetorna >= 0) {
+            iSomaAcertos++;
+            iPerdeu--;
+            txtVetor.setText(txtVetor.getText() + btnV + " | ");
+            btnNmr1.setForeground(Color.GREEN);
+            btnNmr1.setBackground(Color.GREEN);
+            btnNmr1.setEnabled(false);
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+        } else {
+            iSomaErros++;
+            iPerdeu--;
+            btnNmr1.setForeground(Color.RED);
+            btnNmr1.setBackground(Color.RED);
+            btnNmr1.setEnabled(false);
+            txtDescricao.setText(btnV + " Não faz parte do vetor");
+        }
+        String sSomaAcertos = Integer.toString(iSomaAcertos);
+        String sSomaErros = Integer.toString(iSomaErros);
+        txtAcertos.setText(sSomaAcertos);
+        txtErro.setText(sSomaErros);
+        String sPerdeu = Integer.toString(iPerdeu);
+        txtTentativas.setText(sPerdeu);
+        String sAcerto = txtAcertos.getText();
+        int iAcerto = Integer.parseInt(sAcerto);
+        if (iTamanho == iAcerto) {
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+            setPanelEnabled(jPanelBotoes, false);
+        } else if (iPerdeu == 0) {
+            JOptionPane.showMessageDialog(this, "Você perdeu!");
+            setPanelEnabled(jPanelBotoes, false);
+        }
     }//GEN-LAST:event_btnNmr94ActionPerformed
 
     private void btnNmr95ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNmr95ActionPerformed
         int btn1 = 95;
         String btnV = String.valueOf(btn1);
-        String valores = txtVetorMontado.getText();
-        txtVetorMontado.setText(valores + btnV + " | ");
-        btnNmr95.setEnabled(false);
+        iRetorna = pVetor.PesquisaVetor(iVetor, btn1);
+        if (iRetorna >= 0) {
+            iSomaAcertos++;
+            iPerdeu--;
+            txtVetor.setText(txtVetor.getText() + btnV + " | ");
+            btnNmr1.setForeground(Color.GREEN);
+            btnNmr1.setBackground(Color.GREEN);
+            btnNmr1.setEnabled(false);
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+        } else {
+            iSomaErros++;
+            iPerdeu--;
+            btnNmr1.setForeground(Color.RED);
+            btnNmr1.setBackground(Color.RED);
+            btnNmr1.setEnabled(false);
+            txtDescricao.setText(btnV + " Não faz parte do vetor");
+        }
+        String sSomaAcertos = Integer.toString(iSomaAcertos);
+        String sSomaErros = Integer.toString(iSomaErros);
+        txtAcertos.setText(sSomaAcertos);
+        txtErro.setText(sSomaErros);
+        String sPerdeu = Integer.toString(iPerdeu);
+        txtTentativas.setText(sPerdeu);
+        String sAcerto = txtAcertos.getText();
+        int iAcerto = Integer.parseInt(sAcerto);
+        if (iTamanho == iAcerto) {
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+            setPanelEnabled(jPanelBotoes, false);
+        } else if (iPerdeu == 0) {
+            JOptionPane.showMessageDialog(this, "Você perdeu!");
+            setPanelEnabled(jPanelBotoes, false);
+        }
     }//GEN-LAST:event_btnNmr95ActionPerformed
 
     private void btnNmr96ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNmr96ActionPerformed
         int btn1 = 96;
         String btnV = String.valueOf(btn1);
-        String valores = txtVetorMontado.getText();
-        txtVetorMontado.setText(valores + btnV + " | ");
-        btnNmr96.setEnabled(false);
+        iRetorna = pVetor.PesquisaVetor(iVetor, btn1);
+        if (iRetorna >= 0) {
+            iSomaAcertos++;
+            iPerdeu--;
+            txtVetor.setText(txtVetor.getText() + btnV + " | ");
+            btnNmr1.setForeground(Color.GREEN);
+            btnNmr1.setBackground(Color.GREEN);
+            btnNmr1.setEnabled(false);
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+        } else {
+            iSomaErros++;
+            iPerdeu--;
+            btnNmr1.setForeground(Color.RED);
+            btnNmr1.setBackground(Color.RED);
+            btnNmr1.setEnabled(false);
+            txtDescricao.setText(btnV + " Não faz parte do vetor");
+        }
+        String sSomaAcertos = Integer.toString(iSomaAcertos);
+        String sSomaErros = Integer.toString(iSomaErros);
+        txtAcertos.setText(sSomaAcertos);
+        txtErro.setText(sSomaErros);
+        String sPerdeu = Integer.toString(iPerdeu);
+        txtTentativas.setText(sPerdeu);
+        String sAcerto = txtAcertos.getText();
+        int iAcerto = Integer.parseInt(sAcerto);
+        if (iTamanho == iAcerto) {
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+            setPanelEnabled(jPanelBotoes, false);
+        } else if (iPerdeu == 0) {
+            JOptionPane.showMessageDialog(this, "Você perdeu!");
+            setPanelEnabled(jPanelBotoes, false);
+        }
     }//GEN-LAST:event_btnNmr96ActionPerformed
 
     private void btnNmr97ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNmr97ActionPerformed
         int btn1 = 97;
         String btnV = String.valueOf(btn1);
-        String valores = txtVetorMontado.getText();
-        txtVetorMontado.setText(valores + btnV + " | ");
-        btnNmr97.setEnabled(false);
+        iRetorna = pVetor.PesquisaVetor(iVetor, btn1);
+        if (iRetorna >= 0) {
+            iSomaAcertos++;
+            iPerdeu--;
+            txtVetor.setText(txtVetor.getText() + btnV + " | ");
+            btnNmr1.setForeground(Color.GREEN);
+            btnNmr1.setBackground(Color.GREEN);
+            btnNmr1.setEnabled(false);
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+        } else {
+            iSomaErros++;
+            iPerdeu--;
+            btnNmr1.setForeground(Color.RED);
+            btnNmr1.setBackground(Color.RED);
+            btnNmr1.setEnabled(false);
+            txtDescricao.setText(btnV + " Não faz parte do vetor");
+        }
+        String sSomaAcertos = Integer.toString(iSomaAcertos);
+        String sSomaErros = Integer.toString(iSomaErros);
+        txtAcertos.setText(sSomaAcertos);
+        txtErro.setText(sSomaErros);
+        String sPerdeu = Integer.toString(iPerdeu);
+        txtTentativas.setText(sPerdeu);
+        String sAcerto = txtAcertos.getText();
+        int iAcerto = Integer.parseInt(sAcerto);
+        if (iTamanho == iAcerto) {
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+            setPanelEnabled(jPanelBotoes, false);
+        } else if (iPerdeu == 0) {
+            JOptionPane.showMessageDialog(this, "Você perdeu!");
+            setPanelEnabled(jPanelBotoes, false);
+        }
     }//GEN-LAST:event_btnNmr97ActionPerformed
 
     private void btnNmr98ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNmr98ActionPerformed
         int btn1 = 98;
         String btnV = String.valueOf(btn1);
-        String valores = txtVetorMontado.getText();
-        txtVetorMontado.setText(valores + btnV + " | ");
-        btnNmr98.setEnabled(false);
+        iRetorna = pVetor.PesquisaVetor(iVetor, btn1);
+        if (iRetorna >= 0) {
+            iSomaAcertos++;
+            iPerdeu--;
+            txtVetor.setText(txtVetor.getText() + btnV + " | ");
+            btnNmr1.setForeground(Color.GREEN);
+            btnNmr1.setBackground(Color.GREEN);
+            btnNmr1.setEnabled(false);
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+        } else {
+            iSomaErros++;
+            iPerdeu--;
+            btnNmr1.setForeground(Color.RED);
+            btnNmr1.setBackground(Color.RED);
+            btnNmr1.setEnabled(false);
+            txtDescricao.setText(btnV + " Não faz parte do vetor");
+        }
+        String sSomaAcertos = Integer.toString(iSomaAcertos);
+        String sSomaErros = Integer.toString(iSomaErros);
+        txtAcertos.setText(sSomaAcertos);
+        txtErro.setText(sSomaErros);
+        String sPerdeu = Integer.toString(iPerdeu);
+        txtTentativas.setText(sPerdeu);
+        String sAcerto = txtAcertos.getText();
+        int iAcerto = Integer.parseInt(sAcerto);
+        if (iTamanho == iAcerto) {
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+            setPanelEnabled(jPanelBotoes, false);
+        } else if (iPerdeu == 0) {
+            JOptionPane.showMessageDialog(this, "Você perdeu!");
+            setPanelEnabled(jPanelBotoes, false);
+        }
     }//GEN-LAST:event_btnNmr98ActionPerformed
 
     private void btnNmr99ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNmr99ActionPerformed
         int btn1 = 99;
         String btnV = String.valueOf(btn1);
-        String valores = txtVetorMontado.getText();
-        txtVetorMontado.setText(valores + btnV + " | ");
-        btnNmr99.setEnabled(false);
+        iRetorna = pVetor.PesquisaVetor(iVetor, btn1);
+        if (iRetorna >= 0) {
+            iSomaAcertos++;
+            iPerdeu--;
+            txtVetor.setText(txtVetor.getText() + btnV + " | ");
+            btnNmr1.setForeground(Color.GREEN);
+            btnNmr1.setBackground(Color.GREEN);
+            btnNmr1.setEnabled(false);
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+        } else {
+            iSomaErros++;
+            iPerdeu--;
+            btnNmr1.setForeground(Color.RED);
+            btnNmr1.setBackground(Color.RED);
+            btnNmr1.setEnabled(false);
+            txtDescricao.setText(btnV + " Não faz parte do vetor");
+        }
+        String sSomaAcertos = Integer.toString(iSomaAcertos);
+        String sSomaErros = Integer.toString(iSomaErros);
+        txtAcertos.setText(sSomaAcertos);
+        txtErro.setText(sSomaErros);
+        String sPerdeu = Integer.toString(iPerdeu);
+        txtTentativas.setText(sPerdeu);
+        String sAcerto = txtAcertos.getText();
+        int iAcerto = Integer.parseInt(sAcerto);
+        if (iTamanho == iAcerto) {
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+            setPanelEnabled(jPanelBotoes, false);
+        } else if (iPerdeu == 0) {
+            JOptionPane.showMessageDialog(this, "Você perdeu!");
+            setPanelEnabled(jPanelBotoes, false);
+        }
     }//GEN-LAST:event_btnNmr99ActionPerformed
 
     private void btnNmr100ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNmr100ActionPerformed
         int btn1 = 100;
         String btnV = String.valueOf(btn1);
-        String valores = txtVetorMontado.getText();
-        txtVetorMontado.setText(valores + btnV + " | ");
-        btnNmr100.setEnabled(false);
+        iRetorna = pVetor.PesquisaVetor(iVetor, btn1);
+        if (iRetorna >= 0) {
+            iSomaAcertos++;
+            iPerdeu--;
+            txtVetor.setText(txtVetor.getText() + btnV + " | ");
+            btnNmr1.setForeground(Color.GREEN);
+            btnNmr1.setBackground(Color.GREEN);
+            btnNmr1.setEnabled(false);
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+        } else {
+            iSomaErros++;
+            iPerdeu--;
+            btnNmr1.setForeground(Color.RED);
+            btnNmr1.setBackground(Color.RED);
+            btnNmr1.setEnabled(false);
+            txtDescricao.setText(btnV + " Não faz parte do vetor");
+        }
+        String sSomaAcertos = Integer.toString(iSomaAcertos);
+        String sSomaErros = Integer.toString(iSomaErros);
+        txtAcertos.setText(sSomaAcertos);
+        txtErro.setText(sSomaErros);
+        String sPerdeu = Integer.toString(iPerdeu);
+        txtTentativas.setText(sPerdeu);
+        String sAcerto = txtAcertos.getText();
+        int iAcerto = Integer.parseInt(sAcerto);
+        if (iTamanho == iAcerto) {
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+            setPanelEnabled(jPanelBotoes, false);
+        } else if (iPerdeu == 0) {
+            JOptionPane.showMessageDialog(this, "Você perdeu!");
+            setPanelEnabled(jPanelBotoes, false);
+        }
     }//GEN-LAST:event_btnNmr100ActionPerformed
 
     private void btnNmr101ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNmr101ActionPerformed
         int btn1 = 101;
         String btnV = String.valueOf(btn1);
-        String valores = txtVetorMontado.getText();
-        txtVetorMontado.setText(valores + btnV + " | ");
-        btnNmr101.setEnabled(false);
+        iRetorna = pVetor.PesquisaVetor(iVetor, btn1);
+        if (iRetorna >= 0) {
+            iSomaAcertos++;
+            iPerdeu--;
+            txtVetor.setText(txtVetor.getText() + btnV + " | ");
+            btnNmr1.setForeground(Color.GREEN);
+            btnNmr1.setBackground(Color.GREEN);
+            btnNmr1.setEnabled(false);
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+        } else {
+            iSomaErros++;
+            iPerdeu--;
+            btnNmr1.setForeground(Color.RED);
+            btnNmr1.setBackground(Color.RED);
+            btnNmr1.setEnabled(false);
+            txtDescricao.setText(btnV + " Não faz parte do vetor");
+        }
+        String sSomaAcertos = Integer.toString(iSomaAcertos);
+        String sSomaErros = Integer.toString(iSomaErros);
+        txtAcertos.setText(sSomaAcertos);
+        txtErro.setText(sSomaErros);
+        String sPerdeu = Integer.toString(iPerdeu);
+        txtTentativas.setText(sPerdeu);
+        String sAcerto = txtAcertos.getText();
+        int iAcerto = Integer.parseInt(sAcerto);
+        if (iTamanho == iAcerto) {
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+            setPanelEnabled(jPanelBotoes, false);
+        } else if (iPerdeu == 0) {
+            JOptionPane.showMessageDialog(this, "Você perdeu!");
+            setPanelEnabled(jPanelBotoes, false);
+        }
     }//GEN-LAST:event_btnNmr101ActionPerformed
 
     private void btnNmr102ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNmr102ActionPerformed
         int btn1 = 102;
         String btnV = String.valueOf(btn1);
-        String valores = txtVetorMontado.getText();
-        txtVetorMontado.setText(valores + btnV + " | ");
-        btnNmr102.setEnabled(false);
+        iRetorna = pVetor.PesquisaVetor(iVetor, btn1);
+        if (iRetorna >= 0) {
+            iSomaAcertos++;
+            iPerdeu--;
+            txtVetor.setText(txtVetor.getText() + btnV + " | ");
+            btnNmr1.setForeground(Color.GREEN);
+            btnNmr1.setBackground(Color.GREEN);
+            btnNmr1.setEnabled(false);
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+        } else {
+            iSomaErros++;
+            iPerdeu--;
+            btnNmr1.setForeground(Color.RED);
+            btnNmr1.setBackground(Color.RED);
+            btnNmr1.setEnabled(false);
+            txtDescricao.setText(btnV + " Não faz parte do vetor");
+        }
+        String sSomaAcertos = Integer.toString(iSomaAcertos);
+        String sSomaErros = Integer.toString(iSomaErros);
+        txtAcertos.setText(sSomaAcertos);
+        txtErro.setText(sSomaErros);
+        String sPerdeu = Integer.toString(iPerdeu);
+        txtTentativas.setText(sPerdeu);
+        String sAcerto = txtAcertos.getText();
+        int iAcerto = Integer.parseInt(sAcerto);
+        if (iTamanho == iAcerto) {
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+            setPanelEnabled(jPanelBotoes, false);
+        } else if (iPerdeu == 0) {
+            JOptionPane.showMessageDialog(this, "Você perdeu!");
+            setPanelEnabled(jPanelBotoes, false);
+        }
     }//GEN-LAST:event_btnNmr102ActionPerformed
 
     private void btnNmr103ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNmr103ActionPerformed
         int btn1 = 103;
         String btnV = String.valueOf(btn1);
-        String valores = txtVetorMontado.getText();
-        txtVetorMontado.setText(valores + btnV + " | ");
-        btnNmr103.setEnabled(false);
+
+        iRetorna = pVetor.PesquisaVetor(iVetor, btn1);
+
+        if (iRetorna >= 0) {
+            iSomaAcertos++;
+            iPerdeu--;
+            txtVetor.setText(txtVetor.getText() + btnV + " | ");
+            btnNmr1.setForeground(Color.GREEN);
+            btnNmr1.setBackground(Color.GREEN);
+            btnNmr1.setEnabled(false);
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+
+        } else {
+            iSomaErros++;
+            iPerdeu--;
+            btnNmr1.setForeground(Color.RED);
+            btnNmr1.setBackground(Color.RED);
+            btnNmr1.setEnabled(false);
+            txtDescricao.setText(btnV + " Não faz parte do vetor");
+        }
+        String sSomaAcertos = Integer.toString(iSomaAcertos);
+        String sSomaErros = Integer.toString(iSomaErros);
+        txtAcertos.setText(sSomaAcertos);
+        txtErro.setText(sSomaErros);
+        String sPerdeu = Integer.toString(iPerdeu);
+        txtTentativas.setText(sPerdeu);
+
+        String sAcerto = txtAcertos.getText();
+        int iAcerto = Integer.parseInt(sAcerto);
+        if (iTamanho == iAcerto) {
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+            setPanelEnabled(jPanelBotoes, false);
+        } else if (iPerdeu == 0) {
+            JOptionPane.showMessageDialog(this, "Você perdeu!");
+            setPanelEnabled(jPanelBotoes, false);
+        }
     }//GEN-LAST:event_btnNmr103ActionPerformed
 
     private void btnNmr104ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNmr104ActionPerformed
         int btn1 = 104;
         String btnV = String.valueOf(btn1);
-        String valores = txtVetorMontado.getText();
-        txtVetorMontado.setText(valores + btnV + " | ");
-        btnNmr104.setEnabled(false);
+
+        iRetorna = pVetor.PesquisaVetor(iVetor, btn1);
+
+        if (iRetorna >= 0) {
+            iSomaAcertos++;
+            iPerdeu--;
+            txtVetor.setText(txtVetor.getText() + btnV + " | ");
+            btnNmr1.setForeground(Color.GREEN);
+            btnNmr1.setBackground(Color.GREEN);
+            btnNmr1.setEnabled(false);
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+
+        } else {
+            iSomaErros++;
+            iPerdeu--;
+            btnNmr1.setForeground(Color.RED);
+            btnNmr1.setBackground(Color.RED);
+            btnNmr1.setEnabled(false);
+            txtDescricao.setText(btnV + " Não faz parte do vetor");
+        }
+        String sSomaAcertos = Integer.toString(iSomaAcertos);
+        String sSomaErros = Integer.toString(iSomaErros);
+        txtAcertos.setText(sSomaAcertos);
+        txtErro.setText(sSomaErros);
+        String sPerdeu = Integer.toString(iPerdeu);
+        txtTentativas.setText(sPerdeu);
+
+        String sAcerto = txtAcertos.getText();
+        int iAcerto = Integer.parseInt(sAcerto);
+        if (iTamanho == iAcerto) {
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+            setPanelEnabled(jPanelBotoes, false);
+        } else if (iPerdeu == 0) {
+            JOptionPane.showMessageDialog(this, "Você perdeu!");
+            setPanelEnabled(jPanelBotoes, false);
+        }
     }//GEN-LAST:event_btnNmr104ActionPerformed
 
     private void btnNmr105ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNmr105ActionPerformed
         int btn1 = 105;
         String btnV = String.valueOf(btn1);
-        String valores = txtVetorMontado.getText();
-        txtVetorMontado.setText(valores + btnV + " | ");
-        btnNmr105.setEnabled(false);
+
+        iRetorna = pVetor.PesquisaVetor(iVetor, btn1);
+
+        if (iRetorna >= 0) {
+            iSomaAcertos++;
+            iPerdeu--;
+            txtVetor.setText(txtVetor.getText() + btnV + " | ");
+            btnNmr1.setForeground(Color.GREEN);
+            btnNmr1.setBackground(Color.GREEN);
+            btnNmr1.setEnabled(false);
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+
+        } else {
+            iSomaErros++;
+            iPerdeu--;
+            btnNmr1.setForeground(Color.RED);
+            btnNmr1.setBackground(Color.RED);
+            btnNmr1.setEnabled(false);
+            txtDescricao.setText(btnV + " Não faz parte do vetor");
+        }
+        String sSomaAcertos = Integer.toString(iSomaAcertos);
+        String sSomaErros = Integer.toString(iSomaErros);
+        txtAcertos.setText(sSomaAcertos);
+        txtErro.setText(sSomaErros);
+        String sPerdeu = Integer.toString(iPerdeu);
+        txtTentativas.setText(sPerdeu);
+
+        String sAcerto = txtAcertos.getText();
+        int iAcerto = Integer.parseInt(sAcerto);
+        if (iTamanho == iAcerto) {
+            txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
+            setPanelEnabled(jPanelBotoes, false);
+        } else if (iPerdeu == 0) {
+            JOptionPane.showMessageDialog(this, "Você perdeu!");
+            setPanelEnabled(jPanelBotoes, false);
+        }
     }//GEN-LAST:event_btnNmr105ActionPerformed
-
-    private void btnFinalizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFinalizarActionPerformed
-
-        String VetorOrd = txtVetor.getText();
-        int OrdVetor = Integer.parseInt(VetorOrd);
-
-        int elementos[] = new int[OrdVetor];
-
-        ordena(elementos);
-        System.out.println("Numeros Ordenados: ");
-        for (int numero : elementos) {
-            System.out.println(numero);
-        }
-    }
-
-    public static void ordena(int elementos[]) {
-        int cont1, cont2, aux;
-        for (cont1 = 0; cont1 < 10; cont1++) {
-            for (cont2 = 0; cont2 < 9; cont2++) {
-                if (elementos[cont2] > elementos[cont2 + 1]) {
-                    aux = elementos[cont2];
-                    elementos[cont2] = elementos[cont2 + 1];
-                    elementos[cont2 + 1] = aux;
-                }
-            }
-        }
-    }//GEN-LAST:event_btnFinalizarActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-//        int teste = 1;
-//        String Valor = String.valueOf(teste);
-//
-//        Path caminho = Paths.get("dadosVetor.txt");
-//        try {
-//            byte[] texto = Files.readAllBytes(caminho);
-//            String leitura = new String(texto);
-//            Valor.equals(leitura);
-//            JOptionPane.showMessageDialog(null, "Teste");
-//            JOptionPane.showMessageDialog(this, teste);
-//
-//        } catch (Exception erro) {
-//            JOptionPane.showMessageDialog(this, erro);
-//        }
-
-//        FinalVetor();
-        System.out.println(VetorUser);
-
-    }//GEN-LAST:event_jButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnFinalizar;
     private javax.swing.JButton btnInicia;
     private javax.swing.JButton btnNmr1;
     private javax.swing.JButton btnNmr10;
@@ -3149,7 +5835,6 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnNmr98;
     private javax.swing.JButton btnNmr99;
     private javax.swing.JButton btnParar;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -3158,7 +5843,8 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanelBotoes;
+    private javax.swing.JPanel jPanelInfo;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JSeparator jSeparator1;
@@ -3176,115 +5862,6 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txtValoresVetor;
     public javax.swing.JTextArea txtVetor;
     // End of variables declaration//GEN-END:variables
-public void GerarVetor() {
-
-        String sTamanho = txtTamanhoVetor.getText();
-        int iTamamnho = Integer.parseInt(sTamanho);
-        String sValor = txtValoresVetor.getText();
-        int iValor = Integer.parseInt(sValor);
-
-        int[] v = new int[iTamamnho];
-        Random gerador = new Random(); // nosso gerador de números
-        boolean b = false; // um controlador
-
-        for (int i = 0; i < v.length;) {
-            if (i == 0) {
-                v[i] = gerador.nextInt(iValor) + 1;
-                i++;
-            } else {
-                v[i] = gerador.nextInt(iValor) + 1;
-                b = false;
-                for (int j = 0; j < i; j++) {
-                    if (v[i] == v[j]) {
-                        b = false;
-                        break;
-                    } else {
-                        b = true;
-                    }
-                }
-                if (b) {
-                    i++;
-                }
-            }
-        }
-
-        salvartxt salva = new salvartxt();
-        for (int i = 0; i < v.length; i++) {
-            int iMontado;
-            iMontado = v[i];
-
-            txtVetor.setText(sVazioVetor += iMontado + " | ");
-
-            System.out.print(v[i] + " ");
-            try {
-                salva.setUser(sVazioVetorTXT += v[i]);
-                salva.Salvar();
-            } catch (Exception ex) {
-                JOptionPane.showMessageDialog(this, ex);
-            }
-        }
-    }
-
-    public void OrdenaVetor() {
-
-        String sTamanho = txtTamanhoVetor.getText();
-        int iTamamnho = Integer.parseInt(sTamanho);
-        String sValor = txtValoresVetor.getText();
-        int iValor = Integer.parseInt(sValor);
-
-        int[] v = new int[iTamamnho];
-        Random gerador = new Random(); // nosso gerador de números
-        boolean b = false; // um controlador
-
-        for (int i = 0; i < v.length;) {
-            if (i == 0) {
-                v[i] = gerador.nextInt(iValor) + 1;
-                i++;
-            } else {
-                v[i] = gerador.nextInt(iValor) + 1;
-                b = false;
-                for (int j = 0; j < i; j++) {
-                    if (v[i] == v[j]) {
-                        b = false;
-                        break;
-                    } else {
-                        b = true;
-                    }
-                }
-                if (b) {
-                    i++;
-                }
-            }
-        }
-        Arrays.sort(v);
-
-        for (int i = 0; i < v.length; i++) {
-            System.out.format("%d ", v[i] + "\n");
-
-        }
-    }
-
-    public void FinalVetor() {
-        String sFinal, sValores = null;
-        int iValor;
-        sFinal = txtVetorMontado.getText();
-        try {
-            //sFinal = sValores.replaceAll("|" , ",");
-            sFinal = sValores.replaceAll(Pattern.quote("|"), ",");
-        } catch (Exception ex) {
-            JOptionPane.showMessageDialog(this, ex.toString());
-
-        }
-        iValor = Integer.parseInt(sFinal);
-        int iVetorUser = Integer.parseInt(VetorUser);
-        int[] lista = {iVetorUser};
-        Arrays.sort(lista);
-        for (int i = 0; i < lista.length; i++) {
-            System.out.format("%d ", lista[i]);
-            JOptionPane.showMessageDialog(null, lista[i]);
-
-        }
-    }
 
     public void DateTimer() {
 
@@ -3297,26 +5874,6 @@ public void GerarVetor() {
         public void actionPerformed(ActionEvent e) {
             Calendar now = Calendar.getInstance();
             txtTempoDecorrido.setText(String.format("%1$tH:%1$tM:%1$tS", now));
-        }
-    }
-
-    public class ApagarVetor implements ActionListener {
-
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            txtVetor.setText("");
-
-        }
-    }
-
-    public class descVetor implements ActionListener {
-
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            Calendar now = Calendar.getInstance();
-            txtDescricao.setText(String.format("Você tem 10 segundos Paver o vetor - " + "%1$tS", now));
-            txtVetor.setText("");
-
         }
     }
 
@@ -3338,12 +5895,17 @@ public void GerarVetor() {
         salva.Salvar();
     }
 
-    public int pesquisar(int vetor[], int valor) {
-        for (int i = 0; i < vetor.length; i++) {
-            if (vetor[i] == valor) {
-                return i;
+    void setPanelEnabled(JPanel panel, Boolean isEnabled) {
+        panel.setEnabled(isEnabled);
+
+        Component[] components = panel.getComponents();
+
+        for (int i = 0; i < components.length; i++) {
+            if (components[i].getClass().getName() == "javax.swing.JPanel") {
+                setPanelEnabled((JPanel) components[i], isEnabled);
             }
+
+            components[i].setEnabled(isEnabled);
         }
-        return -1;
     }
 }
