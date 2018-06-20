@@ -5,15 +5,20 @@
  */
 package Internas;
 
-import ClassTXT.salvartxt;
+import Classes.GerarVetor;
+import Classes.PesquisaVetor;
+import Classes.salvartxt;
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Random;
+import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 import javax.swing.Timer;
 
@@ -23,7 +28,11 @@ import javax.swing.Timer;
  */
 public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
 
-    String universalLaemCima = "";
+    PesquisaVetor pVetor = new PesquisaVetor();
+    GerarVetor gVetor = new GerarVetor();
+    Timer tTemporizador = new Timer(1000, new hora());
+
+    int iSomaAcertos = 0, iSomaErros = 0, iTamanho, iValores, iValorBusca, iVetor[], iRetorna;
 
     public InternaJoguinoVetor() {
         initComponents();
@@ -49,13 +58,13 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
         txtTempoDecorrido = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jSeparator2 = new javax.swing.JSeparator();
-        jTextField5 = new javax.swing.JTextField();
+        txtAcertos = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         txtErro = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jSeparator3 = new javax.swing.JSeparator();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTextArea2 = new javax.swing.JTextArea();
+        txtDescricao = new javax.swing.JTextArea();
         btnNmr1 = new javax.swing.JButton();
         btnNmr2 = new javax.swing.JButton();
         btnNmr3 = new javax.swing.JButton();
@@ -165,8 +174,6 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
         btnInicia = new javax.swing.JButton();
         btnParar = new javax.swing.JButton();
         btnFinalizar = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        txtVetorMontado = new javax.swing.JTextArea();
         jScrollPane3 = new javax.swing.JScrollPane();
         txtVetor = new javax.swing.JTextArea();
         jButton1 = new javax.swing.JButton();
@@ -220,8 +227,8 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
 
         jSeparator2.setOrientation(javax.swing.SwingConstants.VERTICAL);
 
-        jTextField5.setEditable(false);
-        jTextField5.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        txtAcertos.setEditable(false);
+        txtAcertos.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
 
         jLabel5.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         jLabel5.setText("Acertos:");
@@ -234,12 +241,12 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
 
         jSeparator3.setOrientation(javax.swing.SwingConstants.VERTICAL);
 
-        jTextArea2.setEditable(false);
-        jTextArea2.setColumns(20);
-        jTextArea2.setLineWrap(true);
-        jTextArea2.setRows(5);
-        jTextArea2.setEnabled(false);
-        jScrollPane2.setViewportView(jTextArea2);
+        txtDescricao.setEditable(false);
+        txtDescricao.setColumns(20);
+        txtDescricao.setLineWrap(true);
+        txtDescricao.setRows(5);
+        txtDescricao.setEnabled(false);
+        jScrollPane2.setViewportView(txtDescricao);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -272,7 +279,7 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
                     .addComponent(jLabel6))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jTextField5)
+                    .addComponent(txtAcertos)
                     .addComponent(txtErro, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -290,7 +297,7 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel5)
-                            .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtAcertos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtErro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -316,7 +323,7 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        btnNmr1.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+        btnNmr1.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         btnNmr1.setText("1");
         btnNmr1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -324,7 +331,7 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             }
         });
 
-        btnNmr2.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+        btnNmr2.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         btnNmr2.setText("2");
         btnNmr2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -332,7 +339,7 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             }
         });
 
-        btnNmr3.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+        btnNmr3.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         btnNmr3.setText("3");
         btnNmr3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -340,7 +347,7 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             }
         });
 
-        btnNmr4.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+        btnNmr4.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         btnNmr4.setText("4");
         btnNmr4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -348,7 +355,7 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             }
         });
 
-        btnNmr8.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+        btnNmr8.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         btnNmr8.setText("8");
         btnNmr8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -356,7 +363,7 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             }
         });
 
-        btnNmr5.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+        btnNmr5.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         btnNmr5.setText("5");
         btnNmr5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -364,7 +371,7 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             }
         });
 
-        btnNmr7.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+        btnNmr7.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         btnNmr7.setText("7");
         btnNmr7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -372,7 +379,7 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             }
         });
 
-        btnNmr6.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+        btnNmr6.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         btnNmr6.setText("6");
         btnNmr6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -380,7 +387,7 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             }
         });
 
-        btnNmr10.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+        btnNmr10.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         btnNmr10.setText("10");
         btnNmr10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -388,7 +395,7 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             }
         });
 
-        btnNmr9.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+        btnNmr9.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         btnNmr9.setText("9");
         btnNmr9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -396,7 +403,7 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             }
         });
 
-        btnNmr14.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+        btnNmr14.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         btnNmr14.setText("14");
         btnNmr14.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -404,7 +411,7 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             }
         });
 
-        btnNmr11.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+        btnNmr11.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         btnNmr11.setText("11");
         btnNmr11.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -412,7 +419,7 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             }
         });
 
-        btnNmr13.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+        btnNmr13.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         btnNmr13.setText("13");
         btnNmr13.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -420,7 +427,7 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             }
         });
 
-        btnNmr12.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+        btnNmr12.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         btnNmr12.setText("12");
         btnNmr12.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -428,7 +435,7 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             }
         });
 
-        btnNmr15.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+        btnNmr15.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         btnNmr15.setText("15");
         btnNmr15.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -436,7 +443,7 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             }
         });
 
-        btnNmr16.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+        btnNmr16.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         btnNmr16.setText("16");
         btnNmr16.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -444,7 +451,7 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             }
         });
 
-        btnNmr17.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+        btnNmr17.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         btnNmr17.setText("17");
         btnNmr17.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -452,7 +459,7 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             }
         });
 
-        btnNmr18.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+        btnNmr18.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         btnNmr18.setText("18");
         btnNmr18.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -460,7 +467,7 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             }
         });
 
-        btnNmr19.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+        btnNmr19.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         btnNmr19.setText("19");
         btnNmr19.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -468,7 +475,7 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             }
         });
 
-        btnNmr20.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+        btnNmr20.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         btnNmr20.setText("20");
         btnNmr20.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -476,7 +483,7 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             }
         });
 
-        btnNmr21.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+        btnNmr21.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         btnNmr21.setText("21");
         btnNmr21.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -484,7 +491,7 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             }
         });
 
-        btnNmr22.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+        btnNmr22.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         btnNmr22.setText("22");
         btnNmr22.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -492,7 +499,7 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             }
         });
 
-        btnNmr23.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+        btnNmr23.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         btnNmr23.setText("23");
         btnNmr23.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -500,7 +507,7 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             }
         });
 
-        btnNmr24.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+        btnNmr24.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         btnNmr24.setText("24");
         btnNmr24.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -508,7 +515,7 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             }
         });
 
-        btnNmr25.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+        btnNmr25.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         btnNmr25.setText("25");
         btnNmr25.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -516,7 +523,7 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             }
         });
 
-        btnNmr26.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+        btnNmr26.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         btnNmr26.setText("26");
         btnNmr26.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -524,7 +531,7 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             }
         });
 
-        btnNmr27.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+        btnNmr27.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         btnNmr27.setText("27");
         btnNmr27.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -532,7 +539,7 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             }
         });
 
-        btnNmr28.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+        btnNmr28.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         btnNmr28.setText("28");
         btnNmr28.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -540,7 +547,7 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             }
         });
 
-        btnNmr29.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+        btnNmr29.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         btnNmr29.setText("29");
         btnNmr29.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -548,7 +555,7 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             }
         });
 
-        btnNmr30.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+        btnNmr30.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         btnNmr30.setText("30");
         btnNmr30.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -556,7 +563,7 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             }
         });
 
-        btnNmr31.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+        btnNmr31.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         btnNmr31.setText("31");
         btnNmr31.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -564,7 +571,7 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             }
         });
 
-        btnNmr32.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+        btnNmr32.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         btnNmr32.setText("32");
         btnNmr32.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -572,7 +579,7 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             }
         });
 
-        btnNmr33.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+        btnNmr33.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         btnNmr33.setText("33");
         btnNmr33.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -580,7 +587,7 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             }
         });
 
-        btnNmr34.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+        btnNmr34.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         btnNmr34.setText("34");
         btnNmr34.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -588,7 +595,7 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             }
         });
 
-        btnNmr35.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+        btnNmr35.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         btnNmr35.setText("35");
         btnNmr35.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -596,7 +603,7 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             }
         });
 
-        btnNmr36.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+        btnNmr36.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         btnNmr36.setText("36");
         btnNmr36.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -604,7 +611,7 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             }
         });
 
-        btnNmr37.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+        btnNmr37.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         btnNmr37.setText("37");
         btnNmr37.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -612,7 +619,7 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             }
         });
 
-        btnNmr38.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+        btnNmr38.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         btnNmr38.setText("38");
         btnNmr38.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -620,7 +627,7 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             }
         });
 
-        btnNmr39.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+        btnNmr39.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         btnNmr39.setText("39");
         btnNmr39.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -628,7 +635,7 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             }
         });
 
-        btnNmr40.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+        btnNmr40.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         btnNmr40.setText("40");
         btnNmr40.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -636,7 +643,7 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             }
         });
 
-        btnNmr41.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+        btnNmr41.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         btnNmr41.setText("41");
         btnNmr41.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -644,7 +651,7 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             }
         });
 
-        btnNmr42.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+        btnNmr42.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         btnNmr42.setText("42");
         btnNmr42.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -652,7 +659,7 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             }
         });
 
-        btnNmr43.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+        btnNmr43.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         btnNmr43.setText("43");
         btnNmr43.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -660,7 +667,7 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             }
         });
 
-        btnNmr44.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+        btnNmr44.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         btnNmr44.setText("44");
         btnNmr44.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -668,7 +675,7 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             }
         });
 
-        btnNmr45.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+        btnNmr45.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         btnNmr45.setText("45");
         btnNmr45.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -676,7 +683,7 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             }
         });
 
-        btnNmr46.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+        btnNmr46.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         btnNmr46.setText("46");
         btnNmr46.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -684,7 +691,7 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             }
         });
 
-        btnNmr47.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+        btnNmr47.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         btnNmr47.setText("47");
         btnNmr47.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -692,7 +699,7 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             }
         });
 
-        btnNmr48.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+        btnNmr48.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         btnNmr48.setText("48");
         btnNmr48.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -700,7 +707,7 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             }
         });
 
-        btnNmr49.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+        btnNmr49.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         btnNmr49.setText("49");
         btnNmr49.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -708,7 +715,7 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             }
         });
 
-        btnNmr50.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+        btnNmr50.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         btnNmr50.setText("50");
         btnNmr50.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -716,7 +723,7 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             }
         });
 
-        btnNmr51.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+        btnNmr51.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         btnNmr51.setText("51");
         btnNmr51.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -724,7 +731,7 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             }
         });
 
-        btnNmr52.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+        btnNmr52.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         btnNmr52.setText("52");
         btnNmr52.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -732,7 +739,7 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             }
         });
 
-        btnNmr53.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+        btnNmr53.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         btnNmr53.setText("53");
         btnNmr53.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -740,7 +747,7 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             }
         });
 
-        btnNmr54.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+        btnNmr54.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         btnNmr54.setText("54");
         btnNmr54.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -748,7 +755,7 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             }
         });
 
-        btnNmr55.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+        btnNmr55.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         btnNmr55.setText("55");
         btnNmr55.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -756,7 +763,7 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             }
         });
 
-        btnNmr56.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+        btnNmr56.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         btnNmr56.setText("56");
         btnNmr56.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -764,7 +771,7 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             }
         });
 
-        btnNmr57.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+        btnNmr57.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         btnNmr57.setText("57");
         btnNmr57.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -772,7 +779,7 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             }
         });
 
-        btnNmr58.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+        btnNmr58.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         btnNmr58.setText("58");
         btnNmr58.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -780,7 +787,7 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             }
         });
 
-        btnNmr59.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+        btnNmr59.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         btnNmr59.setText("59");
         btnNmr59.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -788,7 +795,7 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             }
         });
 
-        btnNmr60.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+        btnNmr60.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         btnNmr60.setText("60");
         btnNmr60.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -796,7 +803,7 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             }
         });
 
-        btnNmr61.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+        btnNmr61.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         btnNmr61.setText("61");
         btnNmr61.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -804,7 +811,7 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             }
         });
 
-        btnNmr62.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+        btnNmr62.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         btnNmr62.setText("62");
         btnNmr62.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -812,7 +819,7 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             }
         });
 
-        btnNmr63.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+        btnNmr63.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         btnNmr63.setText("63");
         btnNmr63.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -820,7 +827,7 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             }
         });
 
-        btnNmr64.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+        btnNmr64.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         btnNmr64.setText("64");
         btnNmr64.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -828,7 +835,7 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             }
         });
 
-        btnNmr65.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+        btnNmr65.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         btnNmr65.setText("65");
         btnNmr65.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -836,7 +843,7 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             }
         });
 
-        btnNmr66.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+        btnNmr66.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         btnNmr66.setText("66");
         btnNmr66.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -844,7 +851,7 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             }
         });
 
-        btnNmr67.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+        btnNmr67.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         btnNmr67.setText("67");
         btnNmr67.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -852,7 +859,7 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             }
         });
 
-        btnNmr68.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+        btnNmr68.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         btnNmr68.setText("68");
         btnNmr68.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -860,7 +867,7 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             }
         });
 
-        btnNmr69.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+        btnNmr69.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         btnNmr69.setText("69");
         btnNmr69.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -868,7 +875,7 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             }
         });
 
-        btnNmr70.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+        btnNmr70.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         btnNmr70.setText("70");
         btnNmr70.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -876,7 +883,7 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             }
         });
 
-        btnNmr71.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+        btnNmr71.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         btnNmr71.setText("71");
         btnNmr71.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -884,7 +891,7 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             }
         });
 
-        btnNmr72.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+        btnNmr72.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         btnNmr72.setText("72");
         btnNmr72.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -892,7 +899,7 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             }
         });
 
-        btnNmr73.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+        btnNmr73.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         btnNmr73.setText("73");
         btnNmr73.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -900,7 +907,7 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             }
         });
 
-        btnNmr74.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+        btnNmr74.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         btnNmr74.setText("74");
         btnNmr74.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -908,7 +915,7 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             }
         });
 
-        btnNmr75.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+        btnNmr75.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         btnNmr75.setText("75");
         btnNmr75.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -916,7 +923,7 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             }
         });
 
-        btnNmr76.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+        btnNmr76.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         btnNmr76.setText("76");
         btnNmr76.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -924,7 +931,7 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             }
         });
 
-        btnNmr77.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+        btnNmr77.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         btnNmr77.setText("77");
         btnNmr77.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -932,7 +939,7 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             }
         });
 
-        btnNmr78.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+        btnNmr78.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         btnNmr78.setText("78");
         btnNmr78.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -940,7 +947,7 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             }
         });
 
-        btnNmr79.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+        btnNmr79.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         btnNmr79.setText("79");
         btnNmr79.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -948,7 +955,7 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             }
         });
 
-        btnNmr80.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+        btnNmr80.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         btnNmr80.setText("80");
         btnNmr80.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -956,7 +963,7 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             }
         });
 
-        btnNmr81.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+        btnNmr81.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         btnNmr81.setText("81");
         btnNmr81.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -964,7 +971,7 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             }
         });
 
-        btnNmr82.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+        btnNmr82.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         btnNmr82.setText("82");
         btnNmr82.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -972,7 +979,7 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             }
         });
 
-        btnNmr83.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+        btnNmr83.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         btnNmr83.setText("83");
         btnNmr83.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -980,7 +987,7 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             }
         });
 
-        btnNmr84.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+        btnNmr84.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         btnNmr84.setText("84");
         btnNmr84.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -988,7 +995,7 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             }
         });
 
-        btnNmr85.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+        btnNmr85.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         btnNmr85.setText("85");
         btnNmr85.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -996,7 +1003,7 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             }
         });
 
-        btnNmr86.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+        btnNmr86.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         btnNmr86.setText("86");
         btnNmr86.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1004,7 +1011,7 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             }
         });
 
-        btnNmr87.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+        btnNmr87.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         btnNmr87.setText("87");
         btnNmr87.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1012,7 +1019,7 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             }
         });
 
-        btnNmr88.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+        btnNmr88.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         btnNmr88.setText("88");
         btnNmr88.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1020,7 +1027,7 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             }
         });
 
-        btnNmr89.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+        btnNmr89.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         btnNmr89.setText(" 89");
         btnNmr89.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1028,7 +1035,7 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             }
         });
 
-        btnNmr90.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+        btnNmr90.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         btnNmr90.setText("90");
         btnNmr90.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1036,7 +1043,7 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             }
         });
 
-        btnNmr91.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+        btnNmr91.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         btnNmr91.setText("91");
         btnNmr91.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1044,7 +1051,7 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             }
         });
 
-        btnNmr92.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+        btnNmr92.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         btnNmr92.setText("92");
         btnNmr92.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1052,7 +1059,7 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             }
         });
 
-        btnNmr93.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+        btnNmr93.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         btnNmr93.setText("93");
         btnNmr93.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1060,7 +1067,7 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             }
         });
 
-        btnNmr94.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+        btnNmr94.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         btnNmr94.setText("94");
         btnNmr94.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1068,7 +1075,7 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             }
         });
 
-        btnNmr95.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+        btnNmr95.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         btnNmr95.setText("95");
         btnNmr95.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1076,7 +1083,7 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             }
         });
 
-        btnNmr96.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+        btnNmr96.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         btnNmr96.setText("96");
         btnNmr96.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1084,7 +1091,7 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             }
         });
 
-        btnNmr97.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+        btnNmr97.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         btnNmr97.setText("97");
         btnNmr97.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1092,7 +1099,7 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             }
         });
 
-        btnNmr98.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+        btnNmr98.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         btnNmr98.setText("98");
         btnNmr98.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1100,7 +1107,7 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             }
         });
 
-        btnNmr99.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+        btnNmr99.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         btnNmr99.setText("99");
         btnNmr99.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1108,7 +1115,7 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             }
         });
 
-        btnNmr100.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+        btnNmr100.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         btnNmr100.setText("100");
         btnNmr100.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1116,7 +1123,7 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             }
         });
 
-        btnNmr101.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+        btnNmr101.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         btnNmr101.setText("101");
         btnNmr101.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1124,7 +1131,7 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             }
         });
 
-        btnNmr102.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+        btnNmr102.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         btnNmr102.setText("102");
         btnNmr102.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1132,7 +1139,7 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             }
         });
 
-        btnNmr103.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+        btnNmr103.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         btnNmr103.setText("103");
         btnNmr103.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1140,7 +1147,7 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             }
         });
 
-        btnNmr104.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+        btnNmr104.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         btnNmr104.setText("104");
         btnNmr104.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1148,7 +1155,7 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             }
         });
 
-        btnNmr105.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+        btnNmr105.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         btnNmr105.setText("105");
         btnNmr105.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1180,12 +1187,6 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             }
         });
 
-        txtVetorMontado.setEditable(false);
-        txtVetorMontado.setColumns(20);
-        txtVetorMontado.setLineWrap(true);
-        txtVetorMontado.setRows(5);
-        jScrollPane1.setViewportView(txtVetorMontado);
-
         txtVetor.setEditable(false);
         txtVetor.setColumns(20);
         txtVetor.setLineWrap(true);
@@ -1208,7 +1209,6 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(layout.createSequentialGroup()
@@ -1436,7 +1436,6 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
                             .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.LEADING))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnFinalizar, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1600,8 +1599,6 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
                         .addComponent(btnNmr105)
                         .addComponent(btnNmr102)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -1616,6 +1613,8 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnPararActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPararActionPerformed
+        FinalVetor();
+        tTemporizador.stop();
         String data = "dd/MM/yyyy";
         String hora = "hh:mm:ss";
         String data1, hora1;
@@ -1634,7 +1633,16 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
         if (txtTamanhoVetor.getText().equals("") || txtValoresVetor.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Digite um Tamanho e um Valor para poder Prosseguir!");
         } else {
-            String data = "dd/MM/yyyy";
+
+            iTamanho = Integer.parseInt(txtTamanhoVetor.getText());
+            iValores = Integer.parseInt(txtValoresVetor.getText());
+
+            iVetor = gVetor.GerarVetor(iTamanho, iValores);
+            gVetor.ImprimeVetor(iVetor);
+            String sResultado = iVetor.toString();
+
+            //txtVetor.setText(sResultado);
+            String data = "dd:mm:yyyy";
             String hora = "hh:mm:ss";
             String data1, hora1;
             java.util.Date agora = new java.util.Date();
@@ -1645,10 +1653,19 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             System.out.println(data1 + "");
             System.out.println(hora1 + "");
             lblHoraInicio.setText(hora1);
-
             DateTimer();
-            GerarVetor();
+
             btnInicia.setEnabled(false);
+            SalvarTXR();
+
+//            Timer TempoAcao = new Timer(10000, new ApagarVetor());
+//            TempoAcao.start();
+//
+//            Timer teste = new Timer(1000, new descVetor());
+//            teste.start();
+//
+//            Timer CancelaAcao = new Timer(10000, new descVetor());
+//            CancelaAcao.stop();
         }
     }//GEN-LAST:event_btnIniciaActionPerformed
 
@@ -1657,182 +1674,506 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_Timer
 
     private void btnNmr1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNmr1ActionPerformed
+
         int btn1 = 1;
-        String testando = txtVetor.getText();
         String btnV = String.valueOf(btn1);
 
-        Path caminho = Paths.get("dadosVetor.txt");
-        try {
-            byte[] texto = Files.readAllBytes(caminho);
-            String leitura = new String(texto);
-            String valores = txtVetorMontado.getText();
-            String Dados = valores + btnV + " | ";
-            String ValorVetor = Dados;
+        iRetorna = pVetor.PesquisaVetor(iVetor, btn1);
+////
+//        iSomaAcertos = iSomaAcertos + btn1;
 
-            if (leitura.equals(testando)) {
-                txtVetorMontado.setText(Dados);
-                btnNmr1.setEnabled(false);
-            } else {
-                JOptionPane.showConfirmDialog(this, "Erro");
-            }
-        } catch (Exception erro) {
-            JOptionPane.showMessageDialog(this, erro);
+        if (iRetorna >= 0) {
+            iSomaAcertos++; // primeiro eu incremento
+            txtVetor.setText(txtVetor.getText() + btnV + " | ");
+            btnNmr1.setForeground(Color.GREEN);
+            btnNmr1.setBackground(Color.GREEN);
+            btnNmr1.setEnabled(false);
+
+        } else {
+            iSomaErros++;
+            btnNmr1.setForeground(Color.RED);
+            btnNmr1.setBackground(Color.RED);
+            btnNmr1.setEnabled(false);
         }
-
+        String sSomaAcertos = Integer.toString(iSomaAcertos);
+        String sSomaErros = Integer.toString(iSomaErros);
+        txtAcertos.setText(sSomaAcertos);// e jogo erla aqui em baixo
+        txtErro.setText(sSomaErros);
 
     }//GEN-LAST:event_btnNmr1ActionPerformed
 
     private void btnNmr2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNmr2ActionPerformed
         int btn2 = 2;
         String btnV = String.valueOf(btn2);
-        String valores = txtVetorMontado.getText();
-        txtVetorMontado.setText(valores + btnV + " | ");
-        this.setEnabled(false);
-        btnNmr2.setEnabled(false);
+
+        iRetorna = pVetor.PesquisaVetor(iVetor, btn2);
+
+        if (iRetorna >= 0) {
+            iSomaAcertos++;
+            txtVetor.setText(txtVetor.getText() + btnV + " | ");
+            btnNmr2.setForeground(Color.GREEN);
+            btnNmr2.setBackground(Color.GREEN);
+            btnNmr2.setEnabled(false);
+
+        } else {
+            btnNmr2.setForeground(Color.RED);
+            btnNmr2.setBackground(Color.RED);
+            btnNmr2.setEnabled(false);
+        }
+        String sSomaAcertos = Integer.toString(iSomaAcertos);
+        String sSomaErros = Integer.toString(iSomaErros);
+        txtAcertos.setText(sSomaAcertos);// e jogo erla aqui em baixo
+        txtErro.setText(sSomaErros);
+
     }//GEN-LAST:event_btnNmr2ActionPerformed
 
     private void btnNmr3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNmr3ActionPerformed
         int btn1 = 3;
         String btnV = String.valueOf(btn1);
-        String valores = txtVetorMontado.getText();
-        txtVetorMontado.setText(valores + btnV + " | ");
-        btnNmr3.setEnabled(false);
+
+        iRetorna = pVetor.PesquisaVetor(iVetor, btn1);
+
+        if (iRetorna >= 0) {
+            iSomaAcertos++;
+            txtVetor.setText(txtVetor.getText() + btnV + " | ");
+            btnNmr3.setForeground(Color.GREEN);
+            btnNmr3.setBackground(Color.GREEN);
+            btnNmr3.setEnabled(false);
+
+        } else {
+            iSomaAcertos++;
+            btnNmr3.setForeground(Color.RED);
+            btnNmr3.setBackground(Color.RED);
+            btnNmr3.setEnabled(false);
+        }
+        String sSomaAcertos = Integer.toString(iSomaAcertos);
+        String sSomaErros = Integer.toString(iSomaErros);
+        txtAcertos.setText(sSomaAcertos);// e jogo erla aqui em baixo
+        txtErro.setText(sSomaErros);
     }//GEN-LAST:event_btnNmr3ActionPerformed
 
     private void btnNmr4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNmr4ActionPerformed
         int btn1 = 4;
         String btnV = String.valueOf(btn1);
-        String valores = txtVetorMontado.getText();
-        txtVetorMontado.setText(valores + btnV + " | ");
-        btnNmr4.setEnabled(false);
+
+        iRetorna = pVetor.PesquisaVetor(iVetor, btn1);
+
+        if (iRetorna >= 0) {
+            iSomaAcertos++;
+            txtVetor.setText(txtVetor.getText() + btnV + " | ");
+            btnNmr4.setForeground(Color.GREEN);
+            btnNmr4.setBackground(Color.GREEN);
+            btnNmr4.setEnabled(false);
+
+        } else {
+            btnNmr4.setForeground(Color.RED);
+            btnNmr4.setBackground(Color.RED);
+            btnNmr4.setEnabled(false);
+        }
+        String sSomaAcertos = Integer.toString(iSomaAcertos);
+        String sSomaErros = Integer.toString(iSomaErros);
+        txtAcertos.setText(sSomaAcertos);// e jogo erla aqui em baixo
+        txtErro.setText(sSomaErros);
     }//GEN-LAST:event_btnNmr4ActionPerformed
 
     private void btnNmr5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNmr5ActionPerformed
         int btn1 = 5;
         String btnV = String.valueOf(btn1);
-        String valores = txtVetorMontado.getText();
-        txtVetorMontado.setText(valores + btnV + " | ");
-        btnNmr5.setEnabled(false);
+
+        iRetorna = pVetor.PesquisaVetor(iVetor, btn1);
+
+        if (iRetorna >= 0) {
+            iSomaAcertos++;
+            txtVetor.setText(txtVetor.getText() + btnV + " | ");
+            btnNmr5.setForeground(Color.GREEN);
+            btnNmr5.setBackground(Color.GREEN);
+            btnNmr5.setEnabled(false);
+
+        } else {
+            btnNmr5.setForeground(Color.RED);
+            btnNmr5.setBackground(Color.RED);
+            btnNmr5.setEnabled(false);
+        }
+        String sSomaAcertos = Integer.toString(iSomaAcertos);
+        String sSomaErros = Integer.toString(iSomaErros);
+        txtAcertos.setText(sSomaAcertos);// e jogo erla aqui em baixo
+        txtErro.setText(sSomaErros);
+
     }//GEN-LAST:event_btnNmr5ActionPerformed
 
     private void btnNmr6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNmr6ActionPerformed
         int btn1 = 6;
         String btnV = String.valueOf(btn1);
-        String valores = txtVetorMontado.getText();
-        txtVetorMontado.setText(valores + btnV + " | ");
-        btnNmr6.setEnabled(false);
+
+        iRetorna = pVetor.PesquisaVetor(iVetor, btn1);
+
+        if (iRetorna >= 0) {
+            iSomaAcertos++;
+            txtVetor.setText(txtVetor.getText() + btnV + " | ");
+            btnNmr6.setForeground(Color.GREEN);
+            btnNmr6.setBackground(Color.GREEN);
+            btnNmr6.setEnabled(false);
+
+        } else {
+            iSomaErros++;
+            btnNmr6.setForeground(Color.RED);
+            btnNmr6.setBackground(Color.RED);
+            btnNmr6.setEnabled(false);
+        }
+        String sSomaAcertos = Integer.toString(iSomaAcertos);
+        String sSomaErros = Integer.toString(iSomaErros);
+        txtAcertos.setText(sSomaAcertos);// e jogo erla aqui em baixo
+        txtErro.setText(sSomaErros);
     }//GEN-LAST:event_btnNmr6ActionPerformed
 
     private void btnNmr7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNmr7ActionPerformed
         int btn1 = 7;
         String btnV = String.valueOf(btn1);
-        String valores = txtVetorMontado.getText();
-        txtVetorMontado.setText(valores + btnV + " | ");
-        btnNmr7.setEnabled(false);
+
+        iRetorna = pVetor.PesquisaVetor(iVetor, btn1);
+
+        if (iRetorna >= 0) {
+            iSomaAcertos++;
+            txtVetor.setText(txtVetor.getText() + btnV + " | ");
+            btnNmr7.setForeground(Color.GREEN);
+            btnNmr7.setBackground(Color.GREEN);
+            btnNmr7.setEnabled(false);
+
+        } else {
+            iSomaErros++;
+            btnNmr7.setForeground(Color.RED);
+            btnNmr7.setBackground(Color.RED);
+            btnNmr7.setEnabled(false);
+        }
+        String sSomaAcertos = Integer.toString(iSomaAcertos);
+        String sSomaErros = Integer.toString(iSomaErros);
+        txtAcertos.setText(sSomaAcertos);// e jogo erla aqui em baixo
+        txtErro.setText(sSomaErros);
     }//GEN-LAST:event_btnNmr7ActionPerformed
 
     private void btnNmr8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNmr8ActionPerformed
         int btn1 = 8;
         String btnV = String.valueOf(btn1);
-        String valores = txtVetorMontado.getText();
-        txtVetorMontado.setText(valores + btnV + " | ");
-        btnNmr8.setEnabled(false);
+
+        iRetorna = pVetor.PesquisaVetor(iVetor, btn1);
+
+        if (iRetorna >= 0) {
+            iSomaAcertos++;
+            txtVetor.setText(txtVetor.getText() + btnV + " | ");
+            btnNmr8.setForeground(Color.GREEN);
+            btnNmr8.setBackground(Color.GREEN);
+            btnNmr8.setEnabled(false);
+
+        } else {
+            iSomaErros++;
+            btnNmr8.setForeground(Color.RED);
+            btnNmr8.setBackground(Color.RED);
+            btnNmr8.setEnabled(false);
+        }
+        String sSomaAcertos = Integer.toString(iSomaAcertos);
+        String sSomaErros = Integer.toString(iSomaErros);
+        txtAcertos.setText(sSomaAcertos);// e jogo erla aqui em baixo
+        txtErro.setText(sSomaErros);
     }//GEN-LAST:event_btnNmr8ActionPerformed
 
     private void btnNmr9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNmr9ActionPerformed
         int btn1 = 9;
         String btnV = String.valueOf(btn1);
-        String valores = txtVetorMontado.getText();
-        txtVetorMontado.setText(valores + btnV + " | ");
-        btnNmr9.setEnabled(false);
+
+        iRetorna = pVetor.PesquisaVetor(iVetor, btn1);
+
+        if (iRetorna >= 0) {
+            iSomaAcertos++;
+            txtVetor.setText(txtVetor.getText() + btnV + " | ");
+            btnNmr9.setForeground(Color.GREEN);
+            btnNmr9.setBackground(Color.GREEN);
+            btnNmr9.setEnabled(false);
+
+        } else {
+            iSomaErros++;
+            btnNmr9.setForeground(Color.RED);
+            btnNmr9.setBackground(Color.RED);
+            btnNmr9.setEnabled(false);
+        }
+        String sSomaAcertos = Integer.toString(iSomaAcertos);
+        String sSomaErros = Integer.toString(iSomaErros);
+        txtAcertos.setText(sSomaAcertos);// e jogo erla aqui em baixo
+        txtErro.setText(sSomaErros);
     }//GEN-LAST:event_btnNmr9ActionPerformed
 
     private void btnNmr10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNmr10ActionPerformed
         int btn1 = 10;
         String btnV = String.valueOf(btn1);
-        String valores = txtVetorMontado.getText();
-        txtVetorMontado.setText(valores + btnV + " | ");
-        btnNmr10.setEnabled(false);
+
+        iRetorna = pVetor.PesquisaVetor(iVetor, btn1);
+
+        iSomaAcertos = iSomaAcertos + btn1;
+
+        if (iRetorna >= 0) {
+            iSomaAcertos++;
+            txtAcertos.setText(sSomaAcertos);
+            txtVetor.setText(txtVetor.getText() + btnV + " | ");
+            btnNmr10.setForeground(Color.GREEN);
+            btnNmr10.setBackground(Color.GREEN);
+            btnNmr10.setEnabled(false);
+
+        } else {
+            iSomaErros++;
+            txtErro.setText(sSomaErros);
+            btnNmr10.setForeground(Color.RED);
+            btnNmr10.setBackground(Color.RED);
+            btnNmr10.setEnabled(false);
+        }
     }//GEN-LAST:event_btnNmr10ActionPerformed
 
     private void btnNmr11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNmr11ActionPerformed
         int btn1 = 11;
         String btnV = String.valueOf(btn1);
-        String valores = txtVetorMontado.getText();
-        txtVetorMontado.setText(valores + btnV + " | ");
-        btnNmr11.setEnabled(false);
+
+        iRetorna = pVetor.PesquisaVetor(iVetor, btn1);
+
+        iSomaAcertos = iSomaAcertos + btn1;
+
+        if (iRetorna >= 0) {
+            iSomaAcertos++;
+            txtAcertos.setText(sSomaAcertos);
+            txtVetor.setText(txtVetor.getText() + btnV + " | ");
+            btnNmr11.setForeground(Color.GREEN);
+            btnNmr11.setBackground(Color.GREEN);
+            btnNmr11.setEnabled(false);
+
+        } else {
+            iSomaErros++;
+            txtErro.setText(sSomaErros);
+            btnNmr11.setForeground(Color.RED);
+            btnNmr11.setBackground(Color.RED);
+            btnNmr11.setEnabled(false);
+        }
     }//GEN-LAST:event_btnNmr11ActionPerformed
 
     private void btnNmr12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNmr12ActionPerformed
         int btn1 = 12;
         String btnV = String.valueOf(btn1);
-        String valores = txtVetorMontado.getText();
-        txtVetorMontado.setText(valores + btnV + " | ");
-        btnNmr12.setEnabled(false);
+
+        iRetorna = pVetor.PesquisaVetor(iVetor, btn1);
+
+        iSomaAcertos = iSomaAcertos + btn1;
+
+        if (iRetorna >= 0) {
+            iSomaAcertos++;
+            txtAcertos.setText(sSomaAcertos);
+            txtVetor.setText(txtVetor.getText() + btnV + " | ");
+            btnNmr12.setForeground(Color.GREEN);
+            btnNmr12.setBackground(Color.GREEN);
+            btnNmr12.setEnabled(false);
+
+        } else {
+            iSomaErros++;
+            txtErro.setText(sSomaErros);
+            btnNmr12.setForeground(Color.RED);
+            btnNmr12.setBackground(Color.RED);
+            btnNmr12.setEnabled(false);
+        }
     }//GEN-LAST:event_btnNmr12ActionPerformed
 
     private void btnNmr13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNmr13ActionPerformed
         int btn1 = 13;
         String btnV = String.valueOf(btn1);
-        String valores = txtVetorMontado.getText();
-        txtVetorMontado.setText(valores + btnV + " | ");
-        btnNmr13.setEnabled(false);
+
+        iRetorna = pVetor.PesquisaVetor(iVetor, btn1);
+
+        iSomaAcertos = iSomaAcertos + btn1;
+
+        if (iRetorna >= 0) {
+            iSomaAcertos++;
+            txtAcertos.setText(sSomaAcertos);
+            txtVetor.setText(txtVetor.getText() + btnV + " | ");
+            btnNmr13.setForeground(Color.GREEN);
+            btnNmr13.setBackground(Color.GREEN);
+            btnNmr13.setEnabled(false);
+
+        } else {
+            iSomaErros++;
+            txtErro.setText(sSomaErros);
+            btnNmr13.setForeground(Color.RED);
+            btnNmr13.setBackground(Color.RED);
+            btnNmr13.setEnabled(false);
+        }
     }//GEN-LAST:event_btnNmr13ActionPerformed
 
     private void btnNmr14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNmr14ActionPerformed
         int btn1 = 14;
         String btnV = String.valueOf(btn1);
-        String valores = txtVetorMontado.getText();
-        txtVetorMontado.setText(valores + btnV + " | ");
-        btnNmr14.setEnabled(false);
+
+        iRetorna = pVetor.PesquisaVetor(iVetor, btn1);
+
+        iSomaAcertos = iSomaAcertos + btn1;
+
+        if (iRetorna >= 0) {
+            iSomaAcertos++;
+            txtAcertos.setText(sSomaAcertos);
+            txtVetor.setText(txtVetor.getText() + btnV + " | ");
+            btnNmr14.setForeground(Color.GREEN);
+            btnNmr14.setBackground(Color.GREEN);
+            btnNmr14.setEnabled(false);
+
+        } else {
+            iSomaErros++;
+            txtErro.setText(sSomaErros);
+            btnNmr14.setForeground(Color.RED);
+            btnNmr14.setBackground(Color.RED);
+            btnNmr14.setEnabled(false);
+        }
     }//GEN-LAST:event_btnNmr14ActionPerformed
 
     private void btnNmr15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNmr15ActionPerformed
         int btn1 = 15;
         String btnV = String.valueOf(btn1);
-        String valores = txtVetorMontado.getText();
-        txtVetorMontado.setText(valores + btnV + " | ");
-        btnNmr15.setEnabled(false);
+
+        iRetorna = pVetor.PesquisaVetor(iVetor, btn1);
+
+        iSomaAcertos = iSomaAcertos + btn1;
+
+        if (iRetorna >= 0) {
+            iSomaAcertos++;
+            txtAcertos.setText(sSomaAcertos);
+            txtVetor.setText(txtVetor.getText() + btnV + " | ");
+            btnNmr15.setForeground(Color.GREEN);
+            btnNmr15.setBackground(Color.GREEN);
+            btnNmr15.setEnabled(false);
+
+        } else {
+            iSomaErros++;
+            txtErro.setText(sSomaErros);
+            btnNmr15.setForeground(Color.RED);
+            btnNmr15.setBackground(Color.RED);
+            btnNmr15.setEnabled(false);
+        }
     }//GEN-LAST:event_btnNmr15ActionPerformed
 
     private void btnNmr16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNmr16ActionPerformed
         int btn1 = 16;
         String btnV = String.valueOf(btn1);
-        String valores = txtVetorMontado.getText();
-        txtVetorMontado.setText(valores + btnV + " | ");
-        btnNmr16.setEnabled(false);
+
+        iRetorna = pVetor.PesquisaVetor(iVetor, btn1);
+
+        iSomaAcertos = iSomaAcertos + btn1;
+
+        if (iRetorna >= 0) {
+            iSomaAcertos++;
+            txtAcertos.setText(sSomaAcertos);
+            txtVetor.setText(txtVetor.getText() + btnV + " | ");
+            btnNmr16.setForeground(Color.GREEN);
+            btnNmr16.setBackground(Color.GREEN);
+            btnNmr16.setEnabled(false);
+
+        } else {
+            iSomaErros++;
+            txtErro.setText(sSomaErros);
+            btnNmr16.setForeground(Color.RED);
+            btnNmr16.setBackground(Color.RED);
+            btnNmr16.setEnabled(false);
+        }
     }//GEN-LAST:event_btnNmr16ActionPerformed
 
     private void btnNmr17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNmr17ActionPerformed
         int btn1 = 17;
         String btnV = String.valueOf(btn1);
-        String valores = txtVetorMontado.getText();
-        txtVetorMontado.setText(valores + btnV + " | ");
-        btnNmr17.setEnabled(false);
+
+        iRetorna = pVetor.PesquisaVetor(iVetor, btn1);
+
+        iSomaAcertos = iSomaAcertos + btn1;
+
+        if (iRetorna >= 0) {
+            iSomaAcertos++;
+            txtAcertos.setText(sSomaAcertos);
+            txtVetor.setText(txtVetor.getText() + btnV + " | ");
+            btnNmr17.setForeground(Color.GREEN);
+            btnNmr17.setBackground(Color.GREEN);
+            btnNmr17.setEnabled(false);
+
+        } else {
+            iSomaErros++;
+            txtErro.setText(sSomaErros);
+            btnNmr17.setForeground(Color.RED);
+            btnNmr17.setBackground(Color.RED);
+            btnNmr17.setEnabled(false);
+        }
     }//GEN-LAST:event_btnNmr17ActionPerformed
 
     private void btnNmr18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNmr18ActionPerformed
         int btn1 = 18;
         String btnV = String.valueOf(btn1);
-        String valores = txtVetorMontado.getText();
-        txtVetorMontado.setText(valores + btnV + " | ");
-        btnNmr18.setEnabled(false);
+
+        iRetorna = pVetor.PesquisaVetor(iVetor, btn1);
+
+        iSomaAcertos = iSomaAcertos + btn1;
+
+        if (iRetorna >= 0) {
+            iSomaAcertos++;
+            txtAcertos.setText(sSomaAcertos);
+            txtVetor.setText(txtVetor.getText() + btnV + " | ");
+            btnNmr18.setForeground(Color.GREEN);
+            btnNmr18.setBackground(Color.GREEN);
+            btnNmr18.setEnabled(false);
+
+        } else {
+            iSomaErros++;
+            txtErro.setText(sSomaErros);
+            btnNmr18.setForeground(Color.RED);
+            btnNmr18.setBackground(Color.RED);
+            btnNmr18.setEnabled(false);
+        }
     }//GEN-LAST:event_btnNmr18ActionPerformed
 
     private void btnNmr19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNmr19ActionPerformed
         int btn1 = 19;
         String btnV = String.valueOf(btn1);
-        String valores = txtVetorMontado.getText();
-        txtVetorMontado.setText(valores + btnV + " | ");
-        btnNmr19.setEnabled(false);
+
+        iRetorna = pVetor.PesquisaVetor(iVetor, btn1);
+
+        iSomaAcertos = iSomaAcertos + btn1;
+
+        if (iRetorna >= 0) {
+            iSomaAcertos++;
+            txtAcertos.setText(sSomaAcertos);
+            txtVetor.setText(txtVetor.getText() + btnV + " | ");
+            btnNmr19.setForeground(Color.GREEN);
+            btnNmr19.setBackground(Color.GREEN);
+            btnNmr19.setEnabled(false);
+
+        } else {
+            iSomaErros++;
+            txtErro.setText(sSomaErros);
+            btnNmr19.setForeground(Color.RED);
+            btnNmr19.setBackground(Color.RED);
+            btnNmr19.setEnabled(false);
+        }
     }//GEN-LAST:event_btnNmr19ActionPerformed
 
     private void btnNmr20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNmr20ActionPerformed
         int btn1 = 20;
         String btnV = String.valueOf(btn1);
-        String valores = txtVetorMontado.getText();
-        txtVetorMontado.setText(valores + btnV + " | ");
-        btnNmr20.setEnabled(false);
+
+        iRetorna = pVetor.PesquisaVetor(iVetor, btn1);
+
+        iSomaAcertos = iSomaAcertos + btn1;
+
+        if (iRetorna >= 0) {
+            iSomaAcertos++;
+            txtAcertos.setText(sSomaAcertos);
+            txtVetor.setText(txtVetor.getText() + btnV + " | ");
+            btnNmr20.setForeground(Color.GREEN);
+            btnNmr20.setBackground(Color.GREEN);
+            btnNmr20.setEnabled(false);
+
+        } else {
+            iSomaErros++;
+            txtErro.setText(sSomaErros);
+            btnNmr20.setForeground(Color.RED);
+            btnNmr20.setBackground(Color.RED);
+            btnNmr20.setEnabled(false);
+        }
     }//GEN-LAST:event_btnNmr20ActionPerformed
 
     private void btnNmr21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNmr21ActionPerformed
@@ -2543,20 +2884,23 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnFinalizarActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        int teste = 1;
-        String Valor = String.valueOf(teste);
+//        int teste = 1;
+//        String Valor = String.valueOf(teste);
+//
+//        Path caminho = Paths.get("dadosVetor.txt");
+//        try {
+//            byte[] texto = Files.readAllBytes(caminho);
+//            String leitura = new String(texto);
+//            Valor.equals(leitura);
+//            JOptionPane.showMessageDialog(null, "Teste");
+//            JOptionPane.showMessageDialog(this, teste);
+//
+//        } catch (Exception erro) {
+//            JOptionPane.showMessageDialog(this, erro);
+//        }
 
-        Path caminho = Paths.get("dadosVetor.txt");
-        try {
-            byte[] texto = Files.readAllBytes(caminho);
-            String leitura = new String(texto);
-            Valor.equals(leitura);
-            JOptionPane.showMessageDialog(null, "Teste");
-            JOptionPane.showMessageDialog(this, teste);
-
-        } catch (Exception erro) {
-            JOptionPane.showMessageDialog(this, erro);
-        }
+//        FinalVetor();
+        System.out.println(VetorUser);
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -2678,22 +3022,20 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
-    private javax.swing.JTextArea jTextArea2;
-    private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField lblHoraInicio;
+    private javax.swing.JTextField txtAcertos;
+    private javax.swing.JTextArea txtDescricao;
     private javax.swing.JTextField txtErro;
     private javax.swing.JTextField txtTamanhoVetor;
     private javax.swing.JTextField txtTempoDecorrido;
     private javax.swing.JTextField txtValoresVetor;
-    private javax.swing.JTextArea txtVetor;
-    private javax.swing.JTextArea txtVetorMontado;
+    public javax.swing.JTextArea txtVetor;
     // End of variables declaration//GEN-END:variables
 public void GerarVetor() {
 
@@ -2727,21 +3069,87 @@ public void GerarVetor() {
             }
         }
 
+        salvartxt salva = new salvartxt();
         for (int i = 0; i < v.length; i++) {
-            txtVetor.setText(universalLaemCima += v[i] + " | ");
-            System.out.println(v[i]);
-            salvartxt salva = new salvartxt();
-            salva.setUser(universalLaemCima + v[i] + " | ");
-            salva.Salvar();
+            int iMontado;
+            iMontado = v[i];
+
+            txtVetor.setText(sVazioVetor += iMontado + " | ");
+
+            System.out.print(v[i] + " ");
+            try {
+                salva.setUser(sVazioVetorTXT += v[i]);
+                salva.Salvar();
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(this, ex);
+            }
+        }
+    }
+
+    public void OrdenaVetor() {
+
+        String sTamanho = txtTamanhoVetor.getText();
+        int iTamamnho = Integer.parseInt(sTamanho);
+        String sValor = txtValoresVetor.getText();
+        int iValor = Integer.parseInt(sValor);
+
+        int[] v = new int[iTamamnho];
+        Random gerador = new Random(); // nosso gerador de números
+        boolean b = false; // um controlador
+
+        for (int i = 0; i < v.length;) {
+            if (i == 0) {
+                v[i] = gerador.nextInt(iValor) + 1;
+                i++;
+            } else {
+                v[i] = gerador.nextInt(iValor) + 1;
+                b = false;
+                for (int j = 0; j < i; j++) {
+                    if (v[i] == v[j]) {
+                        b = false;
+                        break;
+                    } else {
+                        b = true;
+                    }
+                }
+                if (b) {
+                    i++;
+                }
+            }
+        }
+        Arrays.sort(v);
+
+        for (int i = 0; i < v.length; i++) {
+            System.out.format("%d ", v[i] + "\n");
+
+        }
+    }
+
+    public void FinalVetor() {
+        String sFinal, sValores = null;
+        int iValor;
+        sFinal = txtVetorMontado.getText();
+        try {
+            //sFinal = sValores.replaceAll("|" , ",");
+            sFinal = sValores.replaceAll(Pattern.quote("|"), ",");
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(this, ex.toString());
+
+        }
+        iValor = Integer.parseInt(sFinal);
+        int iVetorUser = Integer.parseInt(VetorUser);
+        int[] lista = {iVetorUser};
+        Arrays.sort(lista);
+        for (int i = 0; i < lista.length; i++) {
+            System.out.format("%d ", lista[i]);
+            JOptionPane.showMessageDialog(null, lista[i]);
+
         }
     }
 
     public void DateTimer() {
-        Timer timer = new Timer(1000, new hora());
-        timer.start();
-        if (btnParar.isSelected()) {
-            timer.stop();
-        }
+
+        tTemporizador.start();
     }
 
     public class hora implements ActionListener {
@@ -2753,18 +3161,23 @@ public void GerarVetor() {
         }
     }
 
-    public void DateStop() {
-        Timer timer = new Timer(1000, new horaStop());
-        timer.stop();
+    public class ApagarVetor implements ActionListener {
 
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            txtVetor.setText("");
+
+        }
     }
 
-    public class horaStop implements ActionListener {
+    public class descVetor implements ActionListener {
 
         @Override
         public void actionPerformed(ActionEvent e) {
             Calendar now = Calendar.getInstance();
-            txtTempoDecorrido.setText(String.format("%1$tH:%1$tM:%1$tS", now));
+            txtDescricao.setText(String.format("Você tem 10 segundos Paver o vetor - " + "%1$tS", now));
+            txtVetor.setText("");
+
         }
     }
 
@@ -2778,5 +3191,20 @@ public void GerarVetor() {
         } catch (Exception erro) {
 
         }
+    }
+
+    private void SalvarTXR() {
+        salvartxt salva = new salvartxt();
+        salva.setUser(txtVetor.getText());
+        salva.Salvar();
+    }
+
+    public int pesquisar(int vetor[], int valor) {
+        for (int i = 0; i < vetor.length; i++) {
+            if (vetor[i] == valor) {
+                return i;
+            }
+        }
+        return -1;
     }
 }
