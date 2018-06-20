@@ -32,7 +32,7 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
     GerarVetor gVetor = new GerarVetor();
     Timer tTemporizador = new Timer(1000, new hora());
 
-    int iSomaAcertos = 0, iSomaErros = 0, iTamanho, iValores, iValorBusca, iVetor[], iRetorna;
+    int iSomaAcertos = 0, iSomaErros = 0, iPerdeu = 0, iChances = 0, iTamanho, iValores, iValorBusca, iVetor[], iRetorna;
 
     public InternaJoguinoVetor() {
         initComponents();
@@ -177,6 +177,10 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
         jScrollPane3 = new javax.swing.JScrollPane();
         txtVetor = new javax.swing.JTextArea();
         jButton1 = new javax.swing.JButton();
+        jLabel7 = new javax.swing.JLabel();
+        txtTentativas = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
+        txtChances = new javax.swing.JTextField();
 
         setClosable(true);
         setTitle("Ordenação de Vetor");
@@ -1200,6 +1204,20 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             }
         });
 
+        jLabel7.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        jLabel7.setText("Tentativas:");
+
+        txtTentativas.setEditable(false);
+        txtTentativas.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        txtTentativas.setEnabled(false);
+
+        jLabel8.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        jLabel8.setText("Chances");
+
+        txtChances.setEditable(false);
+        txtChances.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        txtChances.setEnabled(false);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -1436,6 +1454,14 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
                             .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.LEADING))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel8)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtChances, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel7)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtTentativas, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnFinalizar, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1605,8 +1631,14 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
                     .addComponent(btnInicia)
                     .addComponent(btnParar)
                     .addComponent(btnFinalizar)
-                    .addComponent(jButton1))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jButton1)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel8)
+                        .addComponent(txtChances, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel7)
+                            .addComponent(txtTentativas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(15, Short.MAX_VALUE))
         );
 
         pack();
@@ -1658,6 +1690,12 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             btnInicia.setEnabled(false);
             SalvarTXR();
 
+            int iContagem = Integer.parseInt(txtTamanhoVetor.getText());
+            iChances = iContagem * 2;
+
+            String sResult = Integer.toString(iChances);
+            txtChances.setText(sResult);
+
 //            Timer TempoAcao = new Timer(10000, new ApagarVetor());
 //            TempoAcao.start();
 //
@@ -1671,6 +1709,7 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
 
     private void Timer(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_Timer
 
+
     }//GEN-LAST:event_Timer
 
     private void btnNmr1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNmr1ActionPerformed
@@ -1679,11 +1718,10 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
         String btnV = String.valueOf(btn1);
 
         iRetorna = pVetor.PesquisaVetor(iVetor, btn1);
-////
-//        iSomaAcertos = iSomaAcertos + btn1;
 
         if (iRetorna >= 0) {
-            iSomaAcertos++; // primeiro eu incremento
+            iSomaAcertos++;
+            iPerdeu++;
             txtVetor.setText(txtVetor.getText() + btnV + " | ");
             btnNmr1.setForeground(Color.GREEN);
             btnNmr1.setBackground(Color.GREEN);
@@ -1691,14 +1729,20 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
 
         } else {
             iSomaErros++;
+            iPerdeu++;
             btnNmr1.setForeground(Color.RED);
             btnNmr1.setBackground(Color.RED);
             btnNmr1.setEnabled(false);
         }
         String sSomaAcertos = Integer.toString(iSomaAcertos);
         String sSomaErros = Integer.toString(iSomaErros);
-        txtAcertos.setText(sSomaAcertos);// e jogo erla aqui em baixo
+        txtAcertos.setText(sSomaAcertos);
         txtErro.setText(sSomaErros);
+        String sPerdeu = Integer.toString(iPerdeu);
+        txtTentativas.setText(sPerdeu);
+        if (iChances == iPerdeu) {
+            JOptionPane.showMessageDialog(this, "Você Perdeu!");
+        }
 
     }//GEN-LAST:event_btnNmr1ActionPerformed
 
@@ -1710,21 +1754,28 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
 
         if (iRetorna >= 0) {
             iSomaAcertos++;
+            iPerdeu++;
             txtVetor.setText(txtVetor.getText() + btnV + " | ");
             btnNmr2.setForeground(Color.GREEN);
             btnNmr2.setBackground(Color.GREEN);
             btnNmr2.setEnabled(false);
 
         } else {
+            iPerdeu++;
             btnNmr2.setForeground(Color.RED);
             btnNmr2.setBackground(Color.RED);
             btnNmr2.setEnabled(false);
         }
         String sSomaAcertos = Integer.toString(iSomaAcertos);
         String sSomaErros = Integer.toString(iSomaErros);
-        txtAcertos.setText(sSomaAcertos);// e jogo erla aqui em baixo
+        txtAcertos.setText(sSomaAcertos);
         txtErro.setText(sSomaErros);
-
+        iPerdeu++;
+        String sPerdeu = Integer.toString(iPerdeu);
+        txtTentativas.setText(sPerdeu);
+        if (iChances == iPerdeu) {
+            JOptionPane.showMessageDialog(this, "Você Perdeu!");
+        }
     }//GEN-LAST:event_btnNmr2ActionPerformed
 
     private void btnNmr3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNmr3ActionPerformed
@@ -1735,21 +1786,29 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
 
         if (iRetorna >= 0) {
             iSomaAcertos++;
+            iPerdeu++;
             txtVetor.setText(txtVetor.getText() + btnV + " | ");
             btnNmr3.setForeground(Color.GREEN);
             btnNmr3.setBackground(Color.GREEN);
             btnNmr3.setEnabled(false);
 
         } else {
-            iSomaAcertos++;
+            iSomaErros++;
+            iPerdeu++;
             btnNmr3.setForeground(Color.RED);
             btnNmr3.setBackground(Color.RED);
             btnNmr3.setEnabled(false);
         }
         String sSomaAcertos = Integer.toString(iSomaAcertos);
         String sSomaErros = Integer.toString(iSomaErros);
-        txtAcertos.setText(sSomaAcertos);// e jogo erla aqui em baixo
+        txtAcertos.setText(sSomaAcertos);
         txtErro.setText(sSomaErros);
+        iPerdeu++;
+        String sPerdeu = Integer.toString(iPerdeu);
+        txtTentativas.setText(sPerdeu);
+        if (iChances == iPerdeu) {
+            JOptionPane.showMessageDialog(this, "Você Perdeu!");
+        }
     }//GEN-LAST:event_btnNmr3ActionPerformed
 
     private void btnNmr4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNmr4ActionPerformed
@@ -1760,20 +1819,28 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
 
         if (iRetorna >= 0) {
             iSomaAcertos++;
+            iPerdeu++;
             txtVetor.setText(txtVetor.getText() + btnV + " | ");
             btnNmr4.setForeground(Color.GREEN);
             btnNmr4.setBackground(Color.GREEN);
             btnNmr4.setEnabled(false);
 
         } else {
+            iPerdeu++;iSomaErros++;
             btnNmr4.setForeground(Color.RED);
             btnNmr4.setBackground(Color.RED);
             btnNmr4.setEnabled(false);
         }
         String sSomaAcertos = Integer.toString(iSomaAcertos);
         String sSomaErros = Integer.toString(iSomaErros);
-        txtAcertos.setText(sSomaAcertos);// e jogo erla aqui em baixo
+        txtAcertos.setText(sSomaAcertos);
         txtErro.setText(sSomaErros);
+        iPerdeu++;
+        String sPerdeu = Integer.toString(iPerdeu);
+        txtTentativas.setText(sPerdeu);
+        if (iChances == iPerdeu) {
+            JOptionPane.showMessageDialog(this, "Você Perdeu!");
+        }
     }//GEN-LAST:event_btnNmr4ActionPerformed
 
     private void btnNmr5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNmr5ActionPerformed
@@ -1784,20 +1851,29 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
 
         if (iRetorna >= 0) {
             iSomaAcertos++;
+            iPerdeu++;
             txtVetor.setText(txtVetor.getText() + btnV + " | ");
             btnNmr5.setForeground(Color.GREEN);
             btnNmr5.setBackground(Color.GREEN);
             btnNmr5.setEnabled(false);
 
         } else {
+            iPerdeu++;
+            iSomaErros++;
             btnNmr5.setForeground(Color.RED);
             btnNmr5.setBackground(Color.RED);
             btnNmr5.setEnabled(false);
         }
         String sSomaAcertos = Integer.toString(iSomaAcertos);
         String sSomaErros = Integer.toString(iSomaErros);
-        txtAcertos.setText(sSomaAcertos);// e jogo erla aqui em baixo
+        txtAcertos.setText(sSomaAcertos);
         txtErro.setText(sSomaErros);
+        iPerdeu++;
+        String sPerdeu = Integer.toString(iPerdeu);
+        txtTentativas.setText(sPerdeu);
+        if (iChances == iPerdeu) {
+            JOptionPane.showMessageDialog(this, "Você Perdeu!");
+        }
 
     }//GEN-LAST:event_btnNmr5ActionPerformed
 
@@ -1809,6 +1885,7 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
 
         if (iRetorna >= 0) {
             iSomaAcertos++;
+            iPerdeu++;
             txtVetor.setText(txtVetor.getText() + btnV + " | ");
             btnNmr6.setForeground(Color.GREEN);
             btnNmr6.setBackground(Color.GREEN);
@@ -1822,8 +1899,14 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
         }
         String sSomaAcertos = Integer.toString(iSomaAcertos);
         String sSomaErros = Integer.toString(iSomaErros);
-        txtAcertos.setText(sSomaAcertos);// e jogo erla aqui em baixo
+        txtAcertos.setText(sSomaAcertos);
         txtErro.setText(sSomaErros);
+        iPerdeu++;
+        String sPerdeu = Integer.toString(iPerdeu);
+        txtTentativas.setText(sPerdeu);
+        if (iChances == iPerdeu) {
+            JOptionPane.showMessageDialog(this, "Você Perdeu!");
+        }
     }//GEN-LAST:event_btnNmr6ActionPerformed
 
     private void btnNmr7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNmr7ActionPerformed
@@ -1834,6 +1917,7 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
 
         if (iRetorna >= 0) {
             iSomaAcertos++;
+            iPerdeu++;
             txtVetor.setText(txtVetor.getText() + btnV + " | ");
             btnNmr7.setForeground(Color.GREEN);
             btnNmr7.setBackground(Color.GREEN);
@@ -1841,14 +1925,21 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
 
         } else {
             iSomaErros++;
+            iPerdeu++;
             btnNmr7.setForeground(Color.RED);
             btnNmr7.setBackground(Color.RED);
             btnNmr7.setEnabled(false);
         }
         String sSomaAcertos = Integer.toString(iSomaAcertos);
         String sSomaErros = Integer.toString(iSomaErros);
-        txtAcertos.setText(sSomaAcertos);// e jogo erla aqui em baixo
+        txtAcertos.setText(sSomaAcertos);
         txtErro.setText(sSomaErros);
+        iPerdeu--;
+        String sPerdeu = Integer.toString(iPerdeu);
+        txtTentativas.setText(sPerdeu);
+        if (iChances == iPerdeu) {
+            JOptionPane.showMessageDialog(this, "Você Perdeu!");
+        }
     }//GEN-LAST:event_btnNmr7ActionPerformed
 
     private void btnNmr8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNmr8ActionPerformed
@@ -1859,6 +1950,7 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
 
         if (iRetorna >= 0) {
             iSomaAcertos++;
+            iPerdeu++;
             txtVetor.setText(txtVetor.getText() + btnV + " | ");
             btnNmr8.setForeground(Color.GREEN);
             btnNmr8.setBackground(Color.GREEN);
@@ -1866,14 +1958,21 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
 
         } else {
             iSomaErros++;
+            iPerdeu++;
             btnNmr8.setForeground(Color.RED);
             btnNmr8.setBackground(Color.RED);
             btnNmr8.setEnabled(false);
         }
         String sSomaAcertos = Integer.toString(iSomaAcertos);
         String sSomaErros = Integer.toString(iSomaErros);
-        txtAcertos.setText(sSomaAcertos);// e jogo erla aqui em baixo
+        txtAcertos.setText(sSomaAcertos);
         txtErro.setText(sSomaErros);
+        iPerdeu--;
+        String sPerdeu = Integer.toString(iPerdeu);
+        txtTentativas.setText(sPerdeu);
+        if (iChances == iPerdeu) {
+            JOptionPane.showMessageDialog(this, "Você Perdeu!");
+        }
     }//GEN-LAST:event_btnNmr8ActionPerformed
 
     private void btnNmr9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNmr9ActionPerformed
@@ -1884,6 +1983,7 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
 
         if (iRetorna >= 0) {
             iSomaAcertos++;
+            iPerdeu++;
             txtVetor.setText(txtVetor.getText() + btnV + " | ");
             btnNmr9.setForeground(Color.GREEN);
             btnNmr9.setBackground(Color.GREEN);
@@ -1891,14 +1991,21 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
 
         } else {
             iSomaErros++;
+            iPerdeu++;
             btnNmr9.setForeground(Color.RED);
             btnNmr9.setBackground(Color.RED);
             btnNmr9.setEnabled(false);
         }
         String sSomaAcertos = Integer.toString(iSomaAcertos);
         String sSomaErros = Integer.toString(iSomaErros);
-        txtAcertos.setText(sSomaAcertos);// e jogo erla aqui em baixo
+        txtAcertos.setText(sSomaAcertos);
         txtErro.setText(sSomaErros);
+        iPerdeu--;
+        String sPerdeu = Integer.toString(iPerdeu);
+        txtTentativas.setText(sPerdeu);
+        if (iChances == iPerdeu) {
+            JOptionPane.showMessageDialog(this, "Você Perdeu!");
+        }
     }//GEN-LAST:event_btnNmr9ActionPerformed
 
     private void btnNmr10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNmr10ActionPerformed
@@ -1907,11 +2014,9 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
 
         iRetorna = pVetor.PesquisaVetor(iVetor, btn1);
 
-        iSomaAcertos = iSomaAcertos + btn1;
-
         if (iRetorna >= 0) {
             iSomaAcertos++;
-            txtAcertos.setText(sSomaAcertos);
+            iPerdeu++;
             txtVetor.setText(txtVetor.getText() + btnV + " | ");
             btnNmr10.setForeground(Color.GREEN);
             btnNmr10.setBackground(Color.GREEN);
@@ -1919,10 +2024,20 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
 
         } else {
             iSomaErros++;
-            txtErro.setText(sSomaErros);
+            iPerdeu++;
             btnNmr10.setForeground(Color.RED);
             btnNmr10.setBackground(Color.RED);
             btnNmr10.setEnabled(false);
+        }
+        String sSomaAcertos = Integer.toString(iSomaAcertos);
+        String sSomaErros = Integer.toString(iSomaErros);
+        txtAcertos.setText(sSomaAcertos);
+        txtErro.setText(sSomaErros);
+        iPerdeu--;
+        String sPerdeu = Integer.toString(iPerdeu);
+        txtTentativas.setText(sPerdeu);
+        if (iChances == iPerdeu) {
+            JOptionPane.showMessageDialog(this, "Você Perdeu!");
         }
     }//GEN-LAST:event_btnNmr10ActionPerformed
 
@@ -1932,11 +2047,9 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
 
         iRetorna = pVetor.PesquisaVetor(iVetor, btn1);
 
-        iSomaAcertos = iSomaAcertos + btn1;
-
         if (iRetorna >= 0) {
             iSomaAcertos++;
-            txtAcertos.setText(sSomaAcertos);
+            iPerdeu++;
             txtVetor.setText(txtVetor.getText() + btnV + " | ");
             btnNmr11.setForeground(Color.GREEN);
             btnNmr11.setBackground(Color.GREEN);
@@ -1944,10 +2057,19 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
 
         } else {
             iSomaErros++;
-            txtErro.setText(sSomaErros);
+            iPerdeu++;
             btnNmr11.setForeground(Color.RED);
             btnNmr11.setBackground(Color.RED);
             btnNmr11.setEnabled(false);
+        }
+        String sSomaAcertos = Integer.toString(iSomaAcertos);
+        String sSomaErros = Integer.toString(iSomaErros);
+        txtAcertos.setText(sSomaAcertos);
+        txtErro.setText(sSomaErros);
+        String sPerdeu = Integer.toString(iPerdeu);
+        txtTentativas.setText(sPerdeu);
+        if (iChances == iPerdeu) {
+            JOptionPane.showMessageDialog(this, "Você Perdeu!");
         }
     }//GEN-LAST:event_btnNmr11ActionPerformed
 
@@ -1957,11 +2079,9 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
 
         iRetorna = pVetor.PesquisaVetor(iVetor, btn1);
 
-        iSomaAcertos = iSomaAcertos + btn1;
-
         if (iRetorna >= 0) {
             iSomaAcertos++;
-            txtAcertos.setText(sSomaAcertos);
+            iPerdeu++;
             txtVetor.setText(txtVetor.getText() + btnV + " | ");
             btnNmr12.setForeground(Color.GREEN);
             btnNmr12.setBackground(Color.GREEN);
@@ -1969,10 +2089,19 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
 
         } else {
             iSomaErros++;
-            txtErro.setText(sSomaErros);
+            iPerdeu++;
             btnNmr12.setForeground(Color.RED);
             btnNmr12.setBackground(Color.RED);
             btnNmr12.setEnabled(false);
+        }
+        String sSomaAcertos = Integer.toString(iSomaAcertos);
+        String sSomaErros = Integer.toString(iSomaErros);
+        txtAcertos.setText(sSomaAcertos);
+        txtErro.setText(sSomaErros);
+        String sPerdeu = Integer.toString(iPerdeu);
+        txtTentativas.setText(sPerdeu);
+        if (iChances == iPerdeu) {
+            JOptionPane.showMessageDialog(this, "Você Perdeu!");
         }
     }//GEN-LAST:event_btnNmr12ActionPerformed
 
@@ -1982,11 +2111,9 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
 
         iRetorna = pVetor.PesquisaVetor(iVetor, btn1);
 
-        iSomaAcertos = iSomaAcertos + btn1;
-
         if (iRetorna >= 0) {
             iSomaAcertos++;
-            txtAcertos.setText(sSomaAcertos);
+            iPerdeu++;
             txtVetor.setText(txtVetor.getText() + btnV + " | ");
             btnNmr13.setForeground(Color.GREEN);
             btnNmr13.setBackground(Color.GREEN);
@@ -1994,10 +2121,19 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
 
         } else {
             iSomaErros++;
-            txtErro.setText(sSomaErros);
+            iPerdeu++;
             btnNmr13.setForeground(Color.RED);
             btnNmr13.setBackground(Color.RED);
             btnNmr13.setEnabled(false);
+        }
+        String sSomaAcertos = Integer.toString(iSomaAcertos);
+        String sSomaErros = Integer.toString(iSomaErros);
+        txtAcertos.setText(sSomaAcertos);
+        txtErro.setText(sSomaErros);
+        String sPerdeu = Integer.toString(iPerdeu);
+        txtTentativas.setText(sPerdeu);
+        if (iChances == iPerdeu) {
+            JOptionPane.showMessageDialog(this, "Você Perdeu!");
         }
     }//GEN-LAST:event_btnNmr13ActionPerformed
 
@@ -2007,11 +2143,8 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
 
         iRetorna = pVetor.PesquisaVetor(iVetor, btn1);
 
-        iSomaAcertos = iSomaAcertos + btn1;
-
         if (iRetorna >= 0) {
             iSomaAcertos++;
-            txtAcertos.setText(sSomaAcertos);
             txtVetor.setText(txtVetor.getText() + btnV + " | ");
             btnNmr14.setForeground(Color.GREEN);
             btnNmr14.setBackground(Color.GREEN);
@@ -2019,11 +2152,14 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
 
         } else {
             iSomaErros++;
-            txtErro.setText(sSomaErros);
             btnNmr14.setForeground(Color.RED);
             btnNmr14.setBackground(Color.RED);
             btnNmr14.setEnabled(false);
         }
+        String sSomaAcertos = Integer.toString(iSomaAcertos);
+        String sSomaErros = Integer.toString(iSomaErros);
+        txtAcertos.setText(sSomaAcertos);
+        txtErro.setText(sSomaErros);
     }//GEN-LAST:event_btnNmr14ActionPerformed
 
     private void btnNmr15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNmr15ActionPerformed
@@ -2032,11 +2168,8 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
 
         iRetorna = pVetor.PesquisaVetor(iVetor, btn1);
 
-        iSomaAcertos = iSomaAcertos + btn1;
-
         if (iRetorna >= 0) {
             iSomaAcertos++;
-            txtAcertos.setText(sSomaAcertos);
             txtVetor.setText(txtVetor.getText() + btnV + " | ");
             btnNmr15.setForeground(Color.GREEN);
             btnNmr15.setBackground(Color.GREEN);
@@ -2044,11 +2177,14 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
 
         } else {
             iSomaErros++;
-            txtErro.setText(sSomaErros);
             btnNmr15.setForeground(Color.RED);
             btnNmr15.setBackground(Color.RED);
             btnNmr15.setEnabled(false);
         }
+        String sSomaAcertos = Integer.toString(iSomaAcertos);
+        String sSomaErros = Integer.toString(iSomaErros);
+        txtAcertos.setText(sSomaAcertos);
+        txtErro.setText(sSomaErros);
     }//GEN-LAST:event_btnNmr15ActionPerformed
 
     private void btnNmr16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNmr16ActionPerformed
@@ -2057,11 +2193,8 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
 
         iRetorna = pVetor.PesquisaVetor(iVetor, btn1);
 
-        iSomaAcertos = iSomaAcertos + btn1;
-
         if (iRetorna >= 0) {
             iSomaAcertos++;
-            txtAcertos.setText(sSomaAcertos);
             txtVetor.setText(txtVetor.getText() + btnV + " | ");
             btnNmr16.setForeground(Color.GREEN);
             btnNmr16.setBackground(Color.GREEN);
@@ -2069,11 +2202,14 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
 
         } else {
             iSomaErros++;
-            txtErro.setText(sSomaErros);
             btnNmr16.setForeground(Color.RED);
             btnNmr16.setBackground(Color.RED);
             btnNmr16.setEnabled(false);
         }
+        String sSomaAcertos = Integer.toString(iSomaAcertos);
+        String sSomaErros = Integer.toString(iSomaErros);
+        txtAcertos.setText(sSomaAcertos);
+        txtErro.setText(sSomaErros);
     }//GEN-LAST:event_btnNmr16ActionPerformed
 
     private void btnNmr17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNmr17ActionPerformed
@@ -2082,11 +2218,8 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
 
         iRetorna = pVetor.PesquisaVetor(iVetor, btn1);
 
-        iSomaAcertos = iSomaAcertos + btn1;
-
         if (iRetorna >= 0) {
             iSomaAcertos++;
-            txtAcertos.setText(sSomaAcertos);
             txtVetor.setText(txtVetor.getText() + btnV + " | ");
             btnNmr17.setForeground(Color.GREEN);
             btnNmr17.setBackground(Color.GREEN);
@@ -2094,11 +2227,14 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
 
         } else {
             iSomaErros++;
-            txtErro.setText(sSomaErros);
             btnNmr17.setForeground(Color.RED);
             btnNmr17.setBackground(Color.RED);
             btnNmr17.setEnabled(false);
         }
+        String sSomaAcertos = Integer.toString(iSomaAcertos);
+        String sSomaErros = Integer.toString(iSomaErros);
+        txtAcertos.setText(sSomaAcertos);
+        txtErro.setText(sSomaErros);
     }//GEN-LAST:event_btnNmr17ActionPerformed
 
     private void btnNmr18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNmr18ActionPerformed
@@ -2107,11 +2243,8 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
 
         iRetorna = pVetor.PesquisaVetor(iVetor, btn1);
 
-        iSomaAcertos = iSomaAcertos + btn1;
-
         if (iRetorna >= 0) {
             iSomaAcertos++;
-            txtAcertos.setText(sSomaAcertos);
             txtVetor.setText(txtVetor.getText() + btnV + " | ");
             btnNmr18.setForeground(Color.GREEN);
             btnNmr18.setBackground(Color.GREEN);
@@ -2119,11 +2252,14 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
 
         } else {
             iSomaErros++;
-            txtErro.setText(sSomaErros);
             btnNmr18.setForeground(Color.RED);
             btnNmr18.setBackground(Color.RED);
             btnNmr18.setEnabled(false);
         }
+        String sSomaAcertos = Integer.toString(iSomaAcertos);
+        String sSomaErros = Integer.toString(iSomaErros);
+        txtAcertos.setText(sSomaAcertos);
+        txtErro.setText(sSomaErros);
     }//GEN-LAST:event_btnNmr18ActionPerformed
 
     private void btnNmr19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNmr19ActionPerformed
@@ -2132,11 +2268,8 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
 
         iRetorna = pVetor.PesquisaVetor(iVetor, btn1);
 
-        iSomaAcertos = iSomaAcertos + btn1;
-
         if (iRetorna >= 0) {
             iSomaAcertos++;
-            txtAcertos.setText(sSomaAcertos);
             txtVetor.setText(txtVetor.getText() + btnV + " | ");
             btnNmr19.setForeground(Color.GREEN);
             btnNmr19.setBackground(Color.GREEN);
@@ -2144,11 +2277,14 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
 
         } else {
             iSomaErros++;
-            txtErro.setText(sSomaErros);
             btnNmr19.setForeground(Color.RED);
             btnNmr19.setBackground(Color.RED);
             btnNmr19.setEnabled(false);
         }
+        String sSomaAcertos = Integer.toString(iSomaAcertos);
+        String sSomaErros = Integer.toString(iSomaErros);
+        txtAcertos.setText(sSomaAcertos);
+        txtErro.setText(sSomaErros);
     }//GEN-LAST:event_btnNmr19ActionPerformed
 
     private void btnNmr20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNmr20ActionPerformed
@@ -2157,23 +2293,22 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
 
         iRetorna = pVetor.PesquisaVetor(iVetor, btn1);
 
-        iSomaAcertos = iSomaAcertos + btn1;
-
         if (iRetorna >= 0) {
             iSomaAcertos++;
-            txtAcertos.setText(sSomaAcertos);
-            txtVetor.setText(txtVetor.getText() + btnV + " | ");
             btnNmr20.setForeground(Color.GREEN);
             btnNmr20.setBackground(Color.GREEN);
             btnNmr20.setEnabled(false);
 
         } else {
             iSomaErros++;
-            txtErro.setText(sSomaErros);
             btnNmr20.setForeground(Color.RED);
             btnNmr20.setBackground(Color.RED);
             btnNmr20.setEnabled(false);
         }
+        String sSomaAcertos = Integer.toString(iSomaAcertos);
+        String sSomaErros = Integer.toString(iSomaErros);
+        txtAcertos.setText(sSomaAcertos);
+        txtErro.setText(sSomaErros);
     }//GEN-LAST:event_btnNmr20ActionPerformed
 
     private void btnNmr21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNmr21ActionPerformed
@@ -3021,6 +3156,8 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
@@ -3030,10 +3167,12 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JTextField lblHoraInicio;
     private javax.swing.JTextField txtAcertos;
+    private javax.swing.JTextField txtChances;
     private javax.swing.JTextArea txtDescricao;
     private javax.swing.JTextField txtErro;
     private javax.swing.JTextField txtTamanhoVetor;
     private javax.swing.JTextField txtTempoDecorrido;
+    private javax.swing.JTextField txtTentativas;
     private javax.swing.JTextField txtValoresVetor;
     public javax.swing.JTextArea txtVetor;
     // End of variables declaration//GEN-END:variables
