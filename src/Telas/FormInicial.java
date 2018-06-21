@@ -5,9 +5,13 @@
  */
 package Telas;
 
+import java.awt.Toolkit;
+import java.awt.event.KeyEvent;
+import java.io.IOException;
 import java.net.UnknownHostException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 /**
@@ -21,7 +25,9 @@ public class FormInicial extends javax.swing.JFrame {
      */
     public FormInicial() {
         initComponents();
-
+        setIcon();
+        ImageIcon icon = new ImageIcon(this.getClass().getResource("/Imagens/ICON.png"));  
+        setIconImage(icon.getImage());
     }
 
     /**
@@ -47,6 +53,7 @@ public class FormInicial extends javax.swing.JFrame {
         jLabel2.setText("jLabel2");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Joguinho Vetor");
         setUndecorated(true);
 
         jPanel2.setBackground(new java.awt.Color(0, 102, 255));
@@ -77,6 +84,11 @@ public class FormInicial extends javax.swing.JFrame {
         txtNome.setFont(new java.awt.Font("Century Gothic", 0, 24)); // NOI18N
         txtNome.setForeground(new java.awt.Color(255, 255, 255));
         txtNome.setBorder(null);
+        txtNome.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtNomeKeyPressed(evt);
+            }
+        });
 
         jButton1.setBackground(new java.awt.Color(51, 51, 51));
         jButton1.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
@@ -167,17 +179,34 @@ public class FormInicial extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        if (txtNome.getText().equals("") ){
+
+        if (txtNome.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Para iniciar Digite um Nome Valido");
         } else {
             try {
                 new FormJoguinho(txtNome.getText()).setVisible(true);
-            } catch (UnknownHostException ex) {
+            } catch (IOException ex) {
                 Logger.getLogger(FormInicial.class.getName()).log(Level.SEVERE, null, ex);
             }
             this.dispose();
         }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void txtNomeKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNomeKeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            if (txtNome.getText().equals("")) {
+                JOptionPane.showMessageDialog(null, "Para iniciar Digite um Nome Valido");
+            } else {
+                try {
+                    new FormJoguinho(txtNome.getText()).setVisible(true);
+                } catch (IOException ex) {
+                    Logger.getLogger(FormInicial.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                this.dispose();
+            }
+        }
+
+    }//GEN-LAST:event_txtNomeKeyPressed
 
     /**
      * @param args the command line arguments
@@ -190,7 +219,7 @@ public class FormInicial extends javax.swing.JFrame {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Windows".equals(info.getName())) {
+                if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
@@ -226,5 +255,7 @@ public class FormInicial extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTextField txtNome;
     // End of variables declaration//GEN-END:variables
-
+    private void setIcon() {
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Imagens/ICON.png")));
+    }
 }
