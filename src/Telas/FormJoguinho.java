@@ -5,6 +5,7 @@
  */
 package Telas;
 
+import Internas.InternaEstaticas;
 import Internas.InternaJoguinoVetor;
 import java.awt.Toolkit;
 import java.io.IOException;
@@ -228,18 +229,11 @@ public class FormJoguinho extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        AbrirInternal(new InternaJoguinoVetor());
+        AbrirInternal(new InternaJoguinoVetor(txtLogado.getText()));
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-//        InternaJoguinoVetor pesquisauser = new InternaJoguinoVetor();
-//        jDesktopPaneFundo.add(pesquisauser);
-//        pesquisauser.setVisible(true);
-//        try {
-//            pesquisauser.setMaximum(true);
-//        } catch (PropertyVetoException e) {
-//            JOptionPane.showMessageDialog(null, e);
-//        }
+        AbrirInternal(new InternaEstaticas(txtLogado.getText()));
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed

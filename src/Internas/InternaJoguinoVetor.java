@@ -10,12 +10,8 @@ import Classes.PesquisaVetor;
 import Classes.salvartxt;
 import java.awt.Color;
 import java.awt.Component;
-import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.Calendar;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -25,12 +21,13 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
 
     PesquisaVetor pVetor = new PesquisaVetor();
     GerarVetor gVetor = new GerarVetor();
+    salvartxt sSalvar = new salvartxt();
     Timer tTemporizador = new Timer(1000, new hora());
     Timer tTemporizadorInicio = new Timer(1000, new horaInicio());
 
-    int iSomaAcertos = 0, iSomaErros = 0, iPerdeu = 0, iChances = 0, iTamanho, iValores, iValorBusca, iVetor[], iRetorna;
+   private int iSomaAcertos = 0, iSomaErros = 0, iPerdeu = 0, iChances = 0, iTamanho, iValores, iVetor[], iRetorna;
 
-    public InternaJoguinoVetor() {
+    public InternaJoguinoVetor(String UserLogao) {
         initComponents();
         tTemporizadorInicio.start();
         setPanelEnabled(jPanelBotoes, false);
@@ -176,6 +173,7 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
         btnNmr66 = new javax.swing.JButton();
         btnNmr67 = new javax.swing.JButton();
         btnNmr68 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setClosable(true);
         setTitle("Ordenação de Vetor");
@@ -1617,7 +1615,9 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
                         .addComponent(jLabel7)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtTentativas, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(83, 83, 83)
                         .addComponent(btnParar, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnInicia, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -1638,82 +1638,96 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
                 .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel7)
-                        .addComponent(txtTentativas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btnInicia)
-                        .addComponent(btnParar))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel8)
-                        .addComponent(txtChances, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel7)
+                                .addComponent(txtTentativas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btnInicia)
+                                .addComponent(btnParar))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel8)
+                                .addComponent(txtChances, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 4, Short.MAX_VALUE))
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnPararActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPararActionPerformed
-        tTemporizador.stop();
-        iSomaErros = 0;
-        iSomaAcertos = 0;
-        iPerdeu = 0;
-        setPanelEnable(jPanelInfo, false);
-        setPanelEnabled(jPanelBotoes, false);
-        tTemporizador.stop();
-        iSomaErros = 0;
-        iSomaAcertos = 0;
-        iPerdeu = 0;
-        btnInicia.setEnabled(true);
-        txtVetor.setText("");
-        txtAcertos.setText("");
-        txtChances.setText("");
-        txtDescricao.setText("");
-        txtErro.setText("");
-        txtHoraInicio.setText("");
-        txtTamanhoVetor.setText("");
-        txtTempoDecorrido.setText("");
-        txtTentativas.setText("");
-        txtValoresVetor.setText("");
-        txtTamanhoVetor.requestFocus();
-        txtTamanhoVetor.setEnabled(true);
-        txtValoresVetor.setEnabled(true);
-        lblTamanho.setEnabled(true);
-        lblValor.setEnabled(true);
+        try {
+
+            tTemporizador.stop();
+            iSomaErros = 0;
+            iSomaAcertos = 0;
+            iPerdeu = 0;
+            setPanelEnable(jPanelInfo, false);
+            setPanelEnabled(jPanelBotoes, false);
+            tTemporizador.stop();
+            iSomaErros = 0;
+            iSomaAcertos = 0;
+            iPerdeu = 0;
+            btnInicia.setEnabled(true);
+            txtVetor.setText("");
+            txtAcertos.setText("");
+            txtChances.setText("");
+            txtDescricao.setText("");
+            txtErro.setText("");
+            txtHoraInicio.setText("");
+            txtTamanhoVetor.setText("");
+            txtTempoDecorrido.setText("");
+            txtTentativas.setText("");
+            txtValoresVetor.setText("");
+            txtTamanhoVetor.requestFocus();
+            txtTamanhoVetor.setEnabled(true);
+            txtValoresVetor.setEnabled(true);
+            lblTamanho.setEnabled(true);
+            lblValor.setEnabled(true);
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(this, ex,"Erro",2);
+        }
     }//GEN-LAST:event_btnPararActionPerformed
 
     private void btnIniciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciaActionPerformed
-        String sTamanho = txtTamanhoVetor.getText();
-        String sValores = txtValoresVetor.getText();
 
-        if (txtTamanhoVetor.getText().equals("") || txtValoresVetor.getText().equals("")) {
-            JOptionPane.showMessageDialog(null, "Digite um Tamanho e um Valor para poder Prosseguir!");
-        } else {
-            iTamanho = Integer.parseInt(sTamanho);
-            iValores = Integer.parseInt(sValores);
-            if (iTamanho < iValores) {
-                JOptionPane.showMessageDialog(this, "Os valores do Vetor não pode ser menor que o seu Tamanho!");
+        try {
+            String sTamanho = txtTamanhoVetor.getText();
+
+            String sValores = txtValoresVetor.getText();
+
+            if (txtTamanhoVetor.getText().equals("") || txtValoresVetor.getText().equals("")) {
+                JOptionPane.showMessageDialog(null, "Digite um Tamanho e um Valor para poder Prosseguir!");
             } else {
-                setPanelEnabled(jPanelBotoes, true);
-                setPanelEnable(jPanelInfo, false);
+                iTamanho = Integer.parseInt(sTamanho);
+                iValores = Integer.parseInt(sValores);
+                if (iTamanho > iValores) {
+                    JOptionPane.showMessageDialog(this, "Os valores do Vetor não pode ser menor que o seu Tamanho!");
+                } else {
+                    setPanelEnabled(jPanelBotoes, true);
+                    setPanelEnable(jPanelInfo, false);
 
-                iVetor = gVetor.GerarVetor(iTamanho, iValores);
-                gVetor.ImprimeVetor(iVetor);
-                
+                    iVetor = gVetor.GerarVetor(iTamanho, iValores);
+                    gVetor.ImprimeVetor(iVetor);
 
-                tTemporizadorInicio.stop();
-                tTemporizador.start();
+                    tTemporizadorInicio.stop();
+                    tTemporizador.start();
 
-                btnInicia.setEnabled(false);
+                    btnInicia.setEnabled(false);
 
-                int iContagem = Integer.parseInt(txtTamanhoVetor.getText());
-                iChances = iContagem * 3;
-                iPerdeu = iChances;
+                    int iContagem = Integer.parseInt(txtTamanhoVetor.getText());
+                    iChances = iContagem * 3;
+                    iPerdeu = iChances;
 
-                String sResult = Integer.toString(iChances);
-                txtChances.setText(sResult);
-                txtTentativas.setText(sResult);
+                    String sResult = Integer.toString(iChances);
+                    txtChances.setText(sResult);
+                    txtTentativas.setText(sResult);
 
+                }
             }
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(this, ex,"Erro",2);
         }
     }//GEN-LAST:event_btnIniciaActionPerformed
 
@@ -6732,26 +6746,35 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_txtValoresVetorKeyPressed
 
     private void txtTamanhoVetorKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTamanhoVetorKeyReleased
-//        String sTratamento = txtTamanhoVetor.getText();
-//        int iTratamento = Integer.parseInt(sTratamento);
-//        int iValor = 105;
-//        String sValor = String.valueOf(iValor);
-//
-//        if (iTratamento > 105) {
-//            JOptionPane.showMessageDialog(null, "O limite maximo do Vetor é de 105 Posições");
-//            txtTamanhoVetor.setText(sValor);
-//        }
+        try {
+             
+            String sTratamento = txtTamanhoVetor.getText();
+            int iTratamento = Integer.parseInt(sTratamento);
+            int iValor = 105;
+            String sValor = String.valueOf(iValor);
+
+            if (iTratamento > 105) {
+                JOptionPane.showMessageDialog(null, "O limite maximo do Vetor é de 105 Posições");
+                txtTamanhoVetor.setText(sValor);
+            }
+        } catch (Exception ex) {
+            System.out.println(ex);
+        }
     }//GEN-LAST:event_txtTamanhoVetorKeyReleased
 
     private void txtValoresVetorKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtValoresVetorKeyReleased
-//        String sTratamento = txtValoresVetor.getText();
-//        int iTratamento = Integer.parseInt(sTratamento);
-//        int iValor = 105;
-//        String sValor = String.valueOf(iValor);
-//        if (iTratamento > 105) {
-//            JOptionPane.showMessageDialog(null, "O limite maximo do Vetor é de 105 Posições");
-//            txtValoresVetor.setText(sValor);
-//        }
+        try {
+            String sTratamento = txtValoresVetor.getText();
+            int iTratamento = Integer.parseInt(sTratamento);
+            int iValor = 105;
+            String sValor = String.valueOf(iValor);
+            if (iTratamento > 105) {
+                JOptionPane.showMessageDialog(null, "O Valor maximo do Vetor é de 105");
+                txtValoresVetor.setText(sValor);
+            }
+        } catch (Exception ex) {
+            System.out.println(ex);
+        }
     }//GEN-LAST:event_txtValoresVetorKeyReleased
 
 
@@ -6863,6 +6886,7 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnNmr98;
     private javax.swing.JButton btnNmr99;
     private javax.swing.JButton btnParar;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -6908,22 +6932,6 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
         }
     }
 
-//    public void lerTxt() {
-//        Path caminho = Paths.get("dadosVetor.txt");
-//        try {
-//            byte[] texto = Files.readAllBytes(caminho);
-//            String leitura = new String(texto);
-////            jTextUser.setText(leitura);
-//
-//        } catch (Exception erro) {
-//
-//        }
-//    }
-//    private void SalvarTXR() {
-//        salvartxt salva = new salvartxt();
-//        salva.setUser(txtVetor.getText());
-//        salva.Salvar();
-//    }
     void setPanelEnabled(JPanel panel, Boolean isEnabled) {
         panel.setEnabled(isEnabled);
 
@@ -6935,7 +6943,7 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             }
 
             components[i].setEnabled(isEnabled);
-            components[i].setBackground(Color.DARK_GRAY);
+            components[i].setBackground(Color.GRAY);
             components[i].setForeground(Color.BLACK);
         }
     }

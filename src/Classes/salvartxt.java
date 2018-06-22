@@ -34,10 +34,58 @@ public class salvartxt {
         return null;
     }
 
-    public String SalvarOrdenar() {
+    public String SalvarUser(String sArquivo) {
 
         try {
-            FileWriter fw = new FileWriter("VetorOrdenado.txt");
+            FileWriter fw = new FileWriter(sArquivo + ".txt");
+            PrintWriter pw = new PrintWriter(fw);
+            pw.printf(this.user);
+            pw.flush();
+            pw.close();
+            fw.close();
+
+        } catch (IOException ex) {
+            JOptionPane.showMessageDialog(null, ex);
+        }
+
+        return null;
+    }
+    public String SalvarJogos(String sArquivo) {
+
+        try {
+            FileWriter fw = new FileWriter(sArquivo + "Jogos.txt");
+            PrintWriter pw = new PrintWriter(fw);
+            pw.printf(this.user);
+            pw.flush();
+            pw.close();
+            fw.close();
+
+        } catch (IOException ex) {
+            JOptionPane.showMessageDialog(null, ex);
+        }
+
+        return null;
+    }
+    public String SalvarErros(String sArquivo) {
+
+        try {
+            FileWriter fw = new FileWriter(sArquivo + "Erros.txt");
+            PrintWriter pw = new PrintWriter(fw);
+            pw.printf(this.user);
+            pw.flush();
+            pw.close();
+            fw.close();
+
+        } catch (IOException ex) {
+            JOptionPane.showMessageDialog(null, ex);
+        }
+
+        return null;
+    }
+    public String SalvarAcertos(String sArquivo) {
+
+        try {
+            FileWriter fw = new FileWriter(sArquivo + "Acertos.txt");
             PrintWriter pw = new PrintWriter(fw);
             pw.printf(this.user);
             pw.flush();

@@ -26,7 +26,7 @@ public class FormInicial extends javax.swing.JFrame {
     public FormInicial() {
         initComponents();
         setIcon();
-        ImageIcon icon = new ImageIcon(this.getClass().getResource("/Imagens/ICON.png"));  
+        ImageIcon icon = new ImageIcon(this.getClass().getResource("/Imagens/ICON.png"));
         setIconImage(icon.getImage());
     }
 
@@ -96,6 +96,11 @@ public class FormInicial extends javax.swing.JFrame {
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
+            }
+        });
+        jButton1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jButton1KeyPressed(evt);
             }
         });
 
@@ -179,7 +184,6 @@ public class FormInicial extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-
         if (txtNome.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Para iniciar Digite um Nome Valido");
         } else {
@@ -207,6 +211,21 @@ public class FormInicial extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_txtNomeKeyPressed
+
+    private void jButton1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jButton1KeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            if (txtNome.getText().equals("")) {
+                JOptionPane.showMessageDialog(null, "Para iniciar Digite um Nome Valido");
+            } else {
+                try {
+                    new FormJoguinho(txtNome.getText()).setVisible(true);
+                } catch (IOException ex) {
+                    Logger.getLogger(FormInicial.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                this.dispose();
+            }
+        }
+    }//GEN-LAST:event_jButton1KeyPressed
 
     /**
      * @param args the command line arguments
