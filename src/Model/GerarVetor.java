@@ -1,21 +1,10 @@
 package Model;
 
-import View.InternaJoguinoVetor;
 import java.util.Random;
-import javax.swing.JOptionPane;
 
 public class GerarVetor {
 
-//    public int[] GerarVetor(int tam, int limite){
-//        int vetor[] = new int[tam];
-//        Random gerador = new Random();
-//        
-//        for(int i = 0; i < tam; i++){
-//        vetor[i] = gerador.nextInt(limite+1);
-//        
-//    }
-//        return vetor;
-//    }
+
     public int[] GerarVetor(int tam, int limite) {
 
         int[] v = new int[tam];

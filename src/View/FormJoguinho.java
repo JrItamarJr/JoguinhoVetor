@@ -87,10 +87,15 @@ public class FormJoguinho extends javax.swing.JFrame {
         jToolBar1.add(jSeparator4);
 
         jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Actions-games-config-custom-icon.png"))); // NOI18N
-        jButton4.setToolTipText("Configurações");
+        jButton4.setToolTipText("Informações");
         jButton4.setFocusable(false);
         jButton4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton4.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
         jToolBar1.add(jButton4);
         jToolBar1.add(jSeparator5);
 
@@ -235,6 +240,10 @@ public class FormJoguinho extends javax.swing.JFrame {
             System.exit(sair);
         }
     }//GEN-LAST:event_formWindowClosed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        AbrirInternal(new InternaInformacoes());
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments

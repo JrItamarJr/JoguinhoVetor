@@ -5,10 +5,24 @@
  */
 package View;
 
-import Model.salvartxt;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+//import org.apache.pdfbox.pdfparser.PDFParser;
+//import org.apache.pdfbox.pdmodel.PDDocument;
+//import org.apache.pdfbox.util.PDFTextStripper;
 
 /**
  *
@@ -361,5 +375,65 @@ public class InternaEstaticas extends javax.swing.JInternalFrame {
 //        salvartxt salva = new salvartxt();
 //        salva.setUser(txtVetor.getText());
 //        salva.Salvar();
+//    }
+//    public void lerPdf(){
+//        PdfParser pdf = new PdfParser();
+//		pdf.setEnderecoRecurso("c:\\spedfiscal2.pdf");
+//		String retorno = pdf.getConteudo();
+//		FileWriter x = new FileWriter("c:\\teste.txt", false);
+//		x.write(retorno);
+//		x.close();
+//		FileInputStream stream = new FileInputStream("c:\\teste.txt");
+//		StringBuilder txt = new StringBuilder();
+//		InputStreamReader streamReader = new InputStreamReader(stream);
+//		BufferedReader reader = new BufferedReader(streamReader);
+//		String line = null;
+//		while ((line = reader.readLine()) != null) {
+//			txt.append(line);
+//				txt.append("\n");
+//			if (line.contains(" ")) {
+//				txt.append(line.replaceAll(" ", ";"));
+//				txt.append("\n");
+//			}
+//		}
+//		System.out.println(txt);
+//	}
+//	private String enderecoRecurso;
+//	public void setEnderecoRecurso(String enderecoRecurso) {
+//		this.enderecoRecurso = enderecoRecurso; // endereço dos ficheiros
+//	}
+//	public String getConteudo() {
+//		File f = new File(this.enderecoRecurso);
+//		FileInputStream is = null;
+//		try {
+//			is = new FileInputStream(f);
+//		} catch (IOException e) {
+//			System.out.println("ERRO: " + e.getMessage());
+//			return null;
+//		}
+//                
+//		PDDocument pdfDocument = null;
+//		try {
+//			PDFParser parser = new PDFParser(is);
+//			parser.parse();
+//			pdfDocument = parser.getPDDocument();
+//			PDFTextStripper stripper = new PDFTextStripper();
+//			return stripper.getText(pdfDocument);
+//		} catch (IOException e) {
+//			return "ERRO: Não é possível abrir a stream" + e;
+//		} catch (Throwable e) {
+//			// Fazemos um catch, uma vez que precisamos de fechar o recurso
+//			return "ERRO: Um erro ocorreu enquanto tentava obter o conteúdo do PDF"
+//					+ e;
+//		} finally {
+//			if (pdfDocument != null) {
+//				try {
+//					pdfDocument.close();
+//				} catch (IOException e) {
+//					return "ERRO: Não foi possível fechar o PDF." + e;
+//				}
+//			}
+//		}
+//	}
 //    }
 }
