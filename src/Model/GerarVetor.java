@@ -1,6 +1,6 @@
-package Classes;
+package Model;
 
-import Internas.InternaJoguinoVetor;
+import View.InternaJoguinoVetor;
 import java.util.Random;
 import javax.swing.JOptionPane;
 

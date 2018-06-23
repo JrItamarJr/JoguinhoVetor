@@ -3,11 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Internas;
+package View;
 
-import Classes.GerarVetor;
-import Classes.PesquisaVetor;
-import Classes.salvartxt;
+import Model.GerarVetor;
+import Model.PesquisaVetor;
+import Model.salvartxt;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.event.ActionEvent;

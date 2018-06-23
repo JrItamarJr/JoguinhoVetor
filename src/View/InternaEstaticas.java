@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Internas;
+package View;
 
-import Classes.salvartxt;
+import Model.salvartxt;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
