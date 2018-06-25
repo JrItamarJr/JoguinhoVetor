@@ -1,17 +1,13 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package View;
 
 import Model.GerarVetor;
 import Model.PesquisaVetor;
-import Model.salvartxt;
+import Model.SalvarTXT;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Arrays;
 import java.util.Calendar;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -21,11 +17,11 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
 
     PesquisaVetor pVetor = new PesquisaVetor();
     GerarVetor gVetor = new GerarVetor();
-    salvartxt sSalvar = new salvartxt();
+    SalvarTXT sSalvar = new SalvarTXT();
     Timer tTemporizador = new Timer(1000, new hora());
     Timer tTemporizadorInicio = new Timer(1000, new horaInicio());
 
-   private int iSomaAcertos = 0, iSomaErros = 0, iPerdeu = 0, iChances = 0, iTamanho, iValores, iVetor[], iRetorna;
+    private int iSomaAcertos = 0, iSomaErros = 0, iPerdeu = 0, iChances = 0, iTamanho, iValores, iVetor[], iRetorna;
 
     public InternaJoguinoVetor(String UserLogao) {
         initComponents();
@@ -173,7 +169,6 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
         btnNmr66 = new javax.swing.JButton();
         btnNmr67 = new javax.swing.JButton();
         btnNmr68 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
 
         setClosable(true);
         setTitle("Ordenação de Vetor");
@@ -244,6 +239,7 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
 
         txtAcertos.setEditable(false);
         txtAcertos.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        txtAcertos.setForeground(new java.awt.Color(0, 153, 0));
         txtAcertos.setEnabled(false);
 
         jLabel5.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
@@ -251,6 +247,7 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
 
         txtErro.setEditable(false);
         txtErro.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        txtErro.setForeground(new java.awt.Color(204, 0, 0));
         txtErro.setEnabled(false);
 
         jLabel6.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
@@ -365,14 +362,12 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
 
         txtTentativas.setEditable(false);
         txtTentativas.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        txtTentativas.setEnabled(false);
 
         jLabel8.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         jLabel8.setText("Chances");
 
         txtChances.setEditable(false);
         txtChances.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        txtChances.setEnabled(false);
 
         jPanelBotoes.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
@@ -1615,9 +1610,7 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
                         .addComponent(jLabel7)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtTentativas, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(83, 83, 83)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnParar, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnInicia, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -1638,19 +1631,15 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
                 .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jLabel7)
-                                .addComponent(txtTentativas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(btnInicia)
-                                .addComponent(btnParar))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jLabel8)
-                                .addComponent(txtChances, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 4, Short.MAX_VALUE))
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel7)
+                        .addComponent(txtTentativas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnInicia)
+                        .addComponent(btnParar))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel8)
+                        .addComponent(txtChances, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -1658,7 +1647,8 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
 
     private void btnPararActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPararActionPerformed
         try {
-
+            txtTamanhoVetor.setEditable(true);
+            txtValoresVetor.setEditable(true);
             tTemporizador.stop();
             iSomaErros = 0;
             iSomaAcertos = 0;
@@ -1685,8 +1675,9 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             txtValoresVetor.setEnabled(true);
             lblTamanho.setEnabled(true);
             lblValor.setEnabled(true);
+            tTemporizadorInicio.start();
         } catch (Exception ex) {
-            JOptionPane.showMessageDialog(this, ex,"Erro",2);
+            JOptionPane.showMessageDialog(this, ex, "Erro", 2);
         }
     }//GEN-LAST:event_btnPararActionPerformed
 
@@ -1705,8 +1696,10 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
                 if (iTamanho > iValores) {
                     JOptionPane.showMessageDialog(this, "Os valores do Vetor não pode ser menor que o seu Tamanho!");
                 } else {
+                    txtTamanhoVetor.setEditable(false);
+                    txtValoresVetor.setEditable(false);
                     setPanelEnabled(jPanelBotoes, true);
-                    setPanelEnable(jPanelInfo, false);
+                    setPanelEnable(jPanelInfo, true);
 
                     iVetor = gVetor.GerarVetor(iTamanho, iValores);
                     gVetor.ImprimeVetor(iVetor);
@@ -1723,11 +1716,11 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
                     String sResult = Integer.toString(iChances);
                     txtChances.setText(sResult);
                     txtTentativas.setText(sResult);
-
+                    BloqueiaLimite();
                 }
             }
         } catch (Exception ex) {
-            JOptionPane.showMessageDialog(this, ex,"Erro",2);
+            JOptionPane.showMessageDialog(this, ex, "Erro", 2);
         }
     }//GEN-LAST:event_btnIniciaActionPerformed
 
@@ -1778,7 +1771,13 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             iSomaAcertos = 0;
             iPerdeu = 0;
         } else if (iPerdeu == 0) {
+            String sVetorPerdeu = Arrays.toString(iVetor);
+            String sValorMont = txtVetor.getText();
+            txtVetor.setText(sValorMont);
+            txtVetor.setText(sValorMont);
+
             JOptionPane.showMessageDialog(this, "Você perdeu!");
+            JOptionPane.showMessageDialog(this, "O Vetor gerado era - - > " + sVetorPerdeu);
             setPanelEnabled(jPanelBotoes, false);
             tTemporizador.stop();
             iSomaErros = 0;
@@ -1830,7 +1829,12 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             iSomaAcertos = 0;
             iPerdeu = 0;
         } else if (iPerdeu == 0) {
+            String sVetorPerdeu = Arrays.toString(iVetor);
+            String sValorMont = txtVetor.getText();
+            txtVetor.setText(sValorMont);
+
             JOptionPane.showMessageDialog(this, "Você perdeu!");
+            JOptionPane.showMessageDialog(this, "O Vetor gerado era - - > " + sVetorPerdeu);
             setPanelEnabled(jPanelBotoes, false);
             tTemporizador.stop();
             iSomaErros = 0;
@@ -1880,7 +1884,12 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             iSomaAcertos = 0;
             iPerdeu = 0;
         } else if (iPerdeu == 0) {
+            String sVetorPerdeu = Arrays.toString(iVetor);
+            String sValorMont = txtVetor.getText();
+            txtVetor.setText(sValorMont);
+
             JOptionPane.showMessageDialog(this, "Você perdeu!");
+            JOptionPane.showMessageDialog(this, "O Vetor gerado era - - > " + sVetorPerdeu);
             setPanelEnabled(jPanelBotoes, false);
             tTemporizador.stop();
             iSomaErros = 0;
@@ -1930,7 +1939,12 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             iSomaAcertos = 0;
             iPerdeu = 0;
         } else if (iPerdeu == 0) {
+            String sVetorPerdeu = Arrays.toString(iVetor);
+            String sValorMont = txtVetor.getText();
+            txtVetor.setText(sValorMont);
+
             JOptionPane.showMessageDialog(this, "Você perdeu!");
+            JOptionPane.showMessageDialog(this, "O Vetor gerado era - - > " + sVetorPerdeu);
             setPanelEnabled(jPanelBotoes, false);
             tTemporizador.stop();
             iSomaErros = 0;
@@ -1980,7 +1994,12 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             iSomaAcertos = 0;
             iPerdeu = 0;
         } else if (iPerdeu == 0) {
+            String sVetorPerdeu = Arrays.toString(iVetor);
+            String sValorMont = txtVetor.getText();
+            txtVetor.setText(sValorMont);
+
             JOptionPane.showMessageDialog(this, "Você perdeu!");
+            JOptionPane.showMessageDialog(this, "O Vetor gerado era - - > " + sVetorPerdeu);
             setPanelEnabled(jPanelBotoes, false);
             tTemporizador.stop();
             iSomaErros = 0;
@@ -2030,7 +2049,12 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             iSomaAcertos = 0;
             iPerdeu = 0;
         } else if (iPerdeu == 0) {
+            String sVetorPerdeu = Arrays.toString(iVetor);
+            String sValorMont = txtVetor.getText();
+            txtVetor.setText(sValorMont);
+
             JOptionPane.showMessageDialog(this, "Você perdeu!");
+            JOptionPane.showMessageDialog(this, "O Vetor gerado era - - > " + sVetorPerdeu);
             setPanelEnabled(jPanelBotoes, false);
             tTemporizador.stop();
             iSomaErros = 0;
@@ -2080,7 +2104,12 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             iSomaAcertos = 0;
             iPerdeu = 0;
         } else if (iPerdeu == 0) {
+            String sVetorPerdeu = Arrays.toString(iVetor);
+            String sValorMont = txtVetor.getText();
+            txtVetor.setText(sValorMont);
+
             JOptionPane.showMessageDialog(this, "Você perdeu!");
+            JOptionPane.showMessageDialog(this, "O Vetor gerado era - - > " + sVetorPerdeu);
             setPanelEnabled(jPanelBotoes, false);
             tTemporizador.stop();
             iSomaErros = 0;
@@ -2130,7 +2159,13 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             iSomaAcertos = 0;
             iPerdeu = 0;
         } else if (iPerdeu == 0) {
+            String sVetorPerdeu = Arrays.toString(iVetor);
+            String sValorMont = txtVetor.getText();
+            txtVetor.setText(sValorMont);
+            txtVetor.setText(sValorMont);
+
             JOptionPane.showMessageDialog(this, "Você perdeu!");
+            JOptionPane.showMessageDialog(this, "O Vetor gerado era - - > " + sVetorPerdeu);
             setPanelEnabled(jPanelBotoes, false);
             tTemporizador.stop();
             iSomaErros = 0;
@@ -2180,7 +2215,12 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             iSomaAcertos = 0;
             iPerdeu = 0;
         } else if (iPerdeu == 0) {
+            String sVetorPerdeu = Arrays.toString(iVetor);
+            String sValorMont = txtVetor.getText();
+            txtVetor.setText(sValorMont);
+
             JOptionPane.showMessageDialog(this, "Você perdeu!");
+            JOptionPane.showMessageDialog(this, "O Vetor gerado era - - > " + sVetorPerdeu);
             setPanelEnabled(jPanelBotoes, false);
             tTemporizador.stop();
             iSomaErros = 0;
@@ -2230,7 +2270,12 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             iSomaAcertos = 0;
             iPerdeu = 0;
         } else if (iPerdeu == 0) {
+            String sVetorPerdeu = Arrays.toString(iVetor);
+            String sValorMont = txtVetor.getText();
+            txtVetor.setText(sValorMont);
+
             JOptionPane.showMessageDialog(this, "Você perdeu!");
+            JOptionPane.showMessageDialog(this, "O Vetor gerado era - - > " + sVetorPerdeu);
             setPanelEnabled(jPanelBotoes, false);
             tTemporizador.stop();
             iSomaErros = 0;
@@ -2280,7 +2325,12 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             iSomaAcertos = 0;
             iPerdeu = 0;
         } else if (iPerdeu == 0) {
+            String sVetorPerdeu = Arrays.toString(iVetor);
+            String sValorMont = txtVetor.getText();
+            txtVetor.setText(sValorMont);
+
             JOptionPane.showMessageDialog(this, "Você perdeu!");
+            JOptionPane.showMessageDialog(this, "O Vetor gerado era - - > " + sVetorPerdeu);
             setPanelEnabled(jPanelBotoes, false);
             tTemporizador.stop();
             iSomaErros = 0;
@@ -2330,7 +2380,12 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             iSomaAcertos = 0;
             iPerdeu = 0;
         } else if (iPerdeu == 0) {
+            String sVetorPerdeu = Arrays.toString(iVetor);
+            String sValorMont = txtVetor.getText();
+            txtVetor.setText(sValorMont);
+
             JOptionPane.showMessageDialog(this, "Você perdeu!");
+            JOptionPane.showMessageDialog(this, "O Vetor gerado era - - > " + sVetorPerdeu);
             setPanelEnabled(jPanelBotoes, false);
             tTemporizador.stop();
             iSomaErros = 0;
@@ -2380,7 +2435,12 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             iSomaAcertos = 0;
             iPerdeu = 0;
         } else if (iPerdeu == 0) {
+            String sVetorPerdeu = Arrays.toString(iVetor);
+            String sValorMont = txtVetor.getText();
+            txtVetor.setText(sValorMont);
+
             JOptionPane.showMessageDialog(this, "Você perdeu!");
+            JOptionPane.showMessageDialog(this, "O Vetor gerado era - - > " + sVetorPerdeu);
             setPanelEnabled(jPanelBotoes, false);
             tTemporizador.stop();
             iSomaErros = 0;
@@ -2430,7 +2490,12 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             iSomaAcertos = 0;
             iPerdeu = 0;
         } else if (iPerdeu == 0) {
+            String sVetorPerdeu = Arrays.toString(iVetor);
+            String sValorMont = txtVetor.getText();
+            txtVetor.setText(sValorMont);
+
             JOptionPane.showMessageDialog(this, "Você perdeu!");
+            JOptionPane.showMessageDialog(this, "O Vetor gerado era - - > " + sVetorPerdeu);
             setPanelEnabled(jPanelBotoes, false);
             tTemporizador.stop();
             iSomaErros = 0;
@@ -2480,7 +2545,12 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             iSomaAcertos = 0;
             iPerdeu = 0;
         } else if (iPerdeu == 0) {
+            String sVetorPerdeu = Arrays.toString(iVetor);
+            String sValorMont = txtVetor.getText();
+            txtVetor.setText(sValorMont);
+
             JOptionPane.showMessageDialog(this, "Você perdeu!");
+            JOptionPane.showMessageDialog(this, "O Vetor gerado era - - > " + sVetorPerdeu);
             setPanelEnabled(jPanelBotoes, false);
             tTemporizador.stop();
             iSomaErros = 0;
@@ -2530,7 +2600,12 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             iSomaAcertos = 0;
             iPerdeu = 0;
         } else if (iPerdeu == 0) {
+            String sVetorPerdeu = Arrays.toString(iVetor);
+            String sValorMont = txtVetor.getText();
+            txtVetor.setText(sValorMont);
+
             JOptionPane.showMessageDialog(this, "Você perdeu!");
+            JOptionPane.showMessageDialog(this, "O Vetor gerado era - - > " + sVetorPerdeu);
             setPanelEnabled(jPanelBotoes, false);
             tTemporizador.stop();
             iSomaErros = 0;
@@ -2580,7 +2655,12 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             iSomaAcertos = 0;
             iPerdeu = 0;
         } else if (iPerdeu == 0) {
+            String sVetorPerdeu = Arrays.toString(iVetor);
+            String sValorMont = txtVetor.getText();
+            txtVetor.setText(sValorMont);
+
             JOptionPane.showMessageDialog(this, "Você perdeu!");
+            JOptionPane.showMessageDialog(this, "O Vetor gerado era - - > " + sVetorPerdeu);
             setPanelEnabled(jPanelBotoes, false);
             tTemporizador.stop();
             iSomaErros = 0;
@@ -2630,7 +2710,12 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             iSomaAcertos = 0;
             iPerdeu = 0;
         } else if (iPerdeu == 0) {
+            String sVetorPerdeu = Arrays.toString(iVetor);
+            String sValorMont = txtVetor.getText();
+            txtVetor.setText(sValorMont);
+
             JOptionPane.showMessageDialog(this, "Você perdeu!");
+            JOptionPane.showMessageDialog(this, "O Vetor gerado era - - > " + sVetorPerdeu);
             setPanelEnabled(jPanelBotoes, false);
             tTemporizador.stop();
             iSomaErros = 0;
@@ -2680,7 +2765,12 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             iSomaAcertos = 0;
             iPerdeu = 0;
         } else if (iPerdeu == 0) {
+            String sVetorPerdeu = Arrays.toString(iVetor);
+            String sValorMont = txtVetor.getText();
+            txtVetor.setText(sValorMont);
+
             JOptionPane.showMessageDialog(this, "Você perdeu!");
+            JOptionPane.showMessageDialog(this, "O Vetor gerado era - - > " + sVetorPerdeu);
             setPanelEnabled(jPanelBotoes, false);
             tTemporizador.stop();
             iSomaErros = 0;
@@ -2730,7 +2820,12 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             iSomaAcertos = 0;
             iPerdeu = 0;
         } else if (iPerdeu == 0) {
+            String sVetorPerdeu = Arrays.toString(iVetor);
+            String sValorMont = txtVetor.getText();
+            txtVetor.setText(sValorMont);
+
             JOptionPane.showMessageDialog(this, "Você perdeu!");
+            JOptionPane.showMessageDialog(this, "O Vetor gerado era - - > " + sVetorPerdeu);
             setPanelEnabled(jPanelBotoes, false);
             tTemporizador.stop();
             iSomaErros = 0;
@@ -2780,7 +2875,12 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             iSomaAcertos = 0;
             iPerdeu = 0;
         } else if (iPerdeu == 0) {
+            String sVetorPerdeu = Arrays.toString(iVetor);
+            String sValorMont = txtVetor.getText();
+            txtVetor.setText(sValorMont);
+
             JOptionPane.showMessageDialog(this, "Você perdeu!");
+            JOptionPane.showMessageDialog(this, "O Vetor gerado era - - > " + sVetorPerdeu);
             setPanelEnabled(jPanelBotoes, false);
             tTemporizador.stop();
             iSomaErros = 0;
@@ -2830,7 +2930,12 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             iSomaAcertos = 0;
             iPerdeu = 0;
         } else if (iPerdeu == 0) {
+            String sVetorPerdeu = Arrays.toString(iVetor);
+            String sValorMont = txtVetor.getText();
+            txtVetor.setText(sValorMont);
+
             JOptionPane.showMessageDialog(this, "Você perdeu!");
+            JOptionPane.showMessageDialog(this, "O Vetor gerado era - - > " + sVetorPerdeu);
             setPanelEnabled(jPanelBotoes, false);
             tTemporizador.stop();
             iSomaErros = 0;
@@ -2880,7 +2985,12 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             iSomaAcertos = 0;
             iPerdeu = 0;
         } else if (iPerdeu == 0) {
+            String sVetorPerdeu = Arrays.toString(iVetor);
+            String sValorMont = txtVetor.getText();
+            txtVetor.setText(sValorMont);
+
             JOptionPane.showMessageDialog(this, "Você perdeu!");
+            JOptionPane.showMessageDialog(this, "O Vetor gerado era - - > " + sVetorPerdeu);
             setPanelEnabled(jPanelBotoes, false);
             tTemporizador.stop();
             iSomaErros = 0;
@@ -2930,7 +3040,12 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             iSomaAcertos = 0;
             iPerdeu = 0;
         } else if (iPerdeu == 0) {
+            String sVetorPerdeu = Arrays.toString(iVetor);
+            String sValorMont = txtVetor.getText();
+            txtVetor.setText(sValorMont);
+
             JOptionPane.showMessageDialog(this, "Você perdeu!");
+            JOptionPane.showMessageDialog(this, "O Vetor gerado era - - > " + sVetorPerdeu);
             setPanelEnabled(jPanelBotoes, false);
             tTemporizador.stop();
             iSomaErros = 0;
@@ -2980,7 +3095,12 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             iSomaAcertos = 0;
             iPerdeu = 0;
         } else if (iPerdeu == 0) {
+            String sVetorPerdeu = Arrays.toString(iVetor);
+            String sValorMont = txtVetor.getText();
+            txtVetor.setText(sValorMont);
+
             JOptionPane.showMessageDialog(this, "Você perdeu!");
+            JOptionPane.showMessageDialog(this, "O Vetor gerado era - - > " + sVetorPerdeu);
             setPanelEnabled(jPanelBotoes, false);
             tTemporizador.stop();
             iSomaErros = 0;
@@ -3030,7 +3150,12 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             iSomaAcertos = 0;
             iPerdeu = 0;
         } else if (iPerdeu == 0) {
+            String sVetorPerdeu = Arrays.toString(iVetor);
+            String sValorMont = txtVetor.getText();
+            txtVetor.setText(sValorMont);
+
             JOptionPane.showMessageDialog(this, "Você perdeu!");
+            JOptionPane.showMessageDialog(this, "O Vetor gerado era - - > " + sVetorPerdeu);
             setPanelEnabled(jPanelBotoes, false);
             tTemporizador.stop();
             iSomaErros = 0;
@@ -3080,7 +3205,12 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             iSomaAcertos = 0;
             iPerdeu = 0;
         } else if (iPerdeu == 0) {
+            String sVetorPerdeu = Arrays.toString(iVetor);
+            String sValorMont = txtVetor.getText();
+            txtVetor.setText(sValorMont);
+
             JOptionPane.showMessageDialog(this, "Você perdeu!");
+            JOptionPane.showMessageDialog(this, "O Vetor gerado era - - > " + sVetorPerdeu);
             setPanelEnabled(jPanelBotoes, false);
             tTemporizador.stop();
             iSomaErros = 0;
@@ -3130,7 +3260,12 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             iSomaAcertos = 0;
             iPerdeu = 0;
         } else if (iPerdeu == 0) {
+            String sVetorPerdeu = Arrays.toString(iVetor);
+            String sValorMont = txtVetor.getText();
+            txtVetor.setText(sValorMont);
+
             JOptionPane.showMessageDialog(this, "Você perdeu!");
+            JOptionPane.showMessageDialog(this, "O Vetor gerado era - - > " + sVetorPerdeu);
             setPanelEnabled(jPanelBotoes, false);
             tTemporizador.stop();
             iSomaErros = 0;
@@ -3180,7 +3315,12 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             iSomaAcertos = 0;
             iPerdeu = 0;
         } else if (iPerdeu == 0) {
+            String sVetorPerdeu = Arrays.toString(iVetor);
+            String sValorMont = txtVetor.getText();
+            txtVetor.setText(sValorMont);
+
             JOptionPane.showMessageDialog(this, "Você perdeu!");
+            JOptionPane.showMessageDialog(this, "O Vetor gerado era - - > " + sVetorPerdeu);
             setPanelEnabled(jPanelBotoes, false);
             tTemporizador.stop();
             iSomaErros = 0;
@@ -3230,7 +3370,12 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             iSomaAcertos = 0;
             iPerdeu = 0;
         } else if (iPerdeu == 0) {
+            String sVetorPerdeu = Arrays.toString(iVetor);
+            String sValorMont = txtVetor.getText();
+            txtVetor.setText(sValorMont);
+
             JOptionPane.showMessageDialog(this, "Você perdeu!");
+            JOptionPane.showMessageDialog(this, "O Vetor gerado era - - > " + sVetorPerdeu);
             setPanelEnabled(jPanelBotoes, false);
             tTemporizador.stop();
             iSomaErros = 0;
@@ -3280,7 +3425,12 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             iSomaAcertos = 0;
             iPerdeu = 0;
         } else if (iPerdeu == 0) {
+            String sVetorPerdeu = Arrays.toString(iVetor);
+            String sValorMont = txtVetor.getText();
+            txtVetor.setText(sValorMont);
+
             JOptionPane.showMessageDialog(this, "Você perdeu!");
+            JOptionPane.showMessageDialog(this, "O Vetor gerado era - - > " + sVetorPerdeu);
             setPanelEnabled(jPanelBotoes, false);
             tTemporizador.stop();
             iSomaErros = 0;
@@ -3330,7 +3480,12 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             iSomaAcertos = 0;
             iPerdeu = 0;
         } else if (iPerdeu == 0) {
+            String sVetorPerdeu = Arrays.toString(iVetor);
+            String sValorMont = txtVetor.getText();
+            txtVetor.setText(sValorMont);
+
             JOptionPane.showMessageDialog(this, "Você perdeu!");
+            JOptionPane.showMessageDialog(this, "O Vetor gerado era - - > " + sVetorPerdeu);
             setPanelEnabled(jPanelBotoes, false);
             tTemporizador.stop();
             iSomaErros = 0;
@@ -3380,7 +3535,12 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             iSomaAcertos = 0;
             iPerdeu = 0;
         } else if (iPerdeu == 0) {
+            String sVetorPerdeu = Arrays.toString(iVetor);
+            String sValorMont = txtVetor.getText();
+            txtVetor.setText(sValorMont);
+
             JOptionPane.showMessageDialog(this, "Você perdeu!");
+            JOptionPane.showMessageDialog(this, "O Vetor gerado era - - > " + sVetorPerdeu);
             setPanelEnabled(jPanelBotoes, false);
             tTemporizador.stop();
             iSomaErros = 0;
@@ -3430,7 +3590,12 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             iSomaAcertos = 0;
             iPerdeu = 0;
         } else if (iPerdeu == 0) {
+            String sVetorPerdeu = Arrays.toString(iVetor);
+            String sValorMont = txtVetor.getText();
+            txtVetor.setText(sValorMont);
+
             JOptionPane.showMessageDialog(this, "Você perdeu!");
+            JOptionPane.showMessageDialog(this, "O Vetor gerado era - - > " + sVetorPerdeu);
             setPanelEnabled(jPanelBotoes, false);
             tTemporizador.stop();
             iSomaErros = 0;
@@ -3480,7 +3645,12 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             iSomaAcertos = 0;
             iPerdeu = 0;
         } else if (iPerdeu == 0) {
+            String sVetorPerdeu = Arrays.toString(iVetor);
+            String sValorMont = txtVetor.getText();
+            txtVetor.setText(sValorMont);
+
             JOptionPane.showMessageDialog(this, "Você perdeu!");
+            JOptionPane.showMessageDialog(this, "O Vetor gerado era - - > " + sVetorPerdeu);
             setPanelEnabled(jPanelBotoes, false);
             tTemporizador.stop();
             iSomaErros = 0;
@@ -3530,7 +3700,12 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             iSomaAcertos = 0;
             iPerdeu = 0;
         } else if (iPerdeu == 0) {
+            String sVetorPerdeu = Arrays.toString(iVetor);
+            String sValorMont = txtVetor.getText();
+            txtVetor.setText(sValorMont);
+
             JOptionPane.showMessageDialog(this, "Você perdeu!");
+            JOptionPane.showMessageDialog(this, "O Vetor gerado era - - > " + sVetorPerdeu);
             setPanelEnabled(jPanelBotoes, false);
             tTemporizador.stop();
             iSomaErros = 0;
@@ -3580,7 +3755,12 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             iSomaAcertos = 0;
             iPerdeu = 0;
         } else if (iPerdeu == 0) {
+            String sVetorPerdeu = Arrays.toString(iVetor);
+            String sValorMont = txtVetor.getText();
+            txtVetor.setText(sValorMont);
+
             JOptionPane.showMessageDialog(this, "Você perdeu!");
+            JOptionPane.showMessageDialog(this, "O Vetor gerado era - - > " + sVetorPerdeu);
             setPanelEnabled(jPanelBotoes, false);
             tTemporizador.stop();
             iSomaErros = 0;
@@ -3630,7 +3810,12 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             iSomaAcertos = 0;
             iPerdeu = 0;
         } else if (iPerdeu == 0) {
+            String sVetorPerdeu = Arrays.toString(iVetor);
+            String sValorMont = txtVetor.getText();
+            txtVetor.setText(sValorMont);
+
             JOptionPane.showMessageDialog(this, "Você perdeu!");
+            JOptionPane.showMessageDialog(this, "O Vetor gerado era - - > " + sVetorPerdeu);
             setPanelEnabled(jPanelBotoes, false);
             tTemporizador.stop();
             iSomaErros = 0;
@@ -3680,7 +3865,12 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             iSomaAcertos = 0;
             iPerdeu = 0;
         } else if (iPerdeu == 0) {
+            String sVetorPerdeu = Arrays.toString(iVetor);
+            String sValorMont = txtVetor.getText();
+            txtVetor.setText(sValorMont);
+
             JOptionPane.showMessageDialog(this, "Você perdeu!");
+            JOptionPane.showMessageDialog(this, "O Vetor gerado era - - > " + sVetorPerdeu);
             setPanelEnabled(jPanelBotoes, false);
             tTemporizador.stop();
             iSomaErros = 0;
@@ -3730,7 +3920,12 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             iSomaAcertos = 0;
             iPerdeu = 0;
         } else if (iPerdeu == 0) {
+            String sVetorPerdeu = Arrays.toString(iVetor);
+            String sValorMont = txtVetor.getText();
+            txtVetor.setText(sValorMont);
+
             JOptionPane.showMessageDialog(this, "Você perdeu!");
+            JOptionPane.showMessageDialog(this, "O Vetor gerado era - - > " + sVetorPerdeu);
             setPanelEnabled(jPanelBotoes, false);
             tTemporizador.stop();
             iSomaErros = 0;
@@ -3776,7 +3971,12 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             iSomaAcertos = 0;
             iPerdeu = 0;
         } else if (iPerdeu == 0) {
+            String sVetorPerdeu = Arrays.toString(iVetor);
+            String sValorMont = txtVetor.getText();
+            txtVetor.setText(sValorMont);
+
             JOptionPane.showMessageDialog(this, "Você perdeu!");
+            JOptionPane.showMessageDialog(this, "O Vetor gerado era - - > " + sVetorPerdeu);
             setPanelEnabled(jPanelBotoes, false);
             tTemporizador.stop();
             iSomaErros = 0;
@@ -3821,7 +4021,12 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             iSomaAcertos = 0;
             iPerdeu = 0;
         } else if (iPerdeu == 0) {
+            String sVetorPerdeu = Arrays.toString(iVetor);
+            String sValorMont = txtVetor.getText();
+            txtVetor.setText(sValorMont);
+
             JOptionPane.showMessageDialog(this, "Você perdeu!");
+            JOptionPane.showMessageDialog(this, "O Vetor gerado era - - > " + sVetorPerdeu);
             setPanelEnabled(jPanelBotoes, false);
             tTemporizador.stop();
             iSomaErros = 0;
@@ -3867,7 +4072,12 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             iSomaAcertos = 0;
             iPerdeu = 0;
         } else if (iPerdeu == 0) {
+            String sVetorPerdeu = Arrays.toString(iVetor);
+            String sValorMont = txtVetor.getText();
+            txtVetor.setText(sValorMont);
+
             JOptionPane.showMessageDialog(this, "Você perdeu!");
+            JOptionPane.showMessageDialog(this, "O Vetor gerado era - - > " + sVetorPerdeu);
             setPanelEnabled(jPanelBotoes, false);
             tTemporizador.stop();
             iSomaErros = 0;
@@ -3913,7 +4123,12 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             iSomaAcertos = 0;
             iPerdeu = 0;
         } else if (iPerdeu == 0) {
+            String sVetorPerdeu = Arrays.toString(iVetor);
+            String sValorMont = txtVetor.getText();
+            txtVetor.setText(sValorMont);
+
             JOptionPane.showMessageDialog(this, "Você perdeu!");
+            JOptionPane.showMessageDialog(this, "O Vetor gerado era - - > " + sVetorPerdeu);
             setPanelEnabled(jPanelBotoes, false);
             tTemporizador.stop();
             iSomaErros = 0;
@@ -3959,7 +4174,12 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             iSomaAcertos = 0;
             iPerdeu = 0;
         } else if (iPerdeu == 0) {
+            String sVetorPerdeu = Arrays.toString(iVetor);
+            String sValorMont = txtVetor.getText();
+            txtVetor.setText(sValorMont);
+
             JOptionPane.showMessageDialog(this, "Você perdeu!");
+            JOptionPane.showMessageDialog(this, "O Vetor gerado era - - > " + sVetorPerdeu);
             setPanelEnabled(jPanelBotoes, false);
             tTemporizador.stop();
             iSomaErros = 0;
@@ -4005,7 +4225,12 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             iSomaAcertos = 0;
             iPerdeu = 0;
         } else if (iPerdeu == 0) {
+            String sVetorPerdeu = Arrays.toString(iVetor);
+            String sValorMont = txtVetor.getText();
+            txtVetor.setText(sValorMont);
+
             JOptionPane.showMessageDialog(this, "Você perdeu!");
+            JOptionPane.showMessageDialog(this, "O Vetor gerado era - - > " + sVetorPerdeu);
             setPanelEnabled(jPanelBotoes, false);
             tTemporizador.stop();
             iSomaErros = 0;
@@ -4051,7 +4276,12 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             iSomaAcertos = 0;
             iPerdeu = 0;
         } else if (iPerdeu == 0) {
+            String sVetorPerdeu = Arrays.toString(iVetor);
+            String sValorMont = txtVetor.getText();
+            txtVetor.setText(sValorMont);
+
             JOptionPane.showMessageDialog(this, "Você perdeu!");
+            JOptionPane.showMessageDialog(this, "O Vetor gerado era - - > " + sVetorPerdeu);
             setPanelEnabled(jPanelBotoes, false);
             tTemporizador.stop();
             iSomaErros = 0;
@@ -4097,7 +4327,12 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             iSomaAcertos = 0;
             iPerdeu = 0;
         } else if (iPerdeu == 0) {
+            String sVetorPerdeu = Arrays.toString(iVetor);
+            String sValorMont = txtVetor.getText();
+            txtVetor.setText(sValorMont);
+
             JOptionPane.showMessageDialog(this, "Você perdeu!");
+            JOptionPane.showMessageDialog(this, "O Vetor gerado era - - > " + sVetorPerdeu);
             setPanelEnabled(jPanelBotoes, false);
             tTemporizador.stop();
             iSomaErros = 0;
@@ -4147,7 +4382,12 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             iSomaAcertos = 0;
             iPerdeu = 0;
         } else if (iPerdeu == 0) {
+            String sVetorPerdeu = Arrays.toString(iVetor);
+            String sValorMont = txtVetor.getText();
+            txtVetor.setText(sValorMont);
+
             JOptionPane.showMessageDialog(this, "Você perdeu!");
+            JOptionPane.showMessageDialog(this, "O Vetor gerado era - - > " + sVetorPerdeu);
             setPanelEnabled(jPanelBotoes, false);
             tTemporizador.stop();
             iSomaErros = 0;
@@ -4193,7 +4433,12 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             iPerdeu = 0;
             JOptionPane.showMessageDialog(this, "Você Ganhou!");
         } else if (iPerdeu == 0) {
+            String sVetorPerdeu = Arrays.toString(iVetor);
+            String sValorMont = txtVetor.getText();
+            txtVetor.setText(sValorMont);
+
             JOptionPane.showMessageDialog(this, "Você perdeu!");
+            JOptionPane.showMessageDialog(this, "O Vetor gerado era - - > " + sVetorPerdeu);
             setPanelEnabled(jPanelBotoes, false);
             tTemporizador.stop();
             iSomaErros = 0;
@@ -4239,7 +4484,12 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             iPerdeu = 0;
             JOptionPane.showMessageDialog(this, "Você Ganhou!");
         } else if (iPerdeu == 0) {
+            String sVetorPerdeu = Arrays.toString(iVetor);
+            String sValorMont = txtVetor.getText();
+            txtVetor.setText(sValorMont);
+
             JOptionPane.showMessageDialog(this, "Você perdeu!");
+            JOptionPane.showMessageDialog(this, "O Vetor gerado era - - > " + sVetorPerdeu);
             setPanelEnabled(jPanelBotoes, false);
             tTemporizador.stop();
             iSomaErros = 0;
@@ -4285,7 +4535,12 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             iPerdeu = 0;
             JOptionPane.showMessageDialog(this, "Você Ganhou!");
         } else if (iPerdeu == 0) {
+            String sVetorPerdeu = Arrays.toString(iVetor);
+            String sValorMont = txtVetor.getText();
+            txtVetor.setText(sValorMont);
+
             JOptionPane.showMessageDialog(this, "Você perdeu!");
+            JOptionPane.showMessageDialog(this, "O Vetor gerado era - - > " + sVetorPerdeu);
             setPanelEnabled(jPanelBotoes, false);
             tTemporizador.stop();
             iSomaErros = 0;
@@ -4331,7 +4586,12 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             iSomaAcertos = 0;
             iPerdeu = 0;
         } else if (iPerdeu == 0) {
+            String sVetorPerdeu = Arrays.toString(iVetor);
+            String sValorMont = txtVetor.getText();
+            txtVetor.setText(sValorMont);
+
             JOptionPane.showMessageDialog(this, "Você perdeu!");
+            JOptionPane.showMessageDialog(this, "O Vetor gerado era - - > " + sVetorPerdeu);
             setPanelEnabled(jPanelBotoes, false);
             tTemporizador.stop();
             iSomaErros = 0;
@@ -4377,7 +4637,12 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             iSomaAcertos = 0;
             iPerdeu = 0;
         } else if (iPerdeu == 0) {
+            String sVetorPerdeu = Arrays.toString(iVetor);
+            String sValorMont = txtVetor.getText();
+            txtVetor.setText(sValorMont);
+
             JOptionPane.showMessageDialog(this, "Você perdeu!");
+            JOptionPane.showMessageDialog(this, "O Vetor gerado era - - > " + sVetorPerdeu);
             setPanelEnabled(jPanelBotoes, false);
             tTemporizador.stop();
             iSomaErros = 0;
@@ -4423,7 +4688,12 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             iSomaAcertos = 0;
             iPerdeu = 0;
         } else if (iPerdeu == 0) {
+            String sVetorPerdeu = Arrays.toString(iVetor);
+            String sValorMont = txtVetor.getText();
+            txtVetor.setText(sValorMont);
+
             JOptionPane.showMessageDialog(this, "Você perdeu!");
+            JOptionPane.showMessageDialog(this, "O Vetor gerado era - - > " + sVetorPerdeu);
             setPanelEnabled(jPanelBotoes, false);
             tTemporizador.stop();
             iSomaErros = 0;
@@ -4469,7 +4739,12 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             iSomaAcertos = 0;
             iPerdeu = 0;
         } else if (iPerdeu == 0) {
+            String sVetorPerdeu = Arrays.toString(iVetor);
+            String sValorMont = txtVetor.getText();
+            txtVetor.setText(sValorMont);
+
             JOptionPane.showMessageDialog(this, "Você perdeu!");
+            JOptionPane.showMessageDialog(this, "O Vetor gerado era - - > " + sVetorPerdeu);
             setPanelEnabled(jPanelBotoes, false);
             tTemporizador.stop();
             iSomaErros = 0;
@@ -4515,7 +4790,12 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             iSomaAcertos = 0;
             iPerdeu = 0;
         } else if (iPerdeu == 0) {
+            String sVetorPerdeu = Arrays.toString(iVetor);
+            String sValorMont = txtVetor.getText();
+            txtVetor.setText(sValorMont);
+
             JOptionPane.showMessageDialog(this, "Você perdeu!");
+            JOptionPane.showMessageDialog(this, "O Vetor gerado era - - > " + sVetorPerdeu);
             setPanelEnabled(jPanelBotoes, false);
             tTemporizador.stop();
             iSomaErros = 0;
@@ -4561,7 +4841,12 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             iSomaAcertos = 0;
             iPerdeu = 0;
         } else if (iPerdeu == 0) {
+            String sVetorPerdeu = Arrays.toString(iVetor);
+            String sValorMont = txtVetor.getText();
+            txtVetor.setText(sValorMont);
+
             JOptionPane.showMessageDialog(this, "Você perdeu!");
+            JOptionPane.showMessageDialog(this, "O Vetor gerado era - - > " + sVetorPerdeu);
             setPanelEnabled(jPanelBotoes, false);
             tTemporizador.stop();
             iSomaErros = 0;
@@ -4607,7 +4892,12 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             iSomaAcertos = 0;
             iPerdeu = 0;
         } else if (iPerdeu == 0) {
+            String sVetorPerdeu = Arrays.toString(iVetor);
+            String sValorMont = txtVetor.getText();
+            txtVetor.setText(sValorMont);
+
             JOptionPane.showMessageDialog(this, "Você perdeu!");
+            JOptionPane.showMessageDialog(this, "O Vetor gerado era - - > " + sVetorPerdeu);
             setPanelEnabled(jPanelBotoes, false);
             tTemporizador.stop();
             iSomaErros = 0;
@@ -4653,7 +4943,12 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             iSomaAcertos = 0;
             iPerdeu = 0;
         } else if (iPerdeu == 0) {
+            String sVetorPerdeu = Arrays.toString(iVetor);
+            String sValorMont = txtVetor.getText();
+            txtVetor.setText(sValorMont);
+
             JOptionPane.showMessageDialog(this, "Você perdeu!");
+            JOptionPane.showMessageDialog(this, "O Vetor gerado era - - > " + sVetorPerdeu);
             setPanelEnabled(jPanelBotoes, false);
             tTemporizador.stop();
             iSomaErros = 0;
@@ -4699,7 +4994,12 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             iSomaAcertos = 0;
             iPerdeu = 0;
         } else if (iPerdeu == 0) {
+            String sVetorPerdeu = Arrays.toString(iVetor);
+            String sValorMont = txtVetor.getText();
+            txtVetor.setText(sValorMont);
+
             JOptionPane.showMessageDialog(this, "Você perdeu!");
+            JOptionPane.showMessageDialog(this, "O Vetor gerado era - - > " + sVetorPerdeu);
             setPanelEnabled(jPanelBotoes, false);
             tTemporizador.stop();
             iSomaErros = 0;
@@ -4745,7 +5045,12 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             iSomaAcertos = 0;
             iPerdeu = 0;
         } else if (iPerdeu == 0) {
+            String sVetorPerdeu = Arrays.toString(iVetor);
+            String sValorMont = txtVetor.getText();
+            txtVetor.setText(sValorMont);
+
             JOptionPane.showMessageDialog(this, "Você perdeu!");
+            JOptionPane.showMessageDialog(this, "O Vetor gerado era - - > " + sVetorPerdeu);
             setPanelEnabled(jPanelBotoes, false);
             tTemporizador.stop();
             iSomaErros = 0;
@@ -4791,7 +5096,12 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             iSomaAcertos = 0;
             iPerdeu = 0;
         } else if (iPerdeu == 0) {
+            String sVetorPerdeu = Arrays.toString(iVetor);
+            String sValorMont = txtVetor.getText();
+            txtVetor.setText(sValorMont);
+
             JOptionPane.showMessageDialog(this, "Você perdeu!");
+            JOptionPane.showMessageDialog(this, "O Vetor gerado era - - > " + sVetorPerdeu);
             setPanelEnabled(jPanelBotoes, false);
             tTemporizador.stop();
             iSomaErros = 0;
@@ -4837,7 +5147,12 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             iSomaAcertos = 0;
             iPerdeu = 0;
         } else if (iPerdeu == 0) {
+            String sVetorPerdeu = Arrays.toString(iVetor);
+            String sValorMont = txtVetor.getText();
+            txtVetor.setText(sValorMont);
+
             JOptionPane.showMessageDialog(this, "Você perdeu!");
+            JOptionPane.showMessageDialog(this, "O Vetor gerado era - - > " + sVetorPerdeu);
             setPanelEnabled(jPanelBotoes, false);
             tTemporizador.stop();
             iSomaErros = 0;
@@ -4883,7 +5198,12 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             iSomaAcertos = 0;
             iPerdeu = 0;
         } else if (iPerdeu == 0) {
+            String sVetorPerdeu = Arrays.toString(iVetor);
+            String sValorMont = txtVetor.getText();
+            txtVetor.setText(sValorMont);
+
             JOptionPane.showMessageDialog(this, "Você perdeu!");
+            JOptionPane.showMessageDialog(this, "O Vetor gerado era - - > " + sVetorPerdeu);
             setPanelEnabled(jPanelBotoes, false);
             tTemporizador.stop();
             iSomaErros = 0;
@@ -4929,7 +5249,12 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             iSomaAcertos = 0;
             iPerdeu = 0;
         } else if (iPerdeu == 0) {
+            String sVetorPerdeu = Arrays.toString(iVetor);
+            String sValorMont = txtVetor.getText();
+            txtVetor.setText(sValorMont);
+
             JOptionPane.showMessageDialog(this, "Você perdeu!");
+            JOptionPane.showMessageDialog(this, "O Vetor gerado era - - > " + sVetorPerdeu);
             setPanelEnabled(jPanelBotoes, false);
             tTemporizador.stop();
             iSomaErros = 0;
@@ -4975,7 +5300,12 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             iSomaAcertos = 0;
             iPerdeu = 0;
         } else if (iPerdeu == 0) {
+            String sVetorPerdeu = Arrays.toString(iVetor);
+            String sValorMont = txtVetor.getText();
+            txtVetor.setText(sValorMont);
+
             JOptionPane.showMessageDialog(this, "Você perdeu!");
+            JOptionPane.showMessageDialog(this, "O Vetor gerado era - - > " + sVetorPerdeu);
             setPanelEnabled(jPanelBotoes, false);
             tTemporizador.stop();
             iSomaErros = 0;
@@ -5021,7 +5351,12 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             iSomaAcertos = 0;
             iPerdeu = 0;
         } else if (iPerdeu == 0) {
+            String sVetorPerdeu = Arrays.toString(iVetor);
+            String sValorMont = txtVetor.getText();
+            txtVetor.setText(sValorMont);
+
             JOptionPane.showMessageDialog(this, "Você perdeu!");
+            JOptionPane.showMessageDialog(this, "O Vetor gerado era - - > " + sVetorPerdeu);
             setPanelEnabled(jPanelBotoes, false);
             tTemporizador.stop();
             iSomaErros = 0;
@@ -5067,7 +5402,12 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             iSomaAcertos = 0;
             iPerdeu = 0;
         } else if (iPerdeu == 0) {
+            String sVetorPerdeu = Arrays.toString(iVetor);
+            String sValorMont = txtVetor.getText();
+            txtVetor.setText(sValorMont);
+
             JOptionPane.showMessageDialog(this, "Você perdeu!");
+            JOptionPane.showMessageDialog(this, "O Vetor gerado era - - > " + sVetorPerdeu);
             setPanelEnabled(jPanelBotoes, false);
             tTemporizador.stop();
             iSomaErros = 0;
@@ -5113,7 +5453,12 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             iSomaAcertos = 0;
             iPerdeu = 0;
         } else if (iPerdeu == 0) {
+            String sVetorPerdeu = Arrays.toString(iVetor);
+            String sValorMont = txtVetor.getText();
+            txtVetor.setText(sValorMont);
+
             JOptionPane.showMessageDialog(this, "Você perdeu!");
+            JOptionPane.showMessageDialog(this, "O Vetor gerado era - - > " + sVetorPerdeu);
             setPanelEnabled(jPanelBotoes, false);
             tTemporizador.stop();
             iSomaErros = 0;
@@ -5159,7 +5504,12 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             iSomaAcertos = 0;
             iPerdeu = 0;
         } else if (iPerdeu == 0) {
+            String sVetorPerdeu = Arrays.toString(iVetor);
+            String sValorMont = txtVetor.getText();
+            txtVetor.setText(sValorMont);
+
             JOptionPane.showMessageDialog(this, "Você perdeu!");
+            JOptionPane.showMessageDialog(this, "O Vetor gerado era - - > " + sVetorPerdeu);
             setPanelEnabled(jPanelBotoes, false);
             tTemporizador.stop();
             iSomaErros = 0;
@@ -5205,7 +5555,12 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             iSomaAcertos = 0;
             iPerdeu = 0;
         } else if (iPerdeu == 0) {
+            String sVetorPerdeu = Arrays.toString(iVetor);
+            String sValorMont = txtVetor.getText();
+            txtVetor.setText(sValorMont);
+
             JOptionPane.showMessageDialog(this, "Você perdeu!");
+            JOptionPane.showMessageDialog(this, "O Vetor gerado era - - > " + sVetorPerdeu);
             setPanelEnabled(jPanelBotoes, false);
             tTemporizador.stop();
             iSomaErros = 0;
@@ -5251,7 +5606,12 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             iSomaAcertos = 0;
             iPerdeu = 0;
         } else if (iPerdeu == 0) {
+            String sVetorPerdeu = Arrays.toString(iVetor);
+            String sValorMont = txtVetor.getText();
+            txtVetor.setText(sValorMont);
+
             JOptionPane.showMessageDialog(this, "Você perdeu!");
+            JOptionPane.showMessageDialog(this, "O Vetor gerado era - - > " + sVetorPerdeu);
             setPanelEnabled(jPanelBotoes, false);
             tTemporizador.stop();
             iSomaErros = 0;
@@ -5297,7 +5657,12 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             iSomaAcertos = 0;
             iPerdeu = 0;
         } else if (iPerdeu == 0) {
+            String sVetorPerdeu = Arrays.toString(iVetor);
+            String sValorMont = txtVetor.getText();
+            txtVetor.setText(sValorMont);
+
             JOptionPane.showMessageDialog(this, "Você perdeu!");
+            JOptionPane.showMessageDialog(this, "O Vetor gerado era - - > " + sVetorPerdeu);
             setPanelEnabled(jPanelBotoes, false);
             tTemporizador.stop();
             iSomaErros = 0;
@@ -5343,7 +5708,12 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             iSomaAcertos = 0;
             iPerdeu = 0;
         } else if (iPerdeu == 0) {
+            String sVetorPerdeu = Arrays.toString(iVetor);
+            String sValorMont = txtVetor.getText();
+            txtVetor.setText(sValorMont);
+
             JOptionPane.showMessageDialog(this, "Você perdeu!");
+            JOptionPane.showMessageDialog(this, "O Vetor gerado era - - > " + sVetorPerdeu);
             setPanelEnabled(jPanelBotoes, false);
             tTemporizador.stop();
             iSomaErros = 0;
@@ -5389,7 +5759,12 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             iSomaAcertos = 0;
             iPerdeu = 0;
         } else if (iPerdeu == 0) {
+            String sVetorPerdeu = Arrays.toString(iVetor);
+            String sValorMont = txtVetor.getText();
+            txtVetor.setText(sValorMont);
+
             JOptionPane.showMessageDialog(this, "Você perdeu!");
+            JOptionPane.showMessageDialog(this, "O Vetor gerado era - - > " + sVetorPerdeu);
             setPanelEnabled(jPanelBotoes, false);
             tTemporizador.stop();
             iSomaErros = 0;
@@ -5435,7 +5810,12 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             iSomaAcertos = 0;
             iPerdeu = 0;
         } else if (iPerdeu == 0) {
+            String sVetorPerdeu = Arrays.toString(iVetor);
+            String sValorMont = txtVetor.getText();
+            txtVetor.setText(sValorMont);
+
             JOptionPane.showMessageDialog(this, "Você perdeu!");
+            JOptionPane.showMessageDialog(this, "O Vetor gerado era - - > " + sVetorPerdeu);
             setPanelEnabled(jPanelBotoes, false);
             tTemporizador.stop();
             iSomaErros = 0;
@@ -5481,7 +5861,12 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             iSomaAcertos = 0;
             iPerdeu = 0;
         } else if (iPerdeu == 0) {
+            String sVetorPerdeu = Arrays.toString(iVetor);
+            String sValorMont = txtVetor.getText();
+            txtVetor.setText(sValorMont);
+
             JOptionPane.showMessageDialog(this, "Você perdeu!");
+            JOptionPane.showMessageDialog(this, "O Vetor gerado era - - > " + sVetorPerdeu);
             setPanelEnabled(jPanelBotoes, false);
             tTemporizador.stop();
             iSomaErros = 0;
@@ -5527,7 +5912,12 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             iSomaAcertos = 0;
             iPerdeu = 0;
         } else if (iPerdeu == 0) {
+            String sVetorPerdeu = Arrays.toString(iVetor);
+            String sValorMont = txtVetor.getText();
+            txtVetor.setText(sValorMont);
+
             JOptionPane.showMessageDialog(this, "Você perdeu!");
+            JOptionPane.showMessageDialog(this, "O Vetor gerado era - - > " + sVetorPerdeu);
             setPanelEnabled(jPanelBotoes, false);
             tTemporizador.stop();
             iSomaErros = 0;
@@ -5573,7 +5963,12 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             iSomaAcertos = 0;
             iPerdeu = 0;
         } else if (iPerdeu == 0) {
+            String sVetorPerdeu = Arrays.toString(iVetor);
+            String sValorMont = txtVetor.getText();
+            txtVetor.setText(sValorMont);
+
             JOptionPane.showMessageDialog(this, "Você perdeu!");
+            JOptionPane.showMessageDialog(this, "O Vetor gerado era - - > " + sVetorPerdeu);
             setPanelEnabled(jPanelBotoes, false);
             tTemporizador.stop();
             iSomaErros = 0;
@@ -5619,7 +6014,12 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             iSomaAcertos = 0;
             iPerdeu = 0;
         } else if (iPerdeu == 0) {
+            String sVetorPerdeu = Arrays.toString(iVetor);
+            String sValorMont = txtVetor.getText();
+            txtVetor.setText(sValorMont);
+
             JOptionPane.showMessageDialog(this, "Você perdeu!");
+            JOptionPane.showMessageDialog(this, "O Vetor gerado era - - > " + sVetorPerdeu);
             setPanelEnabled(jPanelBotoes, false);
             tTemporizador.stop();
             iSomaErros = 0;
@@ -5665,7 +6065,12 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             iSomaAcertos = 0;
             iPerdeu = 0;
         } else if (iPerdeu == 0) {
+            String sVetorPerdeu = Arrays.toString(iVetor);
+            String sValorMont = txtVetor.getText();
+            txtVetor.setText(sValorMont);
+
             JOptionPane.showMessageDialog(this, "Você perdeu!");
+            JOptionPane.showMessageDialog(this, "O Vetor gerado era - - > " + sVetorPerdeu);
             setPanelEnabled(jPanelBotoes, false);
             tTemporizador.stop();
             iSomaErros = 0;
@@ -5711,7 +6116,12 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             iSomaAcertos = 0;
             iPerdeu = 0;
         } else if (iPerdeu == 0) {
+            String sVetorPerdeu = Arrays.toString(iVetor);
+            String sValorMont = txtVetor.getText();
+            txtVetor.setText(sValorMont);
+
             JOptionPane.showMessageDialog(this, "Você perdeu!");
+            JOptionPane.showMessageDialog(this, "O Vetor gerado era - - > " + sVetorPerdeu);
             setPanelEnabled(jPanelBotoes, false);
             tTemporizador.stop();
             iSomaErros = 0;
@@ -5757,7 +6167,12 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             iSomaAcertos = 0;
             iPerdeu = 0;
         } else if (iPerdeu == 0) {
+            String sVetorPerdeu = Arrays.toString(iVetor);
+            String sValorMont = txtVetor.getText();
+            txtVetor.setText(sValorMont);
+
             JOptionPane.showMessageDialog(this, "Você perdeu!");
+            JOptionPane.showMessageDialog(this, "O Vetor gerado era - - > " + sVetorPerdeu);
             setPanelEnabled(jPanelBotoes, false);
             tTemporizador.stop();
             iSomaErros = 0;
@@ -5803,7 +6218,12 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             iSomaAcertos = 0;
             iPerdeu = 0;
         } else if (iPerdeu == 0) {
+            String sVetorPerdeu = Arrays.toString(iVetor);
+            String sValorMont = txtVetor.getText();
+            txtVetor.setText(sValorMont);
+
             JOptionPane.showMessageDialog(this, "Você perdeu!");
+            JOptionPane.showMessageDialog(this, "O Vetor gerado era - - > " + sVetorPerdeu);
             setPanelEnabled(jPanelBotoes, false);
             tTemporizador.stop();
             iSomaErros = 0;
@@ -5819,7 +6239,7 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
         if (iRetorna >= 0) {
             iSomaAcertos++;
             iPerdeu--;
-            btnNmr86.setText(txtVetor.getText() + btnV + " | ");
+            txtVetor.setText(txtVetor.getText() + btnV + " | ");
             btnNmr86.setForeground(Color.GREEN);
             btnNmr86.setBackground(Color.GREEN);
             btnNmr86.setEnabled(false);
@@ -5849,7 +6269,12 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             iPerdeu = 0;
             JOptionPane.showMessageDialog(this, "Você Ganhou!");
         } else if (iPerdeu == 0) {
+            String sVetorPerdeu = Arrays.toString(iVetor);
+            String sValorMont = txtVetor.getText();
+            txtVetor.setText(sValorMont);
+
             JOptionPane.showMessageDialog(this, "Você perdeu!");
+            JOptionPane.showMessageDialog(this, "O Vetor gerado era - - > " + sVetorPerdeu);
             setPanelEnabled(jPanelBotoes, false);
             tTemporizador.stop();
             iSomaErros = 0;
@@ -5895,7 +6320,12 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             iSomaAcertos = 0;
             iPerdeu = 0;
         } else if (iPerdeu == 0) {
+            String sVetorPerdeu = Arrays.toString(iVetor);
+            String sValorMont = txtVetor.getText();
+            txtVetor.setText(sValorMont);
+
             JOptionPane.showMessageDialog(this, "Você perdeu!");
+            JOptionPane.showMessageDialog(this, "O Vetor gerado era - - > " + sVetorPerdeu);
             setPanelEnabled(jPanelBotoes, false);
             tTemporizador.stop();
             iSomaErros = 0;
@@ -5941,7 +6371,12 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             iPerdeu = 0;
             JOptionPane.showMessageDialog(this, "Você Ganhou!");
         } else if (iPerdeu == 0) {
+            String sVetorPerdeu = Arrays.toString(iVetor);
+            String sValorMont = txtVetor.getText();
+            txtVetor.setText(sValorMont);
+
             JOptionPane.showMessageDialog(this, "Você perdeu!");
+            JOptionPane.showMessageDialog(this, "O Vetor gerado era - - > " + sVetorPerdeu);
             setPanelEnabled(jPanelBotoes, false);
             tTemporizador.stop();
             iSomaErros = 0;
@@ -5987,7 +6422,12 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             iPerdeu = 0;
             JOptionPane.showMessageDialog(this, "Você Ganhou!");
         } else if (iPerdeu == 0) {
+            String sVetorPerdeu = Arrays.toString(iVetor);
+            String sValorMont = txtVetor.getText();
+            txtVetor.setText(sValorMont);
+
             JOptionPane.showMessageDialog(this, "Você perdeu!");
+            JOptionPane.showMessageDialog(this, "O Vetor gerado era - - > " + sVetorPerdeu);
             setPanelEnabled(jPanelBotoes, false);
             tTemporizador.stop();
             iSomaErros = 0;
@@ -6033,7 +6473,12 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             iSomaAcertos = 0;
             iPerdeu = 0;
         } else if (iPerdeu == 0) {
+            String sVetorPerdeu = Arrays.toString(iVetor);
+            String sValorMont = txtVetor.getText();
+            txtVetor.setText(sValorMont);
+
             JOptionPane.showMessageDialog(this, "Você perdeu!");
+            JOptionPane.showMessageDialog(this, "O Vetor gerado era - - > " + sVetorPerdeu);
             setPanelEnabled(jPanelBotoes, false);
             tTemporizador.stop();
             iSomaErros = 0;
@@ -6079,7 +6524,12 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             iPerdeu = 0;
             JOptionPane.showMessageDialog(this, "Você Ganhou!");
         } else if (iPerdeu == 0) {
+            String sVetorPerdeu = Arrays.toString(iVetor);
+            String sValorMont = txtVetor.getText();
+            txtVetor.setText(sValorMont);
+
             JOptionPane.showMessageDialog(this, "Você perdeu!");
+            JOptionPane.showMessageDialog(this, "O Vetor gerado era - - > " + sVetorPerdeu);
             setPanelEnabled(jPanelBotoes, false);
             tTemporizador.stop();
             iSomaErros = 0;
@@ -6125,7 +6575,12 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             iPerdeu = 0;
             JOptionPane.showMessageDialog(this, "Você Ganhou!");
         } else if (iPerdeu == 0) {
+            String sVetorPerdeu = Arrays.toString(iVetor);
+            String sValorMont = txtVetor.getText();
+            txtVetor.setText(sValorMont);
+
             JOptionPane.showMessageDialog(this, "Você perdeu!");
+            JOptionPane.showMessageDialog(this, "O Vetor gerado era - - > " + sVetorPerdeu);
             setPanelEnabled(jPanelBotoes, false);
             tTemporizador.stop();
             iSomaErros = 0;
@@ -6171,7 +6626,12 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             iSomaAcertos = 0;
             iPerdeu = 0;
         } else if (iPerdeu == 0) {
+            String sVetorPerdeu = Arrays.toString(iVetor);
+            String sValorMont = txtVetor.getText();
+            txtVetor.setText(sValorMont);
+
             JOptionPane.showMessageDialog(this, "Você perdeu!");
+            JOptionPane.showMessageDialog(this, "O Vetor gerado era - - > " + sVetorPerdeu);
             setPanelEnabled(jPanelBotoes, false);
             tTemporizador.stop();
             iSomaErros = 0;
@@ -6217,7 +6677,12 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             iSomaAcertos = 0;
             iPerdeu = 0;
         } else if (iPerdeu == 0) {
+            String sVetorPerdeu = Arrays.toString(iVetor);
+            String sValorMont = txtVetor.getText();
+            txtVetor.setText(sValorMont);
+
             JOptionPane.showMessageDialog(this, "Você perdeu!");
+            JOptionPane.showMessageDialog(this, "O Vetor gerado era - - > " + sVetorPerdeu);
             setPanelEnabled(jPanelBotoes, false);
             tTemporizador.stop();
             iSomaErros = 0;
@@ -6263,7 +6728,12 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             iSomaAcertos = 0;
             iPerdeu = 0;
         } else if (iPerdeu == 0) {
+            String sVetorPerdeu = Arrays.toString(iVetor);
+            String sValorMont = txtVetor.getText();
+            txtVetor.setText(sValorMont);
+
             JOptionPane.showMessageDialog(this, "Você perdeu!");
+            JOptionPane.showMessageDialog(this, "O Vetor gerado era - - > " + sVetorPerdeu);
             setPanelEnabled(jPanelBotoes, false);
             tTemporizador.stop();
             iSomaErros = 0;
@@ -6309,7 +6779,12 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             iSomaAcertos = 0;
             iPerdeu = 0;
         } else if (iPerdeu == 0) {
+            String sVetorPerdeu = Arrays.toString(iVetor);
+            String sValorMont = txtVetor.getText();
+            txtVetor.setText(sValorMont);
+
             JOptionPane.showMessageDialog(this, "Você perdeu!");
+            JOptionPane.showMessageDialog(this, "O Vetor gerado era - - > " + sVetorPerdeu);
             setPanelEnabled(jPanelBotoes, false);
             tTemporizador.stop();
             iSomaErros = 0;
@@ -6355,7 +6830,12 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             iPerdeu = 0;
             JOptionPane.showMessageDialog(this, "Você Ganhou!");
         } else if (iPerdeu == 0) {
+            String sVetorPerdeu = Arrays.toString(iVetor);
+            String sValorMont = txtVetor.getText();
+            txtVetor.setText(sValorMont);
+
             JOptionPane.showMessageDialog(this, "Você perdeu!");
+            JOptionPane.showMessageDialog(this, "O Vetor gerado era - - > " + sVetorPerdeu);
             setPanelEnabled(jPanelBotoes, false);
             tTemporizador.stop();
             iSomaErros = 0;
@@ -6401,7 +6881,12 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             iSomaAcertos = 0;
             iPerdeu = 0;
         } else if (iPerdeu == 0) {
+            String sVetorPerdeu = Arrays.toString(iVetor);
+            String sValorMont = txtVetor.getText();
+            txtVetor.setText(sValorMont);
+
             JOptionPane.showMessageDialog(this, "Você perdeu!");
+            JOptionPane.showMessageDialog(this, "O Vetor gerado era - - > " + sVetorPerdeu);
             setPanelEnabled(jPanelBotoes, false);
             tTemporizador.stop();
             iSomaErros = 0;
@@ -6446,7 +6931,12 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             iSomaAcertos = 0;
             iPerdeu = 0;
         } else if (iPerdeu == 0) {
+            String sVetorPerdeu = Arrays.toString(iVetor);
+            String sValorMont = txtVetor.getText();
+            txtVetor.setText(sValorMont);
+
             JOptionPane.showMessageDialog(this, "Você perdeu!");
+            JOptionPane.showMessageDialog(this, "O Vetor gerado era - - > " + sVetorPerdeu);
             setPanelEnabled(jPanelBotoes, false);
             tTemporizador.stop();
             iSomaErros = 0;
@@ -6491,7 +6981,12 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             iSomaAcertos = 0;
             iPerdeu = 0;
         } else if (iPerdeu == 0) {
+            String sVetorPerdeu = Arrays.toString(iVetor);
+            String sValorMont = txtVetor.getText();
+            txtVetor.setText(sValorMont);
+
             JOptionPane.showMessageDialog(this, "Você perdeu!");
+            JOptionPane.showMessageDialog(this, "O Vetor gerado era - - > " + sVetorPerdeu);
             setPanelEnabled(jPanelBotoes, false);
             tTemporizador.stop();
             iSomaErros = 0;
@@ -6536,7 +7031,12 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             iSomaAcertos = 0;
             iPerdeu = 0;
         } else if (iPerdeu == 0) {
+            String sVetorPerdeu = Arrays.toString(iVetor);
+            String sValorMont = txtVetor.getText();
+            txtVetor.setText(sValorMont);
+
             JOptionPane.showMessageDialog(this, "Você perdeu!");
+            JOptionPane.showMessageDialog(this, "O Vetor gerado era - - > " + sVetorPerdeu);
             setPanelEnabled(jPanelBotoes, false);
             tTemporizador.stop();
             iSomaErros = 0;
@@ -6581,7 +7081,12 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             iSomaAcertos = 0;
             iPerdeu = 0;
         } else if (iPerdeu == 0) {
+            String sVetorPerdeu = Arrays.toString(iVetor);
+            String sValorMont = txtVetor.getText();
+            txtVetor.setText(sValorMont);
+
             JOptionPane.showMessageDialog(this, "Você perdeu!");
+            JOptionPane.showMessageDialog(this, "O Vetor gerado era - - > " + sVetorPerdeu);
             setPanelEnabled(jPanelBotoes, false);
             tTemporizador.stop();
             iSomaErros = 0;
@@ -6630,7 +7135,12 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             iSomaAcertos = 0;
             iPerdeu = 0;
         } else if (iPerdeu == 0) {
+            String sVetorPerdeu = Arrays.toString(iVetor);
+            String sValorMont = txtVetor.getText();
+            txtVetor.setText(sValorMont);
+
             JOptionPane.showMessageDialog(this, "Você perdeu!");
+            JOptionPane.showMessageDialog(this, "O Vetor gerado era - - > " + sVetorPerdeu);
             setPanelEnabled(jPanelBotoes, false);
             tTemporizador.stop();
             iSomaErros = 0;
@@ -6672,6 +7182,7 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
         String sAcerto = txtAcertos.getText();
         int iAcerto = Integer.parseInt(sAcerto);
         if (iTamanho == iAcerto) {
+            JOptionPane.showMessageDialog(this, "Você Ganhou!");
             txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
             setPanelEnabled(jPanelBotoes, false);
             tTemporizador.stop();
@@ -6679,7 +7190,12 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             iSomaAcertos = 0;
             iPerdeu = 0;
         } else if (iPerdeu == 0) {
+            String sVetorPerdeu = Arrays.toString(iVetor);
+            String sValorMont = txtVetor.getText();
+            txtVetor.setText(sValorMont);
+
             JOptionPane.showMessageDialog(this, "Você perdeu!");
+            JOptionPane.showMessageDialog(this, "O Vetor gerado era - - > " + sVetorPerdeu);
             setPanelEnabled(jPanelBotoes, false);
             tTemporizador.stop();
             iSomaErros = 0;
@@ -6721,6 +7237,7 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
         String sAcerto = txtAcertos.getText();
         int iAcerto = Integer.parseInt(sAcerto);
         if (iTamanho == iAcerto) {
+            JOptionPane.showMessageDialog(this, "Você Ganhou!");
             txtDescricao.setText("Vetor: " + btnV + " Posição: " + iRetorna);
             setPanelEnabled(jPanelBotoes, false);
             tTemporizador.stop();
@@ -6728,7 +7245,12 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
             iSomaAcertos = 0;
             iPerdeu = 0;
         } else if (iPerdeu == 0) {
+            String sVetorPerdeu = Arrays.toString(iVetor);
+            String sValorMont = txtVetor.getText();
+            txtVetor.setText(sValorMont);
+
             JOptionPane.showMessageDialog(this, "Você perdeu!");
+            JOptionPane.showMessageDialog(this, "O Vetor gerado era - - > " + sVetorPerdeu);
             setPanelEnabled(jPanelBotoes, false);
             tTemporizador.stop();
             iSomaErros = 0;
@@ -6747,7 +7269,7 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
 
     private void txtTamanhoVetorKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTamanhoVetorKeyReleased
         try {
-             
+
             String sTratamento = txtTamanhoVetor.getText();
             int iTratamento = Integer.parseInt(sTratamento);
             int iValor = 105;
@@ -6886,7 +7408,6 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnNmr98;
     private javax.swing.JButton btnNmr99;
     private javax.swing.JButton btnParar;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -6958,6 +7479,5760 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
                 setPanelEnabled((JPanel) components[i], isEnabled);
             }
             components[i].setEnabled(isEnabled);
+        }
+    }
+
+    public void BloqueiaLimite() {
+
+        int iBloqueia = Integer.parseInt(txtValoresVetor.getText());
+
+        if (iBloqueia == 1) {
+            btnNmr2.setEnabled(false);
+            btnNmr3.setEnabled(false);
+            btnNmr4.setEnabled(false);
+            btnNmr5.setEnabled(false);
+            btnNmr6.setEnabled(false);
+            btnNmr7.setEnabled(false);
+            btnNmr8.setEnabled(false);
+            btnNmr9.setEnabled(false);
+            btnNmr10.setEnabled(false);
+            btnNmr11.setEnabled(false);
+            btnNmr12.setEnabled(false);
+            btnNmr13.setEnabled(false);
+            btnNmr14.setEnabled(false);
+            btnNmr15.setEnabled(false);
+            btnNmr16.setEnabled(false);
+            btnNmr17.setEnabled(false);
+            btnNmr18.setEnabled(false);
+            btnNmr19.setEnabled(false);
+            btnNmr20.setEnabled(false);
+            btnNmr21.setEnabled(false);
+            btnNmr22.setEnabled(false);
+            btnNmr23.setEnabled(false);
+            btnNmr24.setEnabled(false);
+            btnNmr25.setEnabled(false);
+            btnNmr26.setEnabled(false);
+            btnNmr27.setEnabled(false);
+            btnNmr28.setEnabled(false);
+            btnNmr29.setEnabled(false);
+            btnNmr30.setEnabled(false);
+            btnNmr31.setEnabled(false);
+            btnNmr32.setEnabled(false);
+            btnNmr33.setEnabled(false);
+            btnNmr34.setEnabled(false);
+            btnNmr35.setEnabled(false);
+            btnNmr36.setEnabled(false);
+            btnNmr37.setEnabled(false);
+            btnNmr38.setEnabled(false);
+            btnNmr39.setEnabled(false);
+            btnNmr40.setEnabled(false);
+            btnNmr41.setEnabled(false);
+            btnNmr42.setEnabled(false);
+            btnNmr43.setEnabled(false);
+            btnNmr44.setEnabled(false);
+            btnNmr45.setEnabled(false);
+            btnNmr46.setEnabled(false);
+            btnNmr47.setEnabled(false);
+            btnNmr48.setEnabled(false);
+            btnNmr49.setEnabled(false);
+            btnNmr50.setEnabled(false);
+            btnNmr51.setEnabled(false);
+            btnNmr52.setEnabled(false);
+            btnNmr53.setEnabled(false);
+            btnNmr54.setEnabled(false);
+            btnNmr55.setEnabled(false);
+            btnNmr56.setEnabled(false);
+            btnNmr57.setEnabled(false);
+            btnNmr58.setEnabled(false);
+            btnNmr59.setEnabled(false);
+            btnNmr60.setEnabled(false);
+            btnNmr61.setEnabled(false);
+            btnNmr62.setEnabled(false);
+            btnNmr63.setEnabled(false);
+            btnNmr64.setEnabled(false);
+            btnNmr65.setEnabled(false);
+            btnNmr66.setEnabled(false);
+            btnNmr67.setEnabled(false);
+            btnNmr68.setEnabled(false);
+            btnNmr69.setEnabled(false);
+            btnNmr70.setEnabled(false);
+            btnNmr71.setEnabled(false);
+            btnNmr72.setEnabled(false);
+            btnNmr73.setEnabled(false);
+            btnNmr74.setEnabled(false);
+            btnNmr75.setEnabled(false);
+            btnNmr76.setEnabled(false);
+            btnNmr77.setEnabled(false);
+            btnNmr78.setEnabled(false);
+            btnNmr79.setEnabled(false);
+            btnNmr80.setEnabled(false);
+            btnNmr81.setEnabled(false);
+            btnNmr82.setEnabled(false);
+            btnNmr83.setEnabled(false);
+            btnNmr84.setEnabled(false);
+            btnNmr85.setEnabled(false);
+            btnNmr86.setEnabled(false);
+            btnNmr87.setEnabled(false);
+            btnNmr88.setEnabled(false);
+            btnNmr89.setEnabled(false);
+            btnNmr90.setEnabled(false);
+            btnNmr91.setEnabled(false);
+            btnNmr92.setEnabled(false);
+            btnNmr93.setEnabled(false);
+            btnNmr94.setEnabled(false);
+            btnNmr95.setEnabled(false);
+            btnNmr96.setEnabled(false);
+            btnNmr97.setEnabled(false);
+            btnNmr98.setEnabled(false);
+            btnNmr99.setEnabled(false);
+            btnNmr100.setEnabled(false);
+            btnNmr101.setEnabled(false);
+            btnNmr102.setEnabled(false);
+            btnNmr103.setEnabled(false);
+            btnNmr104.setEnabled(false);
+            btnNmr105.setEnabled(false);
+
+        }
+        if (iBloqueia == 2) {
+            btnNmr3.setEnabled(false);
+            btnNmr4.setEnabled(false);
+            btnNmr5.setEnabled(false);
+            btnNmr6.setEnabled(false);
+            btnNmr7.setEnabled(false);
+            btnNmr8.setEnabled(false);
+            btnNmr9.setEnabled(false);
+            btnNmr10.setEnabled(false);
+            btnNmr11.setEnabled(false);
+            btnNmr12.setEnabled(false);
+            btnNmr13.setEnabled(false);
+            btnNmr14.setEnabled(false);
+            btnNmr15.setEnabled(false);
+            btnNmr16.setEnabled(false);
+            btnNmr17.setEnabled(false);
+            btnNmr18.setEnabled(false);
+            btnNmr19.setEnabled(false);
+            btnNmr20.setEnabled(false);
+            btnNmr21.setEnabled(false);
+            btnNmr22.setEnabled(false);
+            btnNmr23.setEnabled(false);
+            btnNmr24.setEnabled(false);
+            btnNmr25.setEnabled(false);
+            btnNmr26.setEnabled(false);
+            btnNmr27.setEnabled(false);
+            btnNmr28.setEnabled(false);
+            btnNmr29.setEnabled(false);
+            btnNmr30.setEnabled(false);
+            btnNmr31.setEnabled(false);
+            btnNmr32.setEnabled(false);
+            btnNmr33.setEnabled(false);
+            btnNmr34.setEnabled(false);
+            btnNmr35.setEnabled(false);
+            btnNmr36.setEnabled(false);
+            btnNmr37.setEnabled(false);
+            btnNmr38.setEnabled(false);
+            btnNmr39.setEnabled(false);
+            btnNmr40.setEnabled(false);
+            btnNmr41.setEnabled(false);
+            btnNmr42.setEnabled(false);
+            btnNmr43.setEnabled(false);
+            btnNmr44.setEnabled(false);
+            btnNmr45.setEnabled(false);
+            btnNmr46.setEnabled(false);
+            btnNmr47.setEnabled(false);
+            btnNmr48.setEnabled(false);
+            btnNmr49.setEnabled(false);
+            btnNmr50.setEnabled(false);
+            btnNmr51.setEnabled(false);
+            btnNmr52.setEnabled(false);
+            btnNmr53.setEnabled(false);
+            btnNmr54.setEnabled(false);
+            btnNmr55.setEnabled(false);
+            btnNmr56.setEnabled(false);
+            btnNmr57.setEnabled(false);
+            btnNmr58.setEnabled(false);
+            btnNmr59.setEnabled(false);
+            btnNmr60.setEnabled(false);
+            btnNmr61.setEnabled(false);
+            btnNmr62.setEnabled(false);
+            btnNmr63.setEnabled(false);
+            btnNmr64.setEnabled(false);
+            btnNmr65.setEnabled(false);
+            btnNmr66.setEnabled(false);
+            btnNmr67.setEnabled(false);
+            btnNmr68.setEnabled(false);
+            btnNmr69.setEnabled(false);
+            btnNmr70.setEnabled(false);
+            btnNmr71.setEnabled(false);
+            btnNmr72.setEnabled(false);
+            btnNmr73.setEnabled(false);
+            btnNmr74.setEnabled(false);
+            btnNmr75.setEnabled(false);
+            btnNmr76.setEnabled(false);
+            btnNmr77.setEnabled(false);
+            btnNmr78.setEnabled(false);
+            btnNmr79.setEnabled(false);
+            btnNmr80.setEnabled(false);
+            btnNmr81.setEnabled(false);
+            btnNmr82.setEnabled(false);
+            btnNmr83.setEnabled(false);
+            btnNmr84.setEnabled(false);
+            btnNmr85.setEnabled(false);
+            btnNmr86.setEnabled(false);
+            btnNmr87.setEnabled(false);
+            btnNmr88.setEnabled(false);
+            btnNmr89.setEnabled(false);
+            btnNmr90.setEnabled(false);
+            btnNmr91.setEnabled(false);
+            btnNmr92.setEnabled(false);
+            btnNmr93.setEnabled(false);
+            btnNmr94.setEnabled(false);
+            btnNmr95.setEnabled(false);
+            btnNmr96.setEnabled(false);
+            btnNmr97.setEnabled(false);
+            btnNmr98.setEnabled(false);
+            btnNmr99.setEnabled(false);
+            btnNmr100.setEnabled(false);
+            btnNmr101.setEnabled(false);
+            btnNmr102.setEnabled(false);
+            btnNmr103.setEnabled(false);
+            btnNmr104.setEnabled(false);
+            btnNmr105.setEnabled(false);
+
+        }
+        if (iBloqueia == 3) {
+            btnNmr4.setEnabled(false);
+            btnNmr5.setEnabled(false);
+            btnNmr6.setEnabled(false);
+            btnNmr7.setEnabled(false);
+            btnNmr8.setEnabled(false);
+            btnNmr9.setEnabled(false);
+            btnNmr10.setEnabled(false);
+            btnNmr11.setEnabled(false);
+            btnNmr12.setEnabled(false);
+            btnNmr13.setEnabled(false);
+            btnNmr14.setEnabled(false);
+            btnNmr15.setEnabled(false);
+            btnNmr16.setEnabled(false);
+            btnNmr17.setEnabled(false);
+            btnNmr18.setEnabled(false);
+            btnNmr19.setEnabled(false);
+            btnNmr20.setEnabled(false);
+            btnNmr21.setEnabled(false);
+            btnNmr22.setEnabled(false);
+            btnNmr23.setEnabled(false);
+            btnNmr24.setEnabled(false);
+            btnNmr25.setEnabled(false);
+            btnNmr26.setEnabled(false);
+            btnNmr27.setEnabled(false);
+            btnNmr28.setEnabled(false);
+            btnNmr29.setEnabled(false);
+            btnNmr30.setEnabled(false);
+            btnNmr31.setEnabled(false);
+            btnNmr32.setEnabled(false);
+            btnNmr33.setEnabled(false);
+            btnNmr34.setEnabled(false);
+            btnNmr35.setEnabled(false);
+            btnNmr36.setEnabled(false);
+            btnNmr37.setEnabled(false);
+            btnNmr38.setEnabled(false);
+            btnNmr39.setEnabled(false);
+            btnNmr40.setEnabled(false);
+            btnNmr41.setEnabled(false);
+            btnNmr42.setEnabled(false);
+            btnNmr43.setEnabled(false);
+            btnNmr44.setEnabled(false);
+            btnNmr45.setEnabled(false);
+            btnNmr46.setEnabled(false);
+            btnNmr47.setEnabled(false);
+            btnNmr48.setEnabled(false);
+            btnNmr49.setEnabled(false);
+            btnNmr50.setEnabled(false);
+            btnNmr51.setEnabled(false);
+            btnNmr52.setEnabled(false);
+            btnNmr53.setEnabled(false);
+            btnNmr54.setEnabled(false);
+            btnNmr55.setEnabled(false);
+            btnNmr56.setEnabled(false);
+            btnNmr57.setEnabled(false);
+            btnNmr58.setEnabled(false);
+            btnNmr59.setEnabled(false);
+            btnNmr60.setEnabled(false);
+            btnNmr61.setEnabled(false);
+            btnNmr62.setEnabled(false);
+            btnNmr63.setEnabled(false);
+            btnNmr64.setEnabled(false);
+            btnNmr65.setEnabled(false);
+            btnNmr66.setEnabled(false);
+            btnNmr67.setEnabled(false);
+            btnNmr68.setEnabled(false);
+            btnNmr69.setEnabled(false);
+            btnNmr70.setEnabled(false);
+            btnNmr71.setEnabled(false);
+            btnNmr72.setEnabled(false);
+            btnNmr73.setEnabled(false);
+            btnNmr74.setEnabled(false);
+            btnNmr75.setEnabled(false);
+            btnNmr76.setEnabled(false);
+            btnNmr77.setEnabled(false);
+            btnNmr78.setEnabled(false);
+            btnNmr79.setEnabled(false);
+            btnNmr80.setEnabled(false);
+            btnNmr81.setEnabled(false);
+            btnNmr82.setEnabled(false);
+            btnNmr83.setEnabled(false);
+            btnNmr84.setEnabled(false);
+            btnNmr85.setEnabled(false);
+            btnNmr86.setEnabled(false);
+            btnNmr87.setEnabled(false);
+            btnNmr88.setEnabled(false);
+            btnNmr89.setEnabled(false);
+            btnNmr90.setEnabled(false);
+            btnNmr91.setEnabled(false);
+            btnNmr92.setEnabled(false);
+            btnNmr93.setEnabled(false);
+            btnNmr94.setEnabled(false);
+            btnNmr95.setEnabled(false);
+            btnNmr96.setEnabled(false);
+            btnNmr97.setEnabled(false);
+            btnNmr98.setEnabled(false);
+            btnNmr99.setEnabled(false);
+            btnNmr100.setEnabled(false);
+            btnNmr101.setEnabled(false);
+            btnNmr102.setEnabled(false);
+            btnNmr103.setEnabled(false);
+            btnNmr104.setEnabled(false);
+            btnNmr105.setEnabled(false);
+
+        }
+        if (iBloqueia == 4) {
+            btnNmr5.setEnabled(false);
+            btnNmr6.setEnabled(false);
+            btnNmr7.setEnabled(false);
+            btnNmr8.setEnabled(false);
+            btnNmr9.setEnabled(false);
+            btnNmr10.setEnabled(false);
+            btnNmr11.setEnabled(false);
+            btnNmr12.setEnabled(false);
+            btnNmr13.setEnabled(false);
+            btnNmr14.setEnabled(false);
+            btnNmr15.setEnabled(false);
+            btnNmr16.setEnabled(false);
+            btnNmr17.setEnabled(false);
+            btnNmr18.setEnabled(false);
+            btnNmr19.setEnabled(false);
+            btnNmr20.setEnabled(false);
+            btnNmr21.setEnabled(false);
+            btnNmr22.setEnabled(false);
+            btnNmr23.setEnabled(false);
+            btnNmr24.setEnabled(false);
+            btnNmr25.setEnabled(false);
+            btnNmr26.setEnabled(false);
+            btnNmr27.setEnabled(false);
+            btnNmr28.setEnabled(false);
+            btnNmr29.setEnabled(false);
+            btnNmr30.setEnabled(false);
+            btnNmr31.setEnabled(false);
+            btnNmr32.setEnabled(false);
+            btnNmr33.setEnabled(false);
+            btnNmr34.setEnabled(false);
+            btnNmr35.setEnabled(false);
+            btnNmr36.setEnabled(false);
+            btnNmr37.setEnabled(false);
+            btnNmr38.setEnabled(false);
+            btnNmr39.setEnabled(false);
+            btnNmr40.setEnabled(false);
+            btnNmr41.setEnabled(false);
+            btnNmr42.setEnabled(false);
+            btnNmr43.setEnabled(false);
+            btnNmr44.setEnabled(false);
+            btnNmr45.setEnabled(false);
+            btnNmr46.setEnabled(false);
+            btnNmr47.setEnabled(false);
+            btnNmr48.setEnabled(false);
+            btnNmr49.setEnabled(false);
+            btnNmr50.setEnabled(false);
+            btnNmr51.setEnabled(false);
+            btnNmr52.setEnabled(false);
+            btnNmr53.setEnabled(false);
+            btnNmr54.setEnabled(false);
+            btnNmr55.setEnabled(false);
+            btnNmr56.setEnabled(false);
+            btnNmr57.setEnabled(false);
+            btnNmr58.setEnabled(false);
+            btnNmr59.setEnabled(false);
+            btnNmr60.setEnabled(false);
+            btnNmr61.setEnabled(false);
+            btnNmr62.setEnabled(false);
+            btnNmr63.setEnabled(false);
+            btnNmr64.setEnabled(false);
+            btnNmr65.setEnabled(false);
+            btnNmr66.setEnabled(false);
+            btnNmr67.setEnabled(false);
+            btnNmr68.setEnabled(false);
+            btnNmr69.setEnabled(false);
+            btnNmr70.setEnabled(false);
+            btnNmr71.setEnabled(false);
+            btnNmr72.setEnabled(false);
+            btnNmr73.setEnabled(false);
+            btnNmr74.setEnabled(false);
+            btnNmr75.setEnabled(false);
+            btnNmr76.setEnabled(false);
+            btnNmr77.setEnabled(false);
+            btnNmr78.setEnabled(false);
+            btnNmr79.setEnabled(false);
+            btnNmr80.setEnabled(false);
+            btnNmr81.setEnabled(false);
+            btnNmr82.setEnabled(false);
+            btnNmr83.setEnabled(false);
+            btnNmr84.setEnabled(false);
+            btnNmr85.setEnabled(false);
+            btnNmr86.setEnabled(false);
+            btnNmr87.setEnabled(false);
+            btnNmr88.setEnabled(false);
+            btnNmr89.setEnabled(false);
+            btnNmr90.setEnabled(false);
+            btnNmr91.setEnabled(false);
+            btnNmr92.setEnabled(false);
+            btnNmr93.setEnabled(false);
+            btnNmr94.setEnabled(false);
+            btnNmr95.setEnabled(false);
+            btnNmr96.setEnabled(false);
+            btnNmr97.setEnabled(false);
+            btnNmr98.setEnabled(false);
+            btnNmr99.setEnabled(false);
+            btnNmr100.setEnabled(false);
+            btnNmr101.setEnabled(false);
+            btnNmr102.setEnabled(false);
+            btnNmr103.setEnabled(false);
+            btnNmr104.setEnabled(false);
+            btnNmr105.setEnabled(false);
+
+        }
+        if (iBloqueia == 5) {
+            btnNmr6.setEnabled(false);
+            btnNmr7.setEnabled(false);
+            btnNmr8.setEnabled(false);
+            btnNmr9.setEnabled(false);
+            btnNmr10.setEnabled(false);
+            btnNmr11.setEnabled(false);
+            btnNmr12.setEnabled(false);
+            btnNmr13.setEnabled(false);
+            btnNmr14.setEnabled(false);
+            btnNmr15.setEnabled(false);
+            btnNmr16.setEnabled(false);
+            btnNmr17.setEnabled(false);
+            btnNmr18.setEnabled(false);
+            btnNmr19.setEnabled(false);
+            btnNmr20.setEnabled(false);
+            btnNmr21.setEnabled(false);
+            btnNmr22.setEnabled(false);
+            btnNmr23.setEnabled(false);
+            btnNmr24.setEnabled(false);
+            btnNmr25.setEnabled(false);
+            btnNmr26.setEnabled(false);
+            btnNmr27.setEnabled(false);
+            btnNmr28.setEnabled(false);
+            btnNmr29.setEnabled(false);
+            btnNmr30.setEnabled(false);
+            btnNmr31.setEnabled(false);
+            btnNmr32.setEnabled(false);
+            btnNmr33.setEnabled(false);
+            btnNmr34.setEnabled(false);
+            btnNmr35.setEnabled(false);
+            btnNmr36.setEnabled(false);
+            btnNmr37.setEnabled(false);
+            btnNmr38.setEnabled(false);
+            btnNmr39.setEnabled(false);
+            btnNmr40.setEnabled(false);
+            btnNmr41.setEnabled(false);
+            btnNmr42.setEnabled(false);
+            btnNmr43.setEnabled(false);
+            btnNmr44.setEnabled(false);
+            btnNmr45.setEnabled(false);
+            btnNmr46.setEnabled(false);
+            btnNmr47.setEnabled(false);
+            btnNmr48.setEnabled(false);
+            btnNmr49.setEnabled(false);
+            btnNmr50.setEnabled(false);
+            btnNmr51.setEnabled(false);
+            btnNmr52.setEnabled(false);
+            btnNmr53.setEnabled(false);
+            btnNmr54.setEnabled(false);
+            btnNmr55.setEnabled(false);
+            btnNmr56.setEnabled(false);
+            btnNmr57.setEnabled(false);
+            btnNmr58.setEnabled(false);
+            btnNmr59.setEnabled(false);
+            btnNmr60.setEnabled(false);
+            btnNmr61.setEnabled(false);
+            btnNmr62.setEnabled(false);
+            btnNmr63.setEnabled(false);
+            btnNmr64.setEnabled(false);
+            btnNmr65.setEnabled(false);
+            btnNmr66.setEnabled(false);
+            btnNmr67.setEnabled(false);
+            btnNmr68.setEnabled(false);
+            btnNmr69.setEnabled(false);
+            btnNmr70.setEnabled(false);
+            btnNmr71.setEnabled(false);
+            btnNmr72.setEnabled(false);
+            btnNmr73.setEnabled(false);
+            btnNmr74.setEnabled(false);
+            btnNmr75.setEnabled(false);
+            btnNmr76.setEnabled(false);
+            btnNmr77.setEnabled(false);
+            btnNmr78.setEnabled(false);
+            btnNmr79.setEnabled(false);
+            btnNmr80.setEnabled(false);
+            btnNmr81.setEnabled(false);
+            btnNmr82.setEnabled(false);
+            btnNmr83.setEnabled(false);
+            btnNmr84.setEnabled(false);
+            btnNmr85.setEnabled(false);
+            btnNmr86.setEnabled(false);
+            btnNmr87.setEnabled(false);
+            btnNmr88.setEnabled(false);
+            btnNmr89.setEnabled(false);
+            btnNmr90.setEnabled(false);
+            btnNmr91.setEnabled(false);
+            btnNmr92.setEnabled(false);
+            btnNmr93.setEnabled(false);
+            btnNmr94.setEnabled(false);
+            btnNmr95.setEnabled(false);
+            btnNmr96.setEnabled(false);
+            btnNmr97.setEnabled(false);
+            btnNmr98.setEnabled(false);
+            btnNmr99.setEnabled(false);
+            btnNmr100.setEnabled(false);
+            btnNmr101.setEnabled(false);
+            btnNmr102.setEnabled(false);
+            btnNmr103.setEnabled(false);
+            btnNmr104.setEnabled(false);
+            btnNmr105.setEnabled(false);
+
+        }
+        if (iBloqueia == 6) {
+            btnNmr7.setEnabled(false);
+            btnNmr8.setEnabled(false);
+            btnNmr9.setEnabled(false);
+            btnNmr10.setEnabled(false);
+            btnNmr11.setEnabled(false);
+            btnNmr12.setEnabled(false);
+            btnNmr13.setEnabled(false);
+            btnNmr14.setEnabled(false);
+            btnNmr15.setEnabled(false);
+            btnNmr16.setEnabled(false);
+            btnNmr17.setEnabled(false);
+            btnNmr18.setEnabled(false);
+            btnNmr19.setEnabled(false);
+            btnNmr20.setEnabled(false);
+            btnNmr21.setEnabled(false);
+            btnNmr22.setEnabled(false);
+            btnNmr23.setEnabled(false);
+            btnNmr24.setEnabled(false);
+            btnNmr25.setEnabled(false);
+            btnNmr26.setEnabled(false);
+            btnNmr27.setEnabled(false);
+            btnNmr28.setEnabled(false);
+            btnNmr29.setEnabled(false);
+            btnNmr30.setEnabled(false);
+            btnNmr31.setEnabled(false);
+            btnNmr32.setEnabled(false);
+            btnNmr33.setEnabled(false);
+            btnNmr34.setEnabled(false);
+            btnNmr35.setEnabled(false);
+            btnNmr36.setEnabled(false);
+            btnNmr37.setEnabled(false);
+            btnNmr38.setEnabled(false);
+            btnNmr39.setEnabled(false);
+            btnNmr40.setEnabled(false);
+            btnNmr41.setEnabled(false);
+            btnNmr42.setEnabled(false);
+            btnNmr43.setEnabled(false);
+            btnNmr44.setEnabled(false);
+            btnNmr45.setEnabled(false);
+            btnNmr46.setEnabled(false);
+            btnNmr47.setEnabled(false);
+            btnNmr48.setEnabled(false);
+            btnNmr49.setEnabled(false);
+            btnNmr50.setEnabled(false);
+            btnNmr51.setEnabled(false);
+            btnNmr52.setEnabled(false);
+            btnNmr53.setEnabled(false);
+            btnNmr54.setEnabled(false);
+            btnNmr55.setEnabled(false);
+            btnNmr56.setEnabled(false);
+            btnNmr57.setEnabled(false);
+            btnNmr58.setEnabled(false);
+            btnNmr59.setEnabled(false);
+            btnNmr60.setEnabled(false);
+            btnNmr61.setEnabled(false);
+            btnNmr62.setEnabled(false);
+            btnNmr63.setEnabled(false);
+            btnNmr64.setEnabled(false);
+            btnNmr65.setEnabled(false);
+            btnNmr66.setEnabled(false);
+            btnNmr67.setEnabled(false);
+            btnNmr68.setEnabled(false);
+            btnNmr69.setEnabled(false);
+            btnNmr70.setEnabled(false);
+            btnNmr71.setEnabled(false);
+            btnNmr72.setEnabled(false);
+            btnNmr73.setEnabled(false);
+            btnNmr74.setEnabled(false);
+            btnNmr75.setEnabled(false);
+            btnNmr76.setEnabled(false);
+            btnNmr77.setEnabled(false);
+            btnNmr78.setEnabled(false);
+            btnNmr79.setEnabled(false);
+            btnNmr80.setEnabled(false);
+            btnNmr81.setEnabled(false);
+            btnNmr82.setEnabled(false);
+            btnNmr83.setEnabled(false);
+            btnNmr84.setEnabled(false);
+            btnNmr85.setEnabled(false);
+            btnNmr86.setEnabled(false);
+            btnNmr87.setEnabled(false);
+            btnNmr88.setEnabled(false);
+            btnNmr89.setEnabled(false);
+            btnNmr90.setEnabled(false);
+            btnNmr91.setEnabled(false);
+            btnNmr92.setEnabled(false);
+            btnNmr93.setEnabled(false);
+            btnNmr94.setEnabled(false);
+            btnNmr95.setEnabled(false);
+            btnNmr96.setEnabled(false);
+            btnNmr97.setEnabled(false);
+            btnNmr98.setEnabled(false);
+            btnNmr99.setEnabled(false);
+            btnNmr100.setEnabled(false);
+            btnNmr101.setEnabled(false);
+            btnNmr102.setEnabled(false);
+            btnNmr103.setEnabled(false);
+            btnNmr104.setEnabled(false);
+            btnNmr105.setEnabled(false);
+
+        }
+        if (iBloqueia == 7) {
+
+            btnNmr8.setEnabled(false);
+            btnNmr9.setEnabled(false);
+            btnNmr10.setEnabled(false);
+            btnNmr11.setEnabled(false);
+            btnNmr12.setEnabled(false);
+            btnNmr13.setEnabled(false);
+            btnNmr14.setEnabled(false);
+            btnNmr15.setEnabled(false);
+            btnNmr16.setEnabled(false);
+            btnNmr17.setEnabled(false);
+            btnNmr18.setEnabled(false);
+            btnNmr19.setEnabled(false);
+            btnNmr20.setEnabled(false);
+            btnNmr21.setEnabled(false);
+            btnNmr22.setEnabled(false);
+            btnNmr23.setEnabled(false);
+            btnNmr24.setEnabled(false);
+            btnNmr25.setEnabled(false);
+            btnNmr26.setEnabled(false);
+            btnNmr27.setEnabled(false);
+            btnNmr28.setEnabled(false);
+            btnNmr29.setEnabled(false);
+            btnNmr30.setEnabled(false);
+            btnNmr31.setEnabled(false);
+            btnNmr32.setEnabled(false);
+            btnNmr33.setEnabled(false);
+            btnNmr34.setEnabled(false);
+            btnNmr35.setEnabled(false);
+            btnNmr36.setEnabled(false);
+            btnNmr37.setEnabled(false);
+            btnNmr38.setEnabled(false);
+            btnNmr39.setEnabled(false);
+            btnNmr40.setEnabled(false);
+            btnNmr41.setEnabled(false);
+            btnNmr42.setEnabled(false);
+            btnNmr43.setEnabled(false);
+            btnNmr44.setEnabled(false);
+            btnNmr45.setEnabled(false);
+            btnNmr46.setEnabled(false);
+            btnNmr47.setEnabled(false);
+            btnNmr48.setEnabled(false);
+            btnNmr49.setEnabled(false);
+            btnNmr50.setEnabled(false);
+            btnNmr51.setEnabled(false);
+            btnNmr52.setEnabled(false);
+            btnNmr53.setEnabled(false);
+            btnNmr54.setEnabled(false);
+            btnNmr55.setEnabled(false);
+            btnNmr56.setEnabled(false);
+            btnNmr57.setEnabled(false);
+            btnNmr58.setEnabled(false);
+            btnNmr59.setEnabled(false);
+            btnNmr60.setEnabled(false);
+            btnNmr61.setEnabled(false);
+            btnNmr62.setEnabled(false);
+            btnNmr63.setEnabled(false);
+            btnNmr64.setEnabled(false);
+            btnNmr65.setEnabled(false);
+            btnNmr66.setEnabled(false);
+            btnNmr67.setEnabled(false);
+            btnNmr68.setEnabled(false);
+            btnNmr69.setEnabled(false);
+            btnNmr70.setEnabled(false);
+            btnNmr71.setEnabled(false);
+            btnNmr72.setEnabled(false);
+            btnNmr73.setEnabled(false);
+            btnNmr74.setEnabled(false);
+            btnNmr75.setEnabled(false);
+            btnNmr76.setEnabled(false);
+            btnNmr77.setEnabled(false);
+            btnNmr78.setEnabled(false);
+            btnNmr79.setEnabled(false);
+            btnNmr80.setEnabled(false);
+            btnNmr81.setEnabled(false);
+            btnNmr82.setEnabled(false);
+            btnNmr83.setEnabled(false);
+            btnNmr84.setEnabled(false);
+            btnNmr85.setEnabled(false);
+            btnNmr86.setEnabled(false);
+            btnNmr87.setEnabled(false);
+            btnNmr88.setEnabled(false);
+            btnNmr89.setEnabled(false);
+            btnNmr90.setEnabled(false);
+            btnNmr91.setEnabled(false);
+            btnNmr92.setEnabled(false);
+            btnNmr93.setEnabled(false);
+            btnNmr94.setEnabled(false);
+            btnNmr95.setEnabled(false);
+            btnNmr96.setEnabled(false);
+            btnNmr97.setEnabled(false);
+            btnNmr98.setEnabled(false);
+            btnNmr99.setEnabled(false);
+            btnNmr100.setEnabled(false);
+            btnNmr101.setEnabled(false);
+            btnNmr102.setEnabled(false);
+            btnNmr103.setEnabled(false);
+            btnNmr104.setEnabled(false);
+            btnNmr105.setEnabled(false);
+
+        }
+        if (iBloqueia == 8) {
+
+            btnNmr9.setEnabled(false);
+            btnNmr10.setEnabled(false);
+            btnNmr11.setEnabled(false);
+            btnNmr12.setEnabled(false);
+            btnNmr13.setEnabled(false);
+            btnNmr14.setEnabled(false);
+            btnNmr15.setEnabled(false);
+            btnNmr16.setEnabled(false);
+            btnNmr17.setEnabled(false);
+            btnNmr18.setEnabled(false);
+            btnNmr19.setEnabled(false);
+            btnNmr20.setEnabled(false);
+            btnNmr21.setEnabled(false);
+            btnNmr22.setEnabled(false);
+            btnNmr23.setEnabled(false);
+            btnNmr24.setEnabled(false);
+            btnNmr25.setEnabled(false);
+            btnNmr26.setEnabled(false);
+            btnNmr27.setEnabled(false);
+            btnNmr28.setEnabled(false);
+            btnNmr29.setEnabled(false);
+            btnNmr30.setEnabled(false);
+            btnNmr31.setEnabled(false);
+            btnNmr32.setEnabled(false);
+            btnNmr33.setEnabled(false);
+            btnNmr34.setEnabled(false);
+            btnNmr35.setEnabled(false);
+            btnNmr36.setEnabled(false);
+            btnNmr37.setEnabled(false);
+            btnNmr38.setEnabled(false);
+            btnNmr39.setEnabled(false);
+            btnNmr40.setEnabled(false);
+            btnNmr41.setEnabled(false);
+            btnNmr42.setEnabled(false);
+            btnNmr43.setEnabled(false);
+            btnNmr44.setEnabled(false);
+            btnNmr45.setEnabled(false);
+            btnNmr46.setEnabled(false);
+            btnNmr47.setEnabled(false);
+            btnNmr48.setEnabled(false);
+            btnNmr49.setEnabled(false);
+            btnNmr50.setEnabled(false);
+            btnNmr51.setEnabled(false);
+            btnNmr52.setEnabled(false);
+            btnNmr53.setEnabled(false);
+            btnNmr54.setEnabled(false);
+            btnNmr55.setEnabled(false);
+            btnNmr56.setEnabled(false);
+            btnNmr57.setEnabled(false);
+            btnNmr58.setEnabled(false);
+            btnNmr59.setEnabled(false);
+            btnNmr60.setEnabled(false);
+            btnNmr61.setEnabled(false);
+            btnNmr62.setEnabled(false);
+            btnNmr63.setEnabled(false);
+            btnNmr64.setEnabled(false);
+            btnNmr65.setEnabled(false);
+            btnNmr66.setEnabled(false);
+            btnNmr67.setEnabled(false);
+            btnNmr68.setEnabled(false);
+            btnNmr69.setEnabled(false);
+            btnNmr70.setEnabled(false);
+            btnNmr71.setEnabled(false);
+            btnNmr72.setEnabled(false);
+            btnNmr73.setEnabled(false);
+            btnNmr74.setEnabled(false);
+            btnNmr75.setEnabled(false);
+            btnNmr76.setEnabled(false);
+            btnNmr77.setEnabled(false);
+            btnNmr78.setEnabled(false);
+            btnNmr79.setEnabled(false);
+            btnNmr80.setEnabled(false);
+            btnNmr81.setEnabled(false);
+            btnNmr82.setEnabled(false);
+            btnNmr83.setEnabled(false);
+            btnNmr84.setEnabled(false);
+            btnNmr85.setEnabled(false);
+            btnNmr86.setEnabled(false);
+            btnNmr87.setEnabled(false);
+            btnNmr88.setEnabled(false);
+            btnNmr89.setEnabled(false);
+            btnNmr90.setEnabled(false);
+            btnNmr91.setEnabled(false);
+            btnNmr92.setEnabled(false);
+            btnNmr93.setEnabled(false);
+            btnNmr94.setEnabled(false);
+            btnNmr95.setEnabled(false);
+            btnNmr96.setEnabled(false);
+            btnNmr97.setEnabled(false);
+            btnNmr98.setEnabled(false);
+            btnNmr99.setEnabled(false);
+            btnNmr100.setEnabled(false);
+            btnNmr101.setEnabled(false);
+            btnNmr102.setEnabled(false);
+            btnNmr103.setEnabled(false);
+            btnNmr104.setEnabled(false);
+            btnNmr105.setEnabled(false);
+
+        }
+        if (iBloqueia == 9) {
+
+            btnNmr10.setEnabled(false);
+            btnNmr11.setEnabled(false);
+            btnNmr12.setEnabled(false);
+            btnNmr13.setEnabled(false);
+            btnNmr14.setEnabled(false);
+            btnNmr15.setEnabled(false);
+            btnNmr16.setEnabled(false);
+            btnNmr17.setEnabled(false);
+            btnNmr18.setEnabled(false);
+            btnNmr19.setEnabled(false);
+            btnNmr20.setEnabled(false);
+            btnNmr21.setEnabled(false);
+            btnNmr22.setEnabled(false);
+            btnNmr23.setEnabled(false);
+            btnNmr24.setEnabled(false);
+            btnNmr25.setEnabled(false);
+            btnNmr26.setEnabled(false);
+            btnNmr27.setEnabled(false);
+            btnNmr28.setEnabled(false);
+            btnNmr29.setEnabled(false);
+            btnNmr30.setEnabled(false);
+            btnNmr31.setEnabled(false);
+            btnNmr32.setEnabled(false);
+            btnNmr33.setEnabled(false);
+            btnNmr34.setEnabled(false);
+            btnNmr35.setEnabled(false);
+            btnNmr36.setEnabled(false);
+            btnNmr37.setEnabled(false);
+            btnNmr38.setEnabled(false);
+            btnNmr39.setEnabled(false);
+            btnNmr40.setEnabled(false);
+            btnNmr41.setEnabled(false);
+            btnNmr42.setEnabled(false);
+            btnNmr43.setEnabled(false);
+            btnNmr44.setEnabled(false);
+            btnNmr45.setEnabled(false);
+            btnNmr46.setEnabled(false);
+            btnNmr47.setEnabled(false);
+            btnNmr48.setEnabled(false);
+            btnNmr49.setEnabled(false);
+            btnNmr50.setEnabled(false);
+            btnNmr51.setEnabled(false);
+            btnNmr52.setEnabled(false);
+            btnNmr53.setEnabled(false);
+            btnNmr54.setEnabled(false);
+            btnNmr55.setEnabled(false);
+            btnNmr56.setEnabled(false);
+            btnNmr57.setEnabled(false);
+            btnNmr58.setEnabled(false);
+            btnNmr59.setEnabled(false);
+            btnNmr60.setEnabled(false);
+            btnNmr61.setEnabled(false);
+            btnNmr62.setEnabled(false);
+            btnNmr63.setEnabled(false);
+            btnNmr64.setEnabled(false);
+            btnNmr65.setEnabled(false);
+            btnNmr66.setEnabled(false);
+            btnNmr67.setEnabled(false);
+            btnNmr68.setEnabled(false);
+            btnNmr69.setEnabled(false);
+            btnNmr70.setEnabled(false);
+            btnNmr71.setEnabled(false);
+            btnNmr72.setEnabled(false);
+            btnNmr73.setEnabled(false);
+            btnNmr74.setEnabled(false);
+            btnNmr75.setEnabled(false);
+            btnNmr76.setEnabled(false);
+            btnNmr77.setEnabled(false);
+            btnNmr78.setEnabled(false);
+            btnNmr79.setEnabled(false);
+            btnNmr80.setEnabled(false);
+            btnNmr81.setEnabled(false);
+            btnNmr82.setEnabled(false);
+            btnNmr83.setEnabled(false);
+            btnNmr84.setEnabled(false);
+            btnNmr85.setEnabled(false);
+            btnNmr86.setEnabled(false);
+            btnNmr87.setEnabled(false);
+            btnNmr88.setEnabled(false);
+            btnNmr89.setEnabled(false);
+            btnNmr90.setEnabled(false);
+            btnNmr91.setEnabled(false);
+            btnNmr92.setEnabled(false);
+            btnNmr93.setEnabled(false);
+            btnNmr94.setEnabled(false);
+            btnNmr95.setEnabled(false);
+            btnNmr96.setEnabled(false);
+            btnNmr97.setEnabled(false);
+            btnNmr98.setEnabled(false);
+            btnNmr99.setEnabled(false);
+            btnNmr100.setEnabled(false);
+            btnNmr101.setEnabled(false);
+            btnNmr102.setEnabled(false);
+            btnNmr103.setEnabled(false);
+            btnNmr104.setEnabled(false);
+            btnNmr105.setEnabled(false);
+
+        }
+        if (iBloqueia == 10) {
+
+            btnNmr11.setEnabled(false);
+            btnNmr12.setEnabled(false);
+            btnNmr13.setEnabled(false);
+            btnNmr14.setEnabled(false);
+            btnNmr15.setEnabled(false);
+            btnNmr16.setEnabled(false);
+            btnNmr17.setEnabled(false);
+            btnNmr18.setEnabled(false);
+            btnNmr19.setEnabled(false);
+            btnNmr20.setEnabled(false);
+            btnNmr21.setEnabled(false);
+            btnNmr22.setEnabled(false);
+            btnNmr23.setEnabled(false);
+            btnNmr24.setEnabled(false);
+            btnNmr25.setEnabled(false);
+            btnNmr26.setEnabled(false);
+            btnNmr27.setEnabled(false);
+            btnNmr28.setEnabled(false);
+            btnNmr29.setEnabled(false);
+            btnNmr30.setEnabled(false);
+            btnNmr31.setEnabled(false);
+            btnNmr32.setEnabled(false);
+            btnNmr33.setEnabled(false);
+            btnNmr34.setEnabled(false);
+            btnNmr35.setEnabled(false);
+            btnNmr36.setEnabled(false);
+            btnNmr37.setEnabled(false);
+            btnNmr38.setEnabled(false);
+            btnNmr39.setEnabled(false);
+            btnNmr40.setEnabled(false);
+            btnNmr41.setEnabled(false);
+            btnNmr42.setEnabled(false);
+            btnNmr43.setEnabled(false);
+            btnNmr44.setEnabled(false);
+            btnNmr45.setEnabled(false);
+            btnNmr46.setEnabled(false);
+            btnNmr47.setEnabled(false);
+            btnNmr48.setEnabled(false);
+            btnNmr49.setEnabled(false);
+            btnNmr50.setEnabled(false);
+            btnNmr51.setEnabled(false);
+            btnNmr52.setEnabled(false);
+            btnNmr53.setEnabled(false);
+            btnNmr54.setEnabled(false);
+            btnNmr55.setEnabled(false);
+            btnNmr56.setEnabled(false);
+            btnNmr57.setEnabled(false);
+            btnNmr58.setEnabled(false);
+            btnNmr59.setEnabled(false);
+            btnNmr60.setEnabled(false);
+            btnNmr61.setEnabled(false);
+            btnNmr62.setEnabled(false);
+            btnNmr63.setEnabled(false);
+            btnNmr64.setEnabled(false);
+            btnNmr65.setEnabled(false);
+            btnNmr66.setEnabled(false);
+            btnNmr67.setEnabled(false);
+            btnNmr68.setEnabled(false);
+            btnNmr69.setEnabled(false);
+            btnNmr70.setEnabled(false);
+            btnNmr71.setEnabled(false);
+            btnNmr72.setEnabled(false);
+            btnNmr73.setEnabled(false);
+            btnNmr74.setEnabled(false);
+            btnNmr75.setEnabled(false);
+            btnNmr76.setEnabled(false);
+            btnNmr77.setEnabled(false);
+            btnNmr78.setEnabled(false);
+            btnNmr79.setEnabled(false);
+            btnNmr80.setEnabled(false);
+            btnNmr81.setEnabled(false);
+            btnNmr82.setEnabled(false);
+            btnNmr83.setEnabled(false);
+            btnNmr84.setEnabled(false);
+            btnNmr85.setEnabled(false);
+            btnNmr86.setEnabled(false);
+            btnNmr87.setEnabled(false);
+            btnNmr88.setEnabled(false);
+            btnNmr89.setEnabled(false);
+            btnNmr90.setEnabled(false);
+            btnNmr91.setEnabled(false);
+            btnNmr92.setEnabled(false);
+            btnNmr93.setEnabled(false);
+            btnNmr94.setEnabled(false);
+            btnNmr95.setEnabled(false);
+            btnNmr96.setEnabled(false);
+            btnNmr97.setEnabled(false);
+            btnNmr98.setEnabled(false);
+            btnNmr99.setEnabled(false);
+            btnNmr100.setEnabled(false);
+            btnNmr101.setEnabled(false);
+            btnNmr102.setEnabled(false);
+            btnNmr103.setEnabled(false);
+            btnNmr104.setEnabled(false);
+            btnNmr105.setEnabled(false);
+
+        }
+        if (iBloqueia == 11) {
+
+            btnNmr12.setEnabled(false);
+            btnNmr13.setEnabled(false);
+            btnNmr14.setEnabled(false);
+            btnNmr15.setEnabled(false);
+            btnNmr16.setEnabled(false);
+            btnNmr17.setEnabled(false);
+            btnNmr18.setEnabled(false);
+            btnNmr19.setEnabled(false);
+            btnNmr20.setEnabled(false);
+            btnNmr21.setEnabled(false);
+            btnNmr22.setEnabled(false);
+            btnNmr23.setEnabled(false);
+            btnNmr24.setEnabled(false);
+            btnNmr25.setEnabled(false);
+            btnNmr26.setEnabled(false);
+            btnNmr27.setEnabled(false);
+            btnNmr28.setEnabled(false);
+            btnNmr29.setEnabled(false);
+            btnNmr30.setEnabled(false);
+            btnNmr31.setEnabled(false);
+            btnNmr32.setEnabled(false);
+            btnNmr33.setEnabled(false);
+            btnNmr34.setEnabled(false);
+            btnNmr35.setEnabled(false);
+            btnNmr36.setEnabled(false);
+            btnNmr37.setEnabled(false);
+            btnNmr38.setEnabled(false);
+            btnNmr39.setEnabled(false);
+            btnNmr40.setEnabled(false);
+            btnNmr41.setEnabled(false);
+            btnNmr42.setEnabled(false);
+            btnNmr43.setEnabled(false);
+            btnNmr44.setEnabled(false);
+            btnNmr45.setEnabled(false);
+            btnNmr46.setEnabled(false);
+            btnNmr47.setEnabled(false);
+            btnNmr48.setEnabled(false);
+            btnNmr49.setEnabled(false);
+            btnNmr50.setEnabled(false);
+            btnNmr51.setEnabled(false);
+            btnNmr52.setEnabled(false);
+            btnNmr53.setEnabled(false);
+            btnNmr54.setEnabled(false);
+            btnNmr55.setEnabled(false);
+            btnNmr56.setEnabled(false);
+            btnNmr57.setEnabled(false);
+            btnNmr58.setEnabled(false);
+            btnNmr59.setEnabled(false);
+            btnNmr60.setEnabled(false);
+            btnNmr61.setEnabled(false);
+            btnNmr62.setEnabled(false);
+            btnNmr63.setEnabled(false);
+            btnNmr64.setEnabled(false);
+            btnNmr65.setEnabled(false);
+            btnNmr66.setEnabled(false);
+            btnNmr67.setEnabled(false);
+            btnNmr68.setEnabled(false);
+            btnNmr69.setEnabled(false);
+            btnNmr70.setEnabled(false);
+            btnNmr71.setEnabled(false);
+            btnNmr72.setEnabled(false);
+            btnNmr73.setEnabled(false);
+            btnNmr74.setEnabled(false);
+            btnNmr75.setEnabled(false);
+            btnNmr76.setEnabled(false);
+            btnNmr77.setEnabled(false);
+            btnNmr78.setEnabled(false);
+            btnNmr79.setEnabled(false);
+            btnNmr80.setEnabled(false);
+            btnNmr81.setEnabled(false);
+            btnNmr82.setEnabled(false);
+            btnNmr83.setEnabled(false);
+            btnNmr84.setEnabled(false);
+            btnNmr85.setEnabled(false);
+            btnNmr86.setEnabled(false);
+            btnNmr87.setEnabled(false);
+            btnNmr88.setEnabled(false);
+            btnNmr89.setEnabled(false);
+            btnNmr90.setEnabled(false);
+            btnNmr91.setEnabled(false);
+            btnNmr92.setEnabled(false);
+            btnNmr93.setEnabled(false);
+            btnNmr94.setEnabled(false);
+            btnNmr95.setEnabled(false);
+            btnNmr96.setEnabled(false);
+            btnNmr97.setEnabled(false);
+            btnNmr98.setEnabled(false);
+            btnNmr99.setEnabled(false);
+            btnNmr100.setEnabled(false);
+            btnNmr101.setEnabled(false);
+            btnNmr102.setEnabled(false);
+            btnNmr103.setEnabled(false);
+            btnNmr104.setEnabled(false);
+            btnNmr105.setEnabled(false);
+
+        }
+        if (iBloqueia == 12) {
+
+            btnNmr13.setEnabled(false);
+            btnNmr14.setEnabled(false);
+            btnNmr15.setEnabled(false);
+            btnNmr16.setEnabled(false);
+            btnNmr17.setEnabled(false);
+            btnNmr18.setEnabled(false);
+            btnNmr19.setEnabled(false);
+            btnNmr20.setEnabled(false);
+            btnNmr21.setEnabled(false);
+            btnNmr22.setEnabled(false);
+            btnNmr23.setEnabled(false);
+            btnNmr24.setEnabled(false);
+            btnNmr25.setEnabled(false);
+            btnNmr26.setEnabled(false);
+            btnNmr27.setEnabled(false);
+            btnNmr28.setEnabled(false);
+            btnNmr29.setEnabled(false);
+            btnNmr30.setEnabled(false);
+            btnNmr31.setEnabled(false);
+            btnNmr32.setEnabled(false);
+            btnNmr33.setEnabled(false);
+            btnNmr34.setEnabled(false);
+            btnNmr35.setEnabled(false);
+            btnNmr36.setEnabled(false);
+            btnNmr37.setEnabled(false);
+            btnNmr38.setEnabled(false);
+            btnNmr39.setEnabled(false);
+            btnNmr40.setEnabled(false);
+            btnNmr41.setEnabled(false);
+            btnNmr42.setEnabled(false);
+            btnNmr43.setEnabled(false);
+            btnNmr44.setEnabled(false);
+            btnNmr45.setEnabled(false);
+            btnNmr46.setEnabled(false);
+            btnNmr47.setEnabled(false);
+            btnNmr48.setEnabled(false);
+            btnNmr49.setEnabled(false);
+            btnNmr50.setEnabled(false);
+            btnNmr51.setEnabled(false);
+            btnNmr52.setEnabled(false);
+            btnNmr53.setEnabled(false);
+            btnNmr54.setEnabled(false);
+            btnNmr55.setEnabled(false);
+            btnNmr56.setEnabled(false);
+            btnNmr57.setEnabled(false);
+            btnNmr58.setEnabled(false);
+            btnNmr59.setEnabled(false);
+            btnNmr60.setEnabled(false);
+            btnNmr61.setEnabled(false);
+            btnNmr62.setEnabled(false);
+            btnNmr63.setEnabled(false);
+            btnNmr64.setEnabled(false);
+            btnNmr65.setEnabled(false);
+            btnNmr66.setEnabled(false);
+            btnNmr67.setEnabled(false);
+            btnNmr68.setEnabled(false);
+            btnNmr69.setEnabled(false);
+            btnNmr70.setEnabled(false);
+            btnNmr71.setEnabled(false);
+            btnNmr72.setEnabled(false);
+            btnNmr73.setEnabled(false);
+            btnNmr74.setEnabled(false);
+            btnNmr75.setEnabled(false);
+            btnNmr76.setEnabled(false);
+            btnNmr77.setEnabled(false);
+            btnNmr78.setEnabled(false);
+            btnNmr79.setEnabled(false);
+            btnNmr80.setEnabled(false);
+            btnNmr81.setEnabled(false);
+            btnNmr82.setEnabled(false);
+            btnNmr83.setEnabled(false);
+            btnNmr84.setEnabled(false);
+            btnNmr85.setEnabled(false);
+            btnNmr86.setEnabled(false);
+            btnNmr87.setEnabled(false);
+            btnNmr88.setEnabled(false);
+            btnNmr89.setEnabled(false);
+            btnNmr90.setEnabled(false);
+            btnNmr91.setEnabled(false);
+            btnNmr92.setEnabled(false);
+            btnNmr93.setEnabled(false);
+            btnNmr94.setEnabled(false);
+            btnNmr95.setEnabled(false);
+            btnNmr96.setEnabled(false);
+            btnNmr97.setEnabled(false);
+            btnNmr98.setEnabled(false);
+            btnNmr99.setEnabled(false);
+            btnNmr100.setEnabled(false);
+            btnNmr101.setEnabled(false);
+            btnNmr102.setEnabled(false);
+            btnNmr103.setEnabled(false);
+            btnNmr104.setEnabled(false);
+            btnNmr105.setEnabled(false);
+
+        }
+        if (iBloqueia == 13) {
+
+            btnNmr14.setEnabled(false);
+            btnNmr15.setEnabled(false);
+            btnNmr16.setEnabled(false);
+            btnNmr17.setEnabled(false);
+            btnNmr18.setEnabled(false);
+            btnNmr19.setEnabled(false);
+            btnNmr20.setEnabled(false);
+            btnNmr21.setEnabled(false);
+            btnNmr22.setEnabled(false);
+            btnNmr23.setEnabled(false);
+            btnNmr24.setEnabled(false);
+            btnNmr25.setEnabled(false);
+            btnNmr26.setEnabled(false);
+            btnNmr27.setEnabled(false);
+            btnNmr28.setEnabled(false);
+            btnNmr29.setEnabled(false);
+            btnNmr30.setEnabled(false);
+            btnNmr31.setEnabled(false);
+            btnNmr32.setEnabled(false);
+            btnNmr33.setEnabled(false);
+            btnNmr34.setEnabled(false);
+            btnNmr35.setEnabled(false);
+            btnNmr36.setEnabled(false);
+            btnNmr37.setEnabled(false);
+            btnNmr38.setEnabled(false);
+            btnNmr39.setEnabled(false);
+            btnNmr40.setEnabled(false);
+            btnNmr41.setEnabled(false);
+            btnNmr42.setEnabled(false);
+            btnNmr43.setEnabled(false);
+            btnNmr44.setEnabled(false);
+            btnNmr45.setEnabled(false);
+            btnNmr46.setEnabled(false);
+            btnNmr47.setEnabled(false);
+            btnNmr48.setEnabled(false);
+            btnNmr49.setEnabled(false);
+            btnNmr50.setEnabled(false);
+            btnNmr51.setEnabled(false);
+            btnNmr52.setEnabled(false);
+            btnNmr53.setEnabled(false);
+            btnNmr54.setEnabled(false);
+            btnNmr55.setEnabled(false);
+            btnNmr56.setEnabled(false);
+            btnNmr57.setEnabled(false);
+            btnNmr58.setEnabled(false);
+            btnNmr59.setEnabled(false);
+            btnNmr60.setEnabled(false);
+            btnNmr61.setEnabled(false);
+            btnNmr62.setEnabled(false);
+            btnNmr63.setEnabled(false);
+            btnNmr64.setEnabled(false);
+            btnNmr65.setEnabled(false);
+            btnNmr66.setEnabled(false);
+            btnNmr67.setEnabled(false);
+            btnNmr68.setEnabled(false);
+            btnNmr69.setEnabled(false);
+            btnNmr70.setEnabled(false);
+            btnNmr71.setEnabled(false);
+            btnNmr72.setEnabled(false);
+            btnNmr73.setEnabled(false);
+            btnNmr74.setEnabled(false);
+            btnNmr75.setEnabled(false);
+            btnNmr76.setEnabled(false);
+            btnNmr77.setEnabled(false);
+            btnNmr78.setEnabled(false);
+            btnNmr79.setEnabled(false);
+            btnNmr80.setEnabled(false);
+            btnNmr81.setEnabled(false);
+            btnNmr82.setEnabled(false);
+            btnNmr83.setEnabled(false);
+            btnNmr84.setEnabled(false);
+            btnNmr85.setEnabled(false);
+            btnNmr86.setEnabled(false);
+            btnNmr87.setEnabled(false);
+            btnNmr88.setEnabled(false);
+            btnNmr89.setEnabled(false);
+            btnNmr90.setEnabled(false);
+            btnNmr91.setEnabled(false);
+            btnNmr92.setEnabled(false);
+            btnNmr93.setEnabled(false);
+            btnNmr94.setEnabled(false);
+            btnNmr95.setEnabled(false);
+            btnNmr96.setEnabled(false);
+            btnNmr97.setEnabled(false);
+            btnNmr98.setEnabled(false);
+            btnNmr99.setEnabled(false);
+            btnNmr100.setEnabled(false);
+            btnNmr101.setEnabled(false);
+            btnNmr102.setEnabled(false);
+            btnNmr103.setEnabled(false);
+            btnNmr104.setEnabled(false);
+            btnNmr105.setEnabled(false);
+
+        }
+        if (iBloqueia == 14) {
+
+            btnNmr15.setEnabled(false);
+            btnNmr16.setEnabled(false);
+            btnNmr17.setEnabled(false);
+            btnNmr18.setEnabled(false);
+            btnNmr19.setEnabled(false);
+            btnNmr20.setEnabled(false);
+            btnNmr21.setEnabled(false);
+            btnNmr22.setEnabled(false);
+            btnNmr23.setEnabled(false);
+            btnNmr24.setEnabled(false);
+            btnNmr25.setEnabled(false);
+            btnNmr26.setEnabled(false);
+            btnNmr27.setEnabled(false);
+            btnNmr28.setEnabled(false);
+            btnNmr29.setEnabled(false);
+            btnNmr30.setEnabled(false);
+            btnNmr31.setEnabled(false);
+            btnNmr32.setEnabled(false);
+            btnNmr33.setEnabled(false);
+            btnNmr34.setEnabled(false);
+            btnNmr35.setEnabled(false);
+            btnNmr36.setEnabled(false);
+            btnNmr37.setEnabled(false);
+            btnNmr38.setEnabled(false);
+            btnNmr39.setEnabled(false);
+            btnNmr40.setEnabled(false);
+            btnNmr41.setEnabled(false);
+            btnNmr42.setEnabled(false);
+            btnNmr43.setEnabled(false);
+            btnNmr44.setEnabled(false);
+            btnNmr45.setEnabled(false);
+            btnNmr46.setEnabled(false);
+            btnNmr47.setEnabled(false);
+            btnNmr48.setEnabled(false);
+            btnNmr49.setEnabled(false);
+            btnNmr50.setEnabled(false);
+            btnNmr51.setEnabled(false);
+            btnNmr52.setEnabled(false);
+            btnNmr53.setEnabled(false);
+            btnNmr54.setEnabled(false);
+            btnNmr55.setEnabled(false);
+            btnNmr56.setEnabled(false);
+            btnNmr57.setEnabled(false);
+            btnNmr58.setEnabled(false);
+            btnNmr59.setEnabled(false);
+            btnNmr60.setEnabled(false);
+            btnNmr61.setEnabled(false);
+            btnNmr62.setEnabled(false);
+            btnNmr63.setEnabled(false);
+            btnNmr64.setEnabled(false);
+            btnNmr65.setEnabled(false);
+            btnNmr66.setEnabled(false);
+            btnNmr67.setEnabled(false);
+            btnNmr68.setEnabled(false);
+            btnNmr69.setEnabled(false);
+            btnNmr70.setEnabled(false);
+            btnNmr71.setEnabled(false);
+            btnNmr72.setEnabled(false);
+            btnNmr73.setEnabled(false);
+            btnNmr74.setEnabled(false);
+            btnNmr75.setEnabled(false);
+            btnNmr76.setEnabled(false);
+            btnNmr77.setEnabled(false);
+            btnNmr78.setEnabled(false);
+            btnNmr79.setEnabled(false);
+            btnNmr80.setEnabled(false);
+            btnNmr81.setEnabled(false);
+            btnNmr82.setEnabled(false);
+            btnNmr83.setEnabled(false);
+            btnNmr84.setEnabled(false);
+            btnNmr85.setEnabled(false);
+            btnNmr86.setEnabled(false);
+            btnNmr87.setEnabled(false);
+            btnNmr88.setEnabled(false);
+            btnNmr89.setEnabled(false);
+            btnNmr90.setEnabled(false);
+            btnNmr91.setEnabled(false);
+            btnNmr92.setEnabled(false);
+            btnNmr93.setEnabled(false);
+            btnNmr94.setEnabled(false);
+            btnNmr95.setEnabled(false);
+            btnNmr96.setEnabled(false);
+            btnNmr97.setEnabled(false);
+            btnNmr98.setEnabled(false);
+            btnNmr99.setEnabled(false);
+            btnNmr100.setEnabled(false);
+            btnNmr101.setEnabled(false);
+            btnNmr102.setEnabled(false);
+            btnNmr103.setEnabled(false);
+            btnNmr104.setEnabled(false);
+            btnNmr105.setEnabled(false);
+
+        }
+        if (iBloqueia == 15) {
+
+            btnNmr16.setEnabled(false);
+            btnNmr17.setEnabled(false);
+            btnNmr18.setEnabled(false);
+            btnNmr19.setEnabled(false);
+            btnNmr20.setEnabled(false);
+            btnNmr21.setEnabled(false);
+            btnNmr22.setEnabled(false);
+            btnNmr23.setEnabled(false);
+            btnNmr24.setEnabled(false);
+            btnNmr25.setEnabled(false);
+            btnNmr26.setEnabled(false);
+            btnNmr27.setEnabled(false);
+            btnNmr28.setEnabled(false);
+            btnNmr29.setEnabled(false);
+            btnNmr30.setEnabled(false);
+            btnNmr31.setEnabled(false);
+            btnNmr32.setEnabled(false);
+            btnNmr33.setEnabled(false);
+            btnNmr34.setEnabled(false);
+            btnNmr35.setEnabled(false);
+            btnNmr36.setEnabled(false);
+            btnNmr37.setEnabled(false);
+            btnNmr38.setEnabled(false);
+            btnNmr39.setEnabled(false);
+            btnNmr40.setEnabled(false);
+            btnNmr41.setEnabled(false);
+            btnNmr42.setEnabled(false);
+            btnNmr43.setEnabled(false);
+            btnNmr44.setEnabled(false);
+            btnNmr45.setEnabled(false);
+            btnNmr46.setEnabled(false);
+            btnNmr47.setEnabled(false);
+            btnNmr48.setEnabled(false);
+            btnNmr49.setEnabled(false);
+            btnNmr50.setEnabled(false);
+            btnNmr51.setEnabled(false);
+            btnNmr52.setEnabled(false);
+            btnNmr53.setEnabled(false);
+            btnNmr54.setEnabled(false);
+            btnNmr55.setEnabled(false);
+            btnNmr56.setEnabled(false);
+            btnNmr57.setEnabled(false);
+            btnNmr58.setEnabled(false);
+            btnNmr59.setEnabled(false);
+            btnNmr60.setEnabled(false);
+            btnNmr61.setEnabled(false);
+            btnNmr62.setEnabled(false);
+            btnNmr63.setEnabled(false);
+            btnNmr64.setEnabled(false);
+            btnNmr65.setEnabled(false);
+            btnNmr66.setEnabled(false);
+            btnNmr67.setEnabled(false);
+            btnNmr68.setEnabled(false);
+            btnNmr69.setEnabled(false);
+            btnNmr70.setEnabled(false);
+            btnNmr71.setEnabled(false);
+            btnNmr72.setEnabled(false);
+            btnNmr73.setEnabled(false);
+            btnNmr74.setEnabled(false);
+            btnNmr75.setEnabled(false);
+            btnNmr76.setEnabled(false);
+            btnNmr77.setEnabled(false);
+            btnNmr78.setEnabled(false);
+            btnNmr79.setEnabled(false);
+            btnNmr80.setEnabled(false);
+            btnNmr81.setEnabled(false);
+            btnNmr82.setEnabled(false);
+            btnNmr83.setEnabled(false);
+            btnNmr84.setEnabled(false);
+            btnNmr85.setEnabled(false);
+            btnNmr86.setEnabled(false);
+            btnNmr87.setEnabled(false);
+            btnNmr88.setEnabled(false);
+            btnNmr89.setEnabled(false);
+            btnNmr90.setEnabled(false);
+            btnNmr91.setEnabled(false);
+            btnNmr92.setEnabled(false);
+            btnNmr93.setEnabled(false);
+            btnNmr94.setEnabled(false);
+            btnNmr95.setEnabled(false);
+            btnNmr96.setEnabled(false);
+            btnNmr97.setEnabled(false);
+            btnNmr98.setEnabled(false);
+            btnNmr99.setEnabled(false);
+            btnNmr100.setEnabled(false);
+            btnNmr101.setEnabled(false);
+            btnNmr102.setEnabled(false);
+            btnNmr103.setEnabled(false);
+            btnNmr104.setEnabled(false);
+            btnNmr105.setEnabled(false);
+
+        }
+        if (iBloqueia == 16) {
+
+            btnNmr17.setEnabled(false);
+            btnNmr18.setEnabled(false);
+            btnNmr19.setEnabled(false);
+            btnNmr20.setEnabled(false);
+            btnNmr21.setEnabled(false);
+            btnNmr22.setEnabled(false);
+            btnNmr23.setEnabled(false);
+            btnNmr24.setEnabled(false);
+            btnNmr25.setEnabled(false);
+            btnNmr26.setEnabled(false);
+            btnNmr27.setEnabled(false);
+            btnNmr28.setEnabled(false);
+            btnNmr29.setEnabled(false);
+            btnNmr30.setEnabled(false);
+            btnNmr31.setEnabled(false);
+            btnNmr32.setEnabled(false);
+            btnNmr33.setEnabled(false);
+            btnNmr34.setEnabled(false);
+            btnNmr35.setEnabled(false);
+            btnNmr36.setEnabled(false);
+            btnNmr37.setEnabled(false);
+            btnNmr38.setEnabled(false);
+            btnNmr39.setEnabled(false);
+            btnNmr40.setEnabled(false);
+            btnNmr41.setEnabled(false);
+            btnNmr42.setEnabled(false);
+            btnNmr43.setEnabled(false);
+            btnNmr44.setEnabled(false);
+            btnNmr45.setEnabled(false);
+            btnNmr46.setEnabled(false);
+            btnNmr47.setEnabled(false);
+            btnNmr48.setEnabled(false);
+            btnNmr49.setEnabled(false);
+            btnNmr50.setEnabled(false);
+            btnNmr51.setEnabled(false);
+            btnNmr52.setEnabled(false);
+            btnNmr53.setEnabled(false);
+            btnNmr54.setEnabled(false);
+            btnNmr55.setEnabled(false);
+            btnNmr56.setEnabled(false);
+            btnNmr57.setEnabled(false);
+            btnNmr58.setEnabled(false);
+            btnNmr59.setEnabled(false);
+            btnNmr60.setEnabled(false);
+            btnNmr61.setEnabled(false);
+            btnNmr62.setEnabled(false);
+            btnNmr63.setEnabled(false);
+            btnNmr64.setEnabled(false);
+            btnNmr65.setEnabled(false);
+            btnNmr66.setEnabled(false);
+            btnNmr67.setEnabled(false);
+            btnNmr68.setEnabled(false);
+            btnNmr69.setEnabled(false);
+            btnNmr70.setEnabled(false);
+            btnNmr71.setEnabled(false);
+            btnNmr72.setEnabled(false);
+            btnNmr73.setEnabled(false);
+            btnNmr74.setEnabled(false);
+            btnNmr75.setEnabled(false);
+            btnNmr76.setEnabled(false);
+            btnNmr77.setEnabled(false);
+            btnNmr78.setEnabled(false);
+            btnNmr79.setEnabled(false);
+            btnNmr80.setEnabled(false);
+            btnNmr81.setEnabled(false);
+            btnNmr82.setEnabled(false);
+            btnNmr83.setEnabled(false);
+            btnNmr84.setEnabled(false);
+            btnNmr85.setEnabled(false);
+            btnNmr86.setEnabled(false);
+            btnNmr87.setEnabled(false);
+            btnNmr88.setEnabled(false);
+            btnNmr89.setEnabled(false);
+            btnNmr90.setEnabled(false);
+            btnNmr91.setEnabled(false);
+            btnNmr92.setEnabled(false);
+            btnNmr93.setEnabled(false);
+            btnNmr94.setEnabled(false);
+            btnNmr95.setEnabled(false);
+            btnNmr96.setEnabled(false);
+            btnNmr97.setEnabled(false);
+            btnNmr98.setEnabled(false);
+            btnNmr99.setEnabled(false);
+            btnNmr100.setEnabled(false);
+            btnNmr101.setEnabled(false);
+            btnNmr102.setEnabled(false);
+            btnNmr103.setEnabled(false);
+            btnNmr104.setEnabled(false);
+            btnNmr105.setEnabled(false);
+
+        }
+        if (iBloqueia == 17) {
+
+            btnNmr18.setEnabled(false);
+            btnNmr19.setEnabled(false);
+            btnNmr20.setEnabled(false);
+            btnNmr21.setEnabled(false);
+            btnNmr22.setEnabled(false);
+            btnNmr23.setEnabled(false);
+            btnNmr24.setEnabled(false);
+            btnNmr25.setEnabled(false);
+            btnNmr26.setEnabled(false);
+            btnNmr27.setEnabled(false);
+            btnNmr28.setEnabled(false);
+            btnNmr29.setEnabled(false);
+            btnNmr30.setEnabled(false);
+            btnNmr31.setEnabled(false);
+            btnNmr32.setEnabled(false);
+            btnNmr33.setEnabled(false);
+            btnNmr34.setEnabled(false);
+            btnNmr35.setEnabled(false);
+            btnNmr36.setEnabled(false);
+            btnNmr37.setEnabled(false);
+            btnNmr38.setEnabled(false);
+            btnNmr39.setEnabled(false);
+            btnNmr40.setEnabled(false);
+            btnNmr41.setEnabled(false);
+            btnNmr42.setEnabled(false);
+            btnNmr43.setEnabled(false);
+            btnNmr44.setEnabled(false);
+            btnNmr45.setEnabled(false);
+            btnNmr46.setEnabled(false);
+            btnNmr47.setEnabled(false);
+            btnNmr48.setEnabled(false);
+            btnNmr49.setEnabled(false);
+            btnNmr50.setEnabled(false);
+            btnNmr51.setEnabled(false);
+            btnNmr52.setEnabled(false);
+            btnNmr53.setEnabled(false);
+            btnNmr54.setEnabled(false);
+            btnNmr55.setEnabled(false);
+            btnNmr56.setEnabled(false);
+            btnNmr57.setEnabled(false);
+            btnNmr58.setEnabled(false);
+            btnNmr59.setEnabled(false);
+            btnNmr60.setEnabled(false);
+            btnNmr61.setEnabled(false);
+            btnNmr62.setEnabled(false);
+            btnNmr63.setEnabled(false);
+            btnNmr64.setEnabled(false);
+            btnNmr65.setEnabled(false);
+            btnNmr66.setEnabled(false);
+            btnNmr67.setEnabled(false);
+            btnNmr68.setEnabled(false);
+            btnNmr69.setEnabled(false);
+            btnNmr70.setEnabled(false);
+            btnNmr71.setEnabled(false);
+            btnNmr72.setEnabled(false);
+            btnNmr73.setEnabled(false);
+            btnNmr74.setEnabled(false);
+            btnNmr75.setEnabled(false);
+            btnNmr76.setEnabled(false);
+            btnNmr77.setEnabled(false);
+            btnNmr78.setEnabled(false);
+            btnNmr79.setEnabled(false);
+            btnNmr80.setEnabled(false);
+            btnNmr81.setEnabled(false);
+            btnNmr82.setEnabled(false);
+            btnNmr83.setEnabled(false);
+            btnNmr84.setEnabled(false);
+            btnNmr85.setEnabled(false);
+            btnNmr86.setEnabled(false);
+            btnNmr87.setEnabled(false);
+            btnNmr88.setEnabled(false);
+            btnNmr89.setEnabled(false);
+            btnNmr90.setEnabled(false);
+            btnNmr91.setEnabled(false);
+            btnNmr92.setEnabled(false);
+            btnNmr93.setEnabled(false);
+            btnNmr94.setEnabled(false);
+            btnNmr95.setEnabled(false);
+            btnNmr96.setEnabled(false);
+            btnNmr97.setEnabled(false);
+            btnNmr98.setEnabled(false);
+            btnNmr99.setEnabled(false);
+            btnNmr100.setEnabled(false);
+            btnNmr101.setEnabled(false);
+            btnNmr102.setEnabled(false);
+            btnNmr103.setEnabled(false);
+            btnNmr104.setEnabled(false);
+            btnNmr105.setEnabled(false);
+
+        }
+        if (iBloqueia == 18) {
+
+            btnNmr19.setEnabled(false);
+            btnNmr20.setEnabled(false);
+            btnNmr21.setEnabled(false);
+            btnNmr22.setEnabled(false);
+            btnNmr23.setEnabled(false);
+            btnNmr24.setEnabled(false);
+            btnNmr25.setEnabled(false);
+            btnNmr26.setEnabled(false);
+            btnNmr27.setEnabled(false);
+            btnNmr28.setEnabled(false);
+            btnNmr29.setEnabled(false);
+            btnNmr30.setEnabled(false);
+            btnNmr31.setEnabled(false);
+            btnNmr32.setEnabled(false);
+            btnNmr33.setEnabled(false);
+            btnNmr34.setEnabled(false);
+            btnNmr35.setEnabled(false);
+            btnNmr36.setEnabled(false);
+            btnNmr37.setEnabled(false);
+            btnNmr38.setEnabled(false);
+            btnNmr39.setEnabled(false);
+            btnNmr40.setEnabled(false);
+            btnNmr41.setEnabled(false);
+            btnNmr42.setEnabled(false);
+            btnNmr43.setEnabled(false);
+            btnNmr44.setEnabled(false);
+            btnNmr45.setEnabled(false);
+            btnNmr46.setEnabled(false);
+            btnNmr47.setEnabled(false);
+            btnNmr48.setEnabled(false);
+            btnNmr49.setEnabled(false);
+            btnNmr50.setEnabled(false);
+            btnNmr51.setEnabled(false);
+            btnNmr52.setEnabled(false);
+            btnNmr53.setEnabled(false);
+            btnNmr54.setEnabled(false);
+            btnNmr55.setEnabled(false);
+            btnNmr56.setEnabled(false);
+            btnNmr57.setEnabled(false);
+            btnNmr58.setEnabled(false);
+            btnNmr59.setEnabled(false);
+            btnNmr60.setEnabled(false);
+            btnNmr61.setEnabled(false);
+            btnNmr62.setEnabled(false);
+            btnNmr63.setEnabled(false);
+            btnNmr64.setEnabled(false);
+            btnNmr65.setEnabled(false);
+            btnNmr66.setEnabled(false);
+            btnNmr67.setEnabled(false);
+            btnNmr68.setEnabled(false);
+            btnNmr69.setEnabled(false);
+            btnNmr70.setEnabled(false);
+            btnNmr71.setEnabled(false);
+            btnNmr72.setEnabled(false);
+            btnNmr73.setEnabled(false);
+            btnNmr74.setEnabled(false);
+            btnNmr75.setEnabled(false);
+            btnNmr76.setEnabled(false);
+            btnNmr77.setEnabled(false);
+            btnNmr78.setEnabled(false);
+            btnNmr79.setEnabled(false);
+            btnNmr80.setEnabled(false);
+            btnNmr81.setEnabled(false);
+            btnNmr82.setEnabled(false);
+            btnNmr83.setEnabled(false);
+            btnNmr84.setEnabled(false);
+            btnNmr85.setEnabled(false);
+            btnNmr86.setEnabled(false);
+            btnNmr87.setEnabled(false);
+            btnNmr88.setEnabled(false);
+            btnNmr89.setEnabled(false);
+            btnNmr90.setEnabled(false);
+            btnNmr91.setEnabled(false);
+            btnNmr92.setEnabled(false);
+            btnNmr93.setEnabled(false);
+            btnNmr94.setEnabled(false);
+            btnNmr95.setEnabled(false);
+            btnNmr96.setEnabled(false);
+            btnNmr97.setEnabled(false);
+            btnNmr98.setEnabled(false);
+            btnNmr99.setEnabled(false);
+            btnNmr100.setEnabled(false);
+            btnNmr101.setEnabled(false);
+            btnNmr102.setEnabled(false);
+            btnNmr103.setEnabled(false);
+            btnNmr104.setEnabled(false);
+            btnNmr105.setEnabled(false);
+
+        }
+        if (iBloqueia == 19) {
+
+            btnNmr20.setEnabled(false);
+            btnNmr21.setEnabled(false);
+            btnNmr22.setEnabled(false);
+            btnNmr23.setEnabled(false);
+            btnNmr24.setEnabled(false);
+            btnNmr25.setEnabled(false);
+            btnNmr26.setEnabled(false);
+            btnNmr27.setEnabled(false);
+            btnNmr28.setEnabled(false);
+            btnNmr29.setEnabled(false);
+            btnNmr30.setEnabled(false);
+            btnNmr31.setEnabled(false);
+            btnNmr32.setEnabled(false);
+            btnNmr33.setEnabled(false);
+            btnNmr34.setEnabled(false);
+            btnNmr35.setEnabled(false);
+            btnNmr36.setEnabled(false);
+            btnNmr37.setEnabled(false);
+            btnNmr38.setEnabled(false);
+            btnNmr39.setEnabled(false);
+            btnNmr40.setEnabled(false);
+            btnNmr41.setEnabled(false);
+            btnNmr42.setEnabled(false);
+            btnNmr43.setEnabled(false);
+            btnNmr44.setEnabled(false);
+            btnNmr45.setEnabled(false);
+            btnNmr46.setEnabled(false);
+            btnNmr47.setEnabled(false);
+            btnNmr48.setEnabled(false);
+            btnNmr49.setEnabled(false);
+            btnNmr50.setEnabled(false);
+            btnNmr51.setEnabled(false);
+            btnNmr52.setEnabled(false);
+            btnNmr53.setEnabled(false);
+            btnNmr54.setEnabled(false);
+            btnNmr55.setEnabled(false);
+            btnNmr56.setEnabled(false);
+            btnNmr57.setEnabled(false);
+            btnNmr58.setEnabled(false);
+            btnNmr59.setEnabled(false);
+            btnNmr60.setEnabled(false);
+            btnNmr61.setEnabled(false);
+            btnNmr62.setEnabled(false);
+            btnNmr63.setEnabled(false);
+            btnNmr64.setEnabled(false);
+            btnNmr65.setEnabled(false);
+            btnNmr66.setEnabled(false);
+            btnNmr67.setEnabled(false);
+            btnNmr68.setEnabled(false);
+            btnNmr69.setEnabled(false);
+            btnNmr70.setEnabled(false);
+            btnNmr71.setEnabled(false);
+            btnNmr72.setEnabled(false);
+            btnNmr73.setEnabled(false);
+            btnNmr74.setEnabled(false);
+            btnNmr75.setEnabled(false);
+            btnNmr76.setEnabled(false);
+            btnNmr77.setEnabled(false);
+            btnNmr78.setEnabled(false);
+            btnNmr79.setEnabled(false);
+            btnNmr80.setEnabled(false);
+            btnNmr81.setEnabled(false);
+            btnNmr82.setEnabled(false);
+            btnNmr83.setEnabled(false);
+            btnNmr84.setEnabled(false);
+            btnNmr85.setEnabled(false);
+            btnNmr86.setEnabled(false);
+            btnNmr87.setEnabled(false);
+            btnNmr88.setEnabled(false);
+            btnNmr89.setEnabled(false);
+            btnNmr90.setEnabled(false);
+            btnNmr91.setEnabled(false);
+            btnNmr92.setEnabled(false);
+            btnNmr93.setEnabled(false);
+            btnNmr94.setEnabled(false);
+            btnNmr95.setEnabled(false);
+            btnNmr96.setEnabled(false);
+            btnNmr97.setEnabled(false);
+            btnNmr98.setEnabled(false);
+            btnNmr99.setEnabled(false);
+            btnNmr100.setEnabled(false);
+            btnNmr101.setEnabled(false);
+            btnNmr102.setEnabled(false);
+            btnNmr103.setEnabled(false);
+            btnNmr104.setEnabled(false);
+            btnNmr105.setEnabled(false);
+
+        }
+        if (iBloqueia == 20) {
+
+            btnNmr21.setEnabled(false);
+            btnNmr22.setEnabled(false);
+            btnNmr23.setEnabled(false);
+            btnNmr24.setEnabled(false);
+            btnNmr25.setEnabled(false);
+            btnNmr26.setEnabled(false);
+            btnNmr27.setEnabled(false);
+            btnNmr28.setEnabled(false);
+            btnNmr29.setEnabled(false);
+            btnNmr30.setEnabled(false);
+            btnNmr31.setEnabled(false);
+            btnNmr32.setEnabled(false);
+            btnNmr33.setEnabled(false);
+            btnNmr34.setEnabled(false);
+            btnNmr35.setEnabled(false);
+            btnNmr36.setEnabled(false);
+            btnNmr37.setEnabled(false);
+            btnNmr38.setEnabled(false);
+            btnNmr39.setEnabled(false);
+            btnNmr40.setEnabled(false);
+            btnNmr41.setEnabled(false);
+            btnNmr42.setEnabled(false);
+            btnNmr43.setEnabled(false);
+            btnNmr44.setEnabled(false);
+            btnNmr45.setEnabled(false);
+            btnNmr46.setEnabled(false);
+            btnNmr47.setEnabled(false);
+            btnNmr48.setEnabled(false);
+            btnNmr49.setEnabled(false);
+            btnNmr50.setEnabled(false);
+            btnNmr51.setEnabled(false);
+            btnNmr52.setEnabled(false);
+            btnNmr53.setEnabled(false);
+            btnNmr54.setEnabled(false);
+            btnNmr55.setEnabled(false);
+            btnNmr56.setEnabled(false);
+            btnNmr57.setEnabled(false);
+            btnNmr58.setEnabled(false);
+            btnNmr59.setEnabled(false);
+            btnNmr60.setEnabled(false);
+            btnNmr61.setEnabled(false);
+            btnNmr62.setEnabled(false);
+            btnNmr63.setEnabled(false);
+            btnNmr64.setEnabled(false);
+            btnNmr65.setEnabled(false);
+            btnNmr66.setEnabled(false);
+            btnNmr67.setEnabled(false);
+            btnNmr68.setEnabled(false);
+            btnNmr69.setEnabled(false);
+            btnNmr70.setEnabled(false);
+            btnNmr71.setEnabled(false);
+            btnNmr72.setEnabled(false);
+            btnNmr73.setEnabled(false);
+            btnNmr74.setEnabled(false);
+            btnNmr75.setEnabled(false);
+            btnNmr76.setEnabled(false);
+            btnNmr77.setEnabled(false);
+            btnNmr78.setEnabled(false);
+            btnNmr79.setEnabled(false);
+            btnNmr80.setEnabled(false);
+            btnNmr81.setEnabled(false);
+            btnNmr82.setEnabled(false);
+            btnNmr83.setEnabled(false);
+            btnNmr84.setEnabled(false);
+            btnNmr85.setEnabled(false);
+            btnNmr86.setEnabled(false);
+            btnNmr87.setEnabled(false);
+            btnNmr88.setEnabled(false);
+            btnNmr89.setEnabled(false);
+            btnNmr90.setEnabled(false);
+            btnNmr91.setEnabled(false);
+            btnNmr92.setEnabled(false);
+            btnNmr93.setEnabled(false);
+            btnNmr94.setEnabled(false);
+            btnNmr95.setEnabled(false);
+            btnNmr96.setEnabled(false);
+            btnNmr97.setEnabled(false);
+            btnNmr98.setEnabled(false);
+            btnNmr99.setEnabled(false);
+            btnNmr100.setEnabled(false);
+            btnNmr101.setEnabled(false);
+            btnNmr102.setEnabled(false);
+            btnNmr103.setEnabled(false);
+            btnNmr104.setEnabled(false);
+            btnNmr105.setEnabled(false);
+
+        }
+        if (iBloqueia == 21) {
+
+            btnNmr22.setEnabled(false);
+            btnNmr23.setEnabled(false);
+            btnNmr24.setEnabled(false);
+            btnNmr25.setEnabled(false);
+            btnNmr26.setEnabled(false);
+            btnNmr27.setEnabled(false);
+            btnNmr28.setEnabled(false);
+            btnNmr29.setEnabled(false);
+            btnNmr30.setEnabled(false);
+            btnNmr31.setEnabled(false);
+            btnNmr32.setEnabled(false);
+            btnNmr33.setEnabled(false);
+            btnNmr34.setEnabled(false);
+            btnNmr35.setEnabled(false);
+            btnNmr36.setEnabled(false);
+            btnNmr37.setEnabled(false);
+            btnNmr38.setEnabled(false);
+            btnNmr39.setEnabled(false);
+            btnNmr40.setEnabled(false);
+            btnNmr41.setEnabled(false);
+            btnNmr42.setEnabled(false);
+            btnNmr43.setEnabled(false);
+            btnNmr44.setEnabled(false);
+            btnNmr45.setEnabled(false);
+            btnNmr46.setEnabled(false);
+            btnNmr47.setEnabled(false);
+            btnNmr48.setEnabled(false);
+            btnNmr49.setEnabled(false);
+            btnNmr50.setEnabled(false);
+            btnNmr51.setEnabled(false);
+            btnNmr52.setEnabled(false);
+            btnNmr53.setEnabled(false);
+            btnNmr54.setEnabled(false);
+            btnNmr55.setEnabled(false);
+            btnNmr56.setEnabled(false);
+            btnNmr57.setEnabled(false);
+            btnNmr58.setEnabled(false);
+            btnNmr59.setEnabled(false);
+            btnNmr60.setEnabled(false);
+            btnNmr61.setEnabled(false);
+            btnNmr62.setEnabled(false);
+            btnNmr63.setEnabled(false);
+            btnNmr64.setEnabled(false);
+            btnNmr65.setEnabled(false);
+            btnNmr66.setEnabled(false);
+            btnNmr67.setEnabled(false);
+            btnNmr68.setEnabled(false);
+            btnNmr69.setEnabled(false);
+            btnNmr70.setEnabled(false);
+            btnNmr71.setEnabled(false);
+            btnNmr72.setEnabled(false);
+            btnNmr73.setEnabled(false);
+            btnNmr74.setEnabled(false);
+            btnNmr75.setEnabled(false);
+            btnNmr76.setEnabled(false);
+            btnNmr77.setEnabled(false);
+            btnNmr78.setEnabled(false);
+            btnNmr79.setEnabled(false);
+            btnNmr80.setEnabled(false);
+            btnNmr81.setEnabled(false);
+            btnNmr82.setEnabled(false);
+            btnNmr83.setEnabled(false);
+            btnNmr84.setEnabled(false);
+            btnNmr85.setEnabled(false);
+            btnNmr86.setEnabled(false);
+            btnNmr87.setEnabled(false);
+            btnNmr88.setEnabled(false);
+            btnNmr89.setEnabled(false);
+            btnNmr90.setEnabled(false);
+            btnNmr91.setEnabled(false);
+            btnNmr92.setEnabled(false);
+            btnNmr93.setEnabled(false);
+            btnNmr94.setEnabled(false);
+            btnNmr95.setEnabled(false);
+            btnNmr96.setEnabled(false);
+            btnNmr97.setEnabled(false);
+            btnNmr98.setEnabled(false);
+            btnNmr99.setEnabled(false);
+            btnNmr100.setEnabled(false);
+            btnNmr101.setEnabled(false);
+            btnNmr102.setEnabled(false);
+            btnNmr103.setEnabled(false);
+            btnNmr104.setEnabled(false);
+            btnNmr105.setEnabled(false);
+
+        }
+        if (iBloqueia == 22) {
+
+            btnNmr23.setEnabled(false);
+            btnNmr24.setEnabled(false);
+            btnNmr25.setEnabled(false);
+            btnNmr26.setEnabled(false);
+            btnNmr27.setEnabled(false);
+            btnNmr28.setEnabled(false);
+            btnNmr29.setEnabled(false);
+            btnNmr30.setEnabled(false);
+            btnNmr31.setEnabled(false);
+            btnNmr32.setEnabled(false);
+            btnNmr33.setEnabled(false);
+            btnNmr34.setEnabled(false);
+            btnNmr35.setEnabled(false);
+            btnNmr36.setEnabled(false);
+            btnNmr37.setEnabled(false);
+            btnNmr38.setEnabled(false);
+            btnNmr39.setEnabled(false);
+            btnNmr40.setEnabled(false);
+            btnNmr41.setEnabled(false);
+            btnNmr42.setEnabled(false);
+            btnNmr43.setEnabled(false);
+            btnNmr44.setEnabled(false);
+            btnNmr45.setEnabled(false);
+            btnNmr46.setEnabled(false);
+            btnNmr47.setEnabled(false);
+            btnNmr48.setEnabled(false);
+            btnNmr49.setEnabled(false);
+            btnNmr50.setEnabled(false);
+            btnNmr51.setEnabled(false);
+            btnNmr52.setEnabled(false);
+            btnNmr53.setEnabled(false);
+            btnNmr54.setEnabled(false);
+            btnNmr55.setEnabled(false);
+            btnNmr56.setEnabled(false);
+            btnNmr57.setEnabled(false);
+            btnNmr58.setEnabled(false);
+            btnNmr59.setEnabled(false);
+            btnNmr60.setEnabled(false);
+            btnNmr61.setEnabled(false);
+            btnNmr62.setEnabled(false);
+            btnNmr63.setEnabled(false);
+            btnNmr64.setEnabled(false);
+            btnNmr65.setEnabled(false);
+            btnNmr66.setEnabled(false);
+            btnNmr67.setEnabled(false);
+            btnNmr68.setEnabled(false);
+            btnNmr69.setEnabled(false);
+            btnNmr70.setEnabled(false);
+            btnNmr71.setEnabled(false);
+            btnNmr72.setEnabled(false);
+            btnNmr73.setEnabled(false);
+            btnNmr74.setEnabled(false);
+            btnNmr75.setEnabled(false);
+            btnNmr76.setEnabled(false);
+            btnNmr77.setEnabled(false);
+            btnNmr78.setEnabled(false);
+            btnNmr79.setEnabled(false);
+            btnNmr80.setEnabled(false);
+            btnNmr81.setEnabled(false);
+            btnNmr82.setEnabled(false);
+            btnNmr83.setEnabled(false);
+            btnNmr84.setEnabled(false);
+            btnNmr85.setEnabled(false);
+            btnNmr86.setEnabled(false);
+            btnNmr87.setEnabled(false);
+            btnNmr88.setEnabled(false);
+            btnNmr89.setEnabled(false);
+            btnNmr90.setEnabled(false);
+            btnNmr91.setEnabled(false);
+            btnNmr92.setEnabled(false);
+            btnNmr93.setEnabled(false);
+            btnNmr94.setEnabled(false);
+            btnNmr95.setEnabled(false);
+            btnNmr96.setEnabled(false);
+            btnNmr97.setEnabled(false);
+            btnNmr98.setEnabled(false);
+            btnNmr99.setEnabled(false);
+            btnNmr100.setEnabled(false);
+            btnNmr101.setEnabled(false);
+            btnNmr102.setEnabled(false);
+            btnNmr103.setEnabled(false);
+            btnNmr104.setEnabled(false);
+            btnNmr105.setEnabled(false);
+
+        }
+        if (iBloqueia == 23) {
+
+            btnNmr24.setEnabled(false);
+            btnNmr25.setEnabled(false);
+            btnNmr26.setEnabled(false);
+            btnNmr27.setEnabled(false);
+            btnNmr28.setEnabled(false);
+            btnNmr29.setEnabled(false);
+            btnNmr30.setEnabled(false);
+            btnNmr31.setEnabled(false);
+            btnNmr32.setEnabled(false);
+            btnNmr33.setEnabled(false);
+            btnNmr34.setEnabled(false);
+            btnNmr35.setEnabled(false);
+            btnNmr36.setEnabled(false);
+            btnNmr37.setEnabled(false);
+            btnNmr38.setEnabled(false);
+            btnNmr39.setEnabled(false);
+            btnNmr40.setEnabled(false);
+            btnNmr41.setEnabled(false);
+            btnNmr42.setEnabled(false);
+            btnNmr43.setEnabled(false);
+            btnNmr44.setEnabled(false);
+            btnNmr45.setEnabled(false);
+            btnNmr46.setEnabled(false);
+            btnNmr47.setEnabled(false);
+            btnNmr48.setEnabled(false);
+            btnNmr49.setEnabled(false);
+            btnNmr50.setEnabled(false);
+            btnNmr51.setEnabled(false);
+            btnNmr52.setEnabled(false);
+            btnNmr53.setEnabled(false);
+            btnNmr54.setEnabled(false);
+            btnNmr55.setEnabled(false);
+            btnNmr56.setEnabled(false);
+            btnNmr57.setEnabled(false);
+            btnNmr58.setEnabled(false);
+            btnNmr59.setEnabled(false);
+            btnNmr60.setEnabled(false);
+            btnNmr61.setEnabled(false);
+            btnNmr62.setEnabled(false);
+            btnNmr63.setEnabled(false);
+            btnNmr64.setEnabled(false);
+            btnNmr65.setEnabled(false);
+            btnNmr66.setEnabled(false);
+            btnNmr67.setEnabled(false);
+            btnNmr68.setEnabled(false);
+            btnNmr69.setEnabled(false);
+            btnNmr70.setEnabled(false);
+            btnNmr71.setEnabled(false);
+            btnNmr72.setEnabled(false);
+            btnNmr73.setEnabled(false);
+            btnNmr74.setEnabled(false);
+            btnNmr75.setEnabled(false);
+            btnNmr76.setEnabled(false);
+            btnNmr77.setEnabled(false);
+            btnNmr78.setEnabled(false);
+            btnNmr79.setEnabled(false);
+            btnNmr80.setEnabled(false);
+            btnNmr81.setEnabled(false);
+            btnNmr82.setEnabled(false);
+            btnNmr83.setEnabled(false);
+            btnNmr84.setEnabled(false);
+            btnNmr85.setEnabled(false);
+            btnNmr86.setEnabled(false);
+            btnNmr87.setEnabled(false);
+            btnNmr88.setEnabled(false);
+            btnNmr89.setEnabled(false);
+            btnNmr90.setEnabled(false);
+            btnNmr91.setEnabled(false);
+            btnNmr92.setEnabled(false);
+            btnNmr93.setEnabled(false);
+            btnNmr94.setEnabled(false);
+            btnNmr95.setEnabled(false);
+            btnNmr96.setEnabled(false);
+            btnNmr97.setEnabled(false);
+            btnNmr98.setEnabled(false);
+            btnNmr99.setEnabled(false);
+            btnNmr100.setEnabled(false);
+            btnNmr101.setEnabled(false);
+            btnNmr102.setEnabled(false);
+            btnNmr103.setEnabled(false);
+            btnNmr104.setEnabled(false);
+            btnNmr105.setEnabled(false);
+
+        }
+        if (iBloqueia == 24) {
+
+            btnNmr25.setEnabled(false);
+            btnNmr26.setEnabled(false);
+            btnNmr27.setEnabled(false);
+            btnNmr28.setEnabled(false);
+            btnNmr29.setEnabled(false);
+            btnNmr30.setEnabled(false);
+            btnNmr31.setEnabled(false);
+            btnNmr32.setEnabled(false);
+            btnNmr33.setEnabled(false);
+            btnNmr34.setEnabled(false);
+            btnNmr35.setEnabled(false);
+            btnNmr36.setEnabled(false);
+            btnNmr37.setEnabled(false);
+            btnNmr38.setEnabled(false);
+            btnNmr39.setEnabled(false);
+            btnNmr40.setEnabled(false);
+            btnNmr41.setEnabled(false);
+            btnNmr42.setEnabled(false);
+            btnNmr43.setEnabled(false);
+            btnNmr44.setEnabled(false);
+            btnNmr45.setEnabled(false);
+            btnNmr46.setEnabled(false);
+            btnNmr47.setEnabled(false);
+            btnNmr48.setEnabled(false);
+            btnNmr49.setEnabled(false);
+            btnNmr50.setEnabled(false);
+            btnNmr51.setEnabled(false);
+            btnNmr52.setEnabled(false);
+            btnNmr53.setEnabled(false);
+            btnNmr54.setEnabled(false);
+            btnNmr55.setEnabled(false);
+            btnNmr56.setEnabled(false);
+            btnNmr57.setEnabled(false);
+            btnNmr58.setEnabled(false);
+            btnNmr59.setEnabled(false);
+            btnNmr60.setEnabled(false);
+            btnNmr61.setEnabled(false);
+            btnNmr62.setEnabled(false);
+            btnNmr63.setEnabled(false);
+            btnNmr64.setEnabled(false);
+            btnNmr65.setEnabled(false);
+            btnNmr66.setEnabled(false);
+            btnNmr67.setEnabled(false);
+            btnNmr68.setEnabled(false);
+            btnNmr69.setEnabled(false);
+            btnNmr70.setEnabled(false);
+            btnNmr71.setEnabled(false);
+            btnNmr72.setEnabled(false);
+            btnNmr73.setEnabled(false);
+            btnNmr74.setEnabled(false);
+            btnNmr75.setEnabled(false);
+            btnNmr76.setEnabled(false);
+            btnNmr77.setEnabled(false);
+            btnNmr78.setEnabled(false);
+            btnNmr79.setEnabled(false);
+            btnNmr80.setEnabled(false);
+            btnNmr81.setEnabled(false);
+            btnNmr82.setEnabled(false);
+            btnNmr83.setEnabled(false);
+            btnNmr84.setEnabled(false);
+            btnNmr85.setEnabled(false);
+            btnNmr86.setEnabled(false);
+            btnNmr87.setEnabled(false);
+            btnNmr88.setEnabled(false);
+            btnNmr89.setEnabled(false);
+            btnNmr90.setEnabled(false);
+            btnNmr91.setEnabled(false);
+            btnNmr92.setEnabled(false);
+            btnNmr93.setEnabled(false);
+            btnNmr94.setEnabled(false);
+            btnNmr95.setEnabled(false);
+            btnNmr96.setEnabled(false);
+            btnNmr97.setEnabled(false);
+            btnNmr98.setEnabled(false);
+            btnNmr99.setEnabled(false);
+            btnNmr100.setEnabled(false);
+            btnNmr101.setEnabled(false);
+            btnNmr102.setEnabled(false);
+            btnNmr103.setEnabled(false);
+            btnNmr104.setEnabled(false);
+            btnNmr105.setEnabled(false);
+
+        }
+        if (iBloqueia == 25) {
+
+            btnNmr26.setEnabled(false);
+            btnNmr27.setEnabled(false);
+            btnNmr28.setEnabled(false);
+            btnNmr29.setEnabled(false);
+            btnNmr30.setEnabled(false);
+            btnNmr31.setEnabled(false);
+            btnNmr32.setEnabled(false);
+            btnNmr33.setEnabled(false);
+            btnNmr34.setEnabled(false);
+            btnNmr35.setEnabled(false);
+            btnNmr36.setEnabled(false);
+            btnNmr37.setEnabled(false);
+            btnNmr38.setEnabled(false);
+            btnNmr39.setEnabled(false);
+            btnNmr40.setEnabled(false);
+            btnNmr41.setEnabled(false);
+            btnNmr42.setEnabled(false);
+            btnNmr43.setEnabled(false);
+            btnNmr44.setEnabled(false);
+            btnNmr45.setEnabled(false);
+            btnNmr46.setEnabled(false);
+            btnNmr47.setEnabled(false);
+            btnNmr48.setEnabled(false);
+            btnNmr49.setEnabled(false);
+            btnNmr50.setEnabled(false);
+            btnNmr51.setEnabled(false);
+            btnNmr52.setEnabled(false);
+            btnNmr53.setEnabled(false);
+            btnNmr54.setEnabled(false);
+            btnNmr55.setEnabled(false);
+            btnNmr56.setEnabled(false);
+            btnNmr57.setEnabled(false);
+            btnNmr58.setEnabled(false);
+            btnNmr59.setEnabled(false);
+            btnNmr60.setEnabled(false);
+            btnNmr61.setEnabled(false);
+            btnNmr62.setEnabled(false);
+            btnNmr63.setEnabled(false);
+            btnNmr64.setEnabled(false);
+            btnNmr65.setEnabled(false);
+            btnNmr66.setEnabled(false);
+            btnNmr67.setEnabled(false);
+            btnNmr68.setEnabled(false);
+            btnNmr69.setEnabled(false);
+            btnNmr70.setEnabled(false);
+            btnNmr71.setEnabled(false);
+            btnNmr72.setEnabled(false);
+            btnNmr73.setEnabled(false);
+            btnNmr74.setEnabled(false);
+            btnNmr75.setEnabled(false);
+            btnNmr76.setEnabled(false);
+            btnNmr77.setEnabled(false);
+            btnNmr78.setEnabled(false);
+            btnNmr79.setEnabled(false);
+            btnNmr80.setEnabled(false);
+            btnNmr81.setEnabled(false);
+            btnNmr82.setEnabled(false);
+            btnNmr83.setEnabled(false);
+            btnNmr84.setEnabled(false);
+            btnNmr85.setEnabled(false);
+            btnNmr86.setEnabled(false);
+            btnNmr87.setEnabled(false);
+            btnNmr88.setEnabled(false);
+            btnNmr89.setEnabled(false);
+            btnNmr90.setEnabled(false);
+            btnNmr91.setEnabled(false);
+            btnNmr92.setEnabled(false);
+            btnNmr93.setEnabled(false);
+            btnNmr94.setEnabled(false);
+            btnNmr95.setEnabled(false);
+            btnNmr96.setEnabled(false);
+            btnNmr97.setEnabled(false);
+            btnNmr98.setEnabled(false);
+            btnNmr99.setEnabled(false);
+            btnNmr100.setEnabled(false);
+            btnNmr101.setEnabled(false);
+            btnNmr102.setEnabled(false);
+            btnNmr103.setEnabled(false);
+            btnNmr104.setEnabled(false);
+            btnNmr105.setEnabled(false);
+
+        }
+        if (iBloqueia == 26) {
+
+            btnNmr27.setEnabled(false);
+            btnNmr28.setEnabled(false);
+            btnNmr29.setEnabled(false);
+            btnNmr30.setEnabled(false);
+            btnNmr31.setEnabled(false);
+            btnNmr32.setEnabled(false);
+            btnNmr33.setEnabled(false);
+            btnNmr34.setEnabled(false);
+            btnNmr35.setEnabled(false);
+            btnNmr36.setEnabled(false);
+            btnNmr37.setEnabled(false);
+            btnNmr38.setEnabled(false);
+            btnNmr39.setEnabled(false);
+            btnNmr40.setEnabled(false);
+            btnNmr41.setEnabled(false);
+            btnNmr42.setEnabled(false);
+            btnNmr43.setEnabled(false);
+            btnNmr44.setEnabled(false);
+            btnNmr45.setEnabled(false);
+            btnNmr46.setEnabled(false);
+            btnNmr47.setEnabled(false);
+            btnNmr48.setEnabled(false);
+            btnNmr49.setEnabled(false);
+            btnNmr50.setEnabled(false);
+            btnNmr51.setEnabled(false);
+            btnNmr52.setEnabled(false);
+            btnNmr53.setEnabled(false);
+            btnNmr54.setEnabled(false);
+            btnNmr55.setEnabled(false);
+            btnNmr56.setEnabled(false);
+            btnNmr57.setEnabled(false);
+            btnNmr58.setEnabled(false);
+            btnNmr59.setEnabled(false);
+            btnNmr60.setEnabled(false);
+            btnNmr61.setEnabled(false);
+            btnNmr62.setEnabled(false);
+            btnNmr63.setEnabled(false);
+            btnNmr64.setEnabled(false);
+            btnNmr65.setEnabled(false);
+            btnNmr66.setEnabled(false);
+            btnNmr67.setEnabled(false);
+            btnNmr68.setEnabled(false);
+            btnNmr69.setEnabled(false);
+            btnNmr70.setEnabled(false);
+            btnNmr71.setEnabled(false);
+            btnNmr72.setEnabled(false);
+            btnNmr73.setEnabled(false);
+            btnNmr74.setEnabled(false);
+            btnNmr75.setEnabled(false);
+            btnNmr76.setEnabled(false);
+            btnNmr77.setEnabled(false);
+            btnNmr78.setEnabled(false);
+            btnNmr79.setEnabled(false);
+            btnNmr80.setEnabled(false);
+            btnNmr81.setEnabled(false);
+            btnNmr82.setEnabled(false);
+            btnNmr83.setEnabled(false);
+            btnNmr84.setEnabled(false);
+            btnNmr85.setEnabled(false);
+            btnNmr86.setEnabled(false);
+            btnNmr87.setEnabled(false);
+            btnNmr88.setEnabled(false);
+            btnNmr89.setEnabled(false);
+            btnNmr90.setEnabled(false);
+            btnNmr91.setEnabled(false);
+            btnNmr92.setEnabled(false);
+            btnNmr93.setEnabled(false);
+            btnNmr94.setEnabled(false);
+            btnNmr95.setEnabled(false);
+            btnNmr96.setEnabled(false);
+            btnNmr97.setEnabled(false);
+            btnNmr98.setEnabled(false);
+            btnNmr99.setEnabled(false);
+            btnNmr100.setEnabled(false);
+            btnNmr101.setEnabled(false);
+            btnNmr102.setEnabled(false);
+            btnNmr103.setEnabled(false);
+            btnNmr104.setEnabled(false);
+            btnNmr105.setEnabled(false);
+
+        }
+        if (iBloqueia == 27) {
+
+            btnNmr28.setEnabled(false);
+            btnNmr29.setEnabled(false);
+            btnNmr30.setEnabled(false);
+            btnNmr31.setEnabled(false);
+            btnNmr32.setEnabled(false);
+            btnNmr33.setEnabled(false);
+            btnNmr34.setEnabled(false);
+            btnNmr35.setEnabled(false);
+            btnNmr36.setEnabled(false);
+            btnNmr37.setEnabled(false);
+            btnNmr38.setEnabled(false);
+            btnNmr39.setEnabled(false);
+            btnNmr40.setEnabled(false);
+            btnNmr41.setEnabled(false);
+            btnNmr42.setEnabled(false);
+            btnNmr43.setEnabled(false);
+            btnNmr44.setEnabled(false);
+            btnNmr45.setEnabled(false);
+            btnNmr46.setEnabled(false);
+            btnNmr47.setEnabled(false);
+            btnNmr48.setEnabled(false);
+            btnNmr49.setEnabled(false);
+            btnNmr50.setEnabled(false);
+            btnNmr51.setEnabled(false);
+            btnNmr52.setEnabled(false);
+            btnNmr53.setEnabled(false);
+            btnNmr54.setEnabled(false);
+            btnNmr55.setEnabled(false);
+            btnNmr56.setEnabled(false);
+            btnNmr57.setEnabled(false);
+            btnNmr58.setEnabled(false);
+            btnNmr59.setEnabled(false);
+            btnNmr60.setEnabled(false);
+            btnNmr61.setEnabled(false);
+            btnNmr62.setEnabled(false);
+            btnNmr63.setEnabled(false);
+            btnNmr64.setEnabled(false);
+            btnNmr65.setEnabled(false);
+            btnNmr66.setEnabled(false);
+            btnNmr67.setEnabled(false);
+            btnNmr68.setEnabled(false);
+            btnNmr69.setEnabled(false);
+            btnNmr70.setEnabled(false);
+            btnNmr71.setEnabled(false);
+            btnNmr72.setEnabled(false);
+            btnNmr73.setEnabled(false);
+            btnNmr74.setEnabled(false);
+            btnNmr75.setEnabled(false);
+            btnNmr76.setEnabled(false);
+            btnNmr77.setEnabled(false);
+            btnNmr78.setEnabled(false);
+            btnNmr79.setEnabled(false);
+            btnNmr80.setEnabled(false);
+            btnNmr81.setEnabled(false);
+            btnNmr82.setEnabled(false);
+            btnNmr83.setEnabled(false);
+            btnNmr84.setEnabled(false);
+            btnNmr85.setEnabled(false);
+            btnNmr86.setEnabled(false);
+            btnNmr87.setEnabled(false);
+            btnNmr88.setEnabled(false);
+            btnNmr89.setEnabled(false);
+            btnNmr90.setEnabled(false);
+            btnNmr91.setEnabled(false);
+            btnNmr92.setEnabled(false);
+            btnNmr93.setEnabled(false);
+            btnNmr94.setEnabled(false);
+            btnNmr95.setEnabled(false);
+            btnNmr96.setEnabled(false);
+            btnNmr97.setEnabled(false);
+            btnNmr98.setEnabled(false);
+            btnNmr99.setEnabled(false);
+            btnNmr100.setEnabled(false);
+            btnNmr101.setEnabled(false);
+            btnNmr102.setEnabled(false);
+            btnNmr103.setEnabled(false);
+            btnNmr104.setEnabled(false);
+            btnNmr105.setEnabled(false);
+
+        }
+        if (iBloqueia == 28) {
+
+            btnNmr29.setEnabled(false);
+            btnNmr30.setEnabled(false);
+            btnNmr31.setEnabled(false);
+            btnNmr32.setEnabled(false);
+            btnNmr33.setEnabled(false);
+            btnNmr34.setEnabled(false);
+            btnNmr35.setEnabled(false);
+            btnNmr36.setEnabled(false);
+            btnNmr37.setEnabled(false);
+            btnNmr38.setEnabled(false);
+            btnNmr39.setEnabled(false);
+            btnNmr40.setEnabled(false);
+            btnNmr41.setEnabled(false);
+            btnNmr42.setEnabled(false);
+            btnNmr43.setEnabled(false);
+            btnNmr44.setEnabled(false);
+            btnNmr45.setEnabled(false);
+            btnNmr46.setEnabled(false);
+            btnNmr47.setEnabled(false);
+            btnNmr48.setEnabled(false);
+            btnNmr49.setEnabled(false);
+            btnNmr50.setEnabled(false);
+            btnNmr51.setEnabled(false);
+            btnNmr52.setEnabled(false);
+            btnNmr53.setEnabled(false);
+            btnNmr54.setEnabled(false);
+            btnNmr55.setEnabled(false);
+            btnNmr56.setEnabled(false);
+            btnNmr57.setEnabled(false);
+            btnNmr58.setEnabled(false);
+            btnNmr59.setEnabled(false);
+            btnNmr60.setEnabled(false);
+            btnNmr61.setEnabled(false);
+            btnNmr62.setEnabled(false);
+            btnNmr63.setEnabled(false);
+            btnNmr64.setEnabled(false);
+            btnNmr65.setEnabled(false);
+            btnNmr66.setEnabled(false);
+            btnNmr67.setEnabled(false);
+            btnNmr68.setEnabled(false);
+            btnNmr69.setEnabled(false);
+            btnNmr70.setEnabled(false);
+            btnNmr71.setEnabled(false);
+            btnNmr72.setEnabled(false);
+            btnNmr73.setEnabled(false);
+            btnNmr74.setEnabled(false);
+            btnNmr75.setEnabled(false);
+            btnNmr76.setEnabled(false);
+            btnNmr77.setEnabled(false);
+            btnNmr78.setEnabled(false);
+            btnNmr79.setEnabled(false);
+            btnNmr80.setEnabled(false);
+            btnNmr81.setEnabled(false);
+            btnNmr82.setEnabled(false);
+            btnNmr83.setEnabled(false);
+            btnNmr84.setEnabled(false);
+            btnNmr85.setEnabled(false);
+            btnNmr86.setEnabled(false);
+            btnNmr87.setEnabled(false);
+            btnNmr88.setEnabled(false);
+            btnNmr89.setEnabled(false);
+            btnNmr90.setEnabled(false);
+            btnNmr91.setEnabled(false);
+            btnNmr92.setEnabled(false);
+            btnNmr93.setEnabled(false);
+            btnNmr94.setEnabled(false);
+            btnNmr95.setEnabled(false);
+            btnNmr96.setEnabled(false);
+            btnNmr97.setEnabled(false);
+            btnNmr98.setEnabled(false);
+            btnNmr99.setEnabled(false);
+            btnNmr100.setEnabled(false);
+            btnNmr101.setEnabled(false);
+            btnNmr102.setEnabled(false);
+            btnNmr103.setEnabled(false);
+            btnNmr104.setEnabled(false);
+            btnNmr105.setEnabled(false);
+
+        }
+        if (iBloqueia == 29) {
+
+            btnNmr30.setEnabled(false);
+            btnNmr31.setEnabled(false);
+            btnNmr32.setEnabled(false);
+            btnNmr33.setEnabled(false);
+            btnNmr34.setEnabled(false);
+            btnNmr35.setEnabled(false);
+            btnNmr36.setEnabled(false);
+            btnNmr37.setEnabled(false);
+            btnNmr38.setEnabled(false);
+            btnNmr39.setEnabled(false);
+            btnNmr40.setEnabled(false);
+            btnNmr41.setEnabled(false);
+            btnNmr42.setEnabled(false);
+            btnNmr43.setEnabled(false);
+            btnNmr44.setEnabled(false);
+            btnNmr45.setEnabled(false);
+            btnNmr46.setEnabled(false);
+            btnNmr47.setEnabled(false);
+            btnNmr48.setEnabled(false);
+            btnNmr49.setEnabled(false);
+            btnNmr50.setEnabled(false);
+            btnNmr51.setEnabled(false);
+            btnNmr52.setEnabled(false);
+            btnNmr53.setEnabled(false);
+            btnNmr54.setEnabled(false);
+            btnNmr55.setEnabled(false);
+            btnNmr56.setEnabled(false);
+            btnNmr57.setEnabled(false);
+            btnNmr58.setEnabled(false);
+            btnNmr59.setEnabled(false);
+            btnNmr60.setEnabled(false);
+            btnNmr61.setEnabled(false);
+            btnNmr62.setEnabled(false);
+            btnNmr63.setEnabled(false);
+            btnNmr64.setEnabled(false);
+            btnNmr65.setEnabled(false);
+            btnNmr66.setEnabled(false);
+            btnNmr67.setEnabled(false);
+            btnNmr68.setEnabled(false);
+            btnNmr69.setEnabled(false);
+            btnNmr70.setEnabled(false);
+            btnNmr71.setEnabled(false);
+            btnNmr72.setEnabled(false);
+            btnNmr73.setEnabled(false);
+            btnNmr74.setEnabled(false);
+            btnNmr75.setEnabled(false);
+            btnNmr76.setEnabled(false);
+            btnNmr77.setEnabled(false);
+            btnNmr78.setEnabled(false);
+            btnNmr79.setEnabled(false);
+            btnNmr80.setEnabled(false);
+            btnNmr81.setEnabled(false);
+            btnNmr82.setEnabled(false);
+            btnNmr83.setEnabled(false);
+            btnNmr84.setEnabled(false);
+            btnNmr85.setEnabled(false);
+            btnNmr86.setEnabled(false);
+            btnNmr87.setEnabled(false);
+            btnNmr88.setEnabled(false);
+            btnNmr89.setEnabled(false);
+            btnNmr90.setEnabled(false);
+            btnNmr91.setEnabled(false);
+            btnNmr92.setEnabled(false);
+            btnNmr93.setEnabled(false);
+            btnNmr94.setEnabled(false);
+            btnNmr95.setEnabled(false);
+            btnNmr96.setEnabled(false);
+            btnNmr97.setEnabled(false);
+            btnNmr98.setEnabled(false);
+            btnNmr99.setEnabled(false);
+            btnNmr100.setEnabled(false);
+            btnNmr101.setEnabled(false);
+            btnNmr102.setEnabled(false);
+            btnNmr103.setEnabled(false);
+            btnNmr104.setEnabled(false);
+            btnNmr105.setEnabled(false);
+
+        } else if (iBloqueia == 30) {
+
+            btnNmr31.setEnabled(false);
+            btnNmr32.setEnabled(false);
+            btnNmr33.setEnabled(false);
+            btnNmr34.setEnabled(false);
+            btnNmr35.setEnabled(false);
+            btnNmr36.setEnabled(false);
+            btnNmr37.setEnabled(false);
+            btnNmr38.setEnabled(false);
+            btnNmr39.setEnabled(false);
+            btnNmr40.setEnabled(false);
+            btnNmr41.setEnabled(false);
+            btnNmr42.setEnabled(false);
+            btnNmr43.setEnabled(false);
+            btnNmr44.setEnabled(false);
+            btnNmr45.setEnabled(false);
+            btnNmr46.setEnabled(false);
+            btnNmr47.setEnabled(false);
+            btnNmr48.setEnabled(false);
+            btnNmr49.setEnabled(false);
+            btnNmr50.setEnabled(false);
+            btnNmr51.setEnabled(false);
+            btnNmr52.setEnabled(false);
+            btnNmr53.setEnabled(false);
+            btnNmr54.setEnabled(false);
+            btnNmr55.setEnabled(false);
+            btnNmr56.setEnabled(false);
+            btnNmr57.setEnabled(false);
+            btnNmr58.setEnabled(false);
+            btnNmr59.setEnabled(false);
+            btnNmr60.setEnabled(false);
+            btnNmr61.setEnabled(false);
+            btnNmr62.setEnabled(false);
+            btnNmr63.setEnabled(false);
+            btnNmr64.setEnabled(false);
+            btnNmr65.setEnabled(false);
+            btnNmr66.setEnabled(false);
+            btnNmr67.setEnabled(false);
+            btnNmr68.setEnabled(false);
+            btnNmr69.setEnabled(false);
+            btnNmr70.setEnabled(false);
+            btnNmr71.setEnabled(false);
+            btnNmr72.setEnabled(false);
+            btnNmr73.setEnabled(false);
+            btnNmr74.setEnabled(false);
+            btnNmr75.setEnabled(false);
+            btnNmr76.setEnabled(false);
+            btnNmr77.setEnabled(false);
+            btnNmr78.setEnabled(false);
+            btnNmr79.setEnabled(false);
+            btnNmr80.setEnabled(false);
+            btnNmr81.setEnabled(false);
+            btnNmr82.setEnabled(false);
+            btnNmr83.setEnabled(false);
+            btnNmr84.setEnabled(false);
+            btnNmr85.setEnabled(false);
+            btnNmr86.setEnabled(false);
+            btnNmr87.setEnabled(false);
+            btnNmr88.setEnabled(false);
+            btnNmr89.setEnabled(false);
+            btnNmr90.setEnabled(false);
+            btnNmr91.setEnabled(false);
+            btnNmr92.setEnabled(false);
+            btnNmr93.setEnabled(false);
+            btnNmr94.setEnabled(false);
+            btnNmr95.setEnabled(false);
+            btnNmr96.setEnabled(false);
+            btnNmr97.setEnabled(false);
+            btnNmr98.setEnabled(false);
+            btnNmr99.setEnabled(false);
+            btnNmr100.setEnabled(false);
+            btnNmr101.setEnabled(false);
+            btnNmr102.setEnabled(false);
+            btnNmr103.setEnabled(false);
+            btnNmr104.setEnabled(false);
+            btnNmr105.setEnabled(false);
+
+        } else if (iBloqueia == 31) {
+
+            btnNmr32.setEnabled(false);
+            btnNmr33.setEnabled(false);
+            btnNmr34.setEnabled(false);
+            btnNmr35.setEnabled(false);
+            btnNmr36.setEnabled(false);
+            btnNmr37.setEnabled(false);
+            btnNmr38.setEnabled(false);
+            btnNmr39.setEnabled(false);
+            btnNmr40.setEnabled(false);
+            btnNmr41.setEnabled(false);
+            btnNmr42.setEnabled(false);
+            btnNmr43.setEnabled(false);
+            btnNmr44.setEnabled(false);
+            btnNmr45.setEnabled(false);
+            btnNmr46.setEnabled(false);
+            btnNmr47.setEnabled(false);
+            btnNmr48.setEnabled(false);
+            btnNmr49.setEnabled(false);
+            btnNmr50.setEnabled(false);
+            btnNmr51.setEnabled(false);
+            btnNmr52.setEnabled(false);
+            btnNmr53.setEnabled(false);
+            btnNmr54.setEnabled(false);
+            btnNmr55.setEnabled(false);
+            btnNmr56.setEnabled(false);
+            btnNmr57.setEnabled(false);
+            btnNmr58.setEnabled(false);
+            btnNmr59.setEnabled(false);
+            btnNmr60.setEnabled(false);
+            btnNmr61.setEnabled(false);
+            btnNmr62.setEnabled(false);
+            btnNmr63.setEnabled(false);
+            btnNmr64.setEnabled(false);
+            btnNmr65.setEnabled(false);
+            btnNmr66.setEnabled(false);
+            btnNmr67.setEnabled(false);
+            btnNmr68.setEnabled(false);
+            btnNmr69.setEnabled(false);
+            btnNmr70.setEnabled(false);
+            btnNmr71.setEnabled(false);
+            btnNmr72.setEnabled(false);
+            btnNmr73.setEnabled(false);
+            btnNmr74.setEnabled(false);
+            btnNmr75.setEnabled(false);
+            btnNmr76.setEnabled(false);
+            btnNmr77.setEnabled(false);
+            btnNmr78.setEnabled(false);
+            btnNmr79.setEnabled(false);
+            btnNmr80.setEnabled(false);
+            btnNmr81.setEnabled(false);
+            btnNmr82.setEnabled(false);
+            btnNmr83.setEnabled(false);
+            btnNmr84.setEnabled(false);
+            btnNmr85.setEnabled(false);
+            btnNmr86.setEnabled(false);
+            btnNmr87.setEnabled(false);
+            btnNmr88.setEnabled(false);
+            btnNmr89.setEnabled(false);
+            btnNmr90.setEnabled(false);
+            btnNmr91.setEnabled(false);
+            btnNmr92.setEnabled(false);
+            btnNmr93.setEnabled(false);
+            btnNmr94.setEnabled(false);
+            btnNmr95.setEnabled(false);
+            btnNmr96.setEnabled(false);
+            btnNmr97.setEnabled(false);
+            btnNmr98.setEnabled(false);
+            btnNmr99.setEnabled(false);
+            btnNmr100.setEnabled(false);
+            btnNmr101.setEnabled(false);
+            btnNmr102.setEnabled(false);
+            btnNmr103.setEnabled(false);
+            btnNmr104.setEnabled(false);
+            btnNmr105.setEnabled(false);
+
+        } else if (iBloqueia == 32) {
+
+            btnNmr33.setEnabled(false);
+            btnNmr34.setEnabled(false);
+            btnNmr35.setEnabled(false);
+            btnNmr36.setEnabled(false);
+            btnNmr37.setEnabled(false);
+            btnNmr38.setEnabled(false);
+            btnNmr39.setEnabled(false);
+            btnNmr40.setEnabled(false);
+            btnNmr41.setEnabled(false);
+            btnNmr42.setEnabled(false);
+            btnNmr43.setEnabled(false);
+            btnNmr44.setEnabled(false);
+            btnNmr45.setEnabled(false);
+            btnNmr46.setEnabled(false);
+            btnNmr47.setEnabled(false);
+            btnNmr48.setEnabled(false);
+            btnNmr49.setEnabled(false);
+            btnNmr50.setEnabled(false);
+            btnNmr51.setEnabled(false);
+            btnNmr52.setEnabled(false);
+            btnNmr53.setEnabled(false);
+            btnNmr54.setEnabled(false);
+            btnNmr55.setEnabled(false);
+            btnNmr56.setEnabled(false);
+            btnNmr57.setEnabled(false);
+            btnNmr58.setEnabled(false);
+            btnNmr59.setEnabled(false);
+            btnNmr60.setEnabled(false);
+            btnNmr61.setEnabled(false);
+            btnNmr62.setEnabled(false);
+            btnNmr63.setEnabled(false);
+            btnNmr64.setEnabled(false);
+            btnNmr65.setEnabled(false);
+            btnNmr66.setEnabled(false);
+            btnNmr67.setEnabled(false);
+            btnNmr68.setEnabled(false);
+            btnNmr69.setEnabled(false);
+            btnNmr70.setEnabled(false);
+            btnNmr71.setEnabled(false);
+            btnNmr72.setEnabled(false);
+            btnNmr73.setEnabled(false);
+            btnNmr74.setEnabled(false);
+            btnNmr75.setEnabled(false);
+            btnNmr76.setEnabled(false);
+            btnNmr77.setEnabled(false);
+            btnNmr78.setEnabled(false);
+            btnNmr79.setEnabled(false);
+            btnNmr80.setEnabled(false);
+            btnNmr81.setEnabled(false);
+            btnNmr82.setEnabled(false);
+            btnNmr83.setEnabled(false);
+            btnNmr84.setEnabled(false);
+            btnNmr85.setEnabled(false);
+            btnNmr86.setEnabled(false);
+            btnNmr87.setEnabled(false);
+            btnNmr88.setEnabled(false);
+            btnNmr89.setEnabled(false);
+            btnNmr90.setEnabled(false);
+            btnNmr91.setEnabled(false);
+            btnNmr92.setEnabled(false);
+            btnNmr93.setEnabled(false);
+            btnNmr94.setEnabled(false);
+            btnNmr95.setEnabled(false);
+            btnNmr96.setEnabled(false);
+            btnNmr97.setEnabled(false);
+            btnNmr98.setEnabled(false);
+            btnNmr99.setEnabled(false);
+            btnNmr100.setEnabled(false);
+            btnNmr101.setEnabled(false);
+            btnNmr102.setEnabled(false);
+            btnNmr103.setEnabled(false);
+            btnNmr104.setEnabled(false);
+            btnNmr105.setEnabled(false);
+
+        } else if (iBloqueia == 33) {
+            btnNmr34.setEnabled(false);
+            btnNmr35.setEnabled(false);
+            btnNmr36.setEnabled(false);
+            btnNmr37.setEnabled(false);
+            btnNmr38.setEnabled(false);
+            btnNmr39.setEnabled(false);
+            btnNmr40.setEnabled(false);
+            btnNmr41.setEnabled(false);
+            btnNmr42.setEnabled(false);
+            btnNmr43.setEnabled(false);
+            btnNmr44.setEnabled(false);
+            btnNmr45.setEnabled(false);
+            btnNmr46.setEnabled(false);
+            btnNmr47.setEnabled(false);
+            btnNmr48.setEnabled(false);
+            btnNmr49.setEnabled(false);
+            btnNmr50.setEnabled(false);
+            btnNmr51.setEnabled(false);
+            btnNmr52.setEnabled(false);
+            btnNmr53.setEnabled(false);
+            btnNmr54.setEnabled(false);
+            btnNmr55.setEnabled(false);
+            btnNmr56.setEnabled(false);
+            btnNmr57.setEnabled(false);
+            btnNmr58.setEnabled(false);
+            btnNmr59.setEnabled(false);
+            btnNmr60.setEnabled(false);
+            btnNmr61.setEnabled(false);
+            btnNmr62.setEnabled(false);
+            btnNmr63.setEnabled(false);
+            btnNmr64.setEnabled(false);
+            btnNmr65.setEnabled(false);
+            btnNmr66.setEnabled(false);
+            btnNmr67.setEnabled(false);
+            btnNmr68.setEnabled(false);
+            btnNmr69.setEnabled(false);
+            btnNmr70.setEnabled(false);
+            btnNmr71.setEnabled(false);
+            btnNmr72.setEnabled(false);
+            btnNmr73.setEnabled(false);
+            btnNmr74.setEnabled(false);
+            btnNmr75.setEnabled(false);
+            btnNmr76.setEnabled(false);
+            btnNmr77.setEnabled(false);
+            btnNmr78.setEnabled(false);
+            btnNmr79.setEnabled(false);
+            btnNmr80.setEnabled(false);
+            btnNmr81.setEnabled(false);
+            btnNmr82.setEnabled(false);
+            btnNmr83.setEnabled(false);
+            btnNmr84.setEnabled(false);
+            btnNmr85.setEnabled(false);
+            btnNmr86.setEnabled(false);
+            btnNmr87.setEnabled(false);
+            btnNmr88.setEnabled(false);
+            btnNmr89.setEnabled(false);
+            btnNmr90.setEnabled(false);
+            btnNmr91.setEnabled(false);
+            btnNmr92.setEnabled(false);
+            btnNmr93.setEnabled(false);
+            btnNmr94.setEnabled(false);
+            btnNmr95.setEnabled(false);
+            btnNmr96.setEnabled(false);
+            btnNmr97.setEnabled(false);
+            btnNmr98.setEnabled(false);
+            btnNmr99.setEnabled(false);
+            btnNmr100.setEnabled(false);
+            btnNmr101.setEnabled(false);
+            btnNmr102.setEnabled(false);
+            btnNmr103.setEnabled(false);
+            btnNmr104.setEnabled(false);
+            btnNmr105.setEnabled(false);
+
+        } else if (iBloqueia == 34) {
+
+            btnNmr35.setEnabled(false);
+            btnNmr36.setEnabled(false);
+            btnNmr37.setEnabled(false);
+            btnNmr38.setEnabled(false);
+            btnNmr39.setEnabled(false);
+            btnNmr40.setEnabled(false);
+            btnNmr41.setEnabled(false);
+            btnNmr42.setEnabled(false);
+            btnNmr43.setEnabled(false);
+            btnNmr44.setEnabled(false);
+            btnNmr45.setEnabled(false);
+            btnNmr46.setEnabled(false);
+            btnNmr47.setEnabled(false);
+            btnNmr48.setEnabled(false);
+            btnNmr49.setEnabled(false);
+            btnNmr50.setEnabled(false);
+            btnNmr51.setEnabled(false);
+            btnNmr52.setEnabled(false);
+            btnNmr53.setEnabled(false);
+            btnNmr54.setEnabled(false);
+            btnNmr55.setEnabled(false);
+            btnNmr56.setEnabled(false);
+            btnNmr57.setEnabled(false);
+            btnNmr58.setEnabled(false);
+            btnNmr59.setEnabled(false);
+            btnNmr60.setEnabled(false);
+            btnNmr61.setEnabled(false);
+            btnNmr62.setEnabled(false);
+            btnNmr63.setEnabled(false);
+            btnNmr64.setEnabled(false);
+            btnNmr65.setEnabled(false);
+            btnNmr66.setEnabled(false);
+            btnNmr67.setEnabled(false);
+            btnNmr68.setEnabled(false);
+            btnNmr69.setEnabled(false);
+            btnNmr70.setEnabled(false);
+            btnNmr71.setEnabled(false);
+            btnNmr72.setEnabled(false);
+            btnNmr73.setEnabled(false);
+            btnNmr74.setEnabled(false);
+            btnNmr75.setEnabled(false);
+            btnNmr76.setEnabled(false);
+            btnNmr77.setEnabled(false);
+            btnNmr78.setEnabled(false);
+            btnNmr79.setEnabled(false);
+            btnNmr80.setEnabled(false);
+            btnNmr81.setEnabled(false);
+            btnNmr82.setEnabled(false);
+            btnNmr83.setEnabled(false);
+            btnNmr84.setEnabled(false);
+            btnNmr85.setEnabled(false);
+            btnNmr86.setEnabled(false);
+            btnNmr87.setEnabled(false);
+            btnNmr88.setEnabled(false);
+            btnNmr89.setEnabled(false);
+            btnNmr90.setEnabled(false);
+            btnNmr91.setEnabled(false);
+            btnNmr92.setEnabled(false);
+            btnNmr93.setEnabled(false);
+            btnNmr94.setEnabled(false);
+            btnNmr95.setEnabled(false);
+            btnNmr96.setEnabled(false);
+            btnNmr97.setEnabled(false);
+            btnNmr98.setEnabled(false);
+            btnNmr99.setEnabled(false);
+            btnNmr100.setEnabled(false);
+            btnNmr101.setEnabled(false);
+            btnNmr102.setEnabled(false);
+            btnNmr103.setEnabled(false);
+            btnNmr104.setEnabled(false);
+            btnNmr105.setEnabled(false);
+
+        } else if (iBloqueia == 35) {
+            btnNmr36.setEnabled(false);
+            btnNmr37.setEnabled(false);
+            btnNmr38.setEnabled(false);
+            btnNmr39.setEnabled(false);
+            btnNmr40.setEnabled(false);
+            btnNmr41.setEnabled(false);
+            btnNmr42.setEnabled(false);
+            btnNmr43.setEnabled(false);
+            btnNmr44.setEnabled(false);
+            btnNmr45.setEnabled(false);
+            btnNmr46.setEnabled(false);
+            btnNmr47.setEnabled(false);
+            btnNmr48.setEnabled(false);
+            btnNmr49.setEnabled(false);
+            btnNmr50.setEnabled(false);
+            btnNmr51.setEnabled(false);
+            btnNmr52.setEnabled(false);
+            btnNmr53.setEnabled(false);
+            btnNmr54.setEnabled(false);
+            btnNmr55.setEnabled(false);
+            btnNmr56.setEnabled(false);
+            btnNmr57.setEnabled(false);
+            btnNmr58.setEnabled(false);
+            btnNmr59.setEnabled(false);
+            btnNmr60.setEnabled(false);
+            btnNmr61.setEnabled(false);
+            btnNmr62.setEnabled(false);
+            btnNmr63.setEnabled(false);
+            btnNmr64.setEnabled(false);
+            btnNmr65.setEnabled(false);
+            btnNmr66.setEnabled(false);
+            btnNmr67.setEnabled(false);
+            btnNmr68.setEnabled(false);
+            btnNmr69.setEnabled(false);
+            btnNmr70.setEnabled(false);
+            btnNmr71.setEnabled(false);
+            btnNmr72.setEnabled(false);
+            btnNmr73.setEnabled(false);
+            btnNmr74.setEnabled(false);
+            btnNmr75.setEnabled(false);
+            btnNmr76.setEnabled(false);
+            btnNmr77.setEnabled(false);
+            btnNmr78.setEnabled(false);
+            btnNmr79.setEnabled(false);
+            btnNmr80.setEnabled(false);
+            btnNmr81.setEnabled(false);
+            btnNmr82.setEnabled(false);
+            btnNmr83.setEnabled(false);
+            btnNmr84.setEnabled(false);
+            btnNmr85.setEnabled(false);
+            btnNmr86.setEnabled(false);
+            btnNmr87.setEnabled(false);
+            btnNmr88.setEnabled(false);
+            btnNmr89.setEnabled(false);
+            btnNmr90.setEnabled(false);
+            btnNmr91.setEnabled(false);
+            btnNmr92.setEnabled(false);
+            btnNmr93.setEnabled(false);
+            btnNmr94.setEnabled(false);
+            btnNmr95.setEnabled(false);
+            btnNmr96.setEnabled(false);
+            btnNmr97.setEnabled(false);
+            btnNmr98.setEnabled(false);
+            btnNmr99.setEnabled(false);
+            btnNmr100.setEnabled(false);
+            btnNmr101.setEnabled(false);
+            btnNmr102.setEnabled(false);
+            btnNmr103.setEnabled(false);
+            btnNmr104.setEnabled(false);
+            btnNmr105.setEnabled(false);
+
+        } else if (iBloqueia == 36) {
+            btnNmr37.setEnabled(false);
+            btnNmr38.setEnabled(false);
+            btnNmr39.setEnabled(false);
+            btnNmr40.setEnabled(false);
+            btnNmr41.setEnabled(false);
+            btnNmr42.setEnabled(false);
+            btnNmr43.setEnabled(false);
+            btnNmr44.setEnabled(false);
+            btnNmr45.setEnabled(false);
+            btnNmr46.setEnabled(false);
+            btnNmr47.setEnabled(false);
+            btnNmr48.setEnabled(false);
+            btnNmr49.setEnabled(false);
+            btnNmr50.setEnabled(false);
+            btnNmr51.setEnabled(false);
+            btnNmr52.setEnabled(false);
+            btnNmr53.setEnabled(false);
+            btnNmr54.setEnabled(false);
+            btnNmr55.setEnabled(false);
+            btnNmr56.setEnabled(false);
+            btnNmr57.setEnabled(false);
+            btnNmr58.setEnabled(false);
+            btnNmr59.setEnabled(false);
+            btnNmr60.setEnabled(false);
+            btnNmr61.setEnabled(false);
+            btnNmr62.setEnabled(false);
+            btnNmr63.setEnabled(false);
+            btnNmr64.setEnabled(false);
+            btnNmr65.setEnabled(false);
+            btnNmr66.setEnabled(false);
+            btnNmr67.setEnabled(false);
+            btnNmr68.setEnabled(false);
+            btnNmr69.setEnabled(false);
+            btnNmr70.setEnabled(false);
+            btnNmr71.setEnabled(false);
+            btnNmr72.setEnabled(false);
+            btnNmr73.setEnabled(false);
+            btnNmr74.setEnabled(false);
+            btnNmr75.setEnabled(false);
+            btnNmr76.setEnabled(false);
+            btnNmr77.setEnabled(false);
+            btnNmr78.setEnabled(false);
+            btnNmr79.setEnabled(false);
+            btnNmr80.setEnabled(false);
+            btnNmr81.setEnabled(false);
+            btnNmr82.setEnabled(false);
+            btnNmr83.setEnabled(false);
+            btnNmr84.setEnabled(false);
+            btnNmr85.setEnabled(false);
+            btnNmr86.setEnabled(false);
+            btnNmr87.setEnabled(false);
+            btnNmr88.setEnabled(false);
+            btnNmr89.setEnabled(false);
+            btnNmr90.setEnabled(false);
+            btnNmr91.setEnabled(false);
+            btnNmr92.setEnabled(false);
+            btnNmr93.setEnabled(false);
+            btnNmr94.setEnabled(false);
+            btnNmr95.setEnabled(false);
+            btnNmr96.setEnabled(false);
+            btnNmr97.setEnabled(false);
+            btnNmr98.setEnabled(false);
+            btnNmr99.setEnabled(false);
+            btnNmr100.setEnabled(false);
+            btnNmr101.setEnabled(false);
+            btnNmr102.setEnabled(false);
+            btnNmr103.setEnabled(false);
+            btnNmr104.setEnabled(false);
+            btnNmr105.setEnabled(false);
+
+        } else if (iBloqueia == 37) {
+            btnNmr38.setEnabled(false);
+            btnNmr39.setEnabled(false);
+            btnNmr40.setEnabled(false);
+            btnNmr41.setEnabled(false);
+            btnNmr42.setEnabled(false);
+            btnNmr43.setEnabled(false);
+            btnNmr44.setEnabled(false);
+            btnNmr45.setEnabled(false);
+            btnNmr46.setEnabled(false);
+            btnNmr47.setEnabled(false);
+            btnNmr48.setEnabled(false);
+            btnNmr49.setEnabled(false);
+            btnNmr50.setEnabled(false);
+            btnNmr51.setEnabled(false);
+            btnNmr52.setEnabled(false);
+            btnNmr53.setEnabled(false);
+            btnNmr54.setEnabled(false);
+            btnNmr55.setEnabled(false);
+            btnNmr56.setEnabled(false);
+            btnNmr57.setEnabled(false);
+            btnNmr58.setEnabled(false);
+            btnNmr59.setEnabled(false);
+            btnNmr60.setEnabled(false);
+            btnNmr61.setEnabled(false);
+            btnNmr62.setEnabled(false);
+            btnNmr63.setEnabled(false);
+            btnNmr64.setEnabled(false);
+            btnNmr65.setEnabled(false);
+            btnNmr66.setEnabled(false);
+            btnNmr67.setEnabled(false);
+            btnNmr68.setEnabled(false);
+            btnNmr69.setEnabled(false);
+            btnNmr70.setEnabled(false);
+            btnNmr71.setEnabled(false);
+            btnNmr72.setEnabled(false);
+            btnNmr73.setEnabled(false);
+            btnNmr74.setEnabled(false);
+            btnNmr75.setEnabled(false);
+            btnNmr76.setEnabled(false);
+            btnNmr77.setEnabled(false);
+            btnNmr78.setEnabled(false);
+            btnNmr79.setEnabled(false);
+            btnNmr80.setEnabled(false);
+            btnNmr81.setEnabled(false);
+            btnNmr82.setEnabled(false);
+            btnNmr83.setEnabled(false);
+            btnNmr84.setEnabled(false);
+            btnNmr85.setEnabled(false);
+            btnNmr86.setEnabled(false);
+            btnNmr87.setEnabled(false);
+            btnNmr88.setEnabled(false);
+            btnNmr89.setEnabled(false);
+            btnNmr90.setEnabled(false);
+            btnNmr91.setEnabled(false);
+            btnNmr92.setEnabled(false);
+            btnNmr93.setEnabled(false);
+            btnNmr94.setEnabled(false);
+            btnNmr95.setEnabled(false);
+            btnNmr96.setEnabled(false);
+            btnNmr97.setEnabled(false);
+            btnNmr98.setEnabled(false);
+            btnNmr99.setEnabled(false);
+            btnNmr100.setEnabled(false);
+            btnNmr101.setEnabled(false);
+            btnNmr102.setEnabled(false);
+            btnNmr103.setEnabled(false);
+            btnNmr104.setEnabled(false);
+            btnNmr105.setEnabled(false);
+
+        } else if (iBloqueia == 38) {
+            btnNmr39.setEnabled(false);
+            btnNmr40.setEnabled(false);
+            btnNmr41.setEnabled(false);
+            btnNmr42.setEnabled(false);
+            btnNmr43.setEnabled(false);
+            btnNmr44.setEnabled(false);
+            btnNmr45.setEnabled(false);
+            btnNmr46.setEnabled(false);
+            btnNmr47.setEnabled(false);
+            btnNmr48.setEnabled(false);
+            btnNmr49.setEnabled(false);
+            btnNmr50.setEnabled(false);
+            btnNmr51.setEnabled(false);
+            btnNmr52.setEnabled(false);
+            btnNmr53.setEnabled(false);
+            btnNmr54.setEnabled(false);
+            btnNmr55.setEnabled(false);
+            btnNmr56.setEnabled(false);
+            btnNmr57.setEnabled(false);
+            btnNmr58.setEnabled(false);
+            btnNmr59.setEnabled(false);
+            btnNmr60.setEnabled(false);
+            btnNmr61.setEnabled(false);
+            btnNmr62.setEnabled(false);
+            btnNmr63.setEnabled(false);
+            btnNmr64.setEnabled(false);
+            btnNmr65.setEnabled(false);
+            btnNmr66.setEnabled(false);
+            btnNmr67.setEnabled(false);
+            btnNmr68.setEnabled(false);
+            btnNmr69.setEnabled(false);
+            btnNmr70.setEnabled(false);
+            btnNmr71.setEnabled(false);
+            btnNmr72.setEnabled(false);
+            btnNmr73.setEnabled(false);
+            btnNmr74.setEnabled(false);
+            btnNmr75.setEnabled(false);
+            btnNmr76.setEnabled(false);
+            btnNmr77.setEnabled(false);
+            btnNmr78.setEnabled(false);
+            btnNmr79.setEnabled(false);
+            btnNmr80.setEnabled(false);
+            btnNmr81.setEnabled(false);
+            btnNmr82.setEnabled(false);
+            btnNmr83.setEnabled(false);
+            btnNmr84.setEnabled(false);
+            btnNmr85.setEnabled(false);
+            btnNmr86.setEnabled(false);
+            btnNmr87.setEnabled(false);
+            btnNmr88.setEnabled(false);
+            btnNmr89.setEnabled(false);
+            btnNmr90.setEnabled(false);
+            btnNmr91.setEnabled(false);
+            btnNmr92.setEnabled(false);
+            btnNmr93.setEnabled(false);
+            btnNmr94.setEnabled(false);
+            btnNmr95.setEnabled(false);
+            btnNmr96.setEnabled(false);
+            btnNmr97.setEnabled(false);
+            btnNmr98.setEnabled(false);
+            btnNmr99.setEnabled(false);
+            btnNmr100.setEnabled(false);
+            btnNmr101.setEnabled(false);
+            btnNmr102.setEnabled(false);
+            btnNmr103.setEnabled(false);
+            btnNmr104.setEnabled(false);
+            btnNmr105.setEnabled(false);
+
+        } else if (iBloqueia == 39) {
+            btnNmr40.setEnabled(false);
+            btnNmr41.setEnabled(false);
+            btnNmr42.setEnabled(false);
+            btnNmr43.setEnabled(false);
+            btnNmr44.setEnabled(false);
+            btnNmr45.setEnabled(false);
+            btnNmr46.setEnabled(false);
+            btnNmr47.setEnabled(false);
+            btnNmr48.setEnabled(false);
+            btnNmr49.setEnabled(false);
+            btnNmr50.setEnabled(false);
+            btnNmr51.setEnabled(false);
+            btnNmr52.setEnabled(false);
+            btnNmr53.setEnabled(false);
+            btnNmr54.setEnabled(false);
+            btnNmr55.setEnabled(false);
+            btnNmr56.setEnabled(false);
+            btnNmr57.setEnabled(false);
+            btnNmr58.setEnabled(false);
+            btnNmr59.setEnabled(false);
+            btnNmr60.setEnabled(false);
+            btnNmr61.setEnabled(false);
+            btnNmr62.setEnabled(false);
+            btnNmr63.setEnabled(false);
+            btnNmr64.setEnabled(false);
+            btnNmr65.setEnabled(false);
+            btnNmr66.setEnabled(false);
+            btnNmr67.setEnabled(false);
+            btnNmr68.setEnabled(false);
+            btnNmr69.setEnabled(false);
+            btnNmr70.setEnabled(false);
+            btnNmr71.setEnabled(false);
+            btnNmr72.setEnabled(false);
+            btnNmr73.setEnabled(false);
+            btnNmr74.setEnabled(false);
+            btnNmr75.setEnabled(false);
+            btnNmr76.setEnabled(false);
+            btnNmr77.setEnabled(false);
+            btnNmr78.setEnabled(false);
+            btnNmr79.setEnabled(false);
+            btnNmr80.setEnabled(false);
+            btnNmr81.setEnabled(false);
+            btnNmr82.setEnabled(false);
+            btnNmr83.setEnabled(false);
+            btnNmr84.setEnabled(false);
+            btnNmr85.setEnabled(false);
+            btnNmr86.setEnabled(false);
+            btnNmr87.setEnabled(false);
+            btnNmr88.setEnabled(false);
+            btnNmr89.setEnabled(false);
+            btnNmr90.setEnabled(false);
+            btnNmr91.setEnabled(false);
+            btnNmr92.setEnabled(false);
+            btnNmr93.setEnabled(false);
+            btnNmr94.setEnabled(false);
+            btnNmr95.setEnabled(false);
+            btnNmr96.setEnabled(false);
+            btnNmr97.setEnabled(false);
+            btnNmr98.setEnabled(false);
+            btnNmr99.setEnabled(false);
+            btnNmr100.setEnabled(false);
+            btnNmr101.setEnabled(false);
+            btnNmr102.setEnabled(false);
+            btnNmr103.setEnabled(false);
+            btnNmr104.setEnabled(false);
+            btnNmr105.setEnabled(false);
+
+        } else if (iBloqueia == 40) {
+            btnNmr41.setEnabled(false);
+            btnNmr42.setEnabled(false);
+            btnNmr43.setEnabled(false);
+            btnNmr44.setEnabled(false);
+            btnNmr45.setEnabled(false);
+            btnNmr46.setEnabled(false);
+            btnNmr47.setEnabled(false);
+            btnNmr48.setEnabled(false);
+            btnNmr49.setEnabled(false);
+            btnNmr50.setEnabled(false);
+            btnNmr51.setEnabled(false);
+            btnNmr52.setEnabled(false);
+            btnNmr53.setEnabled(false);
+            btnNmr54.setEnabled(false);
+            btnNmr55.setEnabled(false);
+            btnNmr56.setEnabled(false);
+            btnNmr57.setEnabled(false);
+            btnNmr58.setEnabled(false);
+            btnNmr59.setEnabled(false);
+            btnNmr60.setEnabled(false);
+            btnNmr61.setEnabled(false);
+            btnNmr62.setEnabled(false);
+            btnNmr63.setEnabled(false);
+            btnNmr64.setEnabled(false);
+            btnNmr65.setEnabled(false);
+            btnNmr66.setEnabled(false);
+            btnNmr67.setEnabled(false);
+            btnNmr68.setEnabled(false);
+            btnNmr69.setEnabled(false);
+            btnNmr70.setEnabled(false);
+            btnNmr71.setEnabled(false);
+            btnNmr72.setEnabled(false);
+            btnNmr73.setEnabled(false);
+            btnNmr74.setEnabled(false);
+            btnNmr75.setEnabled(false);
+            btnNmr76.setEnabled(false);
+            btnNmr77.setEnabled(false);
+            btnNmr78.setEnabled(false);
+            btnNmr79.setEnabled(false);
+            btnNmr80.setEnabled(false);
+            btnNmr81.setEnabled(false);
+            btnNmr82.setEnabled(false);
+            btnNmr83.setEnabled(false);
+            btnNmr84.setEnabled(false);
+            btnNmr85.setEnabled(false);
+            btnNmr86.setEnabled(false);
+            btnNmr87.setEnabled(false);
+            btnNmr88.setEnabled(false);
+            btnNmr89.setEnabled(false);
+            btnNmr90.setEnabled(false);
+            btnNmr91.setEnabled(false);
+            btnNmr92.setEnabled(false);
+            btnNmr93.setEnabled(false);
+            btnNmr94.setEnabled(false);
+            btnNmr95.setEnabled(false);
+            btnNmr96.setEnabled(false);
+            btnNmr97.setEnabled(false);
+            btnNmr98.setEnabled(false);
+            btnNmr99.setEnabled(false);
+            btnNmr100.setEnabled(false);
+            btnNmr101.setEnabled(false);
+            btnNmr102.setEnabled(false);
+            btnNmr103.setEnabled(false);
+            btnNmr104.setEnabled(false);
+            btnNmr105.setEnabled(false);
+
+        } else if (iBloqueia == 41) {
+            btnNmr42.setEnabled(false);
+            btnNmr43.setEnabled(false);
+            btnNmr44.setEnabled(false);
+            btnNmr45.setEnabled(false);
+            btnNmr46.setEnabled(false);
+            btnNmr47.setEnabled(false);
+            btnNmr48.setEnabled(false);
+            btnNmr49.setEnabled(false);
+            btnNmr50.setEnabled(false);
+            btnNmr51.setEnabled(false);
+            btnNmr52.setEnabled(false);
+            btnNmr53.setEnabled(false);
+            btnNmr54.setEnabled(false);
+            btnNmr55.setEnabled(false);
+            btnNmr56.setEnabled(false);
+            btnNmr57.setEnabled(false);
+            btnNmr58.setEnabled(false);
+            btnNmr59.setEnabled(false);
+            btnNmr60.setEnabled(false);
+            btnNmr61.setEnabled(false);
+            btnNmr62.setEnabled(false);
+            btnNmr63.setEnabled(false);
+            btnNmr64.setEnabled(false);
+            btnNmr65.setEnabled(false);
+            btnNmr66.setEnabled(false);
+            btnNmr67.setEnabled(false);
+            btnNmr68.setEnabled(false);
+            btnNmr69.setEnabled(false);
+            btnNmr70.setEnabled(false);
+            btnNmr71.setEnabled(false);
+            btnNmr72.setEnabled(false);
+            btnNmr73.setEnabled(false);
+            btnNmr74.setEnabled(false);
+            btnNmr75.setEnabled(false);
+            btnNmr76.setEnabled(false);
+            btnNmr77.setEnabled(false);
+            btnNmr78.setEnabled(false);
+            btnNmr79.setEnabled(false);
+            btnNmr80.setEnabled(false);
+            btnNmr81.setEnabled(false);
+            btnNmr82.setEnabled(false);
+            btnNmr83.setEnabled(false);
+            btnNmr84.setEnabled(false);
+            btnNmr85.setEnabled(false);
+            btnNmr86.setEnabled(false);
+            btnNmr87.setEnabled(false);
+            btnNmr88.setEnabled(false);
+            btnNmr89.setEnabled(false);
+            btnNmr90.setEnabled(false);
+            btnNmr91.setEnabled(false);
+            btnNmr92.setEnabled(false);
+            btnNmr93.setEnabled(false);
+            btnNmr94.setEnabled(false);
+            btnNmr95.setEnabled(false);
+            btnNmr96.setEnabled(false);
+            btnNmr97.setEnabled(false);
+            btnNmr98.setEnabled(false);
+            btnNmr99.setEnabled(false);
+            btnNmr100.setEnabled(false);
+            btnNmr101.setEnabled(false);
+            btnNmr102.setEnabled(false);
+            btnNmr103.setEnabled(false);
+            btnNmr104.setEnabled(false);
+            btnNmr105.setEnabled(false);
+
+        } else if (iBloqueia == 42) {
+            btnNmr43.setEnabled(false);
+            btnNmr44.setEnabled(false);
+            btnNmr45.setEnabled(false);
+            btnNmr46.setEnabled(false);
+            btnNmr47.setEnabled(false);
+            btnNmr48.setEnabled(false);
+            btnNmr49.setEnabled(false);
+            btnNmr50.setEnabled(false);
+            btnNmr51.setEnabled(false);
+            btnNmr52.setEnabled(false);
+            btnNmr53.setEnabled(false);
+            btnNmr54.setEnabled(false);
+            btnNmr55.setEnabled(false);
+            btnNmr56.setEnabled(false);
+            btnNmr57.setEnabled(false);
+            btnNmr58.setEnabled(false);
+            btnNmr59.setEnabled(false);
+            btnNmr60.setEnabled(false);
+            btnNmr61.setEnabled(false);
+            btnNmr62.setEnabled(false);
+            btnNmr63.setEnabled(false);
+            btnNmr64.setEnabled(false);
+            btnNmr65.setEnabled(false);
+            btnNmr66.setEnabled(false);
+            btnNmr67.setEnabled(false);
+            btnNmr68.setEnabled(false);
+            btnNmr69.setEnabled(false);
+            btnNmr70.setEnabled(false);
+            btnNmr71.setEnabled(false);
+            btnNmr72.setEnabled(false);
+            btnNmr73.setEnabled(false);
+            btnNmr74.setEnabled(false);
+            btnNmr75.setEnabled(false);
+            btnNmr76.setEnabled(false);
+            btnNmr77.setEnabled(false);
+            btnNmr78.setEnabled(false);
+            btnNmr79.setEnabled(false);
+            btnNmr80.setEnabled(false);
+            btnNmr81.setEnabled(false);
+            btnNmr82.setEnabled(false);
+            btnNmr83.setEnabled(false);
+            btnNmr84.setEnabled(false);
+            btnNmr85.setEnabled(false);
+            btnNmr86.setEnabled(false);
+            btnNmr87.setEnabled(false);
+            btnNmr88.setEnabled(false);
+            btnNmr89.setEnabled(false);
+            btnNmr90.setEnabled(false);
+            btnNmr91.setEnabled(false);
+            btnNmr92.setEnabled(false);
+            btnNmr93.setEnabled(false);
+            btnNmr94.setEnabled(false);
+            btnNmr95.setEnabled(false);
+            btnNmr96.setEnabled(false);
+            btnNmr97.setEnabled(false);
+            btnNmr98.setEnabled(false);
+            btnNmr99.setEnabled(false);
+            btnNmr100.setEnabled(false);
+            btnNmr101.setEnabled(false);
+            btnNmr102.setEnabled(false);
+            btnNmr103.setEnabled(false);
+            btnNmr104.setEnabled(false);
+            btnNmr105.setEnabled(false);
+
+        } else if (iBloqueia == 43) {
+            btnNmr44.setEnabled(false);
+            btnNmr45.setEnabled(false);
+            btnNmr46.setEnabled(false);
+            btnNmr47.setEnabled(false);
+            btnNmr48.setEnabled(false);
+            btnNmr49.setEnabled(false);
+            btnNmr50.setEnabled(false);
+            btnNmr51.setEnabled(false);
+            btnNmr52.setEnabled(false);
+            btnNmr53.setEnabled(false);
+            btnNmr54.setEnabled(false);
+            btnNmr55.setEnabled(false);
+            btnNmr56.setEnabled(false);
+            btnNmr57.setEnabled(false);
+            btnNmr58.setEnabled(false);
+            btnNmr59.setEnabled(false);
+            btnNmr60.setEnabled(false);
+            btnNmr61.setEnabled(false);
+            btnNmr62.setEnabled(false);
+            btnNmr63.setEnabled(false);
+            btnNmr64.setEnabled(false);
+            btnNmr65.setEnabled(false);
+            btnNmr66.setEnabled(false);
+            btnNmr67.setEnabled(false);
+            btnNmr68.setEnabled(false);
+            btnNmr69.setEnabled(false);
+            btnNmr70.setEnabled(false);
+            btnNmr71.setEnabled(false);
+            btnNmr72.setEnabled(false);
+            btnNmr73.setEnabled(false);
+            btnNmr74.setEnabled(false);
+            btnNmr75.setEnabled(false);
+            btnNmr76.setEnabled(false);
+            btnNmr77.setEnabled(false);
+            btnNmr78.setEnabled(false);
+            btnNmr79.setEnabled(false);
+            btnNmr80.setEnabled(false);
+            btnNmr81.setEnabled(false);
+            btnNmr82.setEnabled(false);
+            btnNmr83.setEnabled(false);
+            btnNmr84.setEnabled(false);
+            btnNmr85.setEnabled(false);
+            btnNmr86.setEnabled(false);
+            btnNmr87.setEnabled(false);
+            btnNmr88.setEnabled(false);
+            btnNmr89.setEnabled(false);
+            btnNmr90.setEnabled(false);
+            btnNmr91.setEnabled(false);
+            btnNmr92.setEnabled(false);
+            btnNmr93.setEnabled(false);
+            btnNmr94.setEnabled(false);
+            btnNmr95.setEnabled(false);
+            btnNmr96.setEnabled(false);
+            btnNmr97.setEnabled(false);
+            btnNmr98.setEnabled(false);
+            btnNmr99.setEnabled(false);
+            btnNmr100.setEnabled(false);
+            btnNmr101.setEnabled(false);
+            btnNmr102.setEnabled(false);
+            btnNmr103.setEnabled(false);
+            btnNmr104.setEnabled(false);
+            btnNmr105.setEnabled(false);
+
+        } else if (iBloqueia == 44) {
+            btnNmr45.setEnabled(false);
+            btnNmr46.setEnabled(false);
+            btnNmr47.setEnabled(false);
+            btnNmr48.setEnabled(false);
+            btnNmr49.setEnabled(false);
+            btnNmr50.setEnabled(false);
+            btnNmr51.setEnabled(false);
+            btnNmr52.setEnabled(false);
+            btnNmr53.setEnabled(false);
+            btnNmr54.setEnabled(false);
+            btnNmr55.setEnabled(false);
+            btnNmr56.setEnabled(false);
+            btnNmr57.setEnabled(false);
+            btnNmr58.setEnabled(false);
+            btnNmr59.setEnabled(false);
+            btnNmr60.setEnabled(false);
+            btnNmr61.setEnabled(false);
+            btnNmr62.setEnabled(false);
+            btnNmr63.setEnabled(false);
+            btnNmr64.setEnabled(false);
+            btnNmr65.setEnabled(false);
+            btnNmr66.setEnabled(false);
+            btnNmr67.setEnabled(false);
+            btnNmr68.setEnabled(false);
+            btnNmr69.setEnabled(false);
+            btnNmr70.setEnabled(false);
+            btnNmr71.setEnabled(false);
+            btnNmr72.setEnabled(false);
+            btnNmr73.setEnabled(false);
+            btnNmr74.setEnabled(false);
+            btnNmr75.setEnabled(false);
+            btnNmr76.setEnabled(false);
+            btnNmr77.setEnabled(false);
+            btnNmr78.setEnabled(false);
+            btnNmr79.setEnabled(false);
+            btnNmr80.setEnabled(false);
+            btnNmr81.setEnabled(false);
+            btnNmr82.setEnabled(false);
+            btnNmr83.setEnabled(false);
+            btnNmr84.setEnabled(false);
+            btnNmr85.setEnabled(false);
+            btnNmr86.setEnabled(false);
+            btnNmr87.setEnabled(false);
+            btnNmr88.setEnabled(false);
+            btnNmr89.setEnabled(false);
+            btnNmr90.setEnabled(false);
+            btnNmr91.setEnabled(false);
+            btnNmr92.setEnabled(false);
+            btnNmr93.setEnabled(false);
+            btnNmr94.setEnabled(false);
+            btnNmr95.setEnabled(false);
+            btnNmr96.setEnabled(false);
+            btnNmr97.setEnabled(false);
+            btnNmr98.setEnabled(false);
+            btnNmr99.setEnabled(false);
+            btnNmr100.setEnabled(false);
+            btnNmr101.setEnabled(false);
+            btnNmr102.setEnabled(false);
+            btnNmr103.setEnabled(false);
+            btnNmr104.setEnabled(false);
+            btnNmr105.setEnabled(false);
+
+        } else if (iBloqueia == 45) {
+            btnNmr46.setEnabled(false);
+            btnNmr47.setEnabled(false);
+            btnNmr48.setEnabled(false);
+            btnNmr49.setEnabled(false);
+            btnNmr50.setEnabled(false);
+            btnNmr51.setEnabled(false);
+            btnNmr52.setEnabled(false);
+            btnNmr53.setEnabled(false);
+            btnNmr54.setEnabled(false);
+            btnNmr55.setEnabled(false);
+            btnNmr56.setEnabled(false);
+            btnNmr57.setEnabled(false);
+            btnNmr58.setEnabled(false);
+            btnNmr59.setEnabled(false);
+            btnNmr60.setEnabled(false);
+            btnNmr61.setEnabled(false);
+            btnNmr62.setEnabled(false);
+            btnNmr63.setEnabled(false);
+            btnNmr64.setEnabled(false);
+            btnNmr65.setEnabled(false);
+            btnNmr66.setEnabled(false);
+            btnNmr67.setEnabled(false);
+            btnNmr68.setEnabled(false);
+            btnNmr69.setEnabled(false);
+            btnNmr70.setEnabled(false);
+            btnNmr71.setEnabled(false);
+            btnNmr72.setEnabled(false);
+            btnNmr73.setEnabled(false);
+            btnNmr74.setEnabled(false);
+            btnNmr75.setEnabled(false);
+            btnNmr76.setEnabled(false);
+            btnNmr77.setEnabled(false);
+            btnNmr78.setEnabled(false);
+            btnNmr79.setEnabled(false);
+            btnNmr80.setEnabled(false);
+            btnNmr81.setEnabled(false);
+            btnNmr82.setEnabled(false);
+            btnNmr83.setEnabled(false);
+            btnNmr84.setEnabled(false);
+            btnNmr85.setEnabled(false);
+            btnNmr86.setEnabled(false);
+            btnNmr87.setEnabled(false);
+            btnNmr88.setEnabled(false);
+            btnNmr89.setEnabled(false);
+            btnNmr90.setEnabled(false);
+            btnNmr91.setEnabled(false);
+            btnNmr92.setEnabled(false);
+            btnNmr93.setEnabled(false);
+            btnNmr94.setEnabled(false);
+            btnNmr95.setEnabled(false);
+            btnNmr96.setEnabled(false);
+            btnNmr97.setEnabled(false);
+            btnNmr98.setEnabled(false);
+            btnNmr99.setEnabled(false);
+            btnNmr100.setEnabled(false);
+            btnNmr101.setEnabled(false);
+            btnNmr102.setEnabled(false);
+            btnNmr103.setEnabled(false);
+            btnNmr104.setEnabled(false);
+            btnNmr105.setEnabled(false);
+
+        } else if (iBloqueia == 46) {
+            btnNmr47.setEnabled(false);
+            btnNmr48.setEnabled(false);
+            btnNmr49.setEnabled(false);
+            btnNmr50.setEnabled(false);
+            btnNmr51.setEnabled(false);
+            btnNmr52.setEnabled(false);
+            btnNmr53.setEnabled(false);
+            btnNmr54.setEnabled(false);
+            btnNmr55.setEnabled(false);
+            btnNmr56.setEnabled(false);
+            btnNmr57.setEnabled(false);
+            btnNmr58.setEnabled(false);
+            btnNmr59.setEnabled(false);
+            btnNmr60.setEnabled(false);
+            btnNmr61.setEnabled(false);
+            btnNmr62.setEnabled(false);
+            btnNmr63.setEnabled(false);
+            btnNmr64.setEnabled(false);
+            btnNmr65.setEnabled(false);
+            btnNmr66.setEnabled(false);
+            btnNmr67.setEnabled(false);
+            btnNmr68.setEnabled(false);
+            btnNmr69.setEnabled(false);
+            btnNmr70.setEnabled(false);
+            btnNmr71.setEnabled(false);
+            btnNmr72.setEnabled(false);
+            btnNmr73.setEnabled(false);
+            btnNmr74.setEnabled(false);
+            btnNmr75.setEnabled(false);
+            btnNmr76.setEnabled(false);
+            btnNmr77.setEnabled(false);
+            btnNmr78.setEnabled(false);
+            btnNmr79.setEnabled(false);
+            btnNmr80.setEnabled(false);
+            btnNmr81.setEnabled(false);
+            btnNmr82.setEnabled(false);
+            btnNmr83.setEnabled(false);
+            btnNmr84.setEnabled(false);
+            btnNmr85.setEnabled(false);
+            btnNmr86.setEnabled(false);
+            btnNmr87.setEnabled(false);
+            btnNmr88.setEnabled(false);
+            btnNmr89.setEnabled(false);
+            btnNmr90.setEnabled(false);
+            btnNmr91.setEnabled(false);
+            btnNmr92.setEnabled(false);
+            btnNmr93.setEnabled(false);
+            btnNmr94.setEnabled(false);
+            btnNmr95.setEnabled(false);
+            btnNmr96.setEnabled(false);
+            btnNmr97.setEnabled(false);
+            btnNmr98.setEnabled(false);
+            btnNmr99.setEnabled(false);
+            btnNmr100.setEnabled(false);
+            btnNmr101.setEnabled(false);
+            btnNmr102.setEnabled(false);
+            btnNmr103.setEnabled(false);
+            btnNmr104.setEnabled(false);
+            btnNmr105.setEnabled(false);
+
+        } else if (iBloqueia == 47) {
+            btnNmr48.setEnabled(false);
+            btnNmr49.setEnabled(false);
+            btnNmr50.setEnabled(false);
+            btnNmr51.setEnabled(false);
+            btnNmr52.setEnabled(false);
+            btnNmr53.setEnabled(false);
+            btnNmr54.setEnabled(false);
+            btnNmr55.setEnabled(false);
+            btnNmr56.setEnabled(false);
+            btnNmr57.setEnabled(false);
+            btnNmr58.setEnabled(false);
+            btnNmr59.setEnabled(false);
+            btnNmr60.setEnabled(false);
+            btnNmr61.setEnabled(false);
+            btnNmr62.setEnabled(false);
+            btnNmr63.setEnabled(false);
+            btnNmr64.setEnabled(false);
+            btnNmr65.setEnabled(false);
+            btnNmr66.setEnabled(false);
+            btnNmr67.setEnabled(false);
+            btnNmr68.setEnabled(false);
+            btnNmr69.setEnabled(false);
+            btnNmr70.setEnabled(false);
+            btnNmr71.setEnabled(false);
+            btnNmr72.setEnabled(false);
+            btnNmr73.setEnabled(false);
+            btnNmr74.setEnabled(false);
+            btnNmr75.setEnabled(false);
+            btnNmr76.setEnabled(false);
+            btnNmr77.setEnabled(false);
+            btnNmr78.setEnabled(false);
+            btnNmr79.setEnabled(false);
+            btnNmr80.setEnabled(false);
+            btnNmr81.setEnabled(false);
+            btnNmr82.setEnabled(false);
+            btnNmr83.setEnabled(false);
+            btnNmr84.setEnabled(false);
+            btnNmr85.setEnabled(false);
+            btnNmr86.setEnabled(false);
+            btnNmr87.setEnabled(false);
+            btnNmr88.setEnabled(false);
+            btnNmr89.setEnabled(false);
+            btnNmr90.setEnabled(false);
+            btnNmr91.setEnabled(false);
+            btnNmr92.setEnabled(false);
+            btnNmr93.setEnabled(false);
+            btnNmr94.setEnabled(false);
+            btnNmr95.setEnabled(false);
+            btnNmr96.setEnabled(false);
+            btnNmr97.setEnabled(false);
+            btnNmr98.setEnabled(false);
+            btnNmr99.setEnabled(false);
+            btnNmr100.setEnabled(false);
+            btnNmr101.setEnabled(false);
+            btnNmr102.setEnabled(false);
+            btnNmr103.setEnabled(false);
+            btnNmr104.setEnabled(false);
+            btnNmr105.setEnabled(false);
+
+        } else if (iBloqueia == 48) {
+            btnNmr49.setEnabled(false);
+            btnNmr50.setEnabled(false);
+            btnNmr51.setEnabled(false);
+            btnNmr52.setEnabled(false);
+            btnNmr53.setEnabled(false);
+            btnNmr54.setEnabled(false);
+            btnNmr55.setEnabled(false);
+            btnNmr56.setEnabled(false);
+            btnNmr57.setEnabled(false);
+            btnNmr58.setEnabled(false);
+            btnNmr59.setEnabled(false);
+            btnNmr60.setEnabled(false);
+            btnNmr61.setEnabled(false);
+            btnNmr62.setEnabled(false);
+            btnNmr63.setEnabled(false);
+            btnNmr64.setEnabled(false);
+            btnNmr65.setEnabled(false);
+            btnNmr66.setEnabled(false);
+            btnNmr67.setEnabled(false);
+            btnNmr68.setEnabled(false);
+            btnNmr69.setEnabled(false);
+            btnNmr70.setEnabled(false);
+            btnNmr71.setEnabled(false);
+            btnNmr72.setEnabled(false);
+            btnNmr73.setEnabled(false);
+            btnNmr74.setEnabled(false);
+            btnNmr75.setEnabled(false);
+            btnNmr76.setEnabled(false);
+            btnNmr77.setEnabled(false);
+            btnNmr78.setEnabled(false);
+            btnNmr79.setEnabled(false);
+            btnNmr80.setEnabled(false);
+            btnNmr81.setEnabled(false);
+            btnNmr82.setEnabled(false);
+            btnNmr83.setEnabled(false);
+            btnNmr84.setEnabled(false);
+            btnNmr85.setEnabled(false);
+            btnNmr86.setEnabled(false);
+            btnNmr87.setEnabled(false);
+            btnNmr88.setEnabled(false);
+            btnNmr89.setEnabled(false);
+            btnNmr90.setEnabled(false);
+            btnNmr91.setEnabled(false);
+            btnNmr92.setEnabled(false);
+            btnNmr93.setEnabled(false);
+            btnNmr94.setEnabled(false);
+            btnNmr95.setEnabled(false);
+            btnNmr96.setEnabled(false);
+            btnNmr97.setEnabled(false);
+            btnNmr98.setEnabled(false);
+            btnNmr99.setEnabled(false);
+            btnNmr100.setEnabled(false);
+            btnNmr101.setEnabled(false);
+            btnNmr102.setEnabled(false);
+            btnNmr103.setEnabled(false);
+            btnNmr104.setEnabled(false);
+            btnNmr105.setEnabled(false);
+
+        } else if (iBloqueia == 49) {
+            btnNmr50.setEnabled(false);
+            btnNmr51.setEnabled(false);
+            btnNmr52.setEnabled(false);
+            btnNmr53.setEnabled(false);
+            btnNmr54.setEnabled(false);
+            btnNmr55.setEnabled(false);
+            btnNmr56.setEnabled(false);
+            btnNmr57.setEnabled(false);
+            btnNmr58.setEnabled(false);
+            btnNmr59.setEnabled(false);
+            btnNmr60.setEnabled(false);
+            btnNmr61.setEnabled(false);
+            btnNmr62.setEnabled(false);
+            btnNmr63.setEnabled(false);
+            btnNmr64.setEnabled(false);
+            btnNmr65.setEnabled(false);
+            btnNmr66.setEnabled(false);
+            btnNmr67.setEnabled(false);
+            btnNmr68.setEnabled(false);
+            btnNmr69.setEnabled(false);
+            btnNmr70.setEnabled(false);
+            btnNmr71.setEnabled(false);
+            btnNmr72.setEnabled(false);
+            btnNmr73.setEnabled(false);
+            btnNmr74.setEnabled(false);
+            btnNmr75.setEnabled(false);
+            btnNmr76.setEnabled(false);
+            btnNmr77.setEnabled(false);
+            btnNmr78.setEnabled(false);
+            btnNmr79.setEnabled(false);
+            btnNmr80.setEnabled(false);
+            btnNmr81.setEnabled(false);
+            btnNmr82.setEnabled(false);
+            btnNmr83.setEnabled(false);
+            btnNmr84.setEnabled(false);
+            btnNmr85.setEnabled(false);
+            btnNmr86.setEnabled(false);
+            btnNmr87.setEnabled(false);
+            btnNmr88.setEnabled(false);
+            btnNmr89.setEnabled(false);
+            btnNmr90.setEnabled(false);
+            btnNmr91.setEnabled(false);
+            btnNmr92.setEnabled(false);
+            btnNmr93.setEnabled(false);
+            btnNmr94.setEnabled(false);
+            btnNmr95.setEnabled(false);
+            btnNmr96.setEnabled(false);
+            btnNmr97.setEnabled(false);
+            btnNmr98.setEnabled(false);
+            btnNmr99.setEnabled(false);
+            btnNmr100.setEnabled(false);
+            btnNmr101.setEnabled(false);
+            btnNmr102.setEnabled(false);
+            btnNmr103.setEnabled(false);
+            btnNmr104.setEnabled(false);
+            btnNmr105.setEnabled(false);
+
+        } else if (iBloqueia == 50) {
+            btnNmr51.setEnabled(false);
+            btnNmr52.setEnabled(false);
+            btnNmr53.setEnabled(false);
+            btnNmr54.setEnabled(false);
+            btnNmr55.setEnabled(false);
+            btnNmr56.setEnabled(false);
+            btnNmr57.setEnabled(false);
+            btnNmr58.setEnabled(false);
+            btnNmr59.setEnabled(false);
+            btnNmr60.setEnabled(false);
+            btnNmr61.setEnabled(false);
+            btnNmr62.setEnabled(false);
+            btnNmr63.setEnabled(false);
+            btnNmr64.setEnabled(false);
+            btnNmr65.setEnabled(false);
+            btnNmr66.setEnabled(false);
+            btnNmr67.setEnabled(false);
+            btnNmr68.setEnabled(false);
+            btnNmr69.setEnabled(false);
+            btnNmr70.setEnabled(false);
+            btnNmr71.setEnabled(false);
+            btnNmr72.setEnabled(false);
+            btnNmr73.setEnabled(false);
+            btnNmr74.setEnabled(false);
+            btnNmr75.setEnabled(false);
+            btnNmr76.setEnabled(false);
+            btnNmr77.setEnabled(false);
+            btnNmr78.setEnabled(false);
+            btnNmr79.setEnabled(false);
+            btnNmr80.setEnabled(false);
+            btnNmr81.setEnabled(false);
+            btnNmr82.setEnabled(false);
+            btnNmr83.setEnabled(false);
+            btnNmr84.setEnabled(false);
+            btnNmr85.setEnabled(false);
+            btnNmr86.setEnabled(false);
+            btnNmr87.setEnabled(false);
+            btnNmr88.setEnabled(false);
+            btnNmr89.setEnabled(false);
+            btnNmr90.setEnabled(false);
+            btnNmr91.setEnabled(false);
+            btnNmr92.setEnabled(false);
+            btnNmr93.setEnabled(false);
+            btnNmr94.setEnabled(false);
+            btnNmr95.setEnabled(false);
+            btnNmr96.setEnabled(false);
+            btnNmr97.setEnabled(false);
+            btnNmr98.setEnabled(false);
+            btnNmr99.setEnabled(false);
+            btnNmr100.setEnabled(false);
+            btnNmr101.setEnabled(false);
+            btnNmr102.setEnabled(false);
+            btnNmr103.setEnabled(false);
+            btnNmr104.setEnabled(false);
+            btnNmr105.setEnabled(false);
+
+        } else if (iBloqueia == 51) {
+            btnNmr52.setEnabled(false);
+            btnNmr53.setEnabled(false);
+            btnNmr54.setEnabled(false);
+            btnNmr55.setEnabled(false);
+            btnNmr56.setEnabled(false);
+            btnNmr57.setEnabled(false);
+            btnNmr58.setEnabled(false);
+            btnNmr59.setEnabled(false);
+            btnNmr60.setEnabled(false);
+            btnNmr61.setEnabled(false);
+            btnNmr62.setEnabled(false);
+            btnNmr63.setEnabled(false);
+            btnNmr64.setEnabled(false);
+            btnNmr65.setEnabled(false);
+            btnNmr66.setEnabled(false);
+            btnNmr67.setEnabled(false);
+            btnNmr68.setEnabled(false);
+            btnNmr69.setEnabled(false);
+            btnNmr70.setEnabled(false);
+            btnNmr71.setEnabled(false);
+            btnNmr72.setEnabled(false);
+            btnNmr73.setEnabled(false);
+            btnNmr74.setEnabled(false);
+            btnNmr75.setEnabled(false);
+            btnNmr76.setEnabled(false);
+            btnNmr77.setEnabled(false);
+            btnNmr78.setEnabled(false);
+            btnNmr79.setEnabled(false);
+            btnNmr80.setEnabled(false);
+            btnNmr81.setEnabled(false);
+            btnNmr82.setEnabled(false);
+            btnNmr83.setEnabled(false);
+            btnNmr84.setEnabled(false);
+            btnNmr85.setEnabled(false);
+            btnNmr86.setEnabled(false);
+            btnNmr87.setEnabled(false);
+            btnNmr88.setEnabled(false);
+            btnNmr89.setEnabled(false);
+            btnNmr90.setEnabled(false);
+            btnNmr91.setEnabled(false);
+            btnNmr92.setEnabled(false);
+            btnNmr93.setEnabled(false);
+            btnNmr94.setEnabled(false);
+            btnNmr95.setEnabled(false);
+            btnNmr96.setEnabled(false);
+            btnNmr97.setEnabled(false);
+            btnNmr98.setEnabled(false);
+            btnNmr99.setEnabled(false);
+            btnNmr100.setEnabled(false);
+            btnNmr101.setEnabled(false);
+            btnNmr102.setEnabled(false);
+            btnNmr103.setEnabled(false);
+            btnNmr104.setEnabled(false);
+            btnNmr105.setEnabled(false);
+
+        } else if (iBloqueia == 52) {
+            btnNmr53.setEnabled(false);
+            btnNmr54.setEnabled(false);
+            btnNmr55.setEnabled(false);
+            btnNmr56.setEnabled(false);
+            btnNmr57.setEnabled(false);
+            btnNmr58.setEnabled(false);
+            btnNmr59.setEnabled(false);
+            btnNmr60.setEnabled(false);
+            btnNmr61.setEnabled(false);
+            btnNmr62.setEnabled(false);
+            btnNmr63.setEnabled(false);
+            btnNmr64.setEnabled(false);
+            btnNmr65.setEnabled(false);
+            btnNmr66.setEnabled(false);
+            btnNmr67.setEnabled(false);
+            btnNmr68.setEnabled(false);
+            btnNmr69.setEnabled(false);
+            btnNmr70.setEnabled(false);
+            btnNmr71.setEnabled(false);
+            btnNmr72.setEnabled(false);
+            btnNmr73.setEnabled(false);
+            btnNmr74.setEnabled(false);
+            btnNmr75.setEnabled(false);
+            btnNmr76.setEnabled(false);
+            btnNmr77.setEnabled(false);
+            btnNmr78.setEnabled(false);
+            btnNmr79.setEnabled(false);
+            btnNmr80.setEnabled(false);
+            btnNmr81.setEnabled(false);
+            btnNmr82.setEnabled(false);
+            btnNmr83.setEnabled(false);
+            btnNmr84.setEnabled(false);
+            btnNmr85.setEnabled(false);
+            btnNmr86.setEnabled(false);
+            btnNmr87.setEnabled(false);
+            btnNmr88.setEnabled(false);
+            btnNmr89.setEnabled(false);
+            btnNmr90.setEnabled(false);
+            btnNmr91.setEnabled(false);
+            btnNmr92.setEnabled(false);
+            btnNmr93.setEnabled(false);
+            btnNmr94.setEnabled(false);
+            btnNmr95.setEnabled(false);
+            btnNmr96.setEnabled(false);
+            btnNmr97.setEnabled(false);
+            btnNmr98.setEnabled(false);
+            btnNmr99.setEnabled(false);
+            btnNmr100.setEnabled(false);
+            btnNmr101.setEnabled(false);
+            btnNmr102.setEnabled(false);
+            btnNmr103.setEnabled(false);
+            btnNmr104.setEnabled(false);
+            btnNmr105.setEnabled(false);
+
+        } else if (iBloqueia == 53) {
+            btnNmr54.setEnabled(false);
+            btnNmr55.setEnabled(false);
+            btnNmr56.setEnabled(false);
+            btnNmr57.setEnabled(false);
+            btnNmr58.setEnabled(false);
+            btnNmr59.setEnabled(false);
+            btnNmr60.setEnabled(false);
+            btnNmr61.setEnabled(false);
+            btnNmr62.setEnabled(false);
+            btnNmr63.setEnabled(false);
+            btnNmr64.setEnabled(false);
+            btnNmr65.setEnabled(false);
+            btnNmr66.setEnabled(false);
+            btnNmr67.setEnabled(false);
+            btnNmr68.setEnabled(false);
+            btnNmr69.setEnabled(false);
+            btnNmr70.setEnabled(false);
+            btnNmr71.setEnabled(false);
+            btnNmr72.setEnabled(false);
+            btnNmr73.setEnabled(false);
+            btnNmr74.setEnabled(false);
+            btnNmr75.setEnabled(false);
+            btnNmr76.setEnabled(false);
+            btnNmr77.setEnabled(false);
+            btnNmr78.setEnabled(false);
+            btnNmr79.setEnabled(false);
+            btnNmr80.setEnabled(false);
+            btnNmr81.setEnabled(false);
+            btnNmr82.setEnabled(false);
+            btnNmr83.setEnabled(false);
+            btnNmr84.setEnabled(false);
+            btnNmr85.setEnabled(false);
+            btnNmr86.setEnabled(false);
+            btnNmr87.setEnabled(false);
+            btnNmr88.setEnabled(false);
+            btnNmr89.setEnabled(false);
+            btnNmr90.setEnabled(false);
+            btnNmr91.setEnabled(false);
+            btnNmr92.setEnabled(false);
+            btnNmr93.setEnabled(false);
+            btnNmr94.setEnabled(false);
+            btnNmr95.setEnabled(false);
+            btnNmr96.setEnabled(false);
+            btnNmr97.setEnabled(false);
+            btnNmr98.setEnabled(false);
+            btnNmr99.setEnabled(false);
+            btnNmr100.setEnabled(false);
+            btnNmr101.setEnabled(false);
+            btnNmr102.setEnabled(false);
+            btnNmr103.setEnabled(false);
+            btnNmr104.setEnabled(false);
+            btnNmr105.setEnabled(false);
+
+        } else if (iBloqueia == 54) {
+            btnNmr55.setEnabled(false);
+            btnNmr56.setEnabled(false);
+            btnNmr57.setEnabled(false);
+            btnNmr58.setEnabled(false);
+            btnNmr59.setEnabled(false);
+            btnNmr60.setEnabled(false);
+            btnNmr61.setEnabled(false);
+            btnNmr62.setEnabled(false);
+            btnNmr63.setEnabled(false);
+            btnNmr64.setEnabled(false);
+            btnNmr65.setEnabled(false);
+            btnNmr66.setEnabled(false);
+            btnNmr67.setEnabled(false);
+            btnNmr68.setEnabled(false);
+            btnNmr69.setEnabled(false);
+            btnNmr70.setEnabled(false);
+            btnNmr71.setEnabled(false);
+            btnNmr72.setEnabled(false);
+            btnNmr73.setEnabled(false);
+            btnNmr74.setEnabled(false);
+            btnNmr75.setEnabled(false);
+            btnNmr76.setEnabled(false);
+            btnNmr77.setEnabled(false);
+            btnNmr78.setEnabled(false);
+            btnNmr79.setEnabled(false);
+            btnNmr80.setEnabled(false);
+            btnNmr81.setEnabled(false);
+            btnNmr82.setEnabled(false);
+            btnNmr83.setEnabled(false);
+            btnNmr84.setEnabled(false);
+            btnNmr85.setEnabled(false);
+            btnNmr86.setEnabled(false);
+            btnNmr87.setEnabled(false);
+            btnNmr88.setEnabled(false);
+            btnNmr89.setEnabled(false);
+            btnNmr90.setEnabled(false);
+            btnNmr91.setEnabled(false);
+            btnNmr92.setEnabled(false);
+            btnNmr93.setEnabled(false);
+            btnNmr94.setEnabled(false);
+            btnNmr95.setEnabled(false);
+            btnNmr96.setEnabled(false);
+            btnNmr97.setEnabled(false);
+            btnNmr98.setEnabled(false);
+            btnNmr99.setEnabled(false);
+            btnNmr100.setEnabled(false);
+            btnNmr101.setEnabled(false);
+            btnNmr102.setEnabled(false);
+            btnNmr103.setEnabled(false);
+            btnNmr104.setEnabled(false);
+            btnNmr105.setEnabled(false);
+
+        } else if (iBloqueia == 55) {
+            btnNmr56.setEnabled(false);
+            btnNmr57.setEnabled(false);
+            btnNmr58.setEnabled(false);
+            btnNmr59.setEnabled(false);
+            btnNmr60.setEnabled(false);
+            btnNmr61.setEnabled(false);
+            btnNmr62.setEnabled(false);
+            btnNmr63.setEnabled(false);
+            btnNmr64.setEnabled(false);
+            btnNmr65.setEnabled(false);
+            btnNmr66.setEnabled(false);
+            btnNmr67.setEnabled(false);
+            btnNmr68.setEnabled(false);
+            btnNmr69.setEnabled(false);
+            btnNmr70.setEnabled(false);
+            btnNmr71.setEnabled(false);
+            btnNmr72.setEnabled(false);
+            btnNmr73.setEnabled(false);
+            btnNmr74.setEnabled(false);
+            btnNmr75.setEnabled(false);
+            btnNmr76.setEnabled(false);
+            btnNmr77.setEnabled(false);
+            btnNmr78.setEnabled(false);
+            btnNmr79.setEnabled(false);
+            btnNmr80.setEnabled(false);
+            btnNmr81.setEnabled(false);
+            btnNmr82.setEnabled(false);
+            btnNmr83.setEnabled(false);
+            btnNmr84.setEnabled(false);
+            btnNmr85.setEnabled(false);
+            btnNmr86.setEnabled(false);
+            btnNmr87.setEnabled(false);
+            btnNmr88.setEnabled(false);
+            btnNmr89.setEnabled(false);
+            btnNmr90.setEnabled(false);
+            btnNmr91.setEnabled(false);
+            btnNmr92.setEnabled(false);
+            btnNmr93.setEnabled(false);
+            btnNmr94.setEnabled(false);
+            btnNmr95.setEnabled(false);
+            btnNmr96.setEnabled(false);
+            btnNmr97.setEnabled(false);
+            btnNmr98.setEnabled(false);
+            btnNmr99.setEnabled(false);
+            btnNmr100.setEnabled(false);
+            btnNmr101.setEnabled(false);
+            btnNmr102.setEnabled(false);
+            btnNmr103.setEnabled(false);
+            btnNmr104.setEnabled(false);
+            btnNmr105.setEnabled(false);
+
+        } else if (iBloqueia == 56) {
+            btnNmr57.setEnabled(false);
+            btnNmr58.setEnabled(false);
+            btnNmr59.setEnabled(false);
+            btnNmr60.setEnabled(false);
+            btnNmr61.setEnabled(false);
+            btnNmr62.setEnabled(false);
+            btnNmr63.setEnabled(false);
+            btnNmr64.setEnabled(false);
+            btnNmr65.setEnabled(false);
+            btnNmr66.setEnabled(false);
+            btnNmr67.setEnabled(false);
+            btnNmr68.setEnabled(false);
+            btnNmr69.setEnabled(false);
+            btnNmr70.setEnabled(false);
+            btnNmr71.setEnabled(false);
+            btnNmr72.setEnabled(false);
+            btnNmr73.setEnabled(false);
+            btnNmr74.setEnabled(false);
+            btnNmr75.setEnabled(false);
+            btnNmr76.setEnabled(false);
+            btnNmr77.setEnabled(false);
+            btnNmr78.setEnabled(false);
+            btnNmr79.setEnabled(false);
+            btnNmr80.setEnabled(false);
+            btnNmr81.setEnabled(false);
+            btnNmr82.setEnabled(false);
+            btnNmr83.setEnabled(false);
+            btnNmr84.setEnabled(false);
+            btnNmr85.setEnabled(false);
+            btnNmr86.setEnabled(false);
+            btnNmr87.setEnabled(false);
+            btnNmr88.setEnabled(false);
+            btnNmr89.setEnabled(false);
+            btnNmr90.setEnabled(false);
+            btnNmr91.setEnabled(false);
+            btnNmr92.setEnabled(false);
+            btnNmr93.setEnabled(false);
+            btnNmr94.setEnabled(false);
+            btnNmr95.setEnabled(false);
+            btnNmr96.setEnabled(false);
+            btnNmr97.setEnabled(false);
+            btnNmr98.setEnabled(false);
+            btnNmr99.setEnabled(false);
+            btnNmr100.setEnabled(false);
+            btnNmr101.setEnabled(false);
+            btnNmr102.setEnabled(false);
+            btnNmr103.setEnabled(false);
+            btnNmr104.setEnabled(false);
+            btnNmr105.setEnabled(false);
+
+        } else if (iBloqueia == 57) {
+            btnNmr58.setEnabled(false);
+            btnNmr59.setEnabled(false);
+            btnNmr60.setEnabled(false);
+            btnNmr61.setEnabled(false);
+            btnNmr62.setEnabled(false);
+            btnNmr63.setEnabled(false);
+            btnNmr64.setEnabled(false);
+            btnNmr65.setEnabled(false);
+            btnNmr66.setEnabled(false);
+            btnNmr67.setEnabled(false);
+            btnNmr68.setEnabled(false);
+            btnNmr69.setEnabled(false);
+            btnNmr70.setEnabled(false);
+            btnNmr71.setEnabled(false);
+            btnNmr72.setEnabled(false);
+            btnNmr73.setEnabled(false);
+            btnNmr74.setEnabled(false);
+            btnNmr75.setEnabled(false);
+            btnNmr76.setEnabled(false);
+            btnNmr77.setEnabled(false);
+            btnNmr78.setEnabled(false);
+            btnNmr79.setEnabled(false);
+            btnNmr80.setEnabled(false);
+            btnNmr81.setEnabled(false);
+            btnNmr82.setEnabled(false);
+            btnNmr83.setEnabled(false);
+            btnNmr84.setEnabled(false);
+            btnNmr85.setEnabled(false);
+            btnNmr86.setEnabled(false);
+            btnNmr87.setEnabled(false);
+            btnNmr88.setEnabled(false);
+            btnNmr89.setEnabled(false);
+            btnNmr90.setEnabled(false);
+            btnNmr91.setEnabled(false);
+            btnNmr92.setEnabled(false);
+            btnNmr93.setEnabled(false);
+            btnNmr94.setEnabled(false);
+            btnNmr95.setEnabled(false);
+            btnNmr96.setEnabled(false);
+            btnNmr97.setEnabled(false);
+            btnNmr98.setEnabled(false);
+            btnNmr99.setEnabled(false);
+            btnNmr100.setEnabled(false);
+            btnNmr101.setEnabled(false);
+            btnNmr102.setEnabled(false);
+            btnNmr103.setEnabled(false);
+            btnNmr104.setEnabled(false);
+            btnNmr105.setEnabled(false);
+
+        } else if (iBloqueia == 58) {
+            btnNmr59.setEnabled(false);
+            btnNmr60.setEnabled(false);
+            btnNmr61.setEnabled(false);
+            btnNmr62.setEnabled(false);
+            btnNmr63.setEnabled(false);
+            btnNmr64.setEnabled(false);
+            btnNmr65.setEnabled(false);
+            btnNmr66.setEnabled(false);
+            btnNmr67.setEnabled(false);
+            btnNmr68.setEnabled(false);
+            btnNmr69.setEnabled(false);
+            btnNmr70.setEnabled(false);
+            btnNmr71.setEnabled(false);
+            btnNmr72.setEnabled(false);
+            btnNmr73.setEnabled(false);
+            btnNmr74.setEnabled(false);
+            btnNmr75.setEnabled(false);
+            btnNmr76.setEnabled(false);
+            btnNmr77.setEnabled(false);
+            btnNmr78.setEnabled(false);
+            btnNmr79.setEnabled(false);
+            btnNmr80.setEnabled(false);
+            btnNmr81.setEnabled(false);
+            btnNmr82.setEnabled(false);
+            btnNmr83.setEnabled(false);
+            btnNmr84.setEnabled(false);
+            btnNmr85.setEnabled(false);
+            btnNmr86.setEnabled(false);
+            btnNmr87.setEnabled(false);
+            btnNmr88.setEnabled(false);
+            btnNmr89.setEnabled(false);
+            btnNmr90.setEnabled(false);
+            btnNmr91.setEnabled(false);
+            btnNmr92.setEnabled(false);
+            btnNmr93.setEnabled(false);
+            btnNmr94.setEnabled(false);
+            btnNmr95.setEnabled(false);
+            btnNmr96.setEnabled(false);
+            btnNmr97.setEnabled(false);
+            btnNmr98.setEnabled(false);
+            btnNmr99.setEnabled(false);
+            btnNmr100.setEnabled(false);
+            btnNmr101.setEnabled(false);
+            btnNmr102.setEnabled(false);
+            btnNmr103.setEnabled(false);
+            btnNmr104.setEnabled(false);
+            btnNmr105.setEnabled(false);
+
+        } else if (iBloqueia == 59) {
+            btnNmr60.setEnabled(false);
+            btnNmr61.setEnabled(false);
+            btnNmr62.setEnabled(false);
+            btnNmr63.setEnabled(false);
+            btnNmr64.setEnabled(false);
+            btnNmr65.setEnabled(false);
+            btnNmr66.setEnabled(false);
+            btnNmr67.setEnabled(false);
+            btnNmr68.setEnabled(false);
+            btnNmr69.setEnabled(false);
+            btnNmr70.setEnabled(false);
+            btnNmr71.setEnabled(false);
+            btnNmr72.setEnabled(false);
+            btnNmr73.setEnabled(false);
+            btnNmr74.setEnabled(false);
+            btnNmr75.setEnabled(false);
+            btnNmr76.setEnabled(false);
+            btnNmr77.setEnabled(false);
+            btnNmr78.setEnabled(false);
+            btnNmr79.setEnabled(false);
+            btnNmr80.setEnabled(false);
+            btnNmr81.setEnabled(false);
+            btnNmr82.setEnabled(false);
+            btnNmr83.setEnabled(false);
+            btnNmr84.setEnabled(false);
+            btnNmr85.setEnabled(false);
+            btnNmr86.setEnabled(false);
+            btnNmr87.setEnabled(false);
+            btnNmr88.setEnabled(false);
+            btnNmr89.setEnabled(false);
+            btnNmr90.setEnabled(false);
+            btnNmr91.setEnabled(false);
+            btnNmr92.setEnabled(false);
+            btnNmr93.setEnabled(false);
+            btnNmr94.setEnabled(false);
+            btnNmr95.setEnabled(false);
+            btnNmr96.setEnabled(false);
+            btnNmr97.setEnabled(false);
+            btnNmr98.setEnabled(false);
+            btnNmr99.setEnabled(false);
+            btnNmr100.setEnabled(false);
+            btnNmr101.setEnabled(false);
+            btnNmr102.setEnabled(false);
+            btnNmr103.setEnabled(false);
+            btnNmr104.setEnabled(false);
+            btnNmr105.setEnabled(false);
+
+        } else if (iBloqueia == 60) {
+            btnNmr61.setEnabled(false);
+            btnNmr62.setEnabled(false);
+            btnNmr63.setEnabled(false);
+            btnNmr64.setEnabled(false);
+            btnNmr65.setEnabled(false);
+            btnNmr66.setEnabled(false);
+            btnNmr67.setEnabled(false);
+            btnNmr68.setEnabled(false);
+            btnNmr69.setEnabled(false);
+            btnNmr70.setEnabled(false);
+            btnNmr71.setEnabled(false);
+            btnNmr72.setEnabled(false);
+            btnNmr73.setEnabled(false);
+            btnNmr74.setEnabled(false);
+            btnNmr75.setEnabled(false);
+            btnNmr76.setEnabled(false);
+            btnNmr77.setEnabled(false);
+            btnNmr78.setEnabled(false);
+            btnNmr79.setEnabled(false);
+            btnNmr80.setEnabled(false);
+            btnNmr81.setEnabled(false);
+            btnNmr82.setEnabled(false);
+            btnNmr83.setEnabled(false);
+            btnNmr84.setEnabled(false);
+            btnNmr85.setEnabled(false);
+            btnNmr86.setEnabled(false);
+            btnNmr87.setEnabled(false);
+            btnNmr88.setEnabled(false);
+            btnNmr89.setEnabled(false);
+            btnNmr90.setEnabled(false);
+            btnNmr91.setEnabled(false);
+            btnNmr92.setEnabled(false);
+            btnNmr93.setEnabled(false);
+            btnNmr94.setEnabled(false);
+            btnNmr95.setEnabled(false);
+            btnNmr96.setEnabled(false);
+            btnNmr97.setEnabled(false);
+            btnNmr98.setEnabled(false);
+            btnNmr99.setEnabled(false);
+            btnNmr100.setEnabled(false);
+            btnNmr101.setEnabled(false);
+            btnNmr102.setEnabled(false);
+            btnNmr103.setEnabled(false);
+            btnNmr104.setEnabled(false);
+            btnNmr105.setEnabled(false);
+
+        } else if (iBloqueia == 61) {
+            btnNmr62.setEnabled(false);
+            btnNmr63.setEnabled(false);
+            btnNmr64.setEnabled(false);
+            btnNmr65.setEnabled(false);
+            btnNmr66.setEnabled(false);
+            btnNmr67.setEnabled(false);
+            btnNmr68.setEnabled(false);
+            btnNmr69.setEnabled(false);
+            btnNmr70.setEnabled(false);
+            btnNmr71.setEnabled(false);
+            btnNmr72.setEnabled(false);
+            btnNmr73.setEnabled(false);
+            btnNmr74.setEnabled(false);
+            btnNmr75.setEnabled(false);
+            btnNmr76.setEnabled(false);
+            btnNmr77.setEnabled(false);
+            btnNmr78.setEnabled(false);
+            btnNmr79.setEnabled(false);
+            btnNmr80.setEnabled(false);
+            btnNmr81.setEnabled(false);
+            btnNmr82.setEnabled(false);
+            btnNmr83.setEnabled(false);
+            btnNmr84.setEnabled(false);
+            btnNmr85.setEnabled(false);
+            btnNmr86.setEnabled(false);
+            btnNmr87.setEnabled(false);
+            btnNmr88.setEnabled(false);
+            btnNmr89.setEnabled(false);
+            btnNmr90.setEnabled(false);
+            btnNmr91.setEnabled(false);
+            btnNmr92.setEnabled(false);
+            btnNmr93.setEnabled(false);
+            btnNmr94.setEnabled(false);
+            btnNmr95.setEnabled(false);
+            btnNmr96.setEnabled(false);
+            btnNmr97.setEnabled(false);
+            btnNmr98.setEnabled(false);
+            btnNmr99.setEnabled(false);
+            btnNmr100.setEnabled(false);
+            btnNmr101.setEnabled(false);
+            btnNmr102.setEnabled(false);
+            btnNmr103.setEnabled(false);
+            btnNmr104.setEnabled(false);
+            btnNmr105.setEnabled(false);
+
+        } else if (iBloqueia == 62) {
+            btnNmr63.setEnabled(false);
+            btnNmr64.setEnabled(false);
+            btnNmr65.setEnabled(false);
+            btnNmr66.setEnabled(false);
+            btnNmr67.setEnabled(false);
+            btnNmr68.setEnabled(false);
+            btnNmr69.setEnabled(false);
+            btnNmr70.setEnabled(false);
+            btnNmr71.setEnabled(false);
+            btnNmr72.setEnabled(false);
+            btnNmr73.setEnabled(false);
+            btnNmr74.setEnabled(false);
+            btnNmr75.setEnabled(false);
+            btnNmr76.setEnabled(false);
+            btnNmr77.setEnabled(false);
+            btnNmr78.setEnabled(false);
+            btnNmr79.setEnabled(false);
+            btnNmr80.setEnabled(false);
+            btnNmr81.setEnabled(false);
+            btnNmr82.setEnabled(false);
+            btnNmr83.setEnabled(false);
+            btnNmr84.setEnabled(false);
+            btnNmr85.setEnabled(false);
+            btnNmr86.setEnabled(false);
+            btnNmr87.setEnabled(false);
+            btnNmr88.setEnabled(false);
+            btnNmr89.setEnabled(false);
+            btnNmr90.setEnabled(false);
+            btnNmr91.setEnabled(false);
+            btnNmr92.setEnabled(false);
+            btnNmr93.setEnabled(false);
+            btnNmr94.setEnabled(false);
+            btnNmr95.setEnabled(false);
+            btnNmr96.setEnabled(false);
+            btnNmr97.setEnabled(false);
+            btnNmr98.setEnabled(false);
+            btnNmr99.setEnabled(false);
+            btnNmr100.setEnabled(false);
+            btnNmr101.setEnabled(false);
+            btnNmr102.setEnabled(false);
+            btnNmr103.setEnabled(false);
+            btnNmr104.setEnabled(false);
+            btnNmr105.setEnabled(false);
+
+        } else if (iBloqueia == 63) {
+
+            btnNmr64.setEnabled(false);
+            btnNmr65.setEnabled(false);
+            btnNmr66.setEnabled(false);
+            btnNmr67.setEnabled(false);
+            btnNmr68.setEnabled(false);
+            btnNmr69.setEnabled(false);
+            btnNmr70.setEnabled(false);
+            btnNmr71.setEnabled(false);
+            btnNmr72.setEnabled(false);
+            btnNmr73.setEnabled(false);
+            btnNmr74.setEnabled(false);
+            btnNmr75.setEnabled(false);
+            btnNmr76.setEnabled(false);
+            btnNmr77.setEnabled(false);
+            btnNmr78.setEnabled(false);
+            btnNmr79.setEnabled(false);
+            btnNmr80.setEnabled(false);
+            btnNmr81.setEnabled(false);
+            btnNmr82.setEnabled(false);
+            btnNmr83.setEnabled(false);
+            btnNmr84.setEnabled(false);
+            btnNmr85.setEnabled(false);
+            btnNmr86.setEnabled(false);
+            btnNmr87.setEnabled(false);
+            btnNmr88.setEnabled(false);
+            btnNmr89.setEnabled(false);
+            btnNmr90.setEnabled(false);
+            btnNmr91.setEnabled(false);
+            btnNmr92.setEnabled(false);
+            btnNmr93.setEnabled(false);
+            btnNmr94.setEnabled(false);
+            btnNmr95.setEnabled(false);
+            btnNmr96.setEnabled(false);
+            btnNmr97.setEnabled(false);
+            btnNmr98.setEnabled(false);
+            btnNmr99.setEnabled(false);
+            btnNmr100.setEnabled(false);
+            btnNmr101.setEnabled(false);
+            btnNmr102.setEnabled(false);
+            btnNmr103.setEnabled(false);
+            btnNmr104.setEnabled(false);
+            btnNmr105.setEnabled(false);
+
+        } else if (iBloqueia == 64) {
+
+            btnNmr65.setEnabled(false);
+            btnNmr66.setEnabled(false);
+            btnNmr67.setEnabled(false);
+            btnNmr68.setEnabled(false);
+            btnNmr69.setEnabled(false);
+            btnNmr70.setEnabled(false);
+            btnNmr71.setEnabled(false);
+            btnNmr72.setEnabled(false);
+            btnNmr73.setEnabled(false);
+            btnNmr74.setEnabled(false);
+            btnNmr75.setEnabled(false);
+            btnNmr76.setEnabled(false);
+            btnNmr77.setEnabled(false);
+            btnNmr78.setEnabled(false);
+            btnNmr79.setEnabled(false);
+            btnNmr80.setEnabled(false);
+            btnNmr81.setEnabled(false);
+            btnNmr82.setEnabled(false);
+            btnNmr83.setEnabled(false);
+            btnNmr84.setEnabled(false);
+            btnNmr85.setEnabled(false);
+            btnNmr86.setEnabled(false);
+            btnNmr87.setEnabled(false);
+            btnNmr88.setEnabled(false);
+            btnNmr89.setEnabled(false);
+            btnNmr90.setEnabled(false);
+            btnNmr91.setEnabled(false);
+            btnNmr92.setEnabled(false);
+            btnNmr93.setEnabled(false);
+            btnNmr94.setEnabled(false);
+            btnNmr95.setEnabled(false);
+            btnNmr96.setEnabled(false);
+            btnNmr97.setEnabled(false);
+            btnNmr98.setEnabled(false);
+            btnNmr99.setEnabled(false);
+            btnNmr100.setEnabled(false);
+            btnNmr101.setEnabled(false);
+            btnNmr102.setEnabled(false);
+            btnNmr103.setEnabled(false);
+            btnNmr104.setEnabled(false);
+            btnNmr105.setEnabled(false);
+
+        } else if (iBloqueia == 65) {
+
+            btnNmr66.setEnabled(false);
+            btnNmr67.setEnabled(false);
+            btnNmr68.setEnabled(false);
+            btnNmr69.setEnabled(false);
+            btnNmr70.setEnabled(false);
+            btnNmr71.setEnabled(false);
+            btnNmr72.setEnabled(false);
+            btnNmr73.setEnabled(false);
+            btnNmr74.setEnabled(false);
+            btnNmr75.setEnabled(false);
+            btnNmr76.setEnabled(false);
+            btnNmr77.setEnabled(false);
+            btnNmr78.setEnabled(false);
+            btnNmr79.setEnabled(false);
+            btnNmr80.setEnabled(false);
+            btnNmr81.setEnabled(false);
+            btnNmr82.setEnabled(false);
+            btnNmr83.setEnabled(false);
+            btnNmr84.setEnabled(false);
+            btnNmr85.setEnabled(false);
+            btnNmr86.setEnabled(false);
+            btnNmr87.setEnabled(false);
+            btnNmr88.setEnabled(false);
+            btnNmr89.setEnabled(false);
+            btnNmr90.setEnabled(false);
+            btnNmr91.setEnabled(false);
+            btnNmr92.setEnabled(false);
+            btnNmr93.setEnabled(false);
+            btnNmr94.setEnabled(false);
+            btnNmr95.setEnabled(false);
+            btnNmr96.setEnabled(false);
+            btnNmr97.setEnabled(false);
+            btnNmr98.setEnabled(false);
+            btnNmr99.setEnabled(false);
+            btnNmr100.setEnabled(false);
+            btnNmr101.setEnabled(false);
+            btnNmr102.setEnabled(false);
+            btnNmr103.setEnabled(false);
+            btnNmr104.setEnabled(false);
+            btnNmr105.setEnabled(false);
+
+        } else if (iBloqueia == 66) {
+
+            btnNmr67.setEnabled(false);
+            btnNmr68.setEnabled(false);
+            btnNmr69.setEnabled(false);
+            btnNmr70.setEnabled(false);
+            btnNmr71.setEnabled(false);
+            btnNmr72.setEnabled(false);
+            btnNmr73.setEnabled(false);
+            btnNmr74.setEnabled(false);
+            btnNmr75.setEnabled(false);
+            btnNmr76.setEnabled(false);
+            btnNmr77.setEnabled(false);
+            btnNmr78.setEnabled(false);
+            btnNmr79.setEnabled(false);
+            btnNmr80.setEnabled(false);
+            btnNmr81.setEnabled(false);
+            btnNmr82.setEnabled(false);
+            btnNmr83.setEnabled(false);
+            btnNmr84.setEnabled(false);
+            btnNmr85.setEnabled(false);
+            btnNmr86.setEnabled(false);
+            btnNmr87.setEnabled(false);
+            btnNmr88.setEnabled(false);
+            btnNmr89.setEnabled(false);
+            btnNmr90.setEnabled(false);
+            btnNmr91.setEnabled(false);
+            btnNmr92.setEnabled(false);
+            btnNmr93.setEnabled(false);
+            btnNmr94.setEnabled(false);
+            btnNmr95.setEnabled(false);
+            btnNmr96.setEnabled(false);
+            btnNmr97.setEnabled(false);
+            btnNmr98.setEnabled(false);
+            btnNmr99.setEnabled(false);
+            btnNmr100.setEnabled(false);
+            btnNmr101.setEnabled(false);
+            btnNmr102.setEnabled(false);
+            btnNmr103.setEnabled(false);
+            btnNmr104.setEnabled(false);
+            btnNmr105.setEnabled(false);
+
+        } else if (iBloqueia == 67) {
+
+            btnNmr68.setEnabled(false);
+            btnNmr69.setEnabled(false);
+            btnNmr70.setEnabled(false);
+            btnNmr71.setEnabled(false);
+            btnNmr72.setEnabled(false);
+            btnNmr73.setEnabled(false);
+            btnNmr74.setEnabled(false);
+            btnNmr75.setEnabled(false);
+            btnNmr76.setEnabled(false);
+            btnNmr77.setEnabled(false);
+            btnNmr78.setEnabled(false);
+            btnNmr79.setEnabled(false);
+            btnNmr80.setEnabled(false);
+            btnNmr81.setEnabled(false);
+            btnNmr82.setEnabled(false);
+            btnNmr83.setEnabled(false);
+            btnNmr84.setEnabled(false);
+            btnNmr85.setEnabled(false);
+            btnNmr86.setEnabled(false);
+            btnNmr87.setEnabled(false);
+            btnNmr88.setEnabled(false);
+            btnNmr89.setEnabled(false);
+            btnNmr90.setEnabled(false);
+            btnNmr91.setEnabled(false);
+            btnNmr92.setEnabled(false);
+            btnNmr93.setEnabled(false);
+            btnNmr94.setEnabled(false);
+            btnNmr95.setEnabled(false);
+            btnNmr96.setEnabled(false);
+            btnNmr97.setEnabled(false);
+            btnNmr98.setEnabled(false);
+            btnNmr99.setEnabled(false);
+            btnNmr100.setEnabled(false);
+            btnNmr101.setEnabled(false);
+            btnNmr102.setEnabled(false);
+            btnNmr103.setEnabled(false);
+            btnNmr104.setEnabled(false);
+            btnNmr105.setEnabled(false);
+
+        } else if (iBloqueia == 68) {
+
+            btnNmr69.setEnabled(false);
+            btnNmr70.setEnabled(false);
+            btnNmr71.setEnabled(false);
+            btnNmr72.setEnabled(false);
+            btnNmr73.setEnabled(false);
+            btnNmr74.setEnabled(false);
+            btnNmr75.setEnabled(false);
+            btnNmr76.setEnabled(false);
+            btnNmr77.setEnabled(false);
+            btnNmr78.setEnabled(false);
+            btnNmr79.setEnabled(false);
+            btnNmr80.setEnabled(false);
+            btnNmr81.setEnabled(false);
+            btnNmr82.setEnabled(false);
+            btnNmr83.setEnabled(false);
+            btnNmr84.setEnabled(false);
+            btnNmr85.setEnabled(false);
+            btnNmr86.setEnabled(false);
+            btnNmr87.setEnabled(false);
+            btnNmr88.setEnabled(false);
+            btnNmr89.setEnabled(false);
+            btnNmr90.setEnabled(false);
+            btnNmr91.setEnabled(false);
+            btnNmr92.setEnabled(false);
+            btnNmr93.setEnabled(false);
+            btnNmr94.setEnabled(false);
+            btnNmr95.setEnabled(false);
+            btnNmr96.setEnabled(false);
+            btnNmr97.setEnabled(false);
+            btnNmr98.setEnabled(false);
+            btnNmr99.setEnabled(false);
+            btnNmr100.setEnabled(false);
+            btnNmr101.setEnabled(false);
+            btnNmr102.setEnabled(false);
+            btnNmr103.setEnabled(false);
+            btnNmr104.setEnabled(false);
+            btnNmr105.setEnabled(false);
+
+        } else if (iBloqueia == 69) {
+
+            btnNmr70.setEnabled(false);
+            btnNmr71.setEnabled(false);
+            btnNmr72.setEnabled(false);
+            btnNmr73.setEnabled(false);
+            btnNmr74.setEnabled(false);
+            btnNmr75.setEnabled(false);
+            btnNmr76.setEnabled(false);
+            btnNmr77.setEnabled(false);
+            btnNmr78.setEnabled(false);
+            btnNmr79.setEnabled(false);
+            btnNmr80.setEnabled(false);
+            btnNmr81.setEnabled(false);
+            btnNmr82.setEnabled(false);
+            btnNmr83.setEnabled(false);
+            btnNmr84.setEnabled(false);
+            btnNmr85.setEnabled(false);
+            btnNmr86.setEnabled(false);
+            btnNmr87.setEnabled(false);
+            btnNmr88.setEnabled(false);
+            btnNmr89.setEnabled(false);
+            btnNmr90.setEnabled(false);
+            btnNmr91.setEnabled(false);
+            btnNmr92.setEnabled(false);
+            btnNmr93.setEnabled(false);
+            btnNmr94.setEnabled(false);
+            btnNmr95.setEnabled(false);
+            btnNmr96.setEnabled(false);
+            btnNmr97.setEnabled(false);
+            btnNmr98.setEnabled(false);
+            btnNmr99.setEnabled(false);
+            btnNmr100.setEnabled(false);
+            btnNmr101.setEnabled(false);
+            btnNmr102.setEnabled(false);
+            btnNmr103.setEnabled(false);
+            btnNmr104.setEnabled(false);
+            btnNmr105.setEnabled(false);
+
+        } else if (iBloqueia == 70) {
+
+            btnNmr71.setEnabled(false);
+            btnNmr72.setEnabled(false);
+            btnNmr73.setEnabled(false);
+            btnNmr74.setEnabled(false);
+            btnNmr75.setEnabled(false);
+            btnNmr76.setEnabled(false);
+            btnNmr77.setEnabled(false);
+            btnNmr78.setEnabled(false);
+            btnNmr79.setEnabled(false);
+            btnNmr80.setEnabled(false);
+            btnNmr81.setEnabled(false);
+            btnNmr82.setEnabled(false);
+            btnNmr83.setEnabled(false);
+            btnNmr84.setEnabled(false);
+            btnNmr85.setEnabled(false);
+            btnNmr86.setEnabled(false);
+            btnNmr87.setEnabled(false);
+            btnNmr88.setEnabled(false);
+            btnNmr89.setEnabled(false);
+            btnNmr90.setEnabled(false);
+            btnNmr91.setEnabled(false);
+            btnNmr92.setEnabled(false);
+            btnNmr93.setEnabled(false);
+            btnNmr94.setEnabled(false);
+            btnNmr95.setEnabled(false);
+            btnNmr96.setEnabled(false);
+            btnNmr97.setEnabled(false);
+            btnNmr98.setEnabled(false);
+            btnNmr99.setEnabled(false);
+            btnNmr100.setEnabled(false);
+            btnNmr101.setEnabled(false);
+            btnNmr102.setEnabled(false);
+            btnNmr103.setEnabled(false);
+            btnNmr104.setEnabled(false);
+            btnNmr105.setEnabled(false);
+
+        } else if (iBloqueia == 71) {
+
+            btnNmr72.setEnabled(false);
+            btnNmr73.setEnabled(false);
+            btnNmr74.setEnabled(false);
+            btnNmr75.setEnabled(false);
+            btnNmr76.setEnabled(false);
+            btnNmr77.setEnabled(false);
+            btnNmr78.setEnabled(false);
+            btnNmr79.setEnabled(false);
+            btnNmr80.setEnabled(false);
+            btnNmr81.setEnabled(false);
+            btnNmr82.setEnabled(false);
+            btnNmr83.setEnabled(false);
+            btnNmr84.setEnabled(false);
+            btnNmr85.setEnabled(false);
+            btnNmr86.setEnabled(false);
+            btnNmr87.setEnabled(false);
+            btnNmr88.setEnabled(false);
+            btnNmr89.setEnabled(false);
+            btnNmr90.setEnabled(false);
+            btnNmr91.setEnabled(false);
+            btnNmr92.setEnabled(false);
+            btnNmr93.setEnabled(false);
+            btnNmr94.setEnabled(false);
+            btnNmr95.setEnabled(false);
+            btnNmr96.setEnabled(false);
+            btnNmr97.setEnabled(false);
+            btnNmr98.setEnabled(false);
+            btnNmr99.setEnabled(false);
+            btnNmr100.setEnabled(false);
+            btnNmr101.setEnabled(false);
+            btnNmr102.setEnabled(false);
+            btnNmr103.setEnabled(false);
+            btnNmr104.setEnabled(false);
+            btnNmr105.setEnabled(false);
+
+        } else if (iBloqueia == 72) {
+
+            btnNmr73.setEnabled(false);
+            btnNmr74.setEnabled(false);
+            btnNmr75.setEnabled(false);
+            btnNmr76.setEnabled(false);
+            btnNmr77.setEnabled(false);
+            btnNmr78.setEnabled(false);
+            btnNmr79.setEnabled(false);
+            btnNmr80.setEnabled(false);
+            btnNmr81.setEnabled(false);
+            btnNmr82.setEnabled(false);
+            btnNmr83.setEnabled(false);
+            btnNmr84.setEnabled(false);
+            btnNmr85.setEnabled(false);
+            btnNmr86.setEnabled(false);
+            btnNmr87.setEnabled(false);
+            btnNmr88.setEnabled(false);
+            btnNmr89.setEnabled(false);
+            btnNmr90.setEnabled(false);
+            btnNmr91.setEnabled(false);
+            btnNmr92.setEnabled(false);
+            btnNmr93.setEnabled(false);
+            btnNmr94.setEnabled(false);
+            btnNmr95.setEnabled(false);
+            btnNmr96.setEnabled(false);
+            btnNmr97.setEnabled(false);
+            btnNmr98.setEnabled(false);
+            btnNmr99.setEnabled(false);
+            btnNmr100.setEnabled(false);
+            btnNmr101.setEnabled(false);
+            btnNmr102.setEnabled(false);
+            btnNmr103.setEnabled(false);
+            btnNmr104.setEnabled(false);
+            btnNmr105.setEnabled(false);
+
+        } else if (iBloqueia == 73) {
+
+            btnNmr74.setEnabled(false);
+            btnNmr75.setEnabled(false);
+            btnNmr76.setEnabled(false);
+            btnNmr77.setEnabled(false);
+            btnNmr78.setEnabled(false);
+            btnNmr79.setEnabled(false);
+            btnNmr80.setEnabled(false);
+            btnNmr81.setEnabled(false);
+            btnNmr82.setEnabled(false);
+            btnNmr83.setEnabled(false);
+            btnNmr84.setEnabled(false);
+            btnNmr85.setEnabled(false);
+            btnNmr86.setEnabled(false);
+            btnNmr87.setEnabled(false);
+            btnNmr88.setEnabled(false);
+            btnNmr89.setEnabled(false);
+            btnNmr90.setEnabled(false);
+            btnNmr91.setEnabled(false);
+            btnNmr92.setEnabled(false);
+            btnNmr93.setEnabled(false);
+            btnNmr94.setEnabled(false);
+            btnNmr95.setEnabled(false);
+            btnNmr96.setEnabled(false);
+            btnNmr97.setEnabled(false);
+            btnNmr98.setEnabled(false);
+            btnNmr99.setEnabled(false);
+            btnNmr100.setEnabled(false);
+            btnNmr101.setEnabled(false);
+            btnNmr102.setEnabled(false);
+            btnNmr103.setEnabled(false);
+            btnNmr104.setEnabled(false);
+            btnNmr105.setEnabled(false);
+
+        } else if (iBloqueia == 74) {
+
+            btnNmr75.setEnabled(false);
+            btnNmr76.setEnabled(false);
+            btnNmr77.setEnabled(false);
+            btnNmr78.setEnabled(false);
+            btnNmr79.setEnabled(false);
+            btnNmr80.setEnabled(false);
+            btnNmr81.setEnabled(false);
+            btnNmr82.setEnabled(false);
+            btnNmr83.setEnabled(false);
+            btnNmr84.setEnabled(false);
+            btnNmr85.setEnabled(false);
+            btnNmr86.setEnabled(false);
+            btnNmr87.setEnabled(false);
+            btnNmr88.setEnabled(false);
+            btnNmr89.setEnabled(false);
+            btnNmr90.setEnabled(false);
+            btnNmr91.setEnabled(false);
+            btnNmr92.setEnabled(false);
+            btnNmr93.setEnabled(false);
+            btnNmr94.setEnabled(false);
+            btnNmr95.setEnabled(false);
+            btnNmr96.setEnabled(false);
+            btnNmr97.setEnabled(false);
+            btnNmr98.setEnabled(false);
+            btnNmr99.setEnabled(false);
+            btnNmr100.setEnabled(false);
+            btnNmr101.setEnabled(false);
+            btnNmr102.setEnabled(false);
+            btnNmr103.setEnabled(false);
+            btnNmr104.setEnabled(false);
+            btnNmr105.setEnabled(false);
+
+        } else if (iBloqueia == 75) {
+
+            btnNmr76.setEnabled(false);
+            btnNmr77.setEnabled(false);
+            btnNmr78.setEnabled(false);
+            btnNmr79.setEnabled(false);
+            btnNmr80.setEnabled(false);
+            btnNmr81.setEnabled(false);
+            btnNmr82.setEnabled(false);
+            btnNmr83.setEnabled(false);
+            btnNmr84.setEnabled(false);
+            btnNmr85.setEnabled(false);
+            btnNmr86.setEnabled(false);
+            btnNmr87.setEnabled(false);
+            btnNmr88.setEnabled(false);
+            btnNmr89.setEnabled(false);
+            btnNmr90.setEnabled(false);
+            btnNmr91.setEnabled(false);
+            btnNmr92.setEnabled(false);
+            btnNmr93.setEnabled(false);
+            btnNmr94.setEnabled(false);
+            btnNmr95.setEnabled(false);
+            btnNmr96.setEnabled(false);
+            btnNmr97.setEnabled(false);
+            btnNmr98.setEnabled(false);
+            btnNmr99.setEnabled(false);
+            btnNmr100.setEnabled(false);
+            btnNmr101.setEnabled(false);
+            btnNmr102.setEnabled(false);
+            btnNmr103.setEnabled(false);
+            btnNmr104.setEnabled(false);
+            btnNmr105.setEnabled(false);
+
+        } else if (iBloqueia == 76) {
+
+            btnNmr77.setEnabled(false);
+            btnNmr78.setEnabled(false);
+            btnNmr79.setEnabled(false);
+            btnNmr80.setEnabled(false);
+            btnNmr81.setEnabled(false);
+            btnNmr82.setEnabled(false);
+            btnNmr83.setEnabled(false);
+            btnNmr84.setEnabled(false);
+            btnNmr85.setEnabled(false);
+            btnNmr86.setEnabled(false);
+            btnNmr87.setEnabled(false);
+            btnNmr88.setEnabled(false);
+            btnNmr89.setEnabled(false);
+            btnNmr90.setEnabled(false);
+            btnNmr91.setEnabled(false);
+            btnNmr92.setEnabled(false);
+            btnNmr93.setEnabled(false);
+            btnNmr94.setEnabled(false);
+            btnNmr95.setEnabled(false);
+            btnNmr96.setEnabled(false);
+            btnNmr97.setEnabled(false);
+            btnNmr98.setEnabled(false);
+            btnNmr99.setEnabled(false);
+            btnNmr100.setEnabled(false);
+            btnNmr101.setEnabled(false);
+            btnNmr102.setEnabled(false);
+            btnNmr103.setEnabled(false);
+            btnNmr104.setEnabled(false);
+            btnNmr105.setEnabled(false);
+
+        } else if (iBloqueia == 77) {
+            btnNmr78.setEnabled(false);
+            btnNmr79.setEnabled(false);
+            btnNmr80.setEnabled(false);
+            btnNmr81.setEnabled(false);
+            btnNmr82.setEnabled(false);
+            btnNmr83.setEnabled(false);
+            btnNmr84.setEnabled(false);
+            btnNmr85.setEnabled(false);
+            btnNmr86.setEnabled(false);
+            btnNmr87.setEnabled(false);
+            btnNmr88.setEnabled(false);
+            btnNmr89.setEnabled(false);
+            btnNmr90.setEnabled(false);
+            btnNmr91.setEnabled(false);
+            btnNmr92.setEnabled(false);
+            btnNmr93.setEnabled(false);
+            btnNmr94.setEnabled(false);
+            btnNmr95.setEnabled(false);
+            btnNmr96.setEnabled(false);
+            btnNmr97.setEnabled(false);
+            btnNmr98.setEnabled(false);
+            btnNmr99.setEnabled(false);
+            btnNmr100.setEnabled(false);
+            btnNmr101.setEnabled(false);
+            btnNmr102.setEnabled(false);
+            btnNmr103.setEnabled(false);
+            btnNmr104.setEnabled(false);
+            btnNmr105.setEnabled(false);
+
+        } else if (iBloqueia == 78) {
+
+            btnNmr78.setEnabled(false);
+            btnNmr79.setEnabled(false);
+            btnNmr80.setEnabled(false);
+            btnNmr81.setEnabled(false);
+            btnNmr82.setEnabled(false);
+            btnNmr83.setEnabled(false);
+            btnNmr84.setEnabled(false);
+            btnNmr85.setEnabled(false);
+            btnNmr86.setEnabled(false);
+            btnNmr87.setEnabled(false);
+            btnNmr88.setEnabled(false);
+            btnNmr89.setEnabled(false);
+            btnNmr90.setEnabled(false);
+            btnNmr91.setEnabled(false);
+            btnNmr92.setEnabled(false);
+            btnNmr93.setEnabled(false);
+            btnNmr94.setEnabled(false);
+            btnNmr95.setEnabled(false);
+            btnNmr96.setEnabled(false);
+            btnNmr97.setEnabled(false);
+            btnNmr98.setEnabled(false);
+            btnNmr99.setEnabled(false);
+            btnNmr100.setEnabled(false);
+            btnNmr101.setEnabled(false);
+            btnNmr102.setEnabled(false);
+            btnNmr103.setEnabled(false);
+            btnNmr104.setEnabled(false);
+            btnNmr105.setEnabled(false);
+
+        } else if (iBloqueia == 79) {
+
+            btnNmr80.setEnabled(false);
+            btnNmr81.setEnabled(false);
+            btnNmr82.setEnabled(false);
+            btnNmr83.setEnabled(false);
+            btnNmr84.setEnabled(false);
+            btnNmr85.setEnabled(false);
+            btnNmr86.setEnabled(false);
+            btnNmr87.setEnabled(false);
+            btnNmr88.setEnabled(false);
+            btnNmr89.setEnabled(false);
+            btnNmr90.setEnabled(false);
+            btnNmr91.setEnabled(false);
+            btnNmr92.setEnabled(false);
+            btnNmr93.setEnabled(false);
+            btnNmr94.setEnabled(false);
+            btnNmr95.setEnabled(false);
+            btnNmr96.setEnabled(false);
+            btnNmr97.setEnabled(false);
+            btnNmr98.setEnabled(false);
+            btnNmr99.setEnabled(false);
+            btnNmr100.setEnabled(false);
+            btnNmr101.setEnabled(false);
+            btnNmr102.setEnabled(false);
+            btnNmr103.setEnabled(false);
+            btnNmr104.setEnabled(false);
+            btnNmr105.setEnabled(false);
+
+        } else if (iBloqueia == 80) {
+
+            btnNmr81.setEnabled(false);
+            btnNmr82.setEnabled(false);
+            btnNmr83.setEnabled(false);
+            btnNmr84.setEnabled(false);
+            btnNmr85.setEnabled(false);
+            btnNmr86.setEnabled(false);
+            btnNmr87.setEnabled(false);
+            btnNmr88.setEnabled(false);
+            btnNmr89.setEnabled(false);
+            btnNmr90.setEnabled(false);
+            btnNmr91.setEnabled(false);
+            btnNmr92.setEnabled(false);
+            btnNmr93.setEnabled(false);
+            btnNmr94.setEnabled(false);
+            btnNmr95.setEnabled(false);
+            btnNmr96.setEnabled(false);
+            btnNmr97.setEnabled(false);
+            btnNmr98.setEnabled(false);
+            btnNmr99.setEnabled(false);
+            btnNmr100.setEnabled(false);
+            btnNmr101.setEnabled(false);
+            btnNmr102.setEnabled(false);
+            btnNmr103.setEnabled(false);
+            btnNmr104.setEnabled(false);
+            btnNmr105.setEnabled(false);
+
+        } else if (iBloqueia == 81) {
+
+            btnNmr82.setEnabled(false);
+            btnNmr83.setEnabled(false);
+            btnNmr84.setEnabled(false);
+            btnNmr85.setEnabled(false);
+            btnNmr86.setEnabled(false);
+            btnNmr87.setEnabled(false);
+            btnNmr88.setEnabled(false);
+            btnNmr89.setEnabled(false);
+            btnNmr90.setEnabled(false);
+            btnNmr91.setEnabled(false);
+            btnNmr92.setEnabled(false);
+            btnNmr93.setEnabled(false);
+            btnNmr94.setEnabled(false);
+            btnNmr95.setEnabled(false);
+            btnNmr96.setEnabled(false);
+            btnNmr97.setEnabled(false);
+            btnNmr98.setEnabled(false);
+            btnNmr99.setEnabled(false);
+            btnNmr100.setEnabled(false);
+            btnNmr101.setEnabled(false);
+            btnNmr102.setEnabled(false);
+            btnNmr103.setEnabled(false);
+            btnNmr104.setEnabled(false);
+            btnNmr105.setEnabled(false);
+
+        } else if (iBloqueia == 82) {
+
+            btnNmr83.setEnabled(false);
+            btnNmr84.setEnabled(false);
+            btnNmr85.setEnabled(false);
+            btnNmr86.setEnabled(false);
+            btnNmr87.setEnabled(false);
+            btnNmr88.setEnabled(false);
+            btnNmr89.setEnabled(false);
+            btnNmr90.setEnabled(false);
+            btnNmr91.setEnabled(false);
+            btnNmr92.setEnabled(false);
+            btnNmr93.setEnabled(false);
+            btnNmr94.setEnabled(false);
+            btnNmr95.setEnabled(false);
+            btnNmr96.setEnabled(false);
+            btnNmr97.setEnabled(false);
+            btnNmr98.setEnabled(false);
+            btnNmr99.setEnabled(false);
+            btnNmr100.setEnabled(false);
+            btnNmr101.setEnabled(false);
+            btnNmr102.setEnabled(false);
+            btnNmr103.setEnabled(false);
+            btnNmr104.setEnabled(false);
+            btnNmr105.setEnabled(false);
+
+        } else if (iBloqueia == 83) {
+
+            btnNmr84.setEnabled(false);
+            btnNmr85.setEnabled(false);
+            btnNmr86.setEnabled(false);
+            btnNmr87.setEnabled(false);
+            btnNmr88.setEnabled(false);
+            btnNmr89.setEnabled(false);
+            btnNmr90.setEnabled(false);
+            btnNmr91.setEnabled(false);
+            btnNmr92.setEnabled(false);
+            btnNmr93.setEnabled(false);
+            btnNmr94.setEnabled(false);
+            btnNmr95.setEnabled(false);
+            btnNmr96.setEnabled(false);
+            btnNmr97.setEnabled(false);
+            btnNmr98.setEnabled(false);
+            btnNmr99.setEnabled(false);
+            btnNmr100.setEnabled(false);
+            btnNmr101.setEnabled(false);
+            btnNmr102.setEnabled(false);
+            btnNmr103.setEnabled(false);
+            btnNmr104.setEnabled(false);
+            btnNmr105.setEnabled(false);
+
+        } else if (iBloqueia == 84) {
+
+            btnNmr85.setEnabled(false);
+            btnNmr86.setEnabled(false);
+            btnNmr87.setEnabled(false);
+            btnNmr88.setEnabled(false);
+            btnNmr89.setEnabled(false);
+            btnNmr90.setEnabled(false);
+            btnNmr91.setEnabled(false);
+            btnNmr92.setEnabled(false);
+            btnNmr93.setEnabled(false);
+            btnNmr94.setEnabled(false);
+            btnNmr95.setEnabled(false);
+            btnNmr96.setEnabled(false);
+            btnNmr97.setEnabled(false);
+            btnNmr98.setEnabled(false);
+            btnNmr99.setEnabled(false);
+            btnNmr100.setEnabled(false);
+            btnNmr101.setEnabled(false);
+            btnNmr102.setEnabled(false);
+            btnNmr103.setEnabled(false);
+            btnNmr104.setEnabled(false);
+            btnNmr105.setEnabled(false);
+
+        } else if (iBloqueia == 85) {
+
+            btnNmr86.setEnabled(false);
+            btnNmr87.setEnabled(false);
+            btnNmr88.setEnabled(false);
+            btnNmr89.setEnabled(false);
+            btnNmr90.setEnabled(false);
+            btnNmr91.setEnabled(false);
+            btnNmr92.setEnabled(false);
+            btnNmr93.setEnabled(false);
+            btnNmr94.setEnabled(false);
+            btnNmr95.setEnabled(false);
+            btnNmr96.setEnabled(false);
+            btnNmr97.setEnabled(false);
+            btnNmr98.setEnabled(false);
+            btnNmr99.setEnabled(false);
+            btnNmr100.setEnabled(false);
+            btnNmr101.setEnabled(false);
+            btnNmr102.setEnabled(false);
+            btnNmr103.setEnabled(false);
+            btnNmr104.setEnabled(false);
+            btnNmr105.setEnabled(false);
+
+        } else if (iBloqueia == 87) {
+
+            btnNmr88.setEnabled(false);
+            btnNmr89.setEnabled(false);
+            btnNmr90.setEnabled(false);
+            btnNmr91.setEnabled(false);
+            btnNmr92.setEnabled(false);
+            btnNmr93.setEnabled(false);
+            btnNmr94.setEnabled(false);
+            btnNmr95.setEnabled(false);
+            btnNmr96.setEnabled(false);
+            btnNmr97.setEnabled(false);
+            btnNmr98.setEnabled(false);
+            btnNmr99.setEnabled(false);
+            btnNmr100.setEnabled(false);
+            btnNmr101.setEnabled(false);
+            btnNmr102.setEnabled(false);
+            btnNmr103.setEnabled(false);
+            btnNmr104.setEnabled(false);
+            btnNmr105.setEnabled(false);
+
+        } else if (iBloqueia == 88) {
+
+            btnNmr89.setEnabled(false);
+            btnNmr90.setEnabled(false);
+            btnNmr91.setEnabled(false);
+            btnNmr92.setEnabled(false);
+            btnNmr93.setEnabled(false);
+            btnNmr94.setEnabled(false);
+            btnNmr95.setEnabled(false);
+            btnNmr96.setEnabled(false);
+            btnNmr97.setEnabled(false);
+            btnNmr98.setEnabled(false);
+            btnNmr99.setEnabled(false);
+            btnNmr100.setEnabled(false);
+            btnNmr101.setEnabled(false);
+            btnNmr102.setEnabled(false);
+            btnNmr103.setEnabled(false);
+            btnNmr104.setEnabled(false);
+            btnNmr105.setEnabled(false);
+
+        } else if (iBloqueia == 89) {
+
+            btnNmr90.setEnabled(false);
+            btnNmr91.setEnabled(false);
+            btnNmr92.setEnabled(false);
+            btnNmr93.setEnabled(false);
+            btnNmr94.setEnabled(false);
+            btnNmr95.setEnabled(false);
+            btnNmr96.setEnabled(false);
+            btnNmr97.setEnabled(false);
+            btnNmr98.setEnabled(false);
+            btnNmr99.setEnabled(false);
+            btnNmr100.setEnabled(false);
+            btnNmr101.setEnabled(false);
+            btnNmr102.setEnabled(false);
+            btnNmr103.setEnabled(false);
+            btnNmr104.setEnabled(false);
+            btnNmr105.setEnabled(false);
+
+        } else if (iBloqueia == 90) {
+
+            btnNmr91.setEnabled(false);
+            btnNmr92.setEnabled(false);
+            btnNmr93.setEnabled(false);
+            btnNmr94.setEnabled(false);
+            btnNmr95.setEnabled(false);
+            btnNmr96.setEnabled(false);
+            btnNmr97.setEnabled(false);
+            btnNmr98.setEnabled(false);
+            btnNmr99.setEnabled(false);
+            btnNmr100.setEnabled(false);
+            btnNmr101.setEnabled(false);
+            btnNmr102.setEnabled(false);
+            btnNmr103.setEnabled(false);
+            btnNmr104.setEnabled(false);
+            btnNmr105.setEnabled(false);
+
+        } else if (iBloqueia == 91) {
+
+            btnNmr92.setEnabled(false);
+            btnNmr93.setEnabled(false);
+            btnNmr94.setEnabled(false);
+            btnNmr95.setEnabled(false);
+            btnNmr96.setEnabled(false);
+            btnNmr97.setEnabled(false);
+            btnNmr98.setEnabled(false);
+            btnNmr99.setEnabled(false);
+            btnNmr100.setEnabled(false);
+            btnNmr101.setEnabled(false);
+            btnNmr102.setEnabled(false);
+            btnNmr103.setEnabled(false);
+            btnNmr104.setEnabled(false);
+            btnNmr105.setEnabled(false);
+
+        } else if (iBloqueia == 92) {
+
+            btnNmr93.setEnabled(false);
+            btnNmr94.setEnabled(false);
+            btnNmr95.setEnabled(false);
+            btnNmr96.setEnabled(false);
+            btnNmr97.setEnabled(false);
+            btnNmr98.setEnabled(false);
+            btnNmr99.setEnabled(false);
+            btnNmr100.setEnabled(false);
+            btnNmr101.setEnabled(false);
+            btnNmr102.setEnabled(false);
+            btnNmr103.setEnabled(false);
+            btnNmr104.setEnabled(false);
+            btnNmr105.setEnabled(false);
+
+        } else if (iBloqueia == 93) {
+
+            btnNmr94.setEnabled(false);
+            btnNmr95.setEnabled(false);
+            btnNmr96.setEnabled(false);
+            btnNmr97.setEnabled(false);
+            btnNmr98.setEnabled(false);
+            btnNmr99.setEnabled(false);
+            btnNmr100.setEnabled(false);
+            btnNmr101.setEnabled(false);
+            btnNmr102.setEnabled(false);
+            btnNmr103.setEnabled(false);
+            btnNmr104.setEnabled(false);
+            btnNmr105.setEnabled(false);
+
+        } else if (iBloqueia == 94) {
+
+            btnNmr95.setEnabled(false);
+            btnNmr96.setEnabled(false);
+            btnNmr97.setEnabled(false);
+            btnNmr98.setEnabled(false);
+            btnNmr99.setEnabled(false);
+            btnNmr100.setEnabled(false);
+            btnNmr101.setEnabled(false);
+            btnNmr102.setEnabled(false);
+            btnNmr103.setEnabled(false);
+            btnNmr104.setEnabled(false);
+            btnNmr105.setEnabled(false);
+
+        } else if (iBloqueia == 95) {
+
+            btnNmr96.setEnabled(false);
+            btnNmr97.setEnabled(false);
+            btnNmr98.setEnabled(false);
+            btnNmr99.setEnabled(false);
+            btnNmr100.setEnabled(false);
+            btnNmr101.setEnabled(false);
+            btnNmr102.setEnabled(false);
+            btnNmr103.setEnabled(false);
+            btnNmr104.setEnabled(false);
+            btnNmr105.setEnabled(false);
+
+        } else if (iBloqueia == 96) {
+
+            btnNmr97.setEnabled(false);
+            btnNmr98.setEnabled(false);
+            btnNmr99.setEnabled(false);
+            btnNmr100.setEnabled(false);
+            btnNmr101.setEnabled(false);
+            btnNmr102.setEnabled(false);
+            btnNmr103.setEnabled(false);
+            btnNmr104.setEnabled(false);
+            btnNmr105.setEnabled(false);
+
+        } else if (iBloqueia == 97) {
+
+            btnNmr98.setEnabled(false);
+            btnNmr99.setEnabled(false);
+            btnNmr100.setEnabled(false);
+            btnNmr101.setEnabled(false);
+            btnNmr102.setEnabled(false);
+            btnNmr103.setEnabled(false);
+            btnNmr104.setEnabled(false);
+            btnNmr105.setEnabled(false);
+
+        } else if (iBloqueia == 98) {
+
+            btnNmr99.setEnabled(false);
+            btnNmr100.setEnabled(false);
+            btnNmr101.setEnabled(false);
+            btnNmr102.setEnabled(false);
+            btnNmr103.setEnabled(false);
+            btnNmr104.setEnabled(false);
+            btnNmr105.setEnabled(false);
+
+        } else if (iBloqueia == 99) {
+
+            btnNmr100.setEnabled(false);
+            btnNmr101.setEnabled(false);
+            btnNmr102.setEnabled(false);
+            btnNmr103.setEnabled(false);
+            btnNmr104.setEnabled(false);
+            btnNmr105.setEnabled(false);
+
+        } else if (iBloqueia == 100) {
+
+            btnNmr101.setEnabled(false);
+            btnNmr102.setEnabled(false);
+            btnNmr103.setEnabled(false);
+            btnNmr104.setEnabled(false);
+            btnNmr105.setEnabled(false);
+
+        } else if (iBloqueia == 101) {
+
+            btnNmr102.setEnabled(false);
+            btnNmr103.setEnabled(false);
+            btnNmr104.setEnabled(false);
+            btnNmr105.setEnabled(false);
+
+        } else if (iBloqueia == 102) {
+
+            btnNmr103.setEnabled(false);
+            btnNmr104.setEnabled(false);
+            btnNmr105.setEnabled(false);
+
+        } else if (iBloqueia == 103) {
+
+            btnNmr104.setEnabled(false);
+            btnNmr105.setEnabled(false);
+
+        } else if (iBloqueia == 104) {
+
+            btnNmr105.setEnabled(false);
+
+        } else if (iBloqueia == 105) {
+
+            btnNmr105.setEnabled(true);
+
         }
     }
 }
