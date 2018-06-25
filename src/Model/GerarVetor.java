@@ -33,16 +33,11 @@ public class GerarVetor {
         }
        return v;
 
-//        for (int i = 0; i < v.length; i++) {
-//            int iMontado;
-//            iMontado = v[i];
-//        }
-//        return null;
     }
 
     public void ImprimeVetor(int vetor[]) {
         for (int i = 0; i < vetor.length; i++) {
-            System.out.print(vetor[i] + " | ");
+            //System.out.print(vetor[i] + " | ");
         }
     }
 }

@@ -1,9 +1,12 @@
 package View;
 
+import java.util.Locale;
+
 public class InternaInformacoes extends javax.swing.JInternalFrame {
 
     public InternaInformacoes() {
         initComponents();
+        txtInfo.setText(title.toUpperCase(Locale.ITALY));
     }
 
     @SuppressWarnings("unchecked")
@@ -114,42 +117,44 @@ public class InternaInformacoes extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-txtInfo.setText(" -- > Ganhando o Jogo\n" +
-" \n" +
-" Para ganhar o Jogo o usuario deverá descobrir os valores do vetor e Montalos não nescessariamente em Ordem.\n" +
-" \n" +
-" O jogo é Finalizado quando o usuario conseguir descobrir todos os valores do vetor sem que o limite de tentativa seja excedidos");
+        txtInfo.setText(" -- > Ganhando o Jogo\n"
+                + " \n"
+                + " Para ganhar o Jogo o usuario deverá descobrir os valores do vetor e Montalos não nescessariamente em Ordem.\n"
+                + " \n"
+                + " O jogo é Finalizado quando o usuario conseguir descobrir todos os valores do vetor sem que o limite de tentativa seja excedidos");
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-txtInfo.setText("-- > Perder o Jogo\n" +
-"\n" +
-"Você perde o jogo quando o seu numero de tentativas chegar a zero.\n" +
-"\n" +
-"As suas tentativas são baseadas no tamanho do vetor gerado, um exemplo:\n" +
-"\n" +
-"Vamos imaginar um vetor de 15 posições com valores até 105.\n" +
-"\n" +
-"o Calculo é o seguinte:\n" +
-"\n" +
-"iTentativas   =   iTamanhoVetor   x   3;\n" +
-"\n" +
-"então no vetor de 15 posições você possue 45 tentativas para chegar ao resultado!\n" +
-"\n" +
-"ou seja o seu numero de tentativas é o tamanho do seu vetor multiplicado por 3.");
+        txtInfo.setText("-- > Perder o Jogo\n"
+                + "\n"
+                + "Você perde o jogo quando o seu numero de tentativas chegar a zero.\n"
+                + "\n"
+                + "As suas tentativas são baseadas no tamanho do vetor gerado, um exemplo:\n"
+                + "\n"
+                + "Vamos imaginar um vetor de 15 posições com valores até 105.\n"
+                + "\n"
+                + "o Calculo é o seguinte:\n"
+                + "\n"
+                + "iTentativas   =   iTamanhoVetor   x   3;\n"
+                + "\n"
+                + "então no vetor de 15 posições você possue 45 tentativas para chegar ao resultado!\n"
+                + "\n"
+                + "ou seja o seu numero de tentativas é o tamanho do seu vetor multiplicado por 3.");
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-txtInfo.setText("-- > Informações do Software\n" +
-"\n" +
-"Este pequeno projeto foi desenvolvido como forma de obtenção da nota parcial da P.I. 2\n" +
-"\n" +
-"Uso institucional exclusivo!\n" +
-"\n" +
-"v1.0.5\n" +
-"\n" +
-"Itamar Filho - Controle de Qualidade | Tester\n" +
-"Analise e Desenvolvimenbto de Sistemas");
+        txtInfo.setText("-- > Informações do Software\n"
+                + "\n"
+                + "Este pequeno projeto foi desenvolvido como forma de obtenção da nota parcial da P.I. 2\n"
+                + "\n"
+                + "Uso institucional exclusivo!\n"
+                + "\n"
+                + "v1.0.5\n"
+                + "\n"
+                + "Itamar Filho - Controle de Qualidade | Tester\n"
+                + "(27) 9 9986-6787\n"
+                + "valvassoriitamar@gmail.com\n"
+                + "Analise e Desenvolvimenbto de Sistemas");
     }//GEN-LAST:event_jButton3ActionPerformed
 
 

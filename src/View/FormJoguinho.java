@@ -1,15 +1,20 @@
 package View;
 
 import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import javax.swing.JInternalFrame;
 import java.net.MalformedURLException;
 import javax.swing.JOptionPane;
+import javax.swing.Timer;
 
 @SuppressWarnings("serial")
-public class FormJoguinho extends javax.swing.JFrame {
+public final class FormJoguinho extends javax.swing.JFrame {
+
+    Timer tempo = new Timer(100, new Teste());
 
     public FormJoguinho(String usuario) throws UnknownHostException, IOException {
         initComponents();
@@ -17,6 +22,7 @@ public class FormJoguinho extends javax.swing.JFrame {
         txtLogado.setText(usuario.toUpperCase());
         obterDados();
         setIcon();
+        tempo.start();
     }
 
     private FormJoguinho() {
@@ -30,8 +36,6 @@ public class FormJoguinho extends javax.swing.JFrame {
         jToolBar1 = new javax.swing.JToolBar();
         jButton1 = new javax.swing.JButton();
         jSeparator3 = new javax.swing.JToolBar.Separator();
-        jButton3 = new javax.swing.JButton();
-        jSeparator4 = new javax.swing.JToolBar.Separator();
         jButton4 = new javax.swing.JButton();
         jSeparator5 = new javax.swing.JToolBar.Separator();
         jDesktopPaneFundo = new javax.swing.JDesktopPane();
@@ -73,19 +77,6 @@ public class FormJoguinho extends javax.swing.JFrame {
         jToolBar1.add(jButton1);
         jToolBar1.add(jSeparator3);
 
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Actions-games-highscores-icon.png"))); // NOI18N
-        jButton3.setToolTipText("Estatisticas");
-        jButton3.setFocusable(false);
-        jButton3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton3.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
-        jToolBar1.add(jButton3);
-        jToolBar1.add(jSeparator4);
-
         jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Actions-games-config-custom-icon.png"))); // NOI18N
         jButton4.setToolTipText("Informações");
         jButton4.setFocusable(false);
@@ -105,11 +96,11 @@ public class FormJoguinho extends javax.swing.JFrame {
         jDesktopPaneFundo.setLayout(jDesktopPaneFundoLayout);
         jDesktopPaneFundoLayout.setHorizontalGroup(
             jDesktopPaneFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 660, Short.MAX_VALUE)
+            .addGap(0, 894, Short.MAX_VALUE)
         );
         jDesktopPaneFundoLayout.setVerticalGroup(
             jDesktopPaneFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 297, Short.MAX_VALUE)
+            .addGap(0, 467, Short.MAX_VALUE)
         );
 
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/if_Boss_132688.png"))); // NOI18N
@@ -208,9 +199,9 @@ public class FormJoguinho extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jToolBar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jDesktopPaneFundo)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jToolBar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -229,10 +220,6 @@ public class FormJoguinho extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         AbrirInternal(new InternaJoguinoVetor(txtLogado.getText()));
     }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        AbrirInternal(new InternaEstaticas(txtLogado.getText()));
-    }//GEN-LAST:event_jButton3ActionPerformed
 
     private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
         int sair = JOptionPane.showConfirmDialog(null, "Tem certeza que deseja sair ?", "Atençao", JOptionPane.YES_NO_OPTION, 2);
@@ -283,7 +270,6 @@ public class FormJoguinho extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
@@ -292,7 +278,6 @@ public class FormJoguinho extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JToolBar.Separator jSeparator3;
-    private javax.swing.JToolBar.Separator jSeparator4;
     private javax.swing.JToolBar.Separator jSeparator5;
     private javax.swing.JSeparator jSeparator6;
     private javax.swing.JSeparator jSeparator7;
@@ -329,5 +314,14 @@ public void AbrirInternal(JInternalFrame frame) {
 
     private void setIcon() {
         setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Imagens/ICON.png")));
+    }
+
+    public class Teste implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            AbrirInternal(new InternaJoguinoVetor(txtLogado.getText()));
+            tempo.stop();
+        }
     }
 }

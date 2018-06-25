@@ -1639,7 +1639,7 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel8)
                         .addComponent(txtChances, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(15, 15, 15))
         );
 
         pack();
@@ -1695,6 +1695,8 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
                 iValores = Integer.parseInt(sValores);
                 if (iTamanho > iValores) {
                     JOptionPane.showMessageDialog(this, "Os valores do Vetor não pode ser menor que o seu Tamanho!");
+                    txtValoresVetor.setText("");
+                    txtValoresVetor.requestFocus();
                 } else {
                     txtTamanhoVetor.setEditable(false);
                     txtValoresVetor.setEditable(false);
@@ -13235,4 +13237,50 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
 
         }
     }
+//    public void SalvarXML(){
+//        try {
+//            
+//            DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+//            DocumentBuilder db = dbf.newDocumentBuilder();
+//            Document documentoXML = db.newDocument();
+//
+//            Element dados = documentoXML.createElement("dados");
+//            documentoXML.appendChild(dados);
+//
+//            Element usuario = documentoXML.createElement("usuario");
+//            Attr id = documentoXML.createAttribute("id");
+//            id.setValue("1");
+//
+//            usuario.setAttributeNode(id);
+//
+//            dados.appendChild(usuario);
+//
+//            Element nome = documentoXML.createElement("nome");
+//
+//            nome.appendChild(documentoXML.createTextNode("Itamar"));
+//            usuario.appendChild(nome);
+//
+//            Element idade = documentoXML.createElement("idade");
+//
+//            idade.appendChild(documentoXML.createTextNode("18"));
+//
+//            usuario.appendChild(idade);
+//            
+//            TransformerFactory tf = TransformerFactory.newInstance();
+//            Transformer transformer = tf.newTransformer();
+//            
+//            DOMSource documentoFonte = new DOMSource(documentoXML);
+//            
+//            StreamResult documentoFinal = new StreamResult(new File ("teste.xml"));
+//            
+//            transformer.transform(documentoFonte, documentoFinal);
+//
+//        } catch (ParserConfigurationException ex) {
+//            Logger.getLogger(DadosXML.class.getName()).log(Level.SEVERE, null, ex);
+//        } catch (TransformerConfigurationException ex) {
+//            Logger.getLogger(DadosXML.class.getName()).log(Level.SEVERE, null, ex);
+//        } catch (TransformerException ex) {
+//            Logger.getLogger(DadosXML.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//    }
 }
