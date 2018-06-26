@@ -2,7 +2,6 @@ package View;
 
 import Model.GerarVetor;
 import Model.PesquisaVetor;
-import Model.SalvarTXT;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.event.ActionEvent;
@@ -17,7 +16,6 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
 
     PesquisaVetor pVetor = new PesquisaVetor();
     GerarVetor gVetor = new GerarVetor();
-    SalvarTXT sSalvar = new SalvarTXT();
     Timer tTemporizador = new Timer(1000, new hora());
     Timer tTemporizadorInicio = new Timer(1000, new horaInicio());
 
@@ -1633,13 +1631,13 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel7)
-                        .addComponent(txtTentativas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btnInicia)
-                        .addComponent(btnParar))
+                        .addComponent(txtTentativas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel8)
-                        .addComponent(txtChances, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(15, 15, 15))
+                        .addComponent(txtChances, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnParar, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnInicia, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(14, 14, 14))
         );
 
         pack();
@@ -1690,6 +1688,7 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
 
             if (txtTamanhoVetor.getText().equals("") || txtValoresVetor.getText().equals("")) {
                 JOptionPane.showMessageDialog(null, "Digite um Tamanho e um Valor para poder Prosseguir!");
+                txtTamanhoVetor.requestFocus();
             } else {
                 iTamanho = Integer.parseInt(sTamanho);
                 iValores = Integer.parseInt(sValores);
@@ -1762,6 +1761,11 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
         txtErro.setText(sSomaErros);
         String sPerdeu = Integer.toString(iPerdeu);
         txtTentativas.setText(sPerdeu);
+        int iNegativa = Integer.parseInt(txtTentativas.getText()), iVermelhaTentativas;
+        iVermelhaTentativas = iNegativa / 2 - 2;
+        if (iNegativa == iVermelhaTentativas) {
+            txtTentativas.setForeground(Color.RED);
+        }
 
         String sAcerto = txtAcertos.getText();
         int iAcerto = Integer.parseInt(sAcerto);
@@ -1819,6 +1823,11 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
         txtErro.setText(sSomaErros);
         String sPerdeu = Integer.toString(iPerdeu);
         txtTentativas.setText(sPerdeu);
+        int iNegativa = Integer.parseInt(txtTentativas.getText()), iVermelhaTentativas;
+        iVermelhaTentativas = iNegativa / 2;
+        if (iNegativa == iVermelhaTentativas) {
+            txtTentativas.setForeground(Color.RED);
+        }
 
         String sAcerto = txtAcertos.getText();
         int iAcerto = Integer.parseInt(sAcerto);
@@ -1874,6 +1883,11 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
         txtErro.setText(sSomaErros);
         String sPerdeu = Integer.toString(iPerdeu);
         txtTentativas.setText(sPerdeu);
+        int iNegativa = Integer.parseInt(txtTentativas.getText()), iVermelhaTentativas;
+        iVermelhaTentativas = iNegativa / 2 - 2;
+        if (iNegativa == iVermelhaTentativas) {
+            txtTentativas.setForeground(Color.RED);
+        }
 
         String sAcerto = txtAcertos.getText();
         int iAcerto = Integer.parseInt(sAcerto);
@@ -1929,6 +1943,11 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
         txtErro.setText(sSomaErros);
         String sPerdeu = Integer.toString(iPerdeu);
         txtTentativas.setText(sPerdeu);
+        int iNegativa = Integer.parseInt(txtTentativas.getText()), iVermelhaTentativas;
+        iVermelhaTentativas = iNegativa / 2 - 2;
+        if (iNegativa == iVermelhaTentativas) {
+            txtTentativas.setForeground(Color.RED);
+        }
 
         String sAcerto = txtAcertos.getText();
         int iAcerto = Integer.parseInt(sAcerto);
@@ -1984,6 +2003,11 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
         txtErro.setText(sSomaErros);
         String sPerdeu = Integer.toString(iPerdeu);
         txtTentativas.setText(sPerdeu);
+        int iNegativa = Integer.parseInt(txtTentativas.getText()), iVermelhaTentativas;
+        iVermelhaTentativas = iNegativa / 2 - 2;
+        if (iNegativa == iVermelhaTentativas) {
+            txtTentativas.setForeground(Color.RED);
+        }
 
         String sAcerto = txtAcertos.getText();
         int iAcerto = Integer.parseInt(sAcerto);
@@ -2039,6 +2063,11 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
         txtErro.setText(sSomaErros);
         String sPerdeu = Integer.toString(iPerdeu);
         txtTentativas.setText(sPerdeu);
+        int iNegativa = Integer.parseInt(txtTentativas.getText()), iVermelhaTentativas;
+        iVermelhaTentativas = iNegativa / 2 - 2;
+        if (iNegativa == iVermelhaTentativas) {
+            txtTentativas.setForeground(Color.RED);
+        }
 
         String sAcerto = txtAcertos.getText();
         int iAcerto = Integer.parseInt(sAcerto);
@@ -2094,6 +2123,11 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
         txtErro.setText(sSomaErros);
         String sPerdeu = Integer.toString(iPerdeu);
         txtTentativas.setText(sPerdeu);
+        int iNegativa = Integer.parseInt(txtTentativas.getText()), iVermelhaTentativas;
+        iVermelhaTentativas = iNegativa / 2 - 2;
+        if (iNegativa == iVermelhaTentativas) {
+            txtTentativas.setForeground(Color.RED);
+        }
 
         String sAcerto = txtAcertos.getText();
         int iAcerto = Integer.parseInt(sAcerto);
@@ -2149,6 +2183,11 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
         txtErro.setText(sSomaErros);
         String sPerdeu = Integer.toString(iPerdeu);
         txtTentativas.setText(sPerdeu);
+        int iNegativa = Integer.parseInt(txtTentativas.getText()), iVermelhaTentativas;
+        iVermelhaTentativas = iNegativa / 2 - 2;
+        if (iNegativa == iVermelhaTentativas) {
+            txtTentativas.setForeground(Color.RED);
+        }
 
         String sAcerto = txtAcertos.getText();
         int iAcerto = Integer.parseInt(sAcerto);
@@ -2205,6 +2244,11 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
         txtErro.setText(sSomaErros);
         String sPerdeu = Integer.toString(iPerdeu);
         txtTentativas.setText(sPerdeu);
+        int iNegativa = Integer.parseInt(txtTentativas.getText()), iVermelhaTentativas;
+        iVermelhaTentativas = iNegativa / 2 - 2;
+        if (iNegativa == iVermelhaTentativas) {
+            txtTentativas.setForeground(Color.RED);
+        }
 
         String sAcerto = txtAcertos.getText();
         int iAcerto = Integer.parseInt(sAcerto);
@@ -2260,6 +2304,11 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
         txtErro.setText(sSomaErros);
         String sPerdeu = Integer.toString(iPerdeu);
         txtTentativas.setText(sPerdeu);
+        int iNegativa = Integer.parseInt(txtTentativas.getText()), iVermelhaTentativas;
+        iVermelhaTentativas = iNegativa / 2 - 2;
+        if (iNegativa == iVermelhaTentativas) {
+            txtTentativas.setForeground(Color.RED);
+        }
 
         String sAcerto = txtAcertos.getText();
         int iAcerto = Integer.parseInt(sAcerto);
@@ -2315,6 +2364,11 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
         txtErro.setText(sSomaErros);
         String sPerdeu = Integer.toString(iPerdeu);
         txtTentativas.setText(sPerdeu);
+        int iNegativa = Integer.parseInt(txtTentativas.getText()), iVermelhaTentativas;
+        iVermelhaTentativas = iNegativa / 2 - 2;
+        if (iNegativa == iVermelhaTentativas) {
+            txtTentativas.setForeground(Color.RED);
+        }
 
         String sAcerto = txtAcertos.getText();
         int iAcerto = Integer.parseInt(sAcerto);
@@ -2370,6 +2424,11 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
         txtErro.setText(sSomaErros);
         String sPerdeu = Integer.toString(iPerdeu);
         txtTentativas.setText(sPerdeu);
+        int iNegativa = Integer.parseInt(txtTentativas.getText()), iVermelhaTentativas;
+        iVermelhaTentativas = iNegativa / 2 - 2;
+        if (iNegativa == iVermelhaTentativas) {
+            txtTentativas.setForeground(Color.RED);
+        }
 
         String sAcerto = txtAcertos.getText();
         int iAcerto = Integer.parseInt(sAcerto);
@@ -2425,6 +2484,11 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
         txtErro.setText(sSomaErros);
         String sPerdeu = Integer.toString(iPerdeu);
         txtTentativas.setText(sPerdeu);
+        int iNegativa = Integer.parseInt(txtTentativas.getText()), iVermelhaTentativas;
+        iVermelhaTentativas = iNegativa / 2 - 2;
+        if (iNegativa == iVermelhaTentativas) {
+            txtTentativas.setForeground(Color.RED);
+        }
 
         String sAcerto = txtAcertos.getText();
         int iAcerto = Integer.parseInt(sAcerto);
@@ -2480,6 +2544,11 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
         txtErro.setText(sSomaErros);
         String sPerdeu = Integer.toString(iPerdeu);
         txtTentativas.setText(sPerdeu);
+        int iNegativa = Integer.parseInt(txtTentativas.getText()), iVermelhaTentativas;
+        iVermelhaTentativas = iNegativa / 2 - 2;
+        if (iNegativa == iVermelhaTentativas) {
+            txtTentativas.setForeground(Color.RED);
+        }
 
         String sAcerto = txtAcertos.getText();
         int iAcerto = Integer.parseInt(sAcerto);
@@ -2535,6 +2604,11 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
         txtErro.setText(sSomaErros);
         String sPerdeu = Integer.toString(iPerdeu);
         txtTentativas.setText(sPerdeu);
+        int iNegativa = Integer.parseInt(txtTentativas.getText()), iVermelhaTentativas;
+        iVermelhaTentativas = iNegativa / 2 - 2;
+        if (iNegativa == iVermelhaTentativas) {
+            txtTentativas.setForeground(Color.RED);
+        }
 
         String sAcerto = txtAcertos.getText();
         int iAcerto = Integer.parseInt(sAcerto);
@@ -2590,6 +2664,11 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
         txtErro.setText(sSomaErros);
         String sPerdeu = Integer.toString(iPerdeu);
         txtTentativas.setText(sPerdeu);
+        int iNegativa = Integer.parseInt(txtTentativas.getText()), iVermelhaTentativas;
+        iVermelhaTentativas = iNegativa / 2 - 2;
+        if (iNegativa == iVermelhaTentativas) {
+            txtTentativas.setForeground(Color.RED);
+        }
 
         String sAcerto = txtAcertos.getText();
         int iAcerto = Integer.parseInt(sAcerto);
@@ -2645,6 +2724,11 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
         txtErro.setText(sSomaErros);
         String sPerdeu = Integer.toString(iPerdeu);
         txtTentativas.setText(sPerdeu);
+        int iNegativa = Integer.parseInt(txtTentativas.getText()), iVermelhaTentativas;
+        iVermelhaTentativas = iNegativa / 2 - 2;
+        if (iNegativa == iVermelhaTentativas) {
+            txtTentativas.setForeground(Color.RED);
+        }
 
         String sAcerto = txtAcertos.getText();
         int iAcerto = Integer.parseInt(sAcerto);
@@ -2700,6 +2784,11 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
         txtErro.setText(sSomaErros);
         String sPerdeu = Integer.toString(iPerdeu);
         txtTentativas.setText(sPerdeu);
+        int iNegativa = Integer.parseInt(txtTentativas.getText()), iVermelhaTentativas;
+        iVermelhaTentativas = iNegativa / 2 - 2;
+        if (iNegativa == iVermelhaTentativas) {
+            txtTentativas.setForeground(Color.RED);
+        }
 
         String sAcerto = txtAcertos.getText();
         int iAcerto = Integer.parseInt(sAcerto);
@@ -2755,6 +2844,11 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
         txtErro.setText(sSomaErros);
         String sPerdeu = Integer.toString(iPerdeu);
         txtTentativas.setText(sPerdeu);
+        int iNegativa = Integer.parseInt(txtTentativas.getText()), iVermelhaTentativas;
+        iVermelhaTentativas = iNegativa / 2 - 2;
+        if (iNegativa == iVermelhaTentativas) {
+            txtTentativas.setForeground(Color.RED);
+        }
 
         String sAcerto = txtAcertos.getText();
         int iAcerto = Integer.parseInt(sAcerto);
@@ -2810,6 +2904,11 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
         txtErro.setText(sSomaErros);
         String sPerdeu = Integer.toString(iPerdeu);
         txtTentativas.setText(sPerdeu);
+        int iNegativa = Integer.parseInt(txtTentativas.getText()), iVermelhaTentativas;
+        iVermelhaTentativas = iNegativa / 2 - 2;
+        if (iNegativa == iVermelhaTentativas) {
+            txtTentativas.setForeground(Color.RED);
+        }
 
         String sAcerto = txtAcertos.getText();
         int iAcerto = Integer.parseInt(sAcerto);
@@ -2865,6 +2964,11 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
         txtErro.setText(sSomaErros);
         String sPerdeu = Integer.toString(iPerdeu);
         txtTentativas.setText(sPerdeu);
+        int iNegativa = Integer.parseInt(txtTentativas.getText()), iVermelhaTentativas;
+        iVermelhaTentativas = iNegativa / 2 - 2;
+        if (iNegativa == iVermelhaTentativas) {
+            txtTentativas.setForeground(Color.RED);
+        }
 
         String sAcerto = txtAcertos.getText();
         int iAcerto = Integer.parseInt(sAcerto);
@@ -2920,6 +3024,11 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
         txtErro.setText(sSomaErros);
         String sPerdeu = Integer.toString(iPerdeu);
         txtTentativas.setText(sPerdeu);
+        int iNegativa = Integer.parseInt(txtTentativas.getText()), iVermelhaTentativas;
+        iVermelhaTentativas = iNegativa / 2 - 2;
+        if (iNegativa == iVermelhaTentativas) {
+            txtTentativas.setForeground(Color.RED);
+        }
 
         String sAcerto = txtAcertos.getText();
         int iAcerto = Integer.parseInt(sAcerto);
@@ -2975,6 +3084,11 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
         txtErro.setText(sSomaErros);
         String sPerdeu = Integer.toString(iPerdeu);
         txtTentativas.setText(sPerdeu);
+        int iNegativa = Integer.parseInt(txtTentativas.getText()), iVermelhaTentativas;
+        iVermelhaTentativas = iNegativa / 2 - 2;
+        if (iNegativa == iVermelhaTentativas) {
+            txtTentativas.setForeground(Color.RED);
+        }
 
         String sAcerto = txtAcertos.getText();
         int iAcerto = Integer.parseInt(sAcerto);
@@ -3030,6 +3144,11 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
         txtErro.setText(sSomaErros);
         String sPerdeu = Integer.toString(iPerdeu);
         txtTentativas.setText(sPerdeu);
+        int iNegativa = Integer.parseInt(txtTentativas.getText()), iVermelhaTentativas;
+        iVermelhaTentativas = iNegativa / 2 - 2;
+        if (iNegativa == iVermelhaTentativas) {
+            txtTentativas.setForeground(Color.RED);
+        }
 
         String sAcerto = txtAcertos.getText();
         int iAcerto = Integer.parseInt(sAcerto);
@@ -3085,6 +3204,11 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
         txtErro.setText(sSomaErros);
         String sPerdeu = Integer.toString(iPerdeu);
         txtTentativas.setText(sPerdeu);
+        int iNegativa = Integer.parseInt(txtTentativas.getText()), iVermelhaTentativas;
+        iVermelhaTentativas = iNegativa / 2 - 2;
+        if (iNegativa == iVermelhaTentativas) {
+            txtTentativas.setForeground(Color.RED);
+        }
 
         String sAcerto = txtAcertos.getText();
         int iAcerto = Integer.parseInt(sAcerto);
@@ -3140,6 +3264,11 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
         txtErro.setText(sSomaErros);
         String sPerdeu = Integer.toString(iPerdeu);
         txtTentativas.setText(sPerdeu);
+        int iNegativa = Integer.parseInt(txtTentativas.getText()), iVermelhaTentativas;
+        iVermelhaTentativas = iNegativa / 2 - 2;
+        if (iNegativa == iVermelhaTentativas) {
+            txtTentativas.setForeground(Color.RED);
+        }
 
         String sAcerto = txtAcertos.getText();
         int iAcerto = Integer.parseInt(sAcerto);
@@ -3195,6 +3324,11 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
         txtErro.setText(sSomaErros);
         String sPerdeu = Integer.toString(iPerdeu);
         txtTentativas.setText(sPerdeu);
+        int iNegativa = Integer.parseInt(txtTentativas.getText()), iVermelhaTentativas;
+        iVermelhaTentativas = iNegativa / 2 - 2;
+        if (iNegativa == iVermelhaTentativas) {
+            txtTentativas.setForeground(Color.RED);
+        }
 
         String sAcerto = txtAcertos.getText();
         int iAcerto = Integer.parseInt(sAcerto);
@@ -3250,6 +3384,11 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
         txtErro.setText(sSomaErros);
         String sPerdeu = Integer.toString(iPerdeu);
         txtTentativas.setText(sPerdeu);
+        int iNegativa = Integer.parseInt(txtTentativas.getText()), iVermelhaTentativas;
+        iVermelhaTentativas = iNegativa / 2 - 2;
+        if (iNegativa == iVermelhaTentativas) {
+            txtTentativas.setForeground(Color.RED);
+        }
 
         String sAcerto = txtAcertos.getText();
         int iAcerto = Integer.parseInt(sAcerto);
@@ -3305,6 +3444,11 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
         txtErro.setText(sSomaErros);
         String sPerdeu = Integer.toString(iPerdeu);
         txtTentativas.setText(sPerdeu);
+        int iNegativa = Integer.parseInt(txtTentativas.getText()), iVermelhaTentativas;
+        iVermelhaTentativas = iNegativa / 2 - 2;
+        if (iNegativa == iVermelhaTentativas) {
+            txtTentativas.setForeground(Color.RED);
+        }
 
         String sAcerto = txtAcertos.getText();
         int iAcerto = Integer.parseInt(sAcerto);
@@ -3360,6 +3504,11 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
         txtErro.setText(sSomaErros);
         String sPerdeu = Integer.toString(iPerdeu);
         txtTentativas.setText(sPerdeu);
+        int iNegativa = Integer.parseInt(txtTentativas.getText()), iVermelhaTentativas;
+        iVermelhaTentativas = iNegativa / 2 - 2;
+        if (iNegativa == iVermelhaTentativas) {
+            txtTentativas.setForeground(Color.RED);
+        }
 
         String sAcerto = txtAcertos.getText();
         int iAcerto = Integer.parseInt(sAcerto);
@@ -3415,6 +3564,11 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
         txtErro.setText(sSomaErros);
         String sPerdeu = Integer.toString(iPerdeu);
         txtTentativas.setText(sPerdeu);
+        int iNegativa = Integer.parseInt(txtTentativas.getText()), iVermelhaTentativas;
+        iVermelhaTentativas = iNegativa / 2 - 2;
+        if (iNegativa == iVermelhaTentativas) {
+            txtTentativas.setForeground(Color.RED);
+        }
 
         String sAcerto = txtAcertos.getText();
         int iAcerto = Integer.parseInt(sAcerto);
@@ -3470,6 +3624,11 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
         txtErro.setText(sSomaErros);
         String sPerdeu = Integer.toString(iPerdeu);
         txtTentativas.setText(sPerdeu);
+        int iNegativa = Integer.parseInt(txtTentativas.getText()), iVermelhaTentativas;
+        iVermelhaTentativas = iNegativa / 2 - 2;
+        if (iNegativa == iVermelhaTentativas) {
+            txtTentativas.setForeground(Color.RED);
+        }
 
         String sAcerto = txtAcertos.getText();
         int iAcerto = Integer.parseInt(sAcerto);
@@ -3525,6 +3684,11 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
         txtErro.setText(sSomaErros);
         String sPerdeu = Integer.toString(iPerdeu);
         txtTentativas.setText(sPerdeu);
+        int iNegativa = Integer.parseInt(txtTentativas.getText()), iVermelhaTentativas;
+        iVermelhaTentativas = iNegativa / 2 - 2;
+        if (iNegativa == iVermelhaTentativas) {
+            txtTentativas.setForeground(Color.RED);
+        }
 
         String sAcerto = txtAcertos.getText();
         int iAcerto = Integer.parseInt(sAcerto);
@@ -3580,6 +3744,11 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
         txtErro.setText(sSomaErros);
         String sPerdeu = Integer.toString(iPerdeu);
         txtTentativas.setText(sPerdeu);
+        int iNegativa = Integer.parseInt(txtTentativas.getText()), iVermelhaTentativas;
+        iVermelhaTentativas = iNegativa / 2 - 2;
+        if (iNegativa == iVermelhaTentativas) {
+            txtTentativas.setForeground(Color.RED);
+        }
 
         String sAcerto = txtAcertos.getText();
         int iAcerto = Integer.parseInt(sAcerto);
@@ -3635,6 +3804,11 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
         txtErro.setText(sSomaErros);
         String sPerdeu = Integer.toString(iPerdeu);
         txtTentativas.setText(sPerdeu);
+        int iNegativa = Integer.parseInt(txtTentativas.getText()), iVermelhaTentativas;
+        iVermelhaTentativas = iNegativa / 2 - 2;
+        if (iNegativa == iVermelhaTentativas) {
+            txtTentativas.setForeground(Color.RED);
+        }
 
         String sAcerto = txtAcertos.getText();
         int iAcerto = Integer.parseInt(sAcerto);
@@ -3690,6 +3864,11 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
         txtErro.setText(sSomaErros);
         String sPerdeu = Integer.toString(iPerdeu);
         txtTentativas.setText(sPerdeu);
+        int iNegativa = Integer.parseInt(txtTentativas.getText()), iVermelhaTentativas;
+        iVermelhaTentativas = iNegativa / 2 - 2;
+        if (iNegativa == iVermelhaTentativas) {
+            txtTentativas.setForeground(Color.RED);
+        }
 
         String sAcerto = txtAcertos.getText();
         int iAcerto = Integer.parseInt(sAcerto);
@@ -3745,6 +3924,11 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
         txtErro.setText(sSomaErros);
         String sPerdeu = Integer.toString(iPerdeu);
         txtTentativas.setText(sPerdeu);
+        int iNegativa = Integer.parseInt(txtTentativas.getText()), iVermelhaTentativas;
+        iVermelhaTentativas = iNegativa / 2 - 2;
+        if (iNegativa == iVermelhaTentativas) {
+            txtTentativas.setForeground(Color.RED);
+        }
 
         String sAcerto = txtAcertos.getText();
         int iAcerto = Integer.parseInt(sAcerto);
@@ -3800,6 +3984,11 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
         txtErro.setText(sSomaErros);
         String sPerdeu = Integer.toString(iPerdeu);
         txtTentativas.setText(sPerdeu);
+        int iNegativa = Integer.parseInt(txtTentativas.getText()), iVermelhaTentativas;
+        iVermelhaTentativas = iNegativa / 2 - 2;
+        if (iNegativa == iVermelhaTentativas) {
+            txtTentativas.setForeground(Color.RED);
+        }
 
         String sAcerto = txtAcertos.getText();
         int iAcerto = Integer.parseInt(sAcerto);
@@ -3855,6 +4044,11 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
         txtErro.setText(sSomaErros);
         String sPerdeu = Integer.toString(iPerdeu);
         txtTentativas.setText(sPerdeu);
+        int iNegativa = Integer.parseInt(txtTentativas.getText()), iVermelhaTentativas;
+        iVermelhaTentativas = iNegativa / 2 - 2;
+        if (iNegativa == iVermelhaTentativas) {
+            txtTentativas.setForeground(Color.RED);
+        }
 
         String sAcerto = txtAcertos.getText();
         int iAcerto = Integer.parseInt(sAcerto);
@@ -3910,6 +4104,11 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
         txtErro.setText(sSomaErros);
         String sPerdeu = Integer.toString(iPerdeu);
         txtTentativas.setText(sPerdeu);
+        int iNegativa = Integer.parseInt(txtTentativas.getText()), iVermelhaTentativas;
+        iVermelhaTentativas = iNegativa / 2 - 2;
+        if (iNegativa == iVermelhaTentativas) {
+            txtTentativas.setForeground(Color.RED);
+        }
 
         String sAcerto = txtAcertos.getText();
         int iAcerto = Integer.parseInt(sAcerto);
@@ -3962,6 +4161,11 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
         txtErro.setText(sSomaErros);
         String sPerdeu = Integer.toString(iPerdeu);
         txtTentativas.setText(sPerdeu);
+        int iNegativa = Integer.parseInt(txtTentativas.getText()), iVermelhaTentativas;
+        iVermelhaTentativas = iNegativa / 2 - 2;
+        if (iNegativa == iVermelhaTentativas) {
+            txtTentativas.setForeground(Color.RED);
+        }
         String sAcerto = txtAcertos.getText();
         int iAcerto = Integer.parseInt(sAcerto);
         if (iTamanho == iAcerto) {
@@ -4013,6 +4217,11 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
         txtErro.setText(sSomaErros);
         String sPerdeu = Integer.toString(iPerdeu);
         txtTentativas.setText(sPerdeu);
+        int iNegativa = Integer.parseInt(txtTentativas.getText()), iVermelhaTentativas;
+        iVermelhaTentativas = iNegativa / 2 - 2;
+        if (iNegativa == iVermelhaTentativas) {
+            txtTentativas.setForeground(Color.RED);
+        }
         String sAcerto = txtAcertos.getText();
         int iAcerto = Integer.parseInt(sAcerto);
         if (iTamanho == iAcerto) {
@@ -4063,6 +4272,11 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
         txtErro.setText(sSomaErros);
         String sPerdeu = Integer.toString(iPerdeu);
         txtTentativas.setText(sPerdeu);
+        int iNegativa = Integer.parseInt(txtTentativas.getText()), iVermelhaTentativas;
+        iVermelhaTentativas = iNegativa / 2 - 2;
+        if (iNegativa == iVermelhaTentativas) {
+            txtTentativas.setForeground(Color.RED);
+        }
         String sAcerto = txtAcertos.getText();
         int iAcerto = Integer.parseInt(sAcerto);
         if (iTamanho == iAcerto) {
@@ -4114,6 +4328,11 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
         txtErro.setText(sSomaErros);
         String sPerdeu = Integer.toString(iPerdeu);
         txtTentativas.setText(sPerdeu);
+        int iNegativa = Integer.parseInt(txtTentativas.getText()), iVermelhaTentativas;
+        iVermelhaTentativas = iNegativa / 2 - 2;
+        if (iNegativa == iVermelhaTentativas) {
+            txtTentativas.setForeground(Color.RED);
+        }
         String sAcerto = txtAcertos.getText();
         int iAcerto = Integer.parseInt(sAcerto);
         if (iTamanho == iAcerto) {
@@ -4165,6 +4384,11 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
         txtErro.setText(sSomaErros);
         String sPerdeu = Integer.toString(iPerdeu);
         txtTentativas.setText(sPerdeu);
+        int iNegativa = Integer.parseInt(txtTentativas.getText()), iVermelhaTentativas;
+        iVermelhaTentativas = iNegativa / 2 - 2;
+        if (iNegativa == iVermelhaTentativas) {
+            txtTentativas.setForeground(Color.RED);
+        }
         String sAcerto = txtAcertos.getText();
         int iAcerto = Integer.parseInt(sAcerto);
         if (iTamanho == iAcerto) {
@@ -4216,6 +4440,11 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
         txtErro.setText(sSomaErros);
         String sPerdeu = Integer.toString(iPerdeu);
         txtTentativas.setText(sPerdeu);
+        int iNegativa = Integer.parseInt(txtTentativas.getText()), iVermelhaTentativas;
+        iVermelhaTentativas = iNegativa / 2 - 2;
+        if (iNegativa == iVermelhaTentativas) {
+            txtTentativas.setForeground(Color.RED);
+        }
         String sAcerto = txtAcertos.getText();
         int iAcerto = Integer.parseInt(sAcerto);
         if (iTamanho == iAcerto) {
@@ -4267,6 +4496,11 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
         txtErro.setText(sSomaErros);
         String sPerdeu = Integer.toString(iPerdeu);
         txtTentativas.setText(sPerdeu);
+        int iNegativa = Integer.parseInt(txtTentativas.getText()), iVermelhaTentativas;
+        iVermelhaTentativas = iNegativa / 2 - 2;
+        if (iNegativa == iVermelhaTentativas) {
+            txtTentativas.setForeground(Color.RED);
+        }
         String sAcerto = txtAcertos.getText();
         int iAcerto = Integer.parseInt(sAcerto);
         if (iTamanho == iAcerto) {
@@ -4318,6 +4552,11 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
         txtErro.setText(sSomaErros);
         String sPerdeu = Integer.toString(iPerdeu);
         txtTentativas.setText(sPerdeu);
+        int iNegativa = Integer.parseInt(txtTentativas.getText()), iVermelhaTentativas;
+        iVermelhaTentativas = iNegativa / 2 - 2;
+        if (iNegativa == iVermelhaTentativas) {
+            txtTentativas.setForeground(Color.RED);
+        }
         String sAcerto = txtAcertos.getText();
         int iAcerto = Integer.parseInt(sAcerto);
         if (iTamanho == iAcerto) {
@@ -4369,6 +4608,11 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
         txtErro.setText(sSomaErros);
         String sPerdeu = Integer.toString(iPerdeu);
         txtTentativas.setText(sPerdeu);
+        int iNegativa = Integer.parseInt(txtTentativas.getText()), iVermelhaTentativas;
+        iVermelhaTentativas = iNegativa / 2 - 2;
+        if (iNegativa == iVermelhaTentativas) {
+            txtTentativas.setForeground(Color.RED);
+        }
         String sAcerto = txtAcertos.getText();
         int iAcerto = Integer.parseInt(sAcerto);
         if (iTamanho == iAcerto) {
@@ -4424,6 +4668,11 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
         txtErro.setText(sSomaErros);
         String sPerdeu = Integer.toString(iPerdeu);
         txtTentativas.setText(sPerdeu);
+        int iNegativa = Integer.parseInt(txtTentativas.getText()), iVermelhaTentativas;
+        iVermelhaTentativas = iNegativa / 2 - 2;
+        if (iNegativa == iVermelhaTentativas) {
+            txtTentativas.setForeground(Color.RED);
+        }
         String sAcerto = txtAcertos.getText();
         int iAcerto = Integer.parseInt(sAcerto);
         if (iTamanho == iAcerto) {
@@ -4475,6 +4724,11 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
         txtErro.setText(sSomaErros);
         String sPerdeu = Integer.toString(iPerdeu);
         txtTentativas.setText(sPerdeu);
+        int iNegativa = Integer.parseInt(txtTentativas.getText()), iVermelhaTentativas;
+        iVermelhaTentativas = iNegativa / 2 - 2;
+        if (iNegativa == iVermelhaTentativas) {
+            txtTentativas.setForeground(Color.RED);
+        }
         String sAcerto = txtAcertos.getText();
         int iAcerto = Integer.parseInt(sAcerto);
         if (iTamanho == iAcerto) {
@@ -4526,6 +4780,11 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
         txtErro.setText(sSomaErros);
         String sPerdeu = Integer.toString(iPerdeu);
         txtTentativas.setText(sPerdeu);
+        int iNegativa = Integer.parseInt(txtTentativas.getText()), iVermelhaTentativas;
+        iVermelhaTentativas = iNegativa / 2 - 2;
+        if (iNegativa == iVermelhaTentativas) {
+            txtTentativas.setForeground(Color.RED);
+        }
         String sAcerto = txtAcertos.getText();
         int iAcerto = Integer.parseInt(sAcerto);
         if (iTamanho == iAcerto) {
@@ -4577,6 +4836,11 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
         txtErro.setText(sSomaErros);
         String sPerdeu = Integer.toString(iPerdeu);
         txtTentativas.setText(sPerdeu);
+        int iNegativa = Integer.parseInt(txtTentativas.getText()), iVermelhaTentativas;
+        iVermelhaTentativas = iNegativa / 2 - 2;
+        if (iNegativa == iVermelhaTentativas) {
+            txtTentativas.setForeground(Color.RED);
+        }
         String sAcerto = txtAcertos.getText();
         int iAcerto = Integer.parseInt(sAcerto);
         if (iTamanho == iAcerto) {
@@ -4628,6 +4892,11 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
         txtErro.setText(sSomaErros);
         String sPerdeu = Integer.toString(iPerdeu);
         txtTentativas.setText(sPerdeu);
+        int iNegativa = Integer.parseInt(txtTentativas.getText()), iVermelhaTentativas;
+        iVermelhaTentativas = iNegativa / 2 - 2;
+        if (iNegativa == iVermelhaTentativas) {
+            txtTentativas.setForeground(Color.RED);
+        }
         String sAcerto = txtAcertos.getText();
         int iAcerto = Integer.parseInt(sAcerto);
         if (iTamanho == iAcerto) {
@@ -4679,6 +4948,11 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
         txtErro.setText(sSomaErros);
         String sPerdeu = Integer.toString(iPerdeu);
         txtTentativas.setText(sPerdeu);
+        int iNegativa = Integer.parseInt(txtTentativas.getText()), iVermelhaTentativas;
+        iVermelhaTentativas = iNegativa / 2 - 2;
+        if (iNegativa == iVermelhaTentativas) {
+            txtTentativas.setForeground(Color.RED);
+        }
         String sAcerto = txtAcertos.getText();
         int iAcerto = Integer.parseInt(sAcerto);
         if (iTamanho == iAcerto) {
@@ -4730,6 +5004,11 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
         txtErro.setText(sSomaErros);
         String sPerdeu = Integer.toString(iPerdeu);
         txtTentativas.setText(sPerdeu);
+        int iNegativa = Integer.parseInt(txtTentativas.getText()), iVermelhaTentativas;
+        iVermelhaTentativas = iNegativa / 2 - 2;
+        if (iNegativa == iVermelhaTentativas) {
+            txtTentativas.setForeground(Color.RED);
+        }
         String sAcerto = txtAcertos.getText();
         int iAcerto = Integer.parseInt(sAcerto);
         if (iTamanho == iAcerto) {
@@ -4781,6 +5060,11 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
         txtErro.setText(sSomaErros);
         String sPerdeu = Integer.toString(iPerdeu);
         txtTentativas.setText(sPerdeu);
+        int iNegativa = Integer.parseInt(txtTentativas.getText()), iVermelhaTentativas;
+        iVermelhaTentativas = iNegativa / 2 - 2;
+        if (iNegativa == iVermelhaTentativas) {
+            txtTentativas.setForeground(Color.RED);
+        }
         String sAcerto = txtAcertos.getText();
         int iAcerto = Integer.parseInt(sAcerto);
         if (iTamanho == iAcerto) {
@@ -4832,6 +5116,11 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
         txtErro.setText(sSomaErros);
         String sPerdeu = Integer.toString(iPerdeu);
         txtTentativas.setText(sPerdeu);
+        int iNegativa = Integer.parseInt(txtTentativas.getText()), iVermelhaTentativas;
+        iVermelhaTentativas = iNegativa / 2 - 2;
+        if (iNegativa == iVermelhaTentativas) {
+            txtTentativas.setForeground(Color.RED);
+        }
         String sAcerto = txtAcertos.getText();
         int iAcerto = Integer.parseInt(sAcerto);
         if (iTamanho == iAcerto) {
@@ -4883,6 +5172,11 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
         txtErro.setText(sSomaErros);
         String sPerdeu = Integer.toString(iPerdeu);
         txtTentativas.setText(sPerdeu);
+        int iNegativa = Integer.parseInt(txtTentativas.getText()), iVermelhaTentativas;
+        iVermelhaTentativas = iNegativa / 2 - 2;
+        if (iNegativa == iVermelhaTentativas) {
+            txtTentativas.setForeground(Color.RED);
+        }
         String sAcerto = txtAcertos.getText();
         int iAcerto = Integer.parseInt(sAcerto);
         if (iTamanho == iAcerto) {
@@ -4934,6 +5228,11 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
         txtErro.setText(sSomaErros);
         String sPerdeu = Integer.toString(iPerdeu);
         txtTentativas.setText(sPerdeu);
+        int iNegativa = Integer.parseInt(txtTentativas.getText()), iVermelhaTentativas;
+        iVermelhaTentativas = iNegativa / 2 - 2;
+        if (iNegativa == iVermelhaTentativas) {
+            txtTentativas.setForeground(Color.RED);
+        }
         String sAcerto = txtAcertos.getText();
         int iAcerto = Integer.parseInt(sAcerto);
         if (iTamanho == iAcerto) {
@@ -4985,6 +5284,11 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
         txtErro.setText(sSomaErros);
         String sPerdeu = Integer.toString(iPerdeu);
         txtTentativas.setText(sPerdeu);
+        int iNegativa = Integer.parseInt(txtTentativas.getText()), iVermelhaTentativas;
+        iVermelhaTentativas = iNegativa / 2 - 2;
+        if (iNegativa == iVermelhaTentativas) {
+            txtTentativas.setForeground(Color.RED);
+        }
         String sAcerto = txtAcertos.getText();
         int iAcerto = Integer.parseInt(sAcerto);
         if (iTamanho == iAcerto) {
@@ -5036,6 +5340,11 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
         txtErro.setText(sSomaErros);
         String sPerdeu = Integer.toString(iPerdeu);
         txtTentativas.setText(sPerdeu);
+        int iNegativa = Integer.parseInt(txtTentativas.getText()), iVermelhaTentativas;
+        iVermelhaTentativas = iNegativa / 2 - 2;
+        if (iNegativa == iVermelhaTentativas) {
+            txtTentativas.setForeground(Color.RED);
+        }
         String sAcerto = txtAcertos.getText();
         int iAcerto = Integer.parseInt(sAcerto);
         if (iTamanho == iAcerto) {
@@ -5087,6 +5396,11 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
         txtErro.setText(sSomaErros);
         String sPerdeu = Integer.toString(iPerdeu);
         txtTentativas.setText(sPerdeu);
+        int iNegativa = Integer.parseInt(txtTentativas.getText()), iVermelhaTentativas;
+        iVermelhaTentativas = iNegativa / 2 - 2;
+        if (iNegativa == iVermelhaTentativas) {
+            txtTentativas.setForeground(Color.RED);
+        }
         String sAcerto = txtAcertos.getText();
         int iAcerto = Integer.parseInt(sAcerto);
         if (iTamanho == iAcerto) {
@@ -5138,6 +5452,11 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
         txtErro.setText(sSomaErros);
         String sPerdeu = Integer.toString(iPerdeu);
         txtTentativas.setText(sPerdeu);
+        int iNegativa = Integer.parseInt(txtTentativas.getText()), iVermelhaTentativas;
+        iVermelhaTentativas = iNegativa / 2 - 2;
+        if (iNegativa == iVermelhaTentativas) {
+            txtTentativas.setForeground(Color.RED);
+        }
         String sAcerto = txtAcertos.getText();
         int iAcerto = Integer.parseInt(sAcerto);
         if (iTamanho == iAcerto) {
@@ -5189,6 +5508,11 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
         txtErro.setText(sSomaErros);
         String sPerdeu = Integer.toString(iPerdeu);
         txtTentativas.setText(sPerdeu);
+        int iNegativa = Integer.parseInt(txtTentativas.getText()), iVermelhaTentativas;
+        iVermelhaTentativas = iNegativa / 2 - 2;
+        if (iNegativa == iVermelhaTentativas) {
+            txtTentativas.setForeground(Color.RED);
+        }
         String sAcerto = txtAcertos.getText();
         int iAcerto = Integer.parseInt(sAcerto);
         if (iTamanho == iAcerto) {
@@ -5240,6 +5564,11 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
         txtErro.setText(sSomaErros);
         String sPerdeu = Integer.toString(iPerdeu);
         txtTentativas.setText(sPerdeu);
+        int iNegativa = Integer.parseInt(txtTentativas.getText()), iVermelhaTentativas;
+        iVermelhaTentativas = iNegativa / 2 - 2;
+        if (iNegativa == iVermelhaTentativas) {
+            txtTentativas.setForeground(Color.RED);
+        }
         String sAcerto = txtAcertos.getText();
         int iAcerto = Integer.parseInt(sAcerto);
         if (iTamanho == iAcerto) {
@@ -5291,6 +5620,11 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
         txtErro.setText(sSomaErros);
         String sPerdeu = Integer.toString(iPerdeu);
         txtTentativas.setText(sPerdeu);
+        int iNegativa = Integer.parseInt(txtTentativas.getText()), iVermelhaTentativas;
+        iVermelhaTentativas = iNegativa / 2 - 2;
+        if (iNegativa == iVermelhaTentativas) {
+            txtTentativas.setForeground(Color.RED);
+        }
         String sAcerto = txtAcertos.getText();
         int iAcerto = Integer.parseInt(sAcerto);
         if (iTamanho == iAcerto) {
@@ -5342,6 +5676,11 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
         txtErro.setText(sSomaErros);
         String sPerdeu = Integer.toString(iPerdeu);
         txtTentativas.setText(sPerdeu);
+        int iNegativa = Integer.parseInt(txtTentativas.getText()), iVermelhaTentativas;
+        iVermelhaTentativas = iNegativa / 2 - 2;
+        if (iNegativa == iVermelhaTentativas) {
+            txtTentativas.setForeground(Color.RED);
+        }
         String sAcerto = txtAcertos.getText();
         int iAcerto = Integer.parseInt(sAcerto);
         if (iTamanho == iAcerto) {
@@ -5393,6 +5732,11 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
         txtErro.setText(sSomaErros);
         String sPerdeu = Integer.toString(iPerdeu);
         txtTentativas.setText(sPerdeu);
+        int iNegativa = Integer.parseInt(txtTentativas.getText()), iVermelhaTentativas;
+        iVermelhaTentativas = iNegativa / 2 - 2;
+        if (iNegativa == iVermelhaTentativas) {
+            txtTentativas.setForeground(Color.RED);
+        }
         String sAcerto = txtAcertos.getText();
         int iAcerto = Integer.parseInt(sAcerto);
         if (iTamanho == iAcerto) {
@@ -5444,6 +5788,11 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
         txtErro.setText(sSomaErros);
         String sPerdeu = Integer.toString(iPerdeu);
         txtTentativas.setText(sPerdeu);
+        int iNegativa = Integer.parseInt(txtTentativas.getText()), iVermelhaTentativas;
+        iVermelhaTentativas = iNegativa / 2 - 2;
+        if (iNegativa == iVermelhaTentativas) {
+            txtTentativas.setForeground(Color.RED);
+        }
         String sAcerto = txtAcertos.getText();
         int iAcerto = Integer.parseInt(sAcerto);
         if (iTamanho == iAcerto) {
@@ -5495,6 +5844,11 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
         txtErro.setText(sSomaErros);
         String sPerdeu = Integer.toString(iPerdeu);
         txtTentativas.setText(sPerdeu);
+        int iNegativa = Integer.parseInt(txtTentativas.getText()), iVermelhaTentativas;
+        iVermelhaTentativas = iNegativa / 2 - 2;
+        if (iNegativa == iVermelhaTentativas) {
+            txtTentativas.setForeground(Color.RED);
+        }
         String sAcerto = txtAcertos.getText();
         int iAcerto = Integer.parseInt(sAcerto);
         if (iTamanho == iAcerto) {
@@ -5546,6 +5900,11 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
         txtErro.setText(sSomaErros);
         String sPerdeu = Integer.toString(iPerdeu);
         txtTentativas.setText(sPerdeu);
+        int iNegativa = Integer.parseInt(txtTentativas.getText()), iVermelhaTentativas;
+        iVermelhaTentativas = iNegativa / 2 - 2;
+        if (iNegativa == iVermelhaTentativas) {
+            txtTentativas.setForeground(Color.RED);
+        }
         String sAcerto = txtAcertos.getText();
         int iAcerto = Integer.parseInt(sAcerto);
         if (iTamanho == iAcerto) {
@@ -5597,6 +5956,11 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
         txtErro.setText(sSomaErros);
         String sPerdeu = Integer.toString(iPerdeu);
         txtTentativas.setText(sPerdeu);
+        int iNegativa = Integer.parseInt(txtTentativas.getText()), iVermelhaTentativas;
+        iVermelhaTentativas = iNegativa / 2 - 2;
+        if (iNegativa == iVermelhaTentativas) {
+            txtTentativas.setForeground(Color.RED);
+        }
         String sAcerto = txtAcertos.getText();
         int iAcerto = Integer.parseInt(sAcerto);
         if (iTamanho == iAcerto) {
@@ -5648,6 +6012,11 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
         txtErro.setText(sSomaErros);
         String sPerdeu = Integer.toString(iPerdeu);
         txtTentativas.setText(sPerdeu);
+        int iNegativa = Integer.parseInt(txtTentativas.getText()), iVermelhaTentativas;
+        iVermelhaTentativas = iNegativa / 2 - 2;
+        if (iNegativa == iVermelhaTentativas) {
+            txtTentativas.setForeground(Color.RED);
+        }
         String sAcerto = txtAcertos.getText();
         int iAcerto = Integer.parseInt(sAcerto);
         if (iTamanho == iAcerto) {
@@ -5699,6 +6068,11 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
         txtErro.setText(sSomaErros);
         String sPerdeu = Integer.toString(iPerdeu);
         txtTentativas.setText(sPerdeu);
+        int iNegativa = Integer.parseInt(txtTentativas.getText()), iVermelhaTentativas;
+        iVermelhaTentativas = iNegativa / 2 - 2;
+        if (iNegativa == iVermelhaTentativas) {
+            txtTentativas.setForeground(Color.RED);
+        }
         String sAcerto = txtAcertos.getText();
         int iAcerto = Integer.parseInt(sAcerto);
         if (iTamanho == iAcerto) {
@@ -5750,6 +6124,11 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
         txtErro.setText(sSomaErros);
         String sPerdeu = Integer.toString(iPerdeu);
         txtTentativas.setText(sPerdeu);
+        int iNegativa = Integer.parseInt(txtTentativas.getText()), iVermelhaTentativas;
+        iVermelhaTentativas = iNegativa / 2 - 2;
+        if (iNegativa == iVermelhaTentativas) {
+            txtTentativas.setForeground(Color.RED);
+        }
         String sAcerto = txtAcertos.getText();
         int iAcerto = Integer.parseInt(sAcerto);
         if (iTamanho == iAcerto) {
@@ -5801,6 +6180,11 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
         txtErro.setText(sSomaErros);
         String sPerdeu = Integer.toString(iPerdeu);
         txtTentativas.setText(sPerdeu);
+        int iNegativa = Integer.parseInt(txtTentativas.getText()), iVermelhaTentativas;
+        iVermelhaTentativas = iNegativa / 2 - 2;
+        if (iNegativa == iVermelhaTentativas) {
+            txtTentativas.setForeground(Color.RED);
+        }
         String sAcerto = txtAcertos.getText();
         int iAcerto = Integer.parseInt(sAcerto);
         if (iTamanho == iAcerto) {
@@ -5852,6 +6236,11 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
         txtErro.setText(sSomaErros);
         String sPerdeu = Integer.toString(iPerdeu);
         txtTentativas.setText(sPerdeu);
+        int iNegativa = Integer.parseInt(txtTentativas.getText()), iVermelhaTentativas;
+        iVermelhaTentativas = iNegativa / 2 - 2;
+        if (iNegativa == iVermelhaTentativas) {
+            txtTentativas.setForeground(Color.RED);
+        }
         String sAcerto = txtAcertos.getText();
         int iAcerto = Integer.parseInt(sAcerto);
         if (iTamanho == iAcerto) {
@@ -5903,6 +6292,11 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
         txtErro.setText(sSomaErros);
         String sPerdeu = Integer.toString(iPerdeu);
         txtTentativas.setText(sPerdeu);
+        int iNegativa = Integer.parseInt(txtTentativas.getText()), iVermelhaTentativas;
+        iVermelhaTentativas = iNegativa / 2 - 2;
+        if (iNegativa == iVermelhaTentativas) {
+            txtTentativas.setForeground(Color.RED);
+        }
         String sAcerto = txtAcertos.getText();
         int iAcerto = Integer.parseInt(sAcerto);
         if (iTamanho == iAcerto) {
@@ -5954,6 +6348,11 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
         txtErro.setText(sSomaErros);
         String sPerdeu = Integer.toString(iPerdeu);
         txtTentativas.setText(sPerdeu);
+        int iNegativa = Integer.parseInt(txtTentativas.getText()), iVermelhaTentativas;
+        iVermelhaTentativas = iNegativa / 2 - 2;
+        if (iNegativa == iVermelhaTentativas) {
+            txtTentativas.setForeground(Color.RED);
+        }
         String sAcerto = txtAcertos.getText();
         int iAcerto = Integer.parseInt(sAcerto);
         if (iTamanho == iAcerto) {
@@ -6005,6 +6404,11 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
         txtErro.setText(sSomaErros);
         String sPerdeu = Integer.toString(iPerdeu);
         txtTentativas.setText(sPerdeu);
+        int iNegativa = Integer.parseInt(txtTentativas.getText()), iVermelhaTentativas;
+        iVermelhaTentativas = iNegativa / 2 - 2;
+        if (iNegativa == iVermelhaTentativas) {
+            txtTentativas.setForeground(Color.RED);
+        }
         String sAcerto = txtAcertos.getText();
         int iAcerto = Integer.parseInt(sAcerto);
         if (iTamanho == iAcerto) {
@@ -6056,6 +6460,11 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
         txtErro.setText(sSomaErros);
         String sPerdeu = Integer.toString(iPerdeu);
         txtTentativas.setText(sPerdeu);
+        int iNegativa = Integer.parseInt(txtTentativas.getText()), iVermelhaTentativas;
+        iVermelhaTentativas = iNegativa / 2 - 2;
+        if (iNegativa == iVermelhaTentativas) {
+            txtTentativas.setForeground(Color.RED);
+        }
         String sAcerto = txtAcertos.getText();
         int iAcerto = Integer.parseInt(sAcerto);
         if (iTamanho == iAcerto) {
@@ -6107,6 +6516,11 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
         txtErro.setText(sSomaErros);
         String sPerdeu = Integer.toString(iPerdeu);
         txtTentativas.setText(sPerdeu);
+        int iNegativa = Integer.parseInt(txtTentativas.getText()), iVermelhaTentativas;
+        iVermelhaTentativas = iNegativa / 2 - 2;
+        if (iNegativa == iVermelhaTentativas) {
+            txtTentativas.setForeground(Color.RED);
+        }
         String sAcerto = txtAcertos.getText();
         int iAcerto = Integer.parseInt(sAcerto);
         if (iTamanho == iAcerto) {
@@ -6158,6 +6572,11 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
         txtErro.setText(sSomaErros);
         String sPerdeu = Integer.toString(iPerdeu);
         txtTentativas.setText(sPerdeu);
+        int iNegativa = Integer.parseInt(txtTentativas.getText()), iVermelhaTentativas;
+        iVermelhaTentativas = iNegativa / 2 - 2;
+        if (iNegativa == iVermelhaTentativas) {
+            txtTentativas.setForeground(Color.RED);
+        }
         String sAcerto = txtAcertos.getText();
         int iAcerto = Integer.parseInt(sAcerto);
         if (iTamanho == iAcerto) {
@@ -6209,6 +6628,11 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
         txtErro.setText(sSomaErros);
         String sPerdeu = Integer.toString(iPerdeu);
         txtTentativas.setText(sPerdeu);
+        int iNegativa = Integer.parseInt(txtTentativas.getText()), iVermelhaTentativas;
+        iVermelhaTentativas = iNegativa / 2 - 2;
+        if (iNegativa == iVermelhaTentativas) {
+            txtTentativas.setForeground(Color.RED);
+        }
         String sAcerto = txtAcertos.getText();
         int iAcerto = Integer.parseInt(sAcerto);
         if (iTamanho == iAcerto) {
@@ -6260,6 +6684,11 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
         txtErro.setText(sSomaErros);
         String sPerdeu = Integer.toString(iPerdeu);
         txtTentativas.setText(sPerdeu);
+        int iNegativa = Integer.parseInt(txtTentativas.getText()), iVermelhaTentativas;
+        iVermelhaTentativas = iNegativa / 2 - 2;
+        if (iNegativa == iVermelhaTentativas) {
+            txtTentativas.setForeground(Color.RED);
+        }
         String sAcerto = txtAcertos.getText();
         int iAcerto = Integer.parseInt(sAcerto);
         if (iTamanho == iAcerto) {
@@ -6311,6 +6740,11 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
         txtErro.setText(sSomaErros);
         String sPerdeu = Integer.toString(iPerdeu);
         txtTentativas.setText(sPerdeu);
+        int iNegativa = Integer.parseInt(txtTentativas.getText()), iVermelhaTentativas;
+        iVermelhaTentativas = iNegativa / 2 - 2;
+        if (iNegativa == iVermelhaTentativas) {
+            txtTentativas.setForeground(Color.RED);
+        }
         String sAcerto = txtAcertos.getText();
         int iAcerto = Integer.parseInt(sAcerto);
         if (iTamanho == iAcerto) {
@@ -6362,6 +6796,11 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
         txtErro.setText(sSomaErros);
         String sPerdeu = Integer.toString(iPerdeu);
         txtTentativas.setText(sPerdeu);
+        int iNegativa = Integer.parseInt(txtTentativas.getText()), iVermelhaTentativas;
+        iVermelhaTentativas = iNegativa / 2 - 2;
+        if (iNegativa == iVermelhaTentativas) {
+            txtTentativas.setForeground(Color.RED);
+        }
         String sAcerto = txtAcertos.getText();
         int iAcerto = Integer.parseInt(sAcerto);
         if (iTamanho == iAcerto) {
@@ -6413,6 +6852,11 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
         txtErro.setText(sSomaErros);
         String sPerdeu = Integer.toString(iPerdeu);
         txtTentativas.setText(sPerdeu);
+        int iNegativa = Integer.parseInt(txtTentativas.getText()), iVermelhaTentativas;
+        iVermelhaTentativas = iNegativa / 2 - 2;
+        if (iNegativa == iVermelhaTentativas) {
+            txtTentativas.setForeground(Color.RED);
+        }
         String sAcerto = txtAcertos.getText();
         int iAcerto = Integer.parseInt(sAcerto);
         if (iTamanho == iAcerto) {
@@ -6464,6 +6908,11 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
         txtErro.setText(sSomaErros);
         String sPerdeu = Integer.toString(iPerdeu);
         txtTentativas.setText(sPerdeu);
+        int iNegativa = Integer.parseInt(txtTentativas.getText()), iVermelhaTentativas;
+        iVermelhaTentativas = iNegativa / 2 - 2;
+        if (iNegativa == iVermelhaTentativas) {
+            txtTentativas.setForeground(Color.RED);
+        }
         String sAcerto = txtAcertos.getText();
         int iAcerto = Integer.parseInt(sAcerto);
         if (iTamanho == iAcerto) {
@@ -6515,6 +6964,11 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
         txtErro.setText(sSomaErros);
         String sPerdeu = Integer.toString(iPerdeu);
         txtTentativas.setText(sPerdeu);
+        int iNegativa = Integer.parseInt(txtTentativas.getText()), iVermelhaTentativas;
+        iVermelhaTentativas = iNegativa / 2 - 2;
+        if (iNegativa == iVermelhaTentativas) {
+            txtTentativas.setForeground(Color.RED);
+        }
         String sAcerto = txtAcertos.getText();
         int iAcerto = Integer.parseInt(sAcerto);
         if (iTamanho == iAcerto) {
@@ -6566,6 +7020,11 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
         txtErro.setText(sSomaErros);
         String sPerdeu = Integer.toString(iPerdeu);
         txtTentativas.setText(sPerdeu);
+        int iNegativa = Integer.parseInt(txtTentativas.getText()), iVermelhaTentativas;
+        iVermelhaTentativas = iNegativa / 2 - 2;
+        if (iNegativa == iVermelhaTentativas) {
+            txtTentativas.setForeground(Color.RED);
+        }
         String sAcerto = txtAcertos.getText();
         int iAcerto = Integer.parseInt(sAcerto);
         if (iTamanho == iAcerto) {
@@ -6617,6 +7076,11 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
         txtErro.setText(sSomaErros);
         String sPerdeu = Integer.toString(iPerdeu);
         txtTentativas.setText(sPerdeu);
+        int iNegativa = Integer.parseInt(txtTentativas.getText()), iVermelhaTentativas;
+        iVermelhaTentativas = iNegativa / 2 - 2;
+        if (iNegativa == iVermelhaTentativas) {
+            txtTentativas.setForeground(Color.RED);
+        }
         String sAcerto = txtAcertos.getText();
         int iAcerto = Integer.parseInt(sAcerto);
         if (iTamanho == iAcerto) {
@@ -6668,6 +7132,11 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
         txtErro.setText(sSomaErros);
         String sPerdeu = Integer.toString(iPerdeu);
         txtTentativas.setText(sPerdeu);
+        int iNegativa = Integer.parseInt(txtTentativas.getText()), iVermelhaTentativas;
+        iVermelhaTentativas = iNegativa / 2 - 2;
+        if (iNegativa == iVermelhaTentativas) {
+            txtTentativas.setForeground(Color.RED);
+        }
         String sAcerto = txtAcertos.getText();
         int iAcerto = Integer.parseInt(sAcerto);
         if (iTamanho == iAcerto) {
@@ -6719,6 +7188,11 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
         txtErro.setText(sSomaErros);
         String sPerdeu = Integer.toString(iPerdeu);
         txtTentativas.setText(sPerdeu);
+        int iNegativa = Integer.parseInt(txtTentativas.getText()), iVermelhaTentativas;
+        iVermelhaTentativas = iNegativa / 2 - 2;
+        if (iNegativa == iVermelhaTentativas) {
+            txtTentativas.setForeground(Color.RED);
+        }
         String sAcerto = txtAcertos.getText();
         int iAcerto = Integer.parseInt(sAcerto);
         if (iTamanho == iAcerto) {
@@ -6770,6 +7244,11 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
         txtErro.setText(sSomaErros);
         String sPerdeu = Integer.toString(iPerdeu);
         txtTentativas.setText(sPerdeu);
+        int iNegativa = Integer.parseInt(txtTentativas.getText()), iVermelhaTentativas;
+        iVermelhaTentativas = iNegativa / 2 - 2;
+        if (iNegativa == iVermelhaTentativas) {
+            txtTentativas.setForeground(Color.RED);
+        }
         String sAcerto = txtAcertos.getText();
         int iAcerto = Integer.parseInt(sAcerto);
         if (iTamanho == iAcerto) {
@@ -6821,6 +7300,11 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
         txtErro.setText(sSomaErros);
         String sPerdeu = Integer.toString(iPerdeu);
         txtTentativas.setText(sPerdeu);
+        int iNegativa = Integer.parseInt(txtTentativas.getText()), iVermelhaTentativas;
+        iVermelhaTentativas = iNegativa / 2 - 2;
+        if (iNegativa == iVermelhaTentativas) {
+            txtTentativas.setForeground(Color.RED);
+        }
         String sAcerto = txtAcertos.getText();
         int iAcerto = Integer.parseInt(sAcerto);
         if (iTamanho == iAcerto) {
@@ -6872,6 +7356,11 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
         txtErro.setText(sSomaErros);
         String sPerdeu = Integer.toString(iPerdeu);
         txtTentativas.setText(sPerdeu);
+        int iNegativa = Integer.parseInt(txtTentativas.getText()), iVermelhaTentativas;
+        iVermelhaTentativas = iNegativa / 2 - 2;
+        if (iNegativa == iVermelhaTentativas) {
+            txtTentativas.setForeground(Color.RED);
+        }
         String sAcerto = txtAcertos.getText();
         int iAcerto = Integer.parseInt(sAcerto);
         if (iTamanho == iAcerto) {
@@ -6923,6 +7412,11 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
         txtErro.setText(sSomaErros);
         String sPerdeu = Integer.toString(iPerdeu);
         txtTentativas.setText(sPerdeu);
+        int iNegativa = Integer.parseInt(txtTentativas.getText()), iVermelhaTentativas;
+        iVermelhaTentativas = iNegativa / 2 - 2;
+        if (iNegativa == iVermelhaTentativas) {
+            txtTentativas.setForeground(Color.RED);
+        }
         String sAcerto = txtAcertos.getText();
         int iAcerto = Integer.parseInt(sAcerto);
         if (iTamanho == iAcerto) {
@@ -6973,6 +7467,11 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
         txtErro.setText(sSomaErros);
         String sPerdeu = Integer.toString(iPerdeu);
         txtTentativas.setText(sPerdeu);
+        int iNegativa = Integer.parseInt(txtTentativas.getText()), iVermelhaTentativas;
+        iVermelhaTentativas = iNegativa / 2 - 2;
+        if (iNegativa == iVermelhaTentativas) {
+            txtTentativas.setForeground(Color.RED);
+        }
         String sAcerto = txtAcertos.getText();
         int iAcerto = Integer.parseInt(sAcerto);
         if (iTamanho == iAcerto) {
@@ -7023,6 +7522,11 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
         txtErro.setText(sSomaErros);
         String sPerdeu = Integer.toString(iPerdeu);
         txtTentativas.setText(sPerdeu);
+        int iNegativa = Integer.parseInt(txtTentativas.getText()), iVermelhaTentativas;
+        iVermelhaTentativas = iNegativa / 2 - 2;
+        if (iNegativa == iVermelhaTentativas) {
+            txtTentativas.setForeground(Color.RED);
+        }
         String sAcerto = txtAcertos.getText();
         int iAcerto = Integer.parseInt(sAcerto);
         if (iTamanho == iAcerto) {
@@ -7073,6 +7577,11 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
         txtErro.setText(sSomaErros);
         String sPerdeu = Integer.toString(iPerdeu);
         txtTentativas.setText(sPerdeu);
+        int iNegativa = Integer.parseInt(txtTentativas.getText()), iVermelhaTentativas;
+        iVermelhaTentativas = iNegativa / 2 - 2;
+        if (iNegativa == iVermelhaTentativas) {
+            txtTentativas.setForeground(Color.RED);
+        }
         String sAcerto = txtAcertos.getText();
         int iAcerto = Integer.parseInt(sAcerto);
         if (iTamanho == iAcerto) {
@@ -7126,6 +7635,11 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
         txtErro.setText(sSomaErros);
         String sPerdeu = Integer.toString(iPerdeu);
         txtTentativas.setText(sPerdeu);
+        int iNegativa = Integer.parseInt(txtTentativas.getText()), iVermelhaTentativas;
+        iVermelhaTentativas = iNegativa / 2 - 2;
+        if (iNegativa == iVermelhaTentativas) {
+            txtTentativas.setForeground(Color.RED);
+        }
 
         String sAcerto = txtAcertos.getText();
         int iAcerto = Integer.parseInt(sAcerto);
@@ -7180,6 +7694,11 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
         txtErro.setText(sSomaErros);
         String sPerdeu = Integer.toString(iPerdeu);
         txtTentativas.setText(sPerdeu);
+        int iNegativa = Integer.parseInt(txtTentativas.getText()), iVermelhaTentativas;
+        iVermelhaTentativas = iNegativa / 2 - 2;
+        if (iNegativa == iVermelhaTentativas) {
+            txtTentativas.setForeground(Color.RED);
+        }
 
         String sAcerto = txtAcertos.getText();
         int iAcerto = Integer.parseInt(sAcerto);
@@ -7235,6 +7754,11 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
         txtErro.setText(sSomaErros);
         String sPerdeu = Integer.toString(iPerdeu);
         txtTentativas.setText(sPerdeu);
+        int iNegativa = Integer.parseInt(txtTentativas.getText()), iVermelhaTentativas;
+        iVermelhaTentativas = iNegativa / 2 - 2;
+        if (iNegativa == iVermelhaTentativas) {
+            txtTentativas.setForeground(Color.RED);
+        }
 
         String sAcerto = txtAcertos.getText();
         int iAcerto = Integer.parseInt(sAcerto);
