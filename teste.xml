@@ -1,1 +1,9 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><root><pessoa id="1"><nome>Itamar</nome><idade>18</idade></pessoa></root>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<root>
+	<usuario id="1">
+		<nome>Itamar</nome>
+		<jogos>18</jogos>
+		<acertos>105</acertos>
+		<erros>268</erros>
+	</usuario>
+</root>

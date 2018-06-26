@@ -1,6 +1,20 @@
+##############
+# GIT IGNORE #
+##############
+
 /nbproject/build-impl.xml
 /manifest.mf
 /build.xml
 /nbproject/project.xml
+
+###############
+# IGNORE DIST #
+###############
+
 /dist/
+
+################
+# IGNORE STORE #
+################
+
 /store/

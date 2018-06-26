@@ -220,6 +220,7 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
         jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
 
         txtHoraInicio.setEditable(false);
+        txtHoraInicio.setBackground(new java.awt.Color(255, 255, 255));
         txtHoraInicio.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         txtHoraInicio.setEnabled(false);
 
@@ -227,6 +228,7 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
         jLabel3.setText("Inicio:");
 
         txtTempoDecorrido.setEditable(false);
+        txtTempoDecorrido.setBackground(new java.awt.Color(255, 255, 255));
         txtTempoDecorrido.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         txtTempoDecorrido.setEnabled(false);
 
@@ -236,6 +238,7 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
         jSeparator2.setOrientation(javax.swing.SwingConstants.VERTICAL);
 
         txtAcertos.setEditable(false);
+        txtAcertos.setBackground(new java.awt.Color(255, 255, 255));
         txtAcertos.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         txtAcertos.setForeground(new java.awt.Color(0, 153, 0));
         txtAcertos.setEnabled(false);
@@ -244,6 +247,7 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
         jLabel5.setText("Acertos:");
 
         txtErro.setEditable(false);
+        txtErro.setBackground(new java.awt.Color(255, 255, 255));
         txtErro.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         txtErro.setForeground(new java.awt.Color(204, 0, 0));
         txtErro.setEnabled(false);
@@ -254,6 +258,7 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
         jSeparator3.setOrientation(javax.swing.SwingConstants.VERTICAL);
 
         txtDescricao.setEditable(false);
+        txtDescricao.setBackground(new java.awt.Color(255, 255, 255));
         txtDescricao.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         txtDescricao.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtDescricao.setEnabled(false);
@@ -1645,14 +1650,14 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
 
     private void btnPararActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPararActionPerformed
         try {
+            setPanelEnabled(jPanelBotoes, false);
+            setPanelEnable(jPanelInfo, false);
             txtTamanhoVetor.setEditable(true);
             txtValoresVetor.setEditable(true);
             tTemporizador.stop();
             iSomaErros = 0;
             iSomaAcertos = 0;
             iPerdeu = 0;
-            setPanelEnable(jPanelInfo, false);
-            setPanelEnabled(jPanelBotoes, false);
             tTemporizador.stop();
             iSomaErros = 0;
             iSomaAcertos = 0;
@@ -1683,19 +1688,21 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
 
         try {
             String sTamanho = txtTamanhoVetor.getText();
-
             String sValores = txtValoresVetor.getText();
 
             if (txtTamanhoVetor.getText().equals("") || txtValoresVetor.getText().equals("")) {
                 JOptionPane.showMessageDialog(null, "Digite um Tamanho e um Valor para poder Prosseguir!");
                 txtTamanhoVetor.requestFocus();
+
             } else {
                 iTamanho = Integer.parseInt(sTamanho);
                 iValores = Integer.parseInt(sValores);
+
                 if (iTamanho > iValores) {
                     JOptionPane.showMessageDialog(this, "Os valores do Vetor não pode ser menor que o seu Tamanho!");
                     txtValoresVetor.setText("");
                     txtValoresVetor.requestFocus();
+
                 } else {
                     txtTamanhoVetor.setEditable(false);
                     txtValoresVetor.setEditable(false);
@@ -13761,50 +13768,4 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
 
         }
     }
-//    public void SalvarXML(){
-//        try {
-//            
-//            DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
-//            DocumentBuilder db = dbf.newDocumentBuilder();
-//            Document documentoXML = db.newDocument();
-//
-//            Element dados = documentoXML.createElement("dados");
-//            documentoXML.appendChild(dados);
-//
-//            Element usuario = documentoXML.createElement("usuario");
-//            Attr id = documentoXML.createAttribute("id");
-//            id.setValue("1");
-//
-//            usuario.setAttributeNode(id);
-//
-//            dados.appendChild(usuario);
-//
-//            Element nome = documentoXML.createElement("nome");
-//
-//            nome.appendChild(documentoXML.createTextNode("Itamar"));
-//            usuario.appendChild(nome);
-//
-//            Element idade = documentoXML.createElement("idade");
-//
-//            idade.appendChild(documentoXML.createTextNode("18"));
-//
-//            usuario.appendChild(idade);
-//            
-//            TransformerFactory tf = TransformerFactory.newInstance();
-//            Transformer transformer = tf.newTransformer();
-//            
-//            DOMSource documentoFonte = new DOMSource(documentoXML);
-//            
-//            StreamResult documentoFinal = new StreamResult(new File ("teste.xml"));
-//            
-//            transformer.transform(documentoFonte, documentoFinal);
-//
-//        } catch (ParserConfigurationException ex) {
-//            Logger.getLogger(DadosXML.class.getName()).log(Level.SEVERE, null, ex);
-//        } catch (TransformerConfigurationException ex) {
-//            Logger.getLogger(DadosXML.class.getName()).log(Level.SEVERE, null, ex);
-//        } catch (TransformerException ex) {
-//            Logger.getLogger(DadosXML.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//    }
 }

@@ -255,6 +255,7 @@ public class FormInicial extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTextField txtNome;
     // End of variables declaration//GEN-END:variables
+    
     private void setIcon() {
         setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Imagens/ICON.png")));
     }
