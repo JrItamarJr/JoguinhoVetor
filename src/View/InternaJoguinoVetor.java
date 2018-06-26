@@ -7813,7 +7813,6 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
                 txtTamanhoVetor.setText(sValor);
             }
         } catch (Exception ex) {
-            System.out.println(ex);
         }
     }//GEN-LAST:event_txtTamanhoVetorKeyReleased
 
@@ -7828,7 +7827,6 @@ public class InternaJoguinoVetor extends javax.swing.JInternalFrame {
                 txtValoresVetor.setText(sValor);
             }
         } catch (Exception ex) {
-            System.out.println(ex);
         }
     }//GEN-LAST:event_txtValoresVetorKeyReleased
 
